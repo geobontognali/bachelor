@@ -11,6 +11,11 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+// Aussensprechstelle
+Route::get('/door', 'DoorController@showView');
