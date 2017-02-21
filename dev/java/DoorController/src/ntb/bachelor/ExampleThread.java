@@ -1,13 +1,17 @@
 package ntb.bachelor;
 
+
+import java.util.logging.Level;
+
 /**
  * Created by Geo on 20.02.2017.
  *
  * Example Class for an independent Thread
  */
-public class ExampleThread extends Thread {
-
+public class ExampleThread extends Thread
+{
     String threadName;
+
 
     public ExampleThread(String name)
     {
@@ -19,10 +23,13 @@ public class ExampleThread extends Thread {
         while(true)
         {
             System.out.println("Hi from the " + threadName + " thread");
+            Logging.log(Level.INFO, "Hello logging");
+
             try
             {
                 Thread.sleep(1000);
-            } catch (InterruptedException e)
+            }
+            catch (InterruptedException e)
             {
                 e.printStackTrace();
             }
