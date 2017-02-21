@@ -24,10 +24,13 @@ public class Main
         // Starts the service for turning the speaker on and off
         System.out.println("Hello hello");
 
+        // Start the speaker controller
+        SpeakerController speakerController = new SpeakerController();
+        speakerController.start();
 
         // Start some example threads
         ExampleThread exampleThread1 = new ExampleThread("Primo");
-        exampleThread1.start();
+        //exampleThread1.start();
 
         //ExampleThread exampleThread2 = new ExampleThread("Secondo");
         //exampleThread2.start();

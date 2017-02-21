@@ -8,6 +8,15 @@ import java.util.logging.*;
  *
  * Class that configures the logging
  * The log method is public and static, so it can be accessed from everywhere in a static way
+ *
+ * Java Logging levels:
+ *  SEVERE (highest value)
+ *  WARNING
+ *  INFO
+ *  CONFIG
+ *  FINE
+ *  FINER
+ *  FINEST (lowest value)
  */
 public class Logging
 {
