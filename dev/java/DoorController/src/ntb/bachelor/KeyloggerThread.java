@@ -2,18 +2,17 @@ package ntb.bachelor;
 
 
 import java.util.logging.Level;
-
 /**
  * Created by Geo on 20.02.2017.
  *
  * Example Class for an independent Thread
  */
-public class ExampleThread extends Thread
+public class KeyloggerThread extends Thread
 {
     String threadName;
 
 
-    public ExampleThread(String name)
+    public KeyloggerThread(String name)
     {
         this.threadName = name;
     }
@@ -23,7 +22,7 @@ public class ExampleThread extends Thread
         while(true)
         {
             System.out.println("Hi from the " + threadName + " thread");
-            Logging.log(Level.INFO, "Hello logging");
+            Logging.log(Level.INFO, "daemon log");
 
             try
             {

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="DoorController:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/DoorController_jar</output-path>
+    <root id="archive" name="DoorController.jar">
+      <element id="module-output" name="DoorController" />
+    </root>
+  </artifact>
+</component>

