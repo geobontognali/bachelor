@@ -33,7 +33,7 @@ public class Logging
         // Instance the logger
         logger = Logger.getLogger(Logging.class.getName());
         // Instance the FileHandler
-        Handler fileHandler = new FileHandler("myLog.log",true);
+        Handler fileHandler = new FileHandler("RelayDriver.log",true);
         // Instance formatter, set formatting, and handler
         Formatter plainText = new SimpleFormatter();
         fileHandler.setFormatter(plainText);

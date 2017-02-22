@@ -9,7 +9,7 @@ public class Main {
      * Static initializer
      * @param args args
      */
-    public static void main(String[] args)
+    public static void main(String[] args) throws Exception
     {
         new RelayController();
     }

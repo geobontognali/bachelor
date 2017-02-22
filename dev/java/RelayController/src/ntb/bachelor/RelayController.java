@@ -38,6 +38,7 @@ public class RelayController
 
     public RelayController() throws Exception
     {
+        Logging.log(Level.INFO, "Relay driver started");
         startSocketServer();
     }
 
