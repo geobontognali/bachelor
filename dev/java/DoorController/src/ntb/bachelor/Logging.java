@@ -20,25 +20,25 @@ import java.util.logging.*;
  */
 public class Logging
 {
-    static Logger logger;
-    static Formatter plainText;
-    public static Handler fileHandler;
+    private static Level logLevel = Level.INFO; // Change this for production release
+    private static Logger logger;
 
     /**
      * Configures the logging
-     * @return
-     * @throws IOException
+     * @return Logger
+     * @throws IOException Logger exception
      */
     private static Logger configLogger() throws IOException
     {
         // Instance the logger
         logger = Logger.getLogger(Logging.class.getName());
         // Instance the FileHandler
-        fileHandler = new FileHandler("myLog.log",true);
+        Handler fileHandler = new FileHandler("myLog.log",true);
         // Instance formatter, set formatting, and handler
-        plainText = new SimpleFormatter();
+        Formatter plainText = new SimpleFormatter();
         fileHandler.setFormatter(plainText);
         logger.addHandler(fileHandler);
+        logger.setLevel(logLevel);
 
         return logger;
     }
@@ -46,10 +46,10 @@ public class Logging
 
     /**
      * Actual Log Method
-     * @param level
-     * @param msg
+     * @param level Set log level of this message
+     * @param msg The actual message
      */
-    public static void log(Level level, String msg)
+    static void log(Level level, String msg)
     {
         if(logger == null) // Configure the logging if not already done
         {

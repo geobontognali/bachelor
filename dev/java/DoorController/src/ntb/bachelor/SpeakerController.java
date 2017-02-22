@@ -13,9 +13,9 @@ import java.util.logging.Level;
 public class SpeakerController extends Thread
 {
     // Vars
-    private String PERMITTED_HOST = "127.0.0.1";
-    private int TURN_ON = 1;
-    private int TURN_OFF = 0;
+    private final String PERMITTED_HOST = "127.0.0.1";
+    private final int TURN_ON = 1;
+    private final int TURN_OFF = 0;
 
     /**
      * Thread entry point
@@ -35,7 +35,7 @@ public class SpeakerController extends Thread
 
     /**
      * Start the socket server that waits for incoming messages from the Intercom Webapp
-     * @throws Exception
+     * @throws Exception Socket exception
      */
     private void startSocketServer() throws Exception
     {
