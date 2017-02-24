@@ -12,10 +12,9 @@
 */
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () { return view('welcome'); });
 
 
 // Aussensprechstelle
-Route::get('/door', 'DoorController@showView');
+Route::get('/client', 'DoorController@client');
+Route::get('/server', 'DoorController@server');

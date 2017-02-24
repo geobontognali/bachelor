@@ -10,4 +10,14 @@ class DoorController extends Controller
     {
         return view('doorHome');
     }
+
+    public function client()
+    {
+        return view('loginRtc');
+    }
+
+    public function server()
+    {
+        return view('testRtc');
+    }
 }
