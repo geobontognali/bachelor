@@ -1,1 +1,0 @@
-<h1>Page showed at the door</h1>
