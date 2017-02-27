@@ -7,7 +7,7 @@
  */
 const doorId = 1212; //Math.random(); // Generate random name
 const signalingSrvAddr = "localhost";
-const signalingSrvPort = "9090";
+const signalingSrvPort = "7007";
 const CALL_REQUEST = "CALL_REQUEST";
 
 var RTCConnection;
@@ -105,9 +105,9 @@ function setupCall()
         //displaying local audio stream on the page
         localAudio.src = window.URL.createObjectURL(stream);
 
-        //using Google public stun server
+        //using Google public stun server (toglierlo per il traffico locale)
         var configuration = {
-            "iceServers": [{ "url": "stun:stun2.1.google.com:19302" }]
+            //"iceServers": [{ "url": "stun:stun2.1.google.com:19302" }]
         };
 
         RTCConnection = new webkitRTCPeerConnection(configuration);

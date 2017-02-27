@@ -7,11 +7,13 @@
  */
 const doorId = 1212; //Math.random(); // Generate random name
 const signalingSrvAddr = "localhost";
-const signalingSrvPort = "9090";
+const signalingSrvPort = "7007";
 const PICK_UP = "PICK_UP";
+var status = "waiting";
 
 var RTCConnection;
 var stream;
+
 
 console.log("I am " + name);
 
@@ -39,7 +41,8 @@ socketConn.onopen = function ()
 {
     console.log("Connected to the signaling server");
 
-    checkPendingCalls();
+    setInterval(checkPendingCalls, 800);
+
 };
 
 // Message received from the server
@@ -62,6 +65,7 @@ socketConn.onmessage = function (msg)
             break;
         case "leave":
             handleLeave();
+            status = "waiting";
             break;
         default:
             console.log(data);
@@ -86,10 +90,13 @@ function send(message)
 // Check for pending incoming calls
 function checkPendingCalls()
 {
-    send({
-        type: PICK_UP,
-        doorId: doorId
-    });
+    if(status == "waiting")
+    {
+        send({
+            type: PICK_UP,
+            doorId: doorId
+        });
+    }
 }
 
 // Adds the ICE Candidates received from the other peer
@@ -134,10 +141,12 @@ function handleLeave()
 function pickUpCall(success) {
     if (success == "false")
     {
-        console.log("No incoming call yet...");
+        console.log("No incoming call yet or already calling");
     }
     else
     {
+        status = "calling";
+
         //getting local audio stream
         navigator.webkitGetUserMedia({ video: false, audio: true }, function (myStream) {
             stream = myStream;
@@ -147,7 +156,7 @@ function pickUpCall(success) {
 
             //using Google public stun server
             var configuration = {
-                "iceServers": [{ "url": "stun:stun2.1.google.com:19302" }]
+                //"iceServers": [{ "url": "stun:stun2.1.google.com:19302" }]
             };
 
             RTCConnection = new webkitRTCPeerConnection(configuration);
