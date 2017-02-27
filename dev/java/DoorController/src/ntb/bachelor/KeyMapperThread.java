@@ -1,10 +1,15 @@
 package ntb.bachelor;
 
-
+import java.awt.*;
 import java.util.logging.Level;
 import com.pi4j.io.gpio.*;
 import com.pi4j.io.gpio.event.GpioPinDigitalStateChangeEvent;
 import com.pi4j.io.gpio.event.GpioPinListenerDigital;
+import com.pi4j.io.gpio.GpioController;
+import com.pi4j.io.gpio.GpioFactory;
+import com.pi4j.io.gpio.RaspiPin;
+
+import java.awt.event.KeyEvent;
 /**
  * Created by Geo on 20.02.2017.
  *
@@ -12,12 +17,15 @@ import com.pi4j.io.gpio.event.GpioPinListenerDigital;
  */
 public class KeyMapperThread extends Thread
 {
+
+
     //Varable declaration
-    String threadName; //name of the thread
-    private final String BUTTON1_PIN = "GPIO_18";
-    //public static final Pin GPIO_03 = createDigitalPin(3, "GPIO 3");
-    private final int BUTTON2_PIN = 15;
-    private final int BUTTON3_PIN = 16;
+    private String threadName; //name of the thread
+
+    // create gpio controller
+    private final GpioController gpio = GpioFactory.getInstance();
+
+
 
     //Constructor
     public KeyMapperThread(String name)
@@ -27,13 +35,24 @@ public class KeyMapperThread extends Thread
 
     public void run()
     {
-        // create gpio controller
-        final GpioController gpio = GpioFactory.getInstance();
+        System.setProperty("java.awt.headless", "false");
+        try
+        {
+            Logging.log(Level.INFO, "Keymapping controller started");
+            startKeyListener(); // Start the socket
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
 
+    private void startKeyListener() throws Exception
+    {
         // provision gpio pin as an input pin with its internal pull down resistor enabled
-        final GpioPinDigitalInput button1 = gpio.provisionDigitalInputPin(RaspiPin.GPIO_18, PinPullResistance.PULL_DOWN);
-        final GpioPinDigitalInput button2 = gpio.provisionDigitalInputPin(RaspiPin.GPIO_18, PinPullResistance.PULL_DOWN);
-        final GpioPinDigitalInput button3 = gpio.provisionDigitalInputPin(RaspiPin.GPIO_18, PinPullResistance.PULL_DOWN);
+        final GpioPinDigitalInput button1 = gpio.provisionDigitalInputPin(RaspiPin.GPIO_02, PinPullResistance.PULL_DOWN);
+        final GpioPinDigitalInput button2 = gpio.provisionDigitalInputPin(RaspiPin.GPIO_16, PinPullResistance.PULL_DOWN);
+        final GpioPinDigitalInput button3 = gpio.provisionDigitalInputPin(RaspiPin.GPIO_15, PinPullResistance.PULL_DOWN);
 
         // set shutdown state for this input pin
         button1.setShutdownOptions(true);
@@ -44,24 +63,34 @@ public class KeyMapperThread extends Thread
         button1.addListener(new GpioPinListenerDigital() {
             @Override
             public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent event) {
-                // display pin state on console
-                System.out.println(" --> GPIO PIN STATE CHANGE: " + event.getPin() + " = " + event.getState());//TODO delete debug purposes only
+                String state = event.getState().toString();
+                if(state == "HIGH"){
+                    System.out.println("switch pressed");//TODO delete debug purposes only
+                    try
+                    {
+                        Robot robot = new Robot();
+                        robot.keyPress(KeyEvent.VK_A);
+                        robot.keyRelease(KeyEvent.VK_A);
+                    }
+                    catch (AWTException e)
+                    {
+                        e.printStackTrace();
+                    }
+                }
             }
 
         });
 
         while(true)
         {
-            Logging.log(Level.INFO, "Keymapper thread running"); //TODO delete debug purposes only
             try
             {
-                Thread.sleep(10000);
+                Thread.sleep(500);
             }
             catch (InterruptedException e)
             {
                 e.printStackTrace();
             }
         }
-
     }
 }
