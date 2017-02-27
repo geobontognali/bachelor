@@ -23,31 +23,14 @@
 </head>
 <body>
 
-<div id = "loginPage" class = "container text-center">
-
-    <div class = "row">
-        <div class = "col-md-4 col-md-offset-4">
-
-            <h2>WebRTC Voice Demo. Please sign in</h2>
-
-            <label for = "usernameInput" class = "sr-only">Login</label>
-            <input type = "email" id = "usernameInput"
-                   class = "form-control formgroup"
-                   placeholder = "Login" required = "" autofocus = "">
-            <button id = "loginBtn" class = "btn btn-lg btn-primary btnblock">
-                Sign in</button>
-        </div>
-    </div>
-
-</div>
-
-<div id = "callPage" class = "call-page">
+<div id = "callPage" class = "call-page text-center">
+    <h2>WebRTC Voice Prototype (Client App)</h2>
 
     <div class = "row">
 
         <div class = "col-md-6 text-right">
             Local audio: <audio id = "localAudio"
-                                controls autoplay></audio>
+                                controls ></audio>
         </div>
 
         <div class = "col-md-6 text-left">
@@ -59,8 +42,6 @@
 
     <div class = "row text-center">
         <div class = "col-md-12">
-            <input id = "callToUsernameInput"
-                   type = "text" placeholder = "username to call" />
             <button id = "callBtn" class = "btn-success btn">Call</button>
             <button id = "hangUpBtn" class = "btn-danger btn">Hang Up</button>
         </div>

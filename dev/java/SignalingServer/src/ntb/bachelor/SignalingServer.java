@@ -1,172 +1,130 @@
 package ntb.bachelor;
 
-import java.io.*;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.net.URL;
-import java.security.MessageDigest;
-import java.util.Scanner;
-import java.util.logging.Level;
-
-import jdk.nashorn.internal.parser.JSONParser;
-import org.json.JSONArray;
+import org.java_websocket.WebSocket;
+import org.java_websocket.handshake.ClientHandshake;
+import org.java_websocket.server.WebSocketServer;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import javax.xml.bind.DatatypeConverter;
-import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.net.InetSocketAddress;
+import java.util.*;
+import java.util.logging.Level;
 
 /**
- * Created by Geo on 23.02.2017.
+ * Created by Geo on 24.02.2017.
  */
-public class SignalingServer
+public class SignalingServer extends WebSocketServer
 {
+    private final String PICK_UP = "PICK_UP";
+    private final String CALL_REQUEST = "CALL_REQUEST";
 
-    public SignalingServer() throws Exception
+    private int doorId;
+    private ArrayList callRequests = new ArrayList();
+    private Map<Integer,ArrayList<WebSocket>> rooms = new HashMap<>();
+
+
+    /**
+     * Constructor
+     */
+    public SignalingServer()
     {
-        startSignalingServer();
-
+        super(new InetSocketAddress(9090));
+        this.start();
+        Logging.log(Level.INFO, "WebSocket server started");
     }
 
-
-    public void testJson() throws JSONException
+    /**
+     * It forwareds the received message to all the other memebers connected in the same room
+     * @param currentConnection The current connection with the client, used to avoid resending the message from where it came from
+     * @param message The actual message to send
+     */
+    private void forwardMessage(WebSocket currentConnection, String message)
     {
-        String out = "";
-        JSONObject json = null;
-
-        try
+        Iterator connections = rooms.get(doorId).iterator();
+        while (connections.hasNext())
         {
-            out = new Scanner(new URL("http://lineup.app/js/json.html").openStream(), "UTF-8").useDelimiter("\\A").next();
-        } catch (IOException e)
-        {
-            e.printStackTrace();
+            WebSocket conn = (WebSocket)connections.next();
+            if(conn != currentConnection)
+            {
+                conn.send(message);
+            }
         }
-
-
-        try
-        {
-            json = new JSONObject(out);
-        }
-        catch (JSONException e)
-        {
-            e.printStackTrace();
-            Logging.log(Level.SEVERE, "Unable to parse the received string to a JSON object. Terminating connection.");
-        }
-
-        // get the title
-        System.out.println(json.get("title"));
-        // get the data
-        JSONArray genreArray = (JSONArray) json.get("dataset");
-        // get the first genre
-        JSONObject firstGenre = (JSONObject) genreArray.get(0);
-        System.out.println(firstGenre.get("genre_title"));
     }
 
 
     /**
-     * Start the socket server that waits for incoming messages from the Intercom Webapp
-     * @throws Exception Socket exception
+     * Override Methods from the WebSocketServer Class
      */
-    private void startSignalingServer() throws Exception
+    @Override
+    public void onOpen(WebSocket conn, ClientHandshake handshake)
     {
-        // Awaits connection forever, restart if connection closed
-        while(true)
+        Logging.log(Level.INFO, "New client connected: " + conn.getRemoteSocketAddress() + " hash " + conn.getRemoteSocketAddress().hashCode());
+    }
+
+    @Override
+    public void onMessage(WebSocket connection, String message)
+    {
+        ArrayList<WebSocket> socketConnections; // Used to store the connections of the partners in case multiple users are connected
+        try
         {
-            // Start socket (Accepts only from localhost)
-            ServerSocket serverSocket = new ServerSocket(9090, 1);
-            Socket client = serverSocket.accept();
+            // Parse the JSON message to an object
+            JSONObject obj = new JSONObject(message);
+            Logging.log(Level.INFO, "JSON Received: " + obj.toString());
 
-
-            System.out.println("A client connected.");
-
-            InputStream in = client.getInputStream();
-            OutputStream out = client.getOutputStream();
-
-            String data = new Scanner(in,"UTF-8").useDelimiter("\\r\\n\\r\\n").next();
-            Matcher get = Pattern.compile("^GET").matcher(data);
-
-            if (get.find()) {
-                Matcher match = Pattern.compile("Sec-WebSocket-Key: (.*)").matcher(data);
-                match.find();
-                byte[] response = ("HTTP/1.1 101 Switching Protocols\r\n"
-                        + "Connection: Upgrade\r\n"
-                        + "Upgrade: websocket\r\n"
-                        + "Sec-WebSocket-Accept: "
-                        + DatatypeConverter
-                        .printBase64Binary(
-                                MessageDigest
-                                        .getInstance("SHA-1")
-                                        .digest((match.group(1) + "258EAFA5-E914-47DA-95CA-C5AB0DC85B11")
-                                                .getBytes("UTF-8")))
-                        + "\r\n\r\n")
-                        .getBytes("UTF-8");
-
-                out.write(response, 0, response.length);
-            }
-            System.out.println("Connected");
-
-
-
-
-            // Checks that the connection comes only from localhost
-            String connectionAddr = client.getInetAddress().toString().replace("/","");
-            Logging.log(Level.INFO, "Inbound connection from " + connectionAddr );
-
-            // Init Readers/Writers
-            BufferedReader socketReader = new BufferedReader(new InputStreamReader(client.getInputStream()));
-            PrintStream socketWriter = new PrintStream(client.getOutputStream());
-
-            // As long as connection is open, still waiting for commands
-            while (true)
+            String msgType = obj.getString("type");
+            switch (msgType)
             {
-                // Read line from input
-                System.out.println("Here");
-                String payload = socketReader.readLine();
-                System.out.println(payload);
-                // Prepare the Json Object
-                JSONObject jsonObj = null;
-
-                // System.out.println(payload);
-                // socketWriter.println("ACK: " + payload);
-
-                // Act
-                if (payload != null)
-                {
-                    try
+                case CALL_REQUEST: // A client tries to call up the door, it add a call request and creates a new room
+                    doorId = obj.getInt("doorId");
+                    if(!callRequests.contains(doorId))
                     {
-                        jsonObj = new JSONObject(payload);
+                        callRequests.add(doorId);
                     }
-                    catch(Exception e)
-                    {
-                        Logging.log(Level.WARNING, "Unable to parse the received string to a JSON object. Discarding...");
-                        continue;
-                    }
-
-                    // Handles the Session Descritption (SDP)
-                    if(jsonObj.get("type") == "login")
-                    {
-                        Logging.log(Level.INFO, "Login SDP Message from " + jsonObj.get("name"));
-                        socketWriter.println("{ type: \"login\", success: \"true\" "); // ACK the login
-                    }
-
-                    // get the title
-                    //System.out.println(jsonObj.get("title"));
-                    // get the data
-                    //JSONArray genreArray = (JSONArray) jsonObj.get("dataset");
-
-
-                }
-                else
-                {
-                    // Close the socket
-                    Logging.log(Level.INFO, "Terminating connection with " + connectionAddr);
-                    client.close();
-                    serverSocket.close();
+                    socketConnections = new ArrayList<>();
+                    socketConnections.add(connection);
+                    rooms.put(doorId, socketConnections);
+                    connection.send("{\"type\":\"CALL_REQUEST\",\"value\":\"ACK\"}"); // Replies with ACK
+                    Logging.log(Level.INFO, "A client made a call request for the door: " + doorId + ".");
                     break;
-                }
+
+                case PICK_UP: // The web app at the door checks if someone wants to start a call
+                    doorId = obj.getInt("doorId");
+                    if(callRequests.contains(doorId))
+                    {
+                        socketConnections = rooms.get(doorId);
+                        socketConnections.add(connection);
+                        rooms.put(doorId, socketConnections);
+                        connection.send("{\"type\":\"PICK_UP\",\"value\":\"true\"}"); // Replies with true if a call has been found
+                        callRequests.remove(callRequests.indexOf(doorId)); // Remove the call request
+                        Logging.log(Level.INFO, "Door " + doorId + " has found a pending call and joined the room");
+                    }
+                    else
+                    {
+                        connection.send("{\"type\":\"PICK_UP\",\"value\":\"false\"}"); // Replies with false if no call is incoming
+                        Logging.log(Level.INFO, "Door " + doorId + " is checking for new incoming calls. No pending call has been found");
+                    }
+                    break;
+                default: // Straight data exchange between the clients
+                    forwardMessage(connection, message);
+                    break;
             }
         }
+        catch (JSONException e)
+        {
+            Logging.log(Level.WARNING, "An invalid JSON payload has been received");
+        }
     }
+
+    @Override
+    public void onClose(WebSocket conn, int code, String reason, boolean remote)
+    {
+        Logging.log(Level.INFO, "Client disconnected. " + reason);
+    }
+
+    @Override
+    public void onError(WebSocket conn, Exception exc)
+    {
+        Logging.log(Level.WARNING, "Error happened: " + exc);
+    }
+
 }
