@@ -1,11 +1,17 @@
 package ntb.bachelor;
 
-import java.util.logging.Level;
+import java.io.IOException;
+import java.security.KeyManagementException;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.UnrecoverableKeyException;
+import java.security.cert.CertificateException;
 
 public class Main {
 
-    public static void main(String[] args)
+    public static void main(String[] args) throws Exception
     {
-        new TestServer();
+        //new SignalingServer();
+        new SSLServer();
     }
 }

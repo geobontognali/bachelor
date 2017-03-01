@@ -13,11 +13,12 @@ class DoorController extends Controller
 
     public function client()
     {
-        return view('loginRtc');
+        return view('clientTest');
     }
 
     public function server()
     {
-        return view('testRtc');
+        return view('serverTest');
     }
+
 }

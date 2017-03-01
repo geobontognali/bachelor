@@ -22,6 +22,7 @@ public class Logging
 {
     private static Level logLevel = Level.INFO; // Change this for production release
     private static Logger logger;
+    private static boolean devMode = true; // Only prints to the console
 
     /**
      * Configures the logging
@@ -33,7 +34,7 @@ public class Logging
         // Instance the logger
         logger = Logger.getLogger(Logging.class.getName());
         // Instance the FileHandler
-        Handler fileHandler = new FileHandler("RelayDriver.log",true);
+        Handler fileHandler = new FileHandler("SignalingServer.log",true);
         // Instance formatter, set formatting, and handler
         Formatter plainText = new SimpleFormatter();
         fileHandler.setFormatter(plainText);
@@ -63,7 +64,14 @@ public class Logging
             }
         }
 
-        logger.log(level, msg);
-        //System.out.println(msg);
+        if(devMode)
+        {
+            System.out.println(msg);
+        }
+        else
+        {
+            logger.log(level, msg);
+        }
+
     }
 }

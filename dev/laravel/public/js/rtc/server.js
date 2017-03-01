@@ -1,151 +1,209 @@
-//require our websocket library
-//var WebSocketServer = require('wss').Server;
+/**
+ * Created by Geo on 24.02.2017.
+ */
 
-//creating a websocket server at port 9090
-var wss = new WebSocket({port: 9090});
+/**
+ * CONSTANTS / VARIABLES
+ */
+const doorId = 1212; //Math.random(); // Generate random name
+const signalingSrvAddr = "localhost";
+const signalingSrvPort = "7007";
+const PICK_UP = "PICK_UP";
+var status = "waiting";
 
-//all connected to the server users
-var users = {};
+var RTCConnection;
+var stream;
 
-//when a user connects to our sever
-wss.on('connection', function(connection) {
 
-    console.log("User connected");
+console.log("I am " + name);
 
-    //when server gets a message from a connected user
-    connection.on('message', function(message) {
+/**
+ * UI SELECTORS
+ */
+var localAudio = document.querySelector('#localAudio');
+var remoteAudio = document.querySelector('#remoteAudio');
+var hangUpBtn = document.querySelector('#hangUpBtn');
 
-        var data;
 
-        //accepting only JSON messages
-        try {
-            data = JSON.parse(message);
-        } catch (e) {
-            console.log("Invalid JSON");
-            data = {};
-        }
+/**
+ * INIT
+ */
+// Start connection to the Signaling server
+var socketConn = new WebSocket("wss://"+signalingSrvAddr+":"+signalingSrvPort);
+console.log("Connecting to the signaling server...");
 
-        //switching type of the user message
-        switch (data.type) {
-            //when a user tries to login
-            case "login":
-                console.log("User logged", data.name);
 
-                //if anyone is logged in with this username then refuse
-                if(users[data.name]) {
-                    sendTo(connection, {
-                        type: "login",
-                        success: false
-                    });
-                } else {
-                    //save user connection on the server
-                    users[data.name] = connection;
-                    connection.name = data.name;
+/**
+ * CALLBACKS
+ */
+// The connection has been established
+socketConn.onopen = function ()
+{
+    console.log("Connected to the signaling server");
 
-                    sendTo(connection, {
-                        type: "login",
-                        success: true
-                    });
-                }
+    setInterval(checkPendingCalls, 800);
 
-                break;
+};
 
-            case "offer":
-                //for ex. UserA wants to call UserB
-                console.log("Sending offer to: ", data.name);
+// Message received from the server
+socketConn.onmessage = function (msg)
+{
+    console.log("Message received: ", msg.data);
+    var data = JSON.parse(msg.data);
 
-                //if UserB exists then send him offer details
-                var conn = users[data.name];
+    switch(data.type) {
+        case "PICK_UP":
+            pickUpCall(data.value);
+            break;
+        //when somebody wants to call us
+        case "offer":
+            handleOffer(data.offer, data.name);
+            break;
+        //when a remote peer sends an ice candidate to us
+        case "candidate":
+            handleCandidate(data.candidate);
+            break;
+        case "leave":
+            handleLeave();
+            status = "waiting";
+            break;
+        default:
+            console.log(data);
+            break;
+    }
+};
 
-                if(conn != null) {
-                    //setting that UserA connected with UserB
-                    connection.otherName = data.name;
+socketConn.onerror = function (err) {
+    console.log("Got error", err);
+};
 
-                    sendTo(conn, {
-                        type: "offer",
-                        offer: data.offer,
-                        name: connection.name
-                    });
-                }
 
-                break;
+/**
+ * FUNCTIONS
+ */
+// Sends the message via the socket in JSON format
+function send(message)
+{
+    socketConn.send(JSON.stringify(message));
+}
 
-            case "answer":
-                console.log("Sending answer to: ", data.name);
-                //for ex. UserB answers UserA
-                var conn = users[data.name];
+// Check for pending incoming calls
+function checkPendingCalls()
+{
+    if(status == "waiting")
+    {
+        send({
+            type: PICK_UP,
+            doorId: doorId
+        });
+    }
+}
 
-                if(conn != null) {
-                    connection.otherName = data.name;
-                    sendTo(conn, {
-                        type: "answer",
-                        answer: data.answer
-                    });
-                }
+// Adds the ICE Candidates received from the other peer
+function handleCandidate(candidate)
+{
+    RTCConnection.addIceCandidate(new RTCIceCandidate(candidate));
+};
 
-                break;
 
-            case "candidate":
-                console.log("Sending candidate to:",data.name);
-                var conn = users[data.name];
+// Replies with an answer for the offer received from the other peer
+function handleOffer(offer, name)
+{
+    RTCConnection.setRemoteDescription(new RTCSessionDescription(offer));
 
-                if(conn != null) {
-                    sendTo(conn, {
+    //create an answer to an offer
+    RTCConnection.createAnswer(function (answer)
+    {
+        RTCConnection.setLocalDescription(answer);
+
+        send({
+            type: "answer",
+            answer: answer
+        });
+
+    }, function (error)
+    {
+        console.log("Error when giving an answer to the offer");
+    });
+};
+
+function handleLeave()
+{
+    connectedUser = null;
+    remoteAudio.src = null;
+
+    RTCConnection.close();
+    RTCConnection.onicecandidate = null;
+    RTCConnection.onaddstream = null;
+};
+
+// Set up Webrtc to pick up the call and starting a peer connection
+function pickUpCall(success) {
+    if (success == "false")
+    {
+        console.log("No incoming call yet or already calling");
+    }
+    else
+    {
+        status = "calling";
+
+        //getting local audio stream
+        navigator.webkitGetUserMedia({ video: false, audio: true }, function (myStream) {
+            stream = myStream;
+
+            //displaying local audio stream on the page
+            localAudio.src = window.URL.createObjectURL(stream);
+
+            //using Google public stun server
+            var configuration = {
+                //"iceServers": [{ "url": "stun:stun2.1.google.com:19302" }]
+            };
+
+            RTCConnection = new webkitRTCPeerConnection(configuration);
+
+            // setup stream listening
+            RTCConnection.addStream(stream);
+
+            //when a remote user adds stream to the peer connection, we display it
+            RTCConnection.onaddstream = function (e) {
+                remoteAudio.src = window.URL.createObjectURL(e.stream);
+            };
+
+            // Setup ice handling
+            RTCConnection.onicecandidate = function (event) {
+                if (event.candidate) {
+                    send({
                         type: "candidate",
-                        candidate: data.candidate
+                        candidate: event.candidate
                     });
                 }
+            };
 
-                break;
+        }, function (error) {
+            console.log(error);
+        });
 
-            case "leave":
-                console.log("Disconnecting from", data.name);
-                var conn = users[data.name];
-                conn.otherName = null;
+    }
+};
 
-                //notify the other user so he can disconnect his peer connection
-                if(conn != null) {
-                    sendTo(conn, {
-                        type: "leave"
-                    });
-                }
 
-                break;
-
-            default:
-                sendTo(connection, {
-                    type: "error",
-                    message: "Command not found: " + data.type
-                });
-
-                break;
-        }
+/**
+ * LISTENERS
+ */
+// Hang up the call
+hangUpBtn.addEventListener("click", function () {
+    send({
+        type: "leave"
     });
 
-    //when user exits, for example closes a browser window
-    //this may help if we are still in "offer","answer" or "candidate" state
-    connection.on("close", function() {
-
-        if(connection.name) {
-            delete users[connection.name];
-
-            if(connection.otherName) {
-                console.log("Disconnecting from ", connection.otherName);
-                var conn = users[connection.otherName];
-                conn.otherName = null;
-
-                if(conn != null) {
-                    sendTo(conn, {
-                        type: "leave"
-                    });
-                }
-            }
-        }
-    });
-
-    connection.send("Hello world");
+    handleLeave();
 });
 
-function sendTo(connection, message) {
-    connection.send(JSON.stringify(message));
-}
+
+
+
+
+
+
+
+

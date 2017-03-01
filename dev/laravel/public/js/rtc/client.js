@@ -1,35 +1,64 @@
 /**
- * Created by Geo on 23.02.2017.
+ * Created by Geo on 24.02.2017.
  */
 
-//our username
-var name;
-var connectedUser;
+/**
+ * CONSTANTS / VARIABLES
+ */
+const doorId = 1212; //Math.random(); // Generate random name
+const signalingSrvAddr = "localhost";
+const signalingSrvPort = "7007";
+const CALL_REQUEST = "CALL_REQUEST";
 
-//connecting to our signaling server
-var conn = new WebSocket('ws://localhost:9090');
+var RTCConnection;
+var stream;
 
-conn.onopen = function () {
+/**
+ * UI SELECTORS
+ */
+var callBtn = document.querySelector('#callBtn');
+var hangUpBtn = document.querySelector('#hangUpBtn');
+var localAudio = document.querySelector('#localAudio');
+var remoteAudio = document.querySelector('#remoteAudio');
+
+/**
+ * INIT
+ */
+// Start connection to the Signaling server
+var socketConn = new WebSocket("wss://"+signalingSrvAddr+":"+signalingSrvPort);
+console.log("I connect to " + name);
+console.log("Connecting to the signaling server...");
+
+
+/**
+ * CALLBACKS
+ */
+// The connection has been established
+socketConn.onopen = function ()
+{
     console.log("Connected to the signaling server");
+    requestCall();
 };
 
-//when we got a message from a signaling server
-conn.onmessage = function (msg) {
-    console.log("Got message", msg.data);
+// Message received from the server
+socketConn.onmessage = function (msg)
+{
+    console.log("Message received: ", msg.data);
     var data = JSON.parse(msg.data);
 
     switch(data.type) {
-        case "login":
-            handleLogin(data.success);
+        case "CALL_REQUEST":
+            console.log("Call request acknowledged!");
+            console.log("Setting up the call...");
+            setupCall();
+            console.log("Done! Now you can start the call");
             break;
-        //when somebody wants to call us
         case "offer":
             handleOffer(data.offer, data.name);
             break;
         case "answer":
             handleAnswer(data.answer);
             break;
-        //when a remote peer sends an ice candidate to us
         case "candidate":
             handleCandidate(data.candidate);
             break;
@@ -37,161 +66,117 @@ conn.onmessage = function (msg) {
             handleLeave();
             break;
         default:
+            console.log(data);
             break;
     }
 };
 
-conn.onerror = function (err) {
-    console.log("Got error", err);
+socketConn.onerror = function (err) {
+    console.log("Got error ", err);
 };
 
-//alias for sending JSON encoded messages
-function send(message) {
-    //attach the other peer username to our messages
-    if (connectedUser) {
-        message.name = connectedUser;
-    }
 
-    conn.send(JSON.stringify(message));
-};
 
-//******
-//UI selectors block
-//******
+/**
+ * FUNCTIONS
+ */
+// Sends the message via the socket in JSON format
+function send(message)
+{
+    socketConn.send(JSON.stringify(message));
+}
 
-var loginPage = document.querySelector('#loginPage');
-var usernameInput = document.querySelector('#usernameInput');
-var loginBtn = document.querySelector('#loginBtn');
+// Sends a request for a new call to the signaling server
+function requestCall()
+{
+    send({
+        type: "CALL_REQUEST",
+        doorId: doorId
+    });
+}
 
-var callPage = document.querySelector('#callPage');
-var callToUsernameInput = document.querySelector('#callToUsernameInput');
-var callBtn = document.querySelector('#callBtn');
+// Setup WebRTC for the call and starting a peer connection
+function setupCall()
+{
+    //getting local audio stream
+    navigator.webkitGetUserMedia({ video: false, audio: true }, function (myStream) {
+        stream = myStream;
 
-var hangUpBtn = document.querySelector('#hangUpBtn');
-var localAudio = document.querySelector('#localAudio');
-var remoteAudio = document.querySelector('#remoteAudio');
+        //displaying local audio stream on the page
+        localAudio.src = window.URL.createObjectURL(stream);
 
-var yourConn;
-var stream;
+        //using Google public stun server (toglierlo per il traffico locale)
+        var configuration = {
+            //"iceServers": [{ "url": "stun:stun2.1.google.com:19302" }]
+        };
 
-callPage.style.display = "none";
+        RTCConnection = new webkitRTCPeerConnection(configuration);
 
-// Login when the user clicks the button
-loginBtn.addEventListener("click", function (event) {
-    name = usernameInput.value;
-    console.log("sending...");
-    if (name.length > 0) {
-        send({
-            type: "login",
-            name: name
-        });
-    }
-    console.log("sent...");
+        // setup stream listening
+        RTCConnection.addStream(stream);
 
-});
+        //when a remote user adds stream to the peer connection, we display it
+        RTCConnection.onaddstream = function (e) {
+            remoteAudio.src = window.URL.createObjectURL(e.stream);
+        };
 
-function handleLogin(success) {
-    if (success === false) {
-        alert("Ooops...try a different username");
-    } else {
-        loginPage.style.display = "none";
-        callPage.style.display = "block";
-
-        //**********************
-        //Starting a peer connection
-        //**********************
-
-        //getting local audio stream
-        navigator.webkitGetUserMedia({ video: false, audio: true }, function (myStream) {
-            stream = myStream;
-
-            //displaying local audio stream on the page
-            localAudio.src = window.URL.createObjectURL(stream);
-
-            //using Google public stun server
-            var configuration = {
-                "iceServers": [{ "url": "stun:stun2.1.google.com:19302" }]
-            };
-
-            yourConn = new webkitRTCPeerConnection(configuration);
-
-            // setup stream listening
-            yourConn.addStream(stream);
-
-            //when a remote user adds stream to the peer connection, we display it
-            yourConn.onaddstream = function (e) {
-                remoteAudio.src = window.URL.createObjectURL(e.stream);
-            };
-
-            // Setup ice handling
-            yourConn.onicecandidate = function (event) {
-                if (event.candidate) {
-                    send({
-                        type: "candidate",
-                        candidate: event.candidate
-                    });
-                }
-            };
-
-        }, function (error) {
-            console.log(error);
-        });
-
-    }
-};
-
-//initiating a call
-callBtn.addEventListener("click", function () {
-    var callToUsername = callToUsernameInput.value;
-
-    if (callToUsername.length > 0) {
-        connectedUser = callToUsername;
-
-        // create an offer
-        yourConn.createOffer(function (offer) {
-            send({
-                type: "offer",
-                offer: offer
-            });
-
-            yourConn.setLocalDescription(offer);
-        }, function (error) {
-            alert("Error when creating an offer");
-        });
-    }
-});
-
-//when somebody sends us an offer
-function handleOffer(offer, name) {
-    connectedUser = name;
-    yourConn.setRemoteDescription(new RTCSessionDescription(offer));
-
-    //create an answer to an offer
-    yourConn.createAnswer(function (answer) {
-        yourConn.setLocalDescription(answer);
-
-        send({
-            type: "answer",
-            answer: answer
-        });
+        // Setup ice handling
+        RTCConnection.onicecandidate = function (event) {
+            if (event.candidate) {
+                send({
+                    type: "candidate",
+                    candidate: event.candidate
+                });
+            }
+        };
 
     }, function (error) {
-        alert("Error when creating an answer");
+        console.log(error);
     });
-
 };
 
-//when we got an answer from a remote user
+// Start the call by sending an offer to the signaling
+function startCall()
+{
+    // create an offer
+    RTCConnection.createOffer(function (offer) {
+        send({
+            type: "offer",
+            offer: offer
+        });
+
+        RTCConnection.setLocalDescription(offer);
+    }, function (error) {
+        alert("Error when creating an offer");
+    });
+}
+
+
+// When we got an answer after the offer
 function handleAnswer(answer) {
-    yourConn.setRemoteDescription(new RTCSessionDescription(answer));
+    RTCConnection.setRemoteDescription(new RTCSessionDescription(answer));
 };
 
-//when we got an ice candidate from a remote user
+// When we got an ice candidate from a remote user
 function handleCandidate(candidate) {
-    yourConn.addIceCandidate(new RTCIceCandidate(candidate));
+    RTCConnection.addIceCandidate(new RTCIceCandidate(candidate));
 };
 
-//hang up
+// Close
+function handleLeave() {
+    connectedUser = null;
+    remoteAudio.src = null;
+
+    RTCConnection.close();
+    RTCConnection.onicecandidate = null;
+    RTCConnection.onaddstream = null;
+};
+
+
+/**
+ * LISTENERS
+ */
+//Hang up
 hangUpBtn.addEventListener("click", function () {
     send({
         type: "leave"
@@ -200,11 +185,7 @@ hangUpBtn.addEventListener("click", function () {
     handleLeave();
 });
 
-function handleLeave() {
-    connectedUser = null;
-    remoteAudio.src = null;
-
-    yourConn.close();
-    yourConn.onicecandidate = null;
-    yourConn.onaddstream = null;
-};
+//initiating a call
+callBtn.addEventListener("click", function () {
+    startCall();
+});
