@@ -73,7 +73,7 @@ public class SignalingServer extends WebSocketServer
         {
             // Parse the JSON message to an object
             JSONObject obj = new JSONObject(message);
-            Logging.log(Level.INFO, "JSON Received: " + obj.toString());
+            //Logging.log(Level.INFO, "JSON Received: " + obj.toString());
 
             String msgType = obj.getString("type");
             switch (msgType)
