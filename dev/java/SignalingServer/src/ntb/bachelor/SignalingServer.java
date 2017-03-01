@@ -2,6 +2,7 @@ package ntb.bachelor;
 
 import org.java_websocket.WebSocket;
 import org.java_websocket.handshake.ClientHandshake;
+import org.java_websocket.server.DefaultSSLWebSocketServerFactory;
 import org.java_websocket.server.WebSocketServer;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -9,6 +10,9 @@ import org.json.JSONObject;
 import java.net.InetSocketAddress;
 import java.util.*;
 import java.util.logging.Level;
+
+
+
 
 /**
  * Created by Geo on 24.02.2017.
@@ -28,13 +32,13 @@ public class SignalingServer extends WebSocketServer
      */
     public SignalingServer()
     {
-        super(new InetSocketAddress(9090));
-        this.start();
+        super(new InetSocketAddress(7007));
+
         Logging.log(Level.INFO, "WebSocket server started");
     }
 
     /**
-     * It forwareds the received message to all the other memebers connected in the same room
+     * It forwards the received message to all the other memebers connected in the same room
      * @param currentConnection The current connection with the client, used to avoid resending the message from where it came from
      * @param message The actual message to send
      */

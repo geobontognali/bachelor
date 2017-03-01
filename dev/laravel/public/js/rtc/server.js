@@ -29,7 +29,7 @@ var hangUpBtn = document.querySelector('#hangUpBtn');
  * INIT
  */
 // Start connection to the Signaling server
-var socketConn = new WebSocket("ws://"+signalingSrvAddr+":"+signalingSrvPort);
+var socketConn = new WebSocket("wss://"+signalingSrvAddr+":"+signalingSrvPort);
 console.log("Connecting to the signaling server...");
 
 

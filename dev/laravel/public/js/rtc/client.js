@@ -25,7 +25,7 @@ var remoteAudio = document.querySelector('#remoteAudio');
  * INIT
  */
 // Start connection to the Signaling server
-var socketConn = new WebSocket("ws://"+signalingSrvAddr+":"+signalingSrvPort);
+var socketConn = new WebSocket("wss://"+signalingSrvAddr+":"+signalingSrvPort);
 console.log("I connect to " + name);
 console.log("Connecting to the signaling server...");
 
