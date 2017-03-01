@@ -10,30 +10,35 @@ import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManagerFactory;
 
+import org.java_websocket.WebSocketImpl;
 import org.java_websocket.server.DefaultSSLWebSocketServerFactory;
 
+
+/**
+ * Created by Geo on 24.02.2017.
+ */
 public class SSLServer
 {
     /**
      * INFO:
      * Create self-signed certificate:
-     * keytool -genkey -validity 3650 -keystore "keystore.jks" -storepass "storepassword" -keypass "keypassword" -alias "default" -dname "CN=127.0.0.1, OU=MyOrgUnit, O=MyOrg, L=MyCity, S=MyRegion, C=MyCountry"
+     * keytool -genkeypair -alias domain -keyalg RSA -keystore "keystore.jks"  -> https://www.digitalocean.com/community/tutorials/java-keytool-essentials-working-with-java-keystores
      *
-     * Match keystore data with the data in the variables
+     * Match keystore data with the data in the variables, match hostname to the CN of the certificate
      */
 
     // Vars
     private final String STORE_TYPE = "JKS";
     private final String KEYSTORE_FILE = "keystore.jks";
-    private final String KEYSTORE_PASSWORD = "marendon";
-    private final String KEY_PASSWORD = "marendon";
+    private final String KEYSTORE_PASSWORD = "storepassword";
+    private final String KEY_PASSWORD = "keypassword";
 
     /**
      * Constructor - Starts up the WebSocket server with TLS support
      */
     public SSLServer() throws Exception
     {
-
+        WebSocketImpl.DEBUG = false;
         SignalingServer signalingServer = new SignalingServer(); // Initialise the WebSocket server class
         SSLContext sslContext = configSSL(); // Configures TLS
         signalingServer.setWebSocketFactory(new DefaultSSLWebSocketServerFactory(sslContext)); // Applies config
@@ -63,7 +68,7 @@ public class SSLServer
         trustManagerFactory.init(keyStore);
 
         // Build the SSLContext object to be returned
-        SSLContext sslContext;
+        SSLContext sslContext = null;;
         sslContext = SSLContext.getInstance("TLS");
         sslContext.init( keyManagerFactory.getKeyManagers(), trustManagerFactory.getTrustManagers(), null );
 
