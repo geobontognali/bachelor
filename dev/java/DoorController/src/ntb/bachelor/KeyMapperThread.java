@@ -69,8 +69,8 @@ public class KeyMapperThread extends Thread
                     try
                     {
                         Robot robot = new Robot();
-                        robot.keyPress(KeyEvent.VK_A);
-                        robot.keyRelease(KeyEvent.VK_A);
+                        robot.keyPress(KeyEvent.VK_C);
+                        robot.keyRelease(KeyEvent.VK_C);
                     }
                     catch (AWTException e)
                     {
