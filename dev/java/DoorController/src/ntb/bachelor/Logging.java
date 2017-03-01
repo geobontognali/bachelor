@@ -64,6 +64,5 @@ public class Logging
         }
 
         logger.log(level, msg);
-        //System.out.println(msg);
     }
 }
