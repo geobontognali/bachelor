@@ -1,7 +1,7 @@
 #!/bin/sh
 # start and stop doorController
 ### BEGIN INIT INFO
-# Provides:          DoorController
+# Provides:          speakerController
 # Required-Start:    $remote_fs $syslog
 # Required-Stop:     $remote_fs $syslog
 # Default-Start:     2 3 4 5
@@ -9,16 +9,17 @@
 # Short-Description: Start daemon at boot time
 # Description:       Enable service provided by daemon.
 ### END INIT INFO
-SERVICE_NAME=doorController
-PATH_TO_JAR=/home/door/Desktop/DoorController.jar
-PID_PATH_NAME=/tmp/DoorController-pid
+SERVICE_NAME=speakerController
+PATH_TO_JAR=/home/Aussensprechstelle/SpeakerController/SpeakerController.jar
+PID_PATH_NAME=/home/Aussensprechstelle/SpeakerController/SpeakerController-pid
+PATH_TO_LOG=/home/Aussensprechstelle/SpeakerController/speakercontroller.log
 case $1 in
     start)
         echo "Starting $SERVICE_NAME ..."
         if [ ! -f $PID_PATH_NAME ]; then
-            nohup java -jar $PATH_TO_JAR >>/home/door/Desktop/fedelog.log 2>&1 &
+            sudo java -jar $PATH_TO_JAR >>$PATH_TO_LOG 2>&1 &
             echo $! > $PID_PATH_NAME
-            echo DoorController PID: $!
+            echo SpeakerController PID: $!
             echo "$SERVICE_NAME started ..."
         else
             echo "$SERVICE_NAME is already running ..."
@@ -43,7 +44,7 @@ case $1 in
             echo "$SERVICE_NAME stopped ...";
             rm $PID_PATH_NAME
             echo "$SERVICE_NAME starting ..."
-            nohup java -jar $PATH_TO_JAR >>/home/door/Desktop/fedelog.log 2>&1 &
+            sudo java -jar $PATH_TO_JAR >>$PATH_TO_LOG 2>&1 &
             echo $! > $PID_PATH_NAME
             echo "$SERVICE_NAME started ..."
         else
@@ -51,3 +52,4 @@ case $1 in
         fi
     ;;
 esac
+
