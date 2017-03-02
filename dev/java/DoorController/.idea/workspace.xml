@@ -7,20 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cac76de2-1bfb-46ad-a627-a674e25d144d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/DoorController/ntb/bachelor/ExampleThread.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/DoorController/ntb/bachelor/KeyMapperThread$1.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/DoorController/ntb/bachelor/KeyMapperThread.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/DoorController/ntb/bachelor/Logging.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/DoorController/ntb/bachelor/Main.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/DoorController/ntb/bachelor/SpeakerController.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/DoorController/META-INF/MANIFEST.MF" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../KeyLogger/.idea/uiDesigner.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../KeyLogger/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../scripts/speakerControllerService.txt" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../scripts/deleteme.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../scripts/doorControllerService.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../docs/deleteme.txt" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
