@@ -6,7 +6,7 @@
  * CONSTANTS / VARIABLES
  */
 const doorId = 1212; //Math.random(); // Generate random name
-const signalingSrvAddr = "localhost";
+const signalingSrvAddr = "192.168.0.18";
 const signalingSrvPort = "7007";
 const CALL_REQUEST = "CALL_REQUEST";
 
@@ -26,7 +26,6 @@ var remoteAudio = document.querySelector('#remoteAudio');
  */
 // Start connection to the Signaling server
 var socketConn = new WebSocket("wss://"+signalingSrvAddr+":"+signalingSrvPort);
-console.log("I connect to " + name);
 console.log("Connecting to the signaling server...");
 
 
@@ -107,7 +106,7 @@ function setupCall()
 
         //using Google public stun server (toglierlo per il traffico locale)
         var configuration = {
-            //"iceServers": [{ "url": "stun:stun2.1.google.com:19302" }]
+            "iceServers": [{ "url": "stun:stun2.1.google.com:19302" }]
         };
 
         RTCConnection = new webkitRTCPeerConnection(configuration);

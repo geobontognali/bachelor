@@ -109,6 +109,7 @@ public class SignalingServer extends WebSocketServer
                     }
                     break;
                 default: // Straight data exchange between the clients
+                    Logging.log(Level.INFO, "Forwarded message: " + message);
                     forwardMessage(connection, message);
                     break;
             }

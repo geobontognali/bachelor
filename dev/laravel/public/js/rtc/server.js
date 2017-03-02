@@ -6,7 +6,7 @@
  * CONSTANTS / VARIABLES
  */
 const doorId = 1212; //Math.random(); // Generate random name
-const signalingSrvAddr = "localhost";
+const signalingSrvAddr = "192.168.0.18";
 const signalingSrvPort = "7007";
 const PICK_UP = "PICK_UP";
 var status = "waiting";
@@ -156,7 +156,7 @@ function pickUpCall(success) {
 
             //using Google public stun server
             var configuration = {
-                //"iceServers": [{ "url": "stun:stun2.1.google.com:19302" }]
+                "iceServers": [{ "url": "stun:stun2.1.google.com:19302" }]
             };
 
             RTCConnection = new webkitRTCPeerConnection(configuration);
