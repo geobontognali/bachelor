@@ -31,14 +31,14 @@ public class SSLServer
     private final String STORE_TYPE = "JKS";
     private final String KEYSTORE_FILE = "keystore.jks";
     private final String KEYSTORE_PASSWORD = "storepassword";
-    private final String KEY_PASSWORD = "keypassword";
+    private final String KEY_PASSWORD = "storepassword";  // Can be ignored if not defined
 
     /**
      * Constructor - Starts up the WebSocket server with TLS support
      */
     public SSLServer() throws Exception
     {
-        WebSocketImpl.DEBUG = true;
+        WebSocketImpl.DEBUG = false;
         SignalingServer signalingServer = new SignalingServer(); // Initialise the WebSocket server class
         SSLContext sslContext = configSSL(); // Configures TLS
         signalingServer.setWebSocketFactory(new DefaultSSLWebSocketServerFactory(sslContext)); // Applies config

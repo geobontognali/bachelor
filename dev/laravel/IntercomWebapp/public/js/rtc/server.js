@@ -6,24 +6,24 @@
  * CONSTANTS / VARIABLES
  */
 const doorId = 1212; //Math.random(); // Generate random name
-const signalingSrvAddr = "192.168.0.213";
+const signalingSrvAddr = "192.168.0.18";
 const signalingSrvPort = "7007";
 const socketProtocol = "wss"; // wss or ws
 
 const PICK_UP = "PICK_UP";
 const DOOR_ONLINE = "DOOR_ONLINE";
 
-let status = "offline";
-let RTCConnection;
-let stream;
-let socketConn;
+var status = "offline";
+var RTCConnection;
+var stream;
+var socketConn;
 
 
 /**
  * UI SELECTORS
  */
-let localAudio = document.querySelector('#localAudio');
-let remoteAudio = document.querySelector('#remoteAudio');
+var localAudio = document.querySelector('#localAudio');
+var remoteAudio = document.querySelector('#remoteAudio');
 
 
 /**
