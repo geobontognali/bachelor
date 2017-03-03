@@ -6,12 +6,13 @@
  * CONSTANTS / VARIABLES
  */
 const doorId = 1212; //Math.random(); // Generate random name
-const signalingSrvAddr = "192.168.0.18";
+const signalingSrvAddr = "192.168.0.213";
 const signalingSrvPort = "7007";
 const CALL_REQUEST = "CALL_REQUEST";
 
 var RTCConnection;
 var stream;
+
 
 /**
  * UI SELECTORS
@@ -46,10 +47,8 @@ socketConn.onmessage = function (msg)
     var data = JSON.parse(msg.data);
 
     switch(data.type) {
-        case "CALL_REQUEST":
-            console.log("Call request acknowledged!");
-            console.log("Setting up the call...");
-            setupCall();
+        case CALL_REQUEST:
+            setupRTC(data.value);
             console.log("Done! Now you can start the call");
             break;
         case "offer":
@@ -89,49 +88,60 @@ function send(message)
 function requestCall()
 {
     send({
-        type: "CALL_REQUEST",
+        type: CALL_REQUEST,
         doorId: doorId
     });
 }
 
 // Setup WebRTC for the call and starting a peer connection
-function setupCall()
+function setupRTC(value)
 {
-    //getting local audio stream
-    navigator.webkitGetUserMedia({ video: false, audio: true }, function (myStream) {
-        stream = myStream;
+    if(value == "false")
+    {
+        console.log("Something went wrong here....");
+    }
+    else
+    {
+        console.log("Setting up WebRTC..." )
 
-        //displaying local audio stream on the page
-        localAudio.src = window.URL.createObjectURL(stream);
+        // Getting local audio stream
+        navigator.webkitGetUserMedia({video: false, audio: true}, function (myStream)
+        {
+            stream = myStream;
 
-        //using Google public stun server (toglierlo per il traffico locale)
-        var configuration = {
-            "iceServers": [{ "url": "stun:stun2.1.google.com:19302" }]
-        };
+            //displaying local audio stream on the page
+            localAudio.src = window.URL.createObjectURL(stream);
 
-        RTCConnection = new webkitRTCPeerConnection(configuration);
+            // using Google public stun server (toglierlo per il traffico locale)
+            var configuration = {
+                "iceServers": [{"url": "stun:stun2.1.google.com:19302"}]
+            };
 
-        // setup stream listening
-        RTCConnection.addStream(stream);
+            // DONT GIVE ANY CONFIGURATION FOR LOCAL TRAFFIC
+            RTCConnection = new webkitRTCPeerConnection(configuration);
 
-        //when a remote user adds stream to the peer connection, we display it
-        RTCConnection.onaddstream = function (e) {
-            remoteAudio.src = window.URL.createObjectURL(e.stream);
-        };
+            // setup stream listening
+            RTCConnection.addStream(stream);
 
-        // Setup ice handling
-        RTCConnection.onicecandidate = function (event) {
-            if (event.candidate) {
-                send({
-                    type: "candidate",
-                    candidate: event.candidate
-                });
-            }
-        };
+            //when a remote user adds stream to the peer connection, we display it
+            RTCConnection.onaddstream = function (e) {
+                remoteAudio.src = window.URL.createObjectURL(e.stream);
+            };
 
-    }, function (error) {
-        console.log(error);
-    });
+            // Setup ice handling
+            RTCConnection.onicecandidate = function (event) {
+                if (event.candidate) {
+                    send({
+                        type: "candidate",
+                        candidate: event.candidate
+                    });
+                }
+            };
+
+        }, function (error) {
+            console.log(error);
+        });
+    }
 };
 
 // Start the call by sending an offer to the signaling
@@ -162,13 +172,15 @@ function handleCandidate(candidate) {
 };
 
 // Close
-function handleLeave() {
-    connectedUser = null;
+function handleLeave()
+{
+    console.log("Call terminated!");
     remoteAudio.src = null;
-
     RTCConnection.close();
     RTCConnection.onicecandidate = null;
     RTCConnection.onaddstream = null;
+    RTCConnection = null;
+    setupRTC("true");
 };
 
 
@@ -188,3 +200,5 @@ hangUpBtn.addEventListener("click", function () {
 callBtn.addEventListener("click", function () {
     startCall();
 });
+
+setTimeout(function() { console.log("JIMMYY!")} , 10000);

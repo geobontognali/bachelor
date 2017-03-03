@@ -19,11 +19,11 @@ import java.util.logging.Level;
  */
 public class SignalingServer extends WebSocketServer
 {
-    private final String PICK_UP = "PICK_UP";
+    private final String DOOR_ONLINE = "DOOR_ONLINE";
     private final String CALL_REQUEST = "CALL_REQUEST";
 
     private int doorId;
-    private ArrayList callRequests = new ArrayList();
+    private Map<Integer, WebSocket> onlineDoors = new HashMap<>();
     private Map<Integer,ArrayList<WebSocket>> rooms = new HashMap<>();
 
 
@@ -37,6 +37,7 @@ public class SignalingServer extends WebSocketServer
         Logging.log(Level.INFO, "WebSocket server started");
     }
 
+
     /**
      * It forwards the received message to all the other memebers connected in the same room
      * @param currentConnection The current connection with the client, used to avoid resending the message from where it came from
@@ -47,8 +48,8 @@ public class SignalingServer extends WebSocketServer
         Iterator connections = rooms.get(doorId).iterator();
         while (connections.hasNext())
         {
-            WebSocket conn = (WebSocket)connections.next();
-            if(conn != currentConnection)
+            WebSocket conn = (WebSocket) connections.next();
+            if (conn != currentConnection)
             {
                 conn.send(message);
             }
@@ -68,7 +69,7 @@ public class SignalingServer extends WebSocketServer
     @Override
     public void onMessage(WebSocket connection, String message)
     {
-        ArrayList<WebSocket> socketConnections; // Used to store the connections of the partners in case multiple users are connected
+        ArrayList<WebSocket> socketConnections; // Used to store the connections of the partners inside a room
         try
         {
             // Parse the JSON message to an object
@@ -76,40 +77,46 @@ public class SignalingServer extends WebSocketServer
             //Logging.log(Level.INFO, "JSON Received: " + obj.toString());
 
             String msgType = obj.getString("type");
+
             switch (msgType)
             {
-                case CALL_REQUEST: // A client tries to call up the door, it add a call request and creates a new room
+                case DOOR_ONLINE:
                     doorId = obj.getInt("doorId");
-                    if(!callRequests.contains(doorId))
+                    if (onlineDoors.containsKey(doorId)) // Replace old connection with the new one if an older is presents
                     {
-                        callRequests.add(doorId);
+                        onlineDoors.remove(doorId);
+                        Logging.log(Level.INFO, "A door became online. Older one deleted. ID: " + doorId);
                     }
-                    socketConnections = new ArrayList<>();
-                    socketConnections.add(connection);
-                    rooms.put(doorId, socketConnections);
-                    connection.send("{\"type\":\"CALL_REQUEST\",\"value\":\"ACK\"}"); // Replies with ACK
-                    Logging.log(Level.INFO, "A client made a call request for the door: " + doorId + ".");
+                    onlineDoors.put(doorId, connection);
+                    Logging.log(Level.INFO, "New door online. ID: " + doorId);
+                    connection.send("{\"type\":\"DOOR_ONLINE\",\"value\":\"true\"}"); // ACK reply
                     break;
 
-                case PICK_UP: // The web app at the door checks if someone wants to start a call
+                case CALL_REQUEST:
                     doorId = obj.getInt("doorId");
-                    if(callRequests.contains(doorId))
+                    Logging.log(Level.INFO, "A client wants to call the door " + doorId);
+                    if(onlineDoors.get(doorId) != null)
                     {
-                        socketConnections = rooms.get(doorId);
-                        socketConnections.add(connection);
+                        Logging.log(Level.INFO, "The door is online and will be informed. Both partner join the room");
+                        // Creating and joining a room
+                        WebSocket doorConnection = onlineDoors.get(doorId);
+                        socketConnections = new ArrayList<>();
+                        socketConnections.add(connection); // Add the client calling connection
+                        socketConnections.add(doorConnection); // Add the door connection
                         rooms.put(doorId, socketConnections);
-                        connection.send("{\"type\":\"PICK_UP\",\"value\":\"true\"}"); // Replies with true if a call has been found
-                        callRequests.remove(callRequests.indexOf(doorId)); // Remove the call request
-                        Logging.log(Level.INFO, "Door " + doorId + " has found a pending call and joined the room");
+                        // Signaling
+                        connection.send("{\"type\":\"CALL_REQUEST\",\"value\":\"true\"}"); // Replies with true if the door is online
+                        //doorConnection.send("{\"type\":\"PICK_UP\",\"value\":\"true\"}"); // Sends a signal to the door pi to pick up the call
                     }
                     else
                     {
-                        connection.send("{\"type\":\"PICK_UP\",\"value\":\"false\"}"); // Replies with false if no call is incoming
-                        Logging.log(Level.INFO, "Door " + doorId + " is checking for new incoming calls. No pending call has been found");
+                        Logging.log(Level.INFO, "The door is offline. Door ID: " + doorId);
+                        connection.send("{\"type\":\"CALL_REQUEST\",\"value\":\"false\"}"); // Replies with false if the door is offline
                     }
                     break;
                 default: // Straight data exchange between the clients
                     Logging.log(Level.INFO, "Forwarded message: " + message);
+                    System.out.println("Door ID:" + doorId );
                     forwardMessage(connection, message);
                     break;
             }
@@ -124,6 +131,7 @@ public class SignalingServer extends WebSocketServer
     public void onClose(WebSocket conn, int code, String reason, boolean remote)
     {
         Logging.log(Level.INFO, "Client disconnected. " + reason);
+
     }
 
     @Override

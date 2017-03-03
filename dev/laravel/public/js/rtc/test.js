@@ -6,10 +6,9 @@
  * CONSTANTS / VARIABLES
  */
 const doorId = 1212; //Math.random(); // Generate random name
-const signalingSrvAddr = "192.168.0.213";
+const signalingSrvAddr = "localhost";
 const signalingSrvPort = "7007";
 const socketProtocol = "wss"; // wss or ws
-
 const PICK_UP = "PICK_UP";
 const DOOR_ONLINE = "DOOR_ONLINE";
 
@@ -53,15 +52,14 @@ function startWebSocket()
             case DOOR_ONLINE:
                 setupRTC(data.value);
                 break;
-            // When somebody wants to call us
+            //when somebody wants to call us
             case "offer":
                 handleOffer(data.offer, data.name);
                 break;
-            // When a remote peer sends an ice candidate to us
+            //when a remote peer sends an ice candidate to us
             case "candidate":
                 handleCandidate(data.candidate);
                 break;
-            // When the call is terminated
             case "leave":
                 handleLeave();
                 break;
@@ -108,7 +106,6 @@ function setupRTC(value) {
                 "iceServers": [{ "url": "stun:stun2.1.google.com:19302" }]
             };
 
-            // DONT GIVE ANY CONFIGURATION FOR LOCAL TRAFFIC
             RTCConnection = new webkitRTCPeerConnection(configuration);
 
             // setup stream listening

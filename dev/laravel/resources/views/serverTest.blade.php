@@ -26,24 +26,24 @@
 <div id = "callPage" class = "call-page text-center">
     <h2>WebRTC Voice Prototype (Aussensprechstelle)</h2>
     <div class = "row">
-
-        <div class = "col-md-6 text-right">
-            Local audio: <audio id = "localAudio"
-                                controls></audio>
-        </div>
-
-        <div class = "col-md-6 text-left">
-            Remote audio: <audio id = "remoteAudio"
-                                 controls autoplay></audio>
-        </div>
-
+        <br /><br />
+            <div>
+                Local audio
+            </div>
+            <div>
+                <audio id = "localAudio" controls></audio>
+            </div>
+            <br />
+            <br />
+            <div>
+                Remote audio
+            </div>
+            <div>
+                <audio id="remoteAudio" controls autoplay></audio>
+            </div>
     </div>
 
-    <div class = "row text-center">
-        <div class = "col-md-12">
-            <button id = "hangUpBtn" class = "btn-danger btn">Hang Up</button>
-        </div>
-    </div>
+
 </div>
 
 <script src = "js/rtc/server.js"></script>
