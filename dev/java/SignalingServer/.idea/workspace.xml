@@ -2,12 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5d1d5ad-83d8-4a8a-a8c6-685d24daa3c2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/keystore.jks" afterPath="$PROJECT_DIR$/keystore.jks" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SignalingServer/ntb/bachelor/SSLServer.class" afterPath="$PROJECT_DIR$/out/production/SignalingServer/ntb/bachelor/SSLServer.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/public/img/background.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/public/css/style.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/resources/views/clientApp.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/resources/views/home.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/resources/views/layouts/main.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ntb/bachelor/SSLServer.java" afterPath="$PROJECT_DIR$/src/ntb/bachelor/SSLServer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../laravel/IntercomWebapp/public/js/rtc/server.js" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/public/js/rtc/server.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../laravel/IntercomWebapp/resources/views/clientTest.blade.php" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/resources/views/clientTest.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../laravel/IntercomWebapp/app/Http/Controllers/AppController.php" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/app/Http/Controllers/AppController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../laravel/IntercomWebapp/public/js/rtc/client.js" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/public/js/rtc/client.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../laravel/IntercomWebapp/routes/web.php" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/routes/web.php" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -431,7 +434,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -442,7 +445,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25785482" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25785482" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2751896" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />

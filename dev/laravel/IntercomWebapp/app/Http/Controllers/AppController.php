@@ -13,6 +13,11 @@ class AppController extends Controller
 
     public function client()
     {
+        return view('clientApp');
+    }
+
+    public function clientTest()
+    {
         return view('clientTest');
     }
 

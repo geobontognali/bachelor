@@ -1,0 +1,15 @@
+{
+  "name": "Intercom",
+  "icons": [
+    {
+      "src": "img/keyic.png",
+      "sizes": "100x100",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#e7e7e7",
+  "background_color": "#e7e7e7",
+  "start_url": "/client",
+  "display": "standalone",
+  "orientation": "portrait"
+}

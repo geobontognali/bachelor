@@ -12,7 +12,7 @@ const CALL_REQUEST = "CALL_REQUEST";
 
 var RTCConnection;
 var stream;
-
+var socketConn;
 
 /**
  * UI SELECTORS
@@ -22,62 +22,65 @@ var hangUpBtn = document.querySelector('#hangUpBtn');
 var localAudio = document.querySelector('#localAudio');
 var remoteAudio = document.querySelector('#remoteAudio');
 
-/**
- * INIT
- */
-// Start connection to the Signaling server
-var socketConn = new WebSocket("wss://"+signalingSrvAddr+":"+signalingSrvPort);
-console.log("Connecting to the signaling server...");
-
-
-/**
- * CALLBACKS
- */
-// The connection has been established
-socketConn.onopen = function ()
-{
-    console.log("Connected to the signaling server");
-    requestCall();
-};
-
-// Message received from the server
-socketConn.onmessage = function (msg)
-{
-    console.log("Message received: ", msg.data);
-    var data = JSON.parse(msg.data);
-
-    switch(data.type) {
-        case CALL_REQUEST:
-            setupRTC(data.value);
-            console.log("Done! Now you can start the call");
-            break;
-        case "offer":
-            handleOffer(data.offer, data.name);
-            break;
-        case "answer":
-            handleAnswer(data.answer);
-            break;
-        case "candidate":
-            handleCandidate(data.candidate);
-            break;
-        case "leave":
-            handleLeave();
-            break;
-        default:
-            console.log(data);
-            break;
-    }
-};
-
-socketConn.onerror = function (err) {
-    console.log("Got error ", err);
-};
-
 
 
 /**
  * FUNCTIONS
  */
+
+// Start connection to the Signaling server
+function startConnection()
+{
+    socketConn = new WebSocket("wss://"+signalingSrvAddr+":"+signalingSrvPort);
+    console.log("Connecting to the signaling server...");
+
+    /**
+     * CALLBACKS
+     */
+// The connection has been established
+    socketConn.onopen = function ()
+    {
+        console.log("Connected to the signaling server");
+        requestCall();
+    };
+
+// Message received from the server
+    socketConn.onmessage = function (msg)
+    {
+        console.log("Message received: ", msg.data);
+        var data = JSON.parse(msg.data);
+
+        switch(data.type) {
+            case CALL_REQUEST:
+                setupRTC(data.value);
+                console.log("Done! Now you can start the call");
+                break;
+            case "offer":
+                handleOffer(data.offer, data.name);
+                break;
+            case "answer":
+                handleAnswer(data.answer);
+                break;
+            case "candidate":
+                handleCandidate(data.candidate);
+                break;
+            case "leave":
+                handleLeave();
+                break;
+            default:
+                console.log(data);
+                break;
+        }
+    };
+
+    socketConn.onerror = function (err) {
+        console.log("Got error ", err);
+    };
+
+}
+
+
+
 // Sends the message via the socket in JSON format
 function send(message)
 {
