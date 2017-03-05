@@ -1,0 +1,18 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: mainfile.aux
+A level-1 auxiliary file: 1.0_title.aux
+A level-1 auxiliary file: 1.1_zusammenfassung.aux
+A level-1 auxiliary file: 1.2_abstract.aux
+I couldn't open database file lit.bib
+---line 53 of file mainfile.aux
+ : \bibdata{lit
+ :             }
+I'm skipping whatever remains of this command
+The style file: plain.bst
+A level-1 auxiliary file: 1.3_abkuerzungsverzeichnis.aux
+A level-1 auxiliary file: 9.0_erklaerung.aux
+I found no database files---while reading file mainfile.aux
+Warning--I didn't find a database entry for "matlab"
+Warning--I didn't find a database entry for "python"
+Warning--I didn't find a database entry for "aeroKraefte"
+Warning--I didn't find a database entry for "heene"
+(There were 2 error messages)
