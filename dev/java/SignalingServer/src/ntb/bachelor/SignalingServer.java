@@ -7,6 +7,7 @@ import org.java_websocket.server.WebSocketServer;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.util.*;
 import java.util.logging.Level;
@@ -97,7 +98,7 @@ public class SignalingServer extends WebSocketServer
                     Logging.log(Level.INFO, "A client wants to call the door " + doorId);
                     if(onlineDoors.get(doorId) != null)
                     {
-                        Logging.log(Level.INFO, "The door is online and will be informed. Both partner join the room");
+                        Logging.log(Level.INFO, "The requested door is online. Both partner are in the room");
                         // Creating and joining a room
                         WebSocket doorConnection = onlineDoors.get(doorId);
                         socketConnections = new ArrayList<>();
@@ -138,6 +139,7 @@ public class SignalingServer extends WebSocketServer
     public void onError(WebSocket conn, Exception exc)
     {
         Logging.log(Level.WARNING, "Error happened: " + exc);
+        conn.send("ERRORACCIO"); // Replies with false if the door is offline
     }
 
 }

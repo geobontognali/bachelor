@@ -39,3 +39,13 @@
           -webkit-transform: scale(1.0);
       }
 }
+
+.spinner p
+{
+    position: relative;
+    top: 52px;
+    left: -29px;
+    font-style: italic;
+    font-size: 11px;
+    width: 100px;
+}

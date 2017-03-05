@@ -22,7 +22,7 @@ public class Logging
 {
     private static Level logLevel = Level.INFO; // Change this for production release
     private static Logger logger;
-    private static boolean devMode = true; // Only prints to the console
+    private static boolean devMode = false; // Only prints to the console
 
     /**
      * Configures the logging

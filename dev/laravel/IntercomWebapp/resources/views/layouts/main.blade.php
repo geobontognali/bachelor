@@ -19,6 +19,7 @@
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations/spinner.css">
+    <link rel="stylesheet" href="css/animations/wave.css">
 
 
     <script src = "js/rtc/client.js"></script>

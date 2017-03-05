@@ -10,34 +10,41 @@ const signalingSrvAddr = "192.168.0.18";
 const signalingSrvPort = "7007";
 const CALL_REQUEST = "CALL_REQUEST";
 
-var status = "DISCONNECTED";
 var RTCConnection;
 var stream;
 var socketConn;
 
 /**
+ * UI SELECTORS
+ */
+var callBtn = document.querySelector('#callBtn');
+var hangUpBtn = document.querySelector('#hangUpBtn');
+var localAudio = document.querySelector('#localAudio');
+var remoteAudio = document.querySelector('#remoteAudio');
+
+
+
+/**
  * FUNCTIONS
  */
+
 // Start connection to the Signaling server
 function startConnection()
 {
-    setTimeout(function() { checkIfFailed(); }, 3000)
-    var remoteAudio = document.querySelector('#remoteAudio'); // UI Selector
-
     socketConn = new WebSocket("wss://"+signalingSrvAddr+":"+signalingSrvPort);
     console.log("Connecting to the signaling server...");
-    status = "CONNECTING";
 
-    // CALLBACKS
-    // The connection has been established
+    /**
+     * CALLBACKS
+     */
+// The connection has been established
     socketConn.onopen = function ()
     {
         console.log("Connected to the signaling server");
-        status = "CONNECTED";
         requestCall();
     };
 
-    // Message received from the server
+// Message received from the server
     socketConn.onmessage = function (msg)
     {
         console.log("Message received: ", msg.data);
@@ -72,19 +79,6 @@ function startConnection()
 
 }
 
-function checkIfFailed()
-{
-    if(socketConn.readyState == 1) // If connected do nothing
-    {
-        return true;
-    }
-    else // ...retry
-    {
-        console.log("Connection attempt failed, retry...");
-        socketConn.close();
-        startConnection();
-    }
-}
 
 
 // Sends the message via the socket in JSON format
@@ -118,27 +112,28 @@ function setupRTC(value)
         {
             stream = myStream;
 
-            // using Google public stun server (Remove for LAN connections)
+            //displaying local audio stream on the page
+            //localAudio.src = window.URL.createObjectURL(stream);
+
+            // using Google public stun server (toglierlo per il traffico locale)
             var configuration = {
                 "iceServers": [{"url": "stun:stun2.1.google.com:19302"}]
             };
 
-            // Init WebRTC
+            // DONT GIVE ANY CONFIGURATION FOR LOCAL TRAFFIC
             RTCConnection = new webkitRTCPeerConnection(configuration);
-            // Setup listening stream
+
+            // setup stream listening
             RTCConnection.addStream(stream);
-            // When remote user add a stream
-            RTCConnection.onaddstream = function (e)
-            {
+
+            //when a remote user adds stream to the peer connection, we display it
+            RTCConnection.onaddstream = function (e) {
                 remoteAudio.src = window.URL.createObjectURL(e.stream);
-                $('#audioWave').show();
-                $('#audioOff').hide();
             };
+
             // Setup ice handling
-            RTCConnection.onicecandidate = function (event)
-            {
-                if (event.candidate)
-                {
+            RTCConnection.onicecandidate = function (event) {
+                if (event.candidate) {
                     send({
                         type: "candidate",
                         candidate: event.candidate
@@ -146,14 +141,9 @@ function setupRTC(value)
                 }
             };
 
-        }, function (error)
-        {
-            console.log("Error setting up WebRTC");
+        }, function (error) {
             console.log(error);
         });
-
-        status = "READY";
-        $('#btnLeft').fadeTo('fast', 1); // Activate button
     }
 };
 
@@ -175,15 +165,12 @@ function startCall()
 
 
 // When we got an answer after the offer
-function handleAnswer(answer)
-{
+function handleAnswer(answer) {
     RTCConnection.setRemoteDescription(new RTCSessionDescription(answer));
-    status = "TRANSMITTING";
 };
 
 // When we got an ice candidate from a remote user
-function handleCandidate(candidate)
-{
+function handleCandidate(candidate) {
     RTCConnection.addIceCandidate(new RTCIceCandidate(candidate));
 };
 
@@ -200,51 +187,22 @@ function handleLeave()
 };
 
 
-function closeCall()
-{
+/**
+ * LISTENERS
+ */
+//Hang up
+hangUpBtn.addEventListener("click", function () {
     send({
         type: "leave"
     });
 
     handleLeave();
-}
+});
 
-function triggerCall()
-{
-    if(status == "TRANSMITTING")
-    {
-        closeCall();
-        changeBtn("off");
-    }
-    else if(status == "READY")
-    {
-        startCall();
-        changeBtn("on");
-    }
-    else
-    {
-        console.log("Not ready yet!");
-    }
-}
+//initiating a call
+callBtn.addEventListener("click", function () {
+    alert("Hey");
+    startCall();
+});
 
-function changeBtn(status)
-{
-    if(status == "on")
-    {
-        $('#btnLeft').css("background-image", "url('../img/mainbtn.png')");
-        $('#iconLeft').css("background-image", "url('../img/speaker.png')");
-    }
-    else
-    {
-        $('#btnLeft').css("background-image", "url('../img/mainbtn_no.png')");
-        $('#iconLeft').css("background-image", "url('../img/mute.png')");
-        $('#audioWave').hide();
-        $('#audioOff').show();
-    }
-}
-
-function openDoor()
-{
-    $('#btnRight').css("background-image", "url('../img/mainbtn.png')");
-    setTimeout(function() { $('#btnRight').css("background-image", "url('../img/mainbtn_no.png')") }, 3000)
-}
+setTimeout(function() { console.log("JIMMYY!")} , 10000);

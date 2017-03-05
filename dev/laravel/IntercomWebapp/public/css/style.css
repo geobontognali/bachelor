@@ -1,10 +1,37 @@
+/* FONTS ****************************/
+@font-face
+{
+    font-family: HelveticaNeu;
+    src: url("../fonts/HelveticaNeu.otf") format("opentype");
+}
+@font-face
+{
+    font-family: "segoe";
+    src: local("Segoe UI"), url("../fonts/segoe.ttf") format("truetype"); /* non-IE */
+}
+
+@font-face
+{
+    font-family: "segoel";
+    src: local("Segoe UI Light"), url("../fonts/segoel.ttf") format("truetype"); /* non-IE */
+}
+
+/* GENERALS ****************************/
 body
 {
     background-image: url("../img/mainbg.jpg");
     background-size: 100%;
     background-repeat: repeat-x;
+    font-family: segoe;
 }
 
+
+h1
+{
+    font-family: segoel;
+}
+
+/* TOP REGION ****************************/
 #topContainer
 {
 
@@ -13,18 +40,147 @@ body
 
 #videofeed
 {
-    width: 80%;
-    max-width: 600px;
-    height: 280px;
+    min-height: 250px;
+    margin: auto;
     margin-top: 20px;
-    background-color: white;
+
+    z-index: 1;
+    position: relative;
+    background-image: url('../img/bgpattern.png');
     -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
 }
+@media (max-width: 768px) {
+    #videofeed
+    {
+        max-width: 90%;
+    }
+}
+@media(min-width: 768px) {
+    #videofeed
+    {
+        max-width: 450px;
+    }
+}
 
+
+#videoContent img
+{
+    z-index: 2;
+    width: 100%;
+    position: relative;
+}
+
+#audioStatus
+{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 5;
+}
+
+
+#audioOff
+{
+    background-image: url('../img/noaudio.png');
+    background-size: 100%;
+    width: 25px;
+    height: 25px;
+    opacity: 0.9;
+}
+
+#audioWave
+{
+    width: 25px;
+    height: 25px;
+    opacity: 0.9;
+    display: none;
+    left: -10px;
+    position: relative;
+}
+
+
+#loadingSpinner
+{
+    position: absolute;
+    top: 0px;
+    left: 45%;
+}
+
+/* BOTTOM REGIONS ****************************/
+#buttons
+{
+    margin-top: 20px;
+    font-family: HelveticaNeu;
+    font-size: 19px;
+}
+#btnLeft
+{
+    width: 120px;
+    height: 120px;
+    background-image: url("../img/mainbtn_no.png");
+    background-size: 100%;
+    margin: auto;
+    opacity: 0.3;
+    cursor: pointer;
+}
+#btnLeft p
+{
+    position: relative;
+    margin: auto;
+    top: 62px;
+}
+
+#iconLeft
+{
+    background-image: url("../img/mute.png");
+    background-size: 100%;
+    width: 55px;
+    height: 55px;
+    margin: auto;
+    position: relative;
+    top: 30px;
+
+}
+
+
+#btnRight
+{
+    width: 120px;
+    height: 120px;
+    background-image: url("../img/mainbtn_no.png");
+    background-size: 100%;
+    margin: auto;
+    cursor: pointer;
+}
+#btnRight p
+{
+    position: relative;
+    margin: auto;
+    top: 67px;
+}
+#iconRight
+{
+    background-image: url("../img/key.png");
+    background-size: 100%;
+    width: 50px;
+    height: 50px;
+    margin: auto;
+    position: relative;
+    top: 32px;
+}
+
+
+/* BOTTOM NAVI ****************************/
 #bottomContainer
 {
     background-color: #282828;
     height: 65px;
+}
+
+/* MISC ****************************/
+#remoteAudio
+{
+    display: none;
 }
