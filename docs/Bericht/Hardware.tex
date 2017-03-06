@@ -6,9 +6,24 @@ Das System wird Hardwareseitig in zwei Teile unterteilt. Der Server, die zentral
 \subsection{Server}
 \label{sec:chapterexample}
 
-Der Server wird mit einem Relay-Board verbunden. Diese wird die Gongs und die Türöffner bedienen.
+Der Server wird mit einem Relay-Board verbunden. Diese wird die Gongs und die Türöffner bedienen. An dieser Stelle ist die Hardware-Konfiguration sehr einfach. Je nach wie viele Gongs und Türe verbunden werden müssen, könnten bis zwei 8-Channel Relayboards verbunden werden.
+\\
+
+<-- ABBILDUNG CON LA PI E I RELAY E I PIN A CUI SONO COLLEGATI
+\\
+\\
 
 \subsection{Aussensprechstelle}
 \label{sec:chapterexample}
 
-Als Entwicklungsprozess wird ein hybrides Vorgehensmodell eingesetzt (\ref{fig:hybridesModell}). Im Rahmen einer Bachelor Arbeit, in der die Anforderungen und Analysen schon im Vorhinein im Fachmodul definiert worden sind, eignet sich am bestens ein lineares V-Modell. Ein solcher Prozess ist sehr schlank, übersichtlich und geeignet für die Grösse des Projekts.
+Bei der Aussensprechstelle wird auch eine Raspberry Pi eingesetzt. Hier sind mehrere Zusatzkomponenten notwendig. Die Speisung an dieser stelle erfolgt nur über PoE, aus diesem Grund ist PoE-Splitter vorhanden.
+\\
+\\
+Für die Audiowiedergabe ist ein kleines Lautsprecher und ein Verstärker nötig. Die Chinch-Anschluss der Raspberry Pi hat eine zu kleine innere Widerstand um direkt ein solches Lautsprecher anschliessen zu können. Die Hauptproblematik nun besteht darin, dass die Massen des Raspberry Pi, der Verstärker und des Audio-Interface alle zusammen gekoppelt sind. Das führt zu Brunschleifen die wiederum Störsignale auf dem Audio-Ausgang erzeugen. Um das zu vermeiden ist eine Massentrennfilter an dieser Stelle notwendig.
+\\
+
+<-- ABBILDUNG CON LA PI E COMPONENTI COLLEGATI
+\\
+\\
+
+\newpage

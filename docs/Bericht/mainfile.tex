@@ -13,12 +13,12 @@
 
 % Dokumentinformationen
 
-\usepackage{hyperref} % ermöglicht Hyperlinks in PDF-Dokumenten
+%\usepackage{hyperref} % ermöglicht Hyperlinks in PDF-Dokumenten
 %definecolor{LinkColor}{rgb}{0,0,0}
-\hypersetup
-	{
+%\hypersetup
+%	{
 	% Farbein der Verweise
-	             colorlinks, % farbige Links anstelle von Boxen
+%	             colorlinks, % farbige Links anstelle von Boxen
 	% Farben für Bildschirmanzeige
 	%            linkcolor=red, % Farbe für normale interne Links
 	%            anchorcolor=black, % Farbe für Ankertext
@@ -27,12 +27,12 @@
 	%            menucolor=red, % Farbe für Acrobat-Menü-Elemente
 	%            urlcolor=cyan, % Farbe für URLs
 	% Farben für Druck
-	             linkcolor=black, % Farbe für normale interne Links
-	             anchorcolor=black, % Farbe für Ankertext
-	             citecolor=black, % Farbe für bibliografische Zitate im Text
-	             filecolor=black, % Farbe für URLs auf lokale Dateien
-	             menucolor=black, % Farbe für Acrobat-Menü-Elemente
-	             urlcolor=black, % Farbe für URLs
+%	             linkcolor=black, % Farbe für normale interne Links
+%	             anchorcolor=black, % Farbe für Ankertext
+%	             citecolor=black, % Farbe für bibliografische Zitate im Text
+%	             filecolor=black, % Farbe für URLs auf lokale Dateien
+%	             menucolor=black, % Farbe für Acrobat-Menü-Elemente
+%	             urlcolor=black, % Farbe für URLs
 	%            linkcolor=blue, % Farbe für normale interne Links
 	%            anchorcolor=black, % Farbe für Ankertext
 	%            citecolor=green, % Farbe für bibliografische Zitate im Text
@@ -40,12 +40,12 @@
 	%            menucolor=red, % Farbe für Acrobat-Menü-Elemente
 	%            urlcolor=blue, % Farbe für URLs
 	% PDF Metadaten
-	             pdftitle={Türklingelnanlage mit Standardkomponente }, % Titel des PDF Dokuments
-	             pdfauthor={Federico Crameri, Geo Bontognali}, % Verfasser des PDF Dokuments
+%	             pdftitle={Türklingelnanlage mit Standardkomponente }, % Titel des PDF Dokuments
+%	             pdfauthor={Federico Crameri, Geo Bontognali}, % Verfasser des PDF Dokuments
 	%            pdfsubject={}, % Thema des PDF Dokuments
 	%            pdfkeywords={}, % Stichwörter des PDF Dokuments
 %	             pdfdisplaydoctitle=true, % Titel anstelle Dateinamen in Titelzeile anzeigen
-	}
+%	}
 
 
 % Standard Packages
@@ -120,7 +120,7 @@
 %römische Aufzählungen mit \RM{Zahl}
 \newcommand{\RM}[1]{\MakeUppercase{\romannumeral #1}}
 \newcommand{\MATLAB}{\textsc{Matlab}\xspace}
-\newcommand{\seeref}[1]{\seename \cref{#1}}
+\newcommand{\seeref}[1]{\seename \ \cref{#1}}
 
 \renewcommand{\theequation}{\thesection.\arabic{equation}}
 
@@ -174,6 +174,7 @@
 \input{Einfuehrung}
 \input{Projektplanung}
 \input{Hardware}
+\input{Software}
 
 
 
