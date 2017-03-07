@@ -20,8 +20,9 @@
 \contentsline {subsubsection}{\numberline {5.2.3}PHP Framework: Laravel}{8}
 \contentsline {subsection}{\numberline {5.3}Skripts}{8}
 \contentsline {subsection}{\numberline {5.4}Webapplikationen}{8}
-\contentsline {section}{Literaturverzeichnis}{9}
-\contentsline {section}{Abbildungsverzeichnis}{10}
-\contentsline {section}{Tabellenverzeichnis}{11}
-\contentsline {section}{Abk\IeC {\"u}rzungsverzeichnis}{12}
-\contentsline {section}{Eidesstattliche Erkl\IeC {\"a}rung}{13}
+\contentsline {subsubsection}{\numberline {5.4.1}Client Webapplikation}{8}
+\contentsline {section}{Literaturverzeichnis}{10}
+\contentsline {section}{Abbildungsverzeichnis}{11}
+\contentsline {section}{Tabellenverzeichnis}{12}
+\contentsline {section}{Abk\IeC {\"u}rzungsverzeichnis}{13}
+\contentsline {section}{Eidesstattliche Erkl\IeC {\"a}rung}{14}
