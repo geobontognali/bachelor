@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.3.6)  7 MAR 2017 13:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.3.7)  8 MAR 2017 17:28
 entering extended mode
 **./mainfile.tex
 (mainfile.tex
@@ -1094,16 +1094,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--32
 
  []
 
-<img/clientDemo.jpg, id=60, 1445.4pt x 2569.6pt>
+
+LaTeX Warning: Reference `fig:Java' on page 1 undefined on input line 38.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--41
+
+ []
+
+Package cleveref Info: loaded `ngerman' language definitions on input line 41.
+[8] <img/clientDemo.jpg, id=63, 1445.4pt x 2569.6pt>
 File: img/clientDemo.jpg Graphic file (type jpg)
  <use img/clientDemo.jpg>
-Package pdftex.def Info: img/clientDemo.jpg used on input line 45.
+Package pdftex.def Info: img/clientDemo.jpg used on input line 52.
 (pdftex.def)             Requested size: 123.77074pt x 220.00107pt.
-Package cleveref Info: loaded `ngerman' language definitions on input line 50.
+Package cleveref Info: loaded `ngerman' language definitions on input line 60.
 
-[8]
-Package cleveref Info: loaded `ngerman' language definitions on input line 53.
- [9 <./img/clientDemo.jpg>]) (mainfile.bbl
+[9 <./img/clientDemo.jpg>]) (mainfile.bbl
 
 LaTeX Warning: Empty `thebibliography' environment or \BreakBibliography
                before end of `thebibliography' environment on input line 3.
@@ -1156,10 +1163,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 7950 strings out of 493333
- 133270 string characters out of 3139201
+ 7951 strings out of 493333
+ 133285 string characters out of 3139195
  302900 words of memory out of 3000000
- 11262 multiletter control sequences out of 15000+200000
+ 11263 multiletter control sequences out of 15000+200000
  51855 words of font info for 44 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  48i,10n,51p,8848b,555s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1171,7 +1178,7 @@ ram Files/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb><C:/Program Files/MiKTeX 2
 .9/fonts/type1/public/lm/lmro12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
 blic/lm/lmssbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.
 pfb>
-Output written on mainfile.pdf (21 pages, 885261 bytes).
+Output written on mainfile.pdf (21 pages, 886761 bytes).
 PDF statistics:
  109 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

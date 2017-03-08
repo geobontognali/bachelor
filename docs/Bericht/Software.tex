@@ -34,6 +34,12 @@ Für die Entwicklung der Webapplikationen wird Laravel als PHP Framework eingese
 
 \subsection{Skripts}
 
+\subsubsection{Keymapper}
+Die Aussensprechstelle wird durch 3 Anti Vandalismus Schalter bedient. Die Aufgabe des Keymapper ist sicherzustellen das bei einem Tastendruck eine Aktion auf der Aussensprechselle ausgeführt wird. Die drei Schalter wurden an GPIO Pins des Raspberry PI angeschlossen. Wie im Kapitel (\seeref{fig:Java})
+beschrieben wurde Java eingesetzt. Die ursprüngliche Idee war der Keymapper als Daemon im Hintergrund laufen zu lassen. Diese würde der Vorteil haben das der Daemon mittels run, stop und restart stabil gesteuert werden könnte. Da die eingesetzte java Library zum laufen zwingend ein X server benötigt, wurde der Keymapper im Init level 5 wo auch der X Server ausgeführt. Die Ausführung der Software ergibt in diesem Fall eine Fehlermeldung da die X Server noch nicht vollständig initialisiert ist. 
+Das Problem lag darin das per Definition ein Daemon Benutzerunabhängig ist. Somit steht der Library die auf dem X Server zugreift die wiederum Benutzerspezifisch ist, in Konflikt mit der Definition. 
+\\
+Die Desktop-Umgebung LXDE welche von Raspbian verwendet wird, bietet ein Autostart welche die Keymapper nach dem Initialisierung des X Server ausführt.
 
 \subsection{Webapplikationen}
 
