@@ -22,7 +22,7 @@ Aus diesem Grund haben wir uns für PHP (Objektorientiert) im Kombination mit Ja
 \subsubsection{PHP Framework: Laravel}
 Für die Entwicklung der Webapplikationen wird Laravel als PHP Framework eingesetzt. Laravel ist ein Open-Source PHP Web-Application-Framework, die sich für kleine bis zu mittelgrosse Projekte eignet. Laravel beruht auf dem Modell-View-Controller-Muster und ermöglicht eine Objektorientierte Programmierung in PHP.
 
-\subsection{Software-Ecosystem}
+\subsection{System Übersicht}
 Das System besteht aus mehrere Hardware- und Softwarekomponenten die zusammenarbeiten müssen (\seeref{fig:echosystem}). Die Kommunikation zwischen den Knoten ist von TLS immer gewährleistet. Die einzelne Komponente werden in den nächsten Kapiteln genauer beschrieben.
 
 \begin{figure}[htb!]
@@ -33,9 +33,9 @@ Das System besteht aus mehrere Hardware- und Softwarekomponenten die zusammenarb
 	\end{center}
 \end{figure}
 
-Die Software wird in zwei Gruppen unterteilt. Einerseits gibt es alle Dienste/Services \textit{(Violett)} die Lokal ausgeführt werden und quasi das Backend des Systems darstellen (\seeref{kap:dienste}). 
+Die Software wird in zwei Gruppen unterteilt. Einerseits gibt es alle Dienste/Services \textit{(Violett)} die Lokal ausgeführt werden und quasi das Backend des Systems darstellen.
 \\
-Die zweite Gruppe beinhaltet die Webapplikationen \textit{(Grün)}, die eine GUI besitzen und für die Interaktion mit dem System gedacht sind. Darunter zählen die Client-App für den Bewohner, die Applikation bei der Aussensprechstelle wo die Bewohner angezeigt werden und das Management Tool. (\seeref{kap:webapp})
+Die zweite Gruppe beinhaltet die Webapplikationen \textit{(Grün)}, die eine GUI besitzen und für die Interaktion mit dem System gedacht sind. Darunter zählen die Client-App für den Bewohner, die Applikation bei der Aussensprechstelle wo die Bewohner angezeigt werden und das Management Tool.
 \\
 Die Audio-Kommunikation zwischen die Aussensprechstellen und die Client-Apps wird mithilfe von WebRTC realisiert. Diese hat eine gewisse Komplexität und wird in ein eigenes Kapitel (\seeref{kap:webrtc}) behandelt.
 
@@ -54,13 +54,16 @@ Die Desktop-Umgebung LXDE welche von Raspbian verwendet wird, bietet ein Autosta
 
 \subsubsection{Speaker Controller}
 ...
+\subsubsection{Streaming Server}
+\label{kap:streamingsrv}
+...
 \subsubsection{Relay Controller}
 ...
 \subsubsection{Watchdog}
 ...
 
 \subsubsection{Signaling Server}
-Der Signaling-Server ist ein bestandteil von WebRTC und wird in ein eigenes Kapitel ausführlich beschrieben (\seeref{kap:webrtc}).
+Der Signaling-Server ist ein bestandteil von WebRTC und wird in ein eigenes Kapitel ausführlich beschrieben (\seeref{kap:signaling}).
 
 
 \subsection{Webapplikationen}
@@ -85,5 +88,53 @@ Bei der Design-Entwurf standen Übersichtlichkeit und Benutzerfreundlichkeit im 
 
 \subsection{WebRTC}
 \label{kap:webrtc}
+WebRTC ist ein offener Standard, der eine Sammlung von Kommunikationsprotokollen und API beinhaltet. Die Standardisierung wird mehrheitlich betrieben und unterstützt von Google, Mozilla Foundation und Opera Software. WebRTC basiert auf HTML5 und Javascript und die Audio/Video Übertragung erfolgt über eine direkte Verbindung zwischen die Sprechpartner (Peer-to-Peer).
+\\
+Im unseren System wird WebRTC nur für den Audiostream verwendet. Das Videostream ist unidirektional und kann somit mit andere Methoden effizienter übertragen werden (\seeref{kap:streamingsrv}).
+\\
+\\
+WebRTC wird hauptsächlich für die Entwicklung von Videokonferenz Programme verwendet. Die Natur dieses Projekt ist allerdings nicht dieselbe wie die herkömmliche Real-Time-Communication Applikationen. Glücklicherweise wurde WebRTC so entwickelt, um möglichst viel Flexibilität zu garantieren. Aus diesem Grund beinhaltet der WebRTC-Standard keine Definition für den Signaling-Process, welcher zusammen mit dem ICE (Interactive Connectivity Establishment) für den Verbindungsaufbau zwischen den Sprechpartnern zuständig ist. 
+
+\begin{quote}
+	\textit{
+		"The thinking behind WebRTC call setup has been to fully specify and control the media plane, but to leave the signaling plane up to the application as much as possible. The rationale is that different applications may prefer to use different protocols, such as the existing SIP or Jingle call signaling protocols, or something custom to the particular application, perhaps for a novel use case. [...]"
+	} 
+	\\
+	\cite[Sam Dutton, HTML5Rocks.com]{001} 
+\end{quote}
+
+\subsubsection{Signaling Process}
+\label{kap:signaling}
+
+Ähnlich wie bei VoIP-Telefonie \textit{(SIP)} brauchen die Sprechpartner ein gemeinsam bekanntes Knoten, um die Verbindung zu initialisieren (\seeref{fig:signaling}). In den meisten Fällen ist einem Partner, die logische Adressierung der andere Partner nicht bekannt. Es besteht also keine Möglichkeit um eine P2P Verbindung auf einmal zu starten. 
+\begin{figure}[htb!]
+	\begin{center}
+		\includegraphics[width=0.75\textwidth]{signalingprocess}
+		\caption[Der Signaling Prozess]{Der Signaling Prozess}
+		\label{fig:signaling}
+	\end{center}
+\end{figure}
+\\
+Im unseren Fall wäre es theoretisch möglich, da die Position der Aussensprechstellen bzw. der Server immer dieselbe sind. Allerdings wurde WebRTC nicht so konzipiert. Die Standard WebRTC API beinhaltet kein Konstrukt um eine Verbindung anhand von Bekannter IP-Adresse aufbauen zu können.
+\\
+Im Internet sind es mehrere Signaling-Server Libraries verfügbar. Allerdings sind diese für andere Anwendungen gedacht. Im unseren System, wird beispielsweise nie eine Anruf von der Aussensprechstelle zu den Client-App gestartet, sondern lediglich umgekehrt.
+\\
+Für die Zwecke unser Projekt wurde ein eigenes Signaling-Server entwickelt. Dieser wird auf den Server ausgeführt und somit bleibt der Datenverkehr zwischen dem Client-App und der Aussensprechstelle, während jeder Schritt der Verbindungsaufbau und Kommunikation, innerhalb des lokales Netzwerkes. Das natürlich nur, solange der Bewohner sich zu Hause befindet.
+
+\subsubsection{STUN Servers \& Remote Verbindung}
+Eine Anforderung des Systems ist die Möglichkeit, auch ausserhalb des Heimnetzes mit den Aussensprechstellen sich verbinden zu können. Hier stellt das NAT-Protokoll (Network Adress Translation) ein Problem dar.
+\\
+Nach dem Signaling-Prozess wird das ICE-Prozess gestartet. Hier tauschen sich die zwei Partner Informationen über die eigene Adressierung und den \textit{best path} aus. Falls sich ein Sprechpartner hinter ein NAT-Knote befindet, wird für den anderen unmöglich eine Verbindung aufzubauen. Hier kommen die STUN-Servers im Spiel. Ähnlich wie bei dem Signalisierungsprozess stehen STUN-Servers als hilfe für den Verbindungsaufbau da (\seeref{fig:stun}). 
+\begin{figure}[htb!]
+	\begin{center}
+		\includegraphics[width=0.75\textwidth]{stun}
+		\caption[STUN Server]{STUN Server}
+		\label{fig:stun}
+	\end{center}
+\end{figure}
+ STUN-Servers informieren die Clients über jegliche NAT Konfigurationen die sich dazwischen befinden würden. Die beide Sprechpartner erhalten somit Informationen über welche Ports und Öffentliche Adressen die Verbindung initialisiert werden kann. Für die Entwicklung dieses Projektes werden die Google STUN Servers verwendet, welche kostenfrei zur Verfügung stehen.
+\\
+Falls sich beide Sprechpartner im gleichen lokales Netzwerk befinden, werden keine STUN-Servers benötigt und den gesamten Datenverkehr bleibt innerhalb des Heimnetzwerkes.
+
 
 \newpage
