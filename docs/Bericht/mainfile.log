@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.3.7)  8 MAR 2017 17:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.3.6)  9 MAR 2017 16:31
 entering extended mode
 **./mainfile.tex
 (mainfile.tex
@@ -977,11 +977,11 @@ ments of He-lix Car-bon GmbH,
 
 ] (mainfile.toc
 Package cleveref Info: loaded `ngerman' language definitions on input line 1.
-)
+ [4])
 \tf@toc=\write3
 \openout3 = `mainfile.toc'.
 
- [4] (intro.tex
+ [5] (intro.tex
 LaTeX Font Info:    Try loading font information for OMS+lmr on input line 6.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omslmr.fd"
@@ -990,7 +990,7 @@ File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 6.
 
-<img/airfoilKraefte.jpg, id=25, 465.74pt x 340.27126pt>
+<img/airfoilKraefte.jpg, id=29, 465.74pt x 340.27126pt>
 File: img/airfoilKraefte.jpg Graphic file (type jpg)
 
 <use img/airfoilKraefte.jpg>
@@ -1024,7 +1024,7 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 43.
  [2]) (Einfuehrung.tex
 Package cleveref Info: loaded `ngerman' language definitions on input line 24.
  [3]) (Projektplanung.tex
-<img/hybridesModell.png, id=39, 505.13719pt x 362.85562pt>
+<img/hybridesModell.png, id=42, 505.13719pt x 362.85562pt>
 File: img/hybridesModell.png Graphic file (type png)
 
 <use img/hybridesModell.png>
@@ -1032,14 +1032,14 @@ Package pdftex.def Info: img/hybridesModell.png used on input line 15.
 (pdftex.def)             Requested size: 367.18257pt x 263.76398pt.
 Package cleveref Info: loaded `ngerman' language definitions on input line 32.
  [4 <./img/hybridesModell.png>]
-<img/projektPlanAchse.png, id=45, 971.12813pt x 155.45578pt>
+<img/projektPlanAchse.png, id=48, 971.12813pt x 155.45578pt>
 File: img/projektPlanAchse.png Graphic file (type png)
 
 <use img/projektPlanAchse.png>
 Package pdftex.def Info: img/projektPlanAchse.png used on input line 35.
 (pdftex.def)             Requested size: 412.56497pt x 66.04054pt.
 
-<img/projektPlanung.png, id=46, 756.20015pt x 495.35063pt>
+<img/projektPlanung.png, id=49, 756.20015pt x 495.35063pt>
 File: img/projektPlanung.png Graphic file (type png)
 
 <use img/projektPlanung.png>
@@ -1082,35 +1082,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 25--28
  []
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 29.
-[6]) (Software.tex <img/ecosystem.png, id=54, 773.89125pt x 483.30562pt>
+[6]) (Software.tex
+Underfull \hbox (badness 10000) in paragraph at lines 18--22
+
+ []
+
+Package cleveref Info: loaded `ngerman' language definitions on input line 24.
+[7] <img/ecosystem.png, id=61, 773.89125pt x 483.30562pt>
 File: img/ecosystem.png Graphic file (type png)
 
 <use img/ecosystem.png>
-Package pdftex.def Info: img/ecosystem.png used on input line 9.
+Package pdftex.def Info: img/ecosystem.png used on input line 30.
 (pdftex.def)             Requested size: 412.56497pt x 257.65518pt.
-Package cleveref Info: loaded `ngerman' language definitions on input line 26.
- [7 <./img/ecosystem.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 28--32
-
- []
-
-
-LaTeX Warning: Reference `fig:Java' on page 1 undefined on input line 38.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 38--41
-
- []
-
 Package cleveref Info: loaded `ngerman' language definitions on input line 41.
-[8] <img/clientDemo.jpg, id=63, 1445.4pt x 2569.6pt>
+ [8 <./img/ecosystem.png>]
+Package cleveref Info: loaded `ngerman' language definitions on input line 66.
+ [9]
+<img/clientDemo.jpg, id=70, 1445.4pt x 2569.6pt>
 File: img/clientDemo.jpg Graphic file (type jpg)
  <use img/clientDemo.jpg>
-Package pdftex.def Info: img/clientDemo.jpg used on input line 52.
-(pdftex.def)             Requested size: 123.77074pt x 220.00107pt.
-Package cleveref Info: loaded `ngerman' language definitions on input line 60.
+Package pdftex.def Info: img/clientDemo.jpg used on input line 75.
+(pdftex.def)             Requested size: 144.40025pt x 256.70059pt.
+Package cleveref Info: loaded `ngerman' language definitions on input line 84.
 
-[9 <./img/clientDemo.jpg>]) (mainfile.bbl
+[10 <./img/clientDemo.jpg>]
+Package cleveref Info: loaded `ngerman' language definitions on input line 89.
+ [11]) (mainfile.bbl
 
 LaTeX Warning: Empty `thebibliography' environment or \BreakBibliography
                before end of `thebibliography' environment on input line 3.
@@ -1118,7 +1115,7 @@ LaTeX Warning: Empty `thebibliography' environment or \BreakBibliography
 )
 Package cleveref Info: loaded `ngerman' language definitions on input line 193.
 
- [10] (mainfile.lof
+ [12] (mainfile.lof
 Package cleveref Info: loaded `ngerman' language definitions on input line 1.
 )
 \tf@lof=\write4
@@ -1126,7 +1123,7 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 1.
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 198.
 
- [11] (mainfile.lot
+ [13] (mainfile.lot
 Package cleveref Info: loaded `ngerman' language definitions on input line 1.
 )
 \tf@lot=\write5
@@ -1134,19 +1131,19 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 1.
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 201.
 
- [12]
+ [14]
 \openout2 = `abkuerzungsverzeichnis.aux'.
 
  (abkuerzungsverzeichnis.tex
-[13
+[15
 
 ])
 \openout2 = `erklaerung.aux'.
 
- (erklaerung.tex) [14
+ (erklaerung.tex) [16
 
 
-] [15
+] [17
 
 ] (mainfile.aux (title.aux)
 Package cleveref Info: loaded `ngerman' language definitions on input line 5.
@@ -1163,24 +1160,24 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 7951 strings out of 493333
- 133285 string characters out of 3139195
- 302900 words of memory out of 3000000
- 11263 multiletter control sequences out of 15000+200000
- 51855 words of font info for 44 fonts, out of 3000000 for 9000
+ 7960 strings out of 493333
+ 133407 string characters out of 3139201
+ 303900 words of memory out of 3000000
+ 11271 multiletter control sequences out of 15000+200000
+ 56117 words of font info for 45 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 48i,10n,51p,8848b,555s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Fil
-es/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Files/MiKTeX 2.9/fon
-ts/enc/dvips/lm/lm-ec.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lm
+ 48i,10n,51p,8848b,567s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}{C:/Program Files/M
+iKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files/MiKTeX 2.9/fonts/e
+nc/dvips/lm/lm-mathsy.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lm
 bx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmmi12.pfb><C:/Prog
 ram Files/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb><C:/Program Files/MiKTeX 2
-.9/fonts/type1/public/lm/lmro12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
-blic/lm/lmssbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.
-pfb>
-Output written on mainfile.pdf (21 pages, 886761 bytes).
+.9/fonts/type1/public/lm/lmri12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
+blic/lm/lmro12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmssbx10.
+pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb>
+Output written on mainfile.pdf (24 pages, 904870 bytes).
 PDF statistics:
- 109 PDF objects out of 1000 (max. 8388607)
+ 122 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

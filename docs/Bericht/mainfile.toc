@@ -13,18 +13,22 @@
 \contentsline {subsection}{\numberline {4.1}Server}{6}
 \contentsline {subsection}{\numberline {4.2}Aussensprechstelle}{6}
 \contentsline {section}{\numberline {5}Software}{7}
-\contentsline {subsection}{\numberline {5.1}\IeC {\"U}bersicht}{7}
-\contentsline {subsection}{\numberline {5.2}Programmiersprachen}{7}
-\contentsline {subsubsection}{\numberline {5.2.1}Java}{8}
-\contentsline {subsubsection}{\numberline {5.2.2}PHP/Javascript}{8}
-\contentsline {subsubsection}{\numberline {5.2.3}PHP Framework: Laravel}{8}
-\contentsline {subsection}{\numberline {5.3}Skripts}{8}
-\contentsline {subsubsection}{\numberline {5.3.1}Keymapper}{8}
-\contentsline {subsubsection}{\numberline {5.3.2}Speeker Controller}{9}
-\contentsline {subsection}{\numberline {5.4}Webapplikationen}{9}
-\contentsline {subsubsection}{\numberline {5.4.1}Client Webapplikation}{9}
-\contentsline {section}{Literaturverzeichnis}{10}
-\contentsline {section}{Abbildungsverzeichnis}{11}
-\contentsline {section}{Tabellenverzeichnis}{12}
-\contentsline {section}{Abk\IeC {\"u}rzungsverzeichnis}{13}
-\contentsline {section}{Eidesstattliche Erkl\IeC {\"a}rung}{14}
+\contentsline {subsection}{\numberline {5.1}Programmiersprachen}{7}
+\contentsline {subsubsection}{\numberline {5.1.1}Java}{7}
+\contentsline {subsubsection}{\numberline {5.1.2}PHP/Javascript}{7}
+\contentsline {subsubsection}{\numberline {5.1.3}PHP Framework: Laravel}{8}
+\contentsline {subsection}{\numberline {5.2}Software-Ecosystem}{8}
+\contentsline {subsection}{\numberline {5.3}Dienste}{9}
+\contentsline {subsubsection}{\numberline {5.3.1}Keymapper}{9}
+\contentsline {subsubsection}{\numberline {5.3.2}Speaker Controller}{9}
+\contentsline {subsubsection}{\numberline {5.3.3}Relay Controller}{9}
+\contentsline {subsubsection}{\numberline {5.3.4}Watchdog}{9}
+\contentsline {subsubsection}{\numberline {5.3.5}Signaling Server}{10}
+\contentsline {subsection}{\numberline {5.4}Webapplikationen}{10}
+\contentsline {subsubsection}{\numberline {5.4.1}Client Webapplikation}{10}
+\contentsline {subsection}{\numberline {5.5}WebRTC}{11}
+\contentsline {section}{Literaturverzeichnis}{12}
+\contentsline {section}{Abbildungsverzeichnis}{13}
+\contentsline {section}{Tabellenverzeichnis}{14}
+\contentsline {section}{Abk\IeC {\"u}rzungsverzeichnis}{15}
+\contentsline {section}{Eidesstattliche Erkl\IeC {\"a}rung}{16}
