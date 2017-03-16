@@ -2,65 +2,66 @@
  * Created by Geo on 24.02.2017.
  */
 
-/**
- * CONSTANTS / VARIABLES
- */
+/** VARIABLES **************************************************/
+/** ************************************************************/
+/** Constants **/
 const doorId = 1212;
 const signalingSrvAddr = "192.168.0.18";
 const signalingSrvPort = "7007";
 
+/** Signaling Types **/
+const DOOR_REQUEST = "DOOR_REQUEST";
+const OFFER = "OFFER";
+const ANSWER = "ANSWER";
+const CANDIDATE = "CANDIDATE";
+const LEAVE = "LEAVE";
 
-const CALL_REQUEST = "CALL_REQUEST";
-
+/** Variables **/
 var micMuted = true;
 var RTCConnection;
 var myLocalStream;
 var socketConn;
 
-/**
- * FUNCTIONS
- */
-// Start connection to the Signaling server
+
+/** SIGNALING PROCESS FUNCTIONS ********************************/
+/** ************************************************************/
+/** Opens a secure socket connection with the signaling server **/
 function startConnection()
 {
+    // Set timer to retry to connect after 6 seconds if failed
     setTimeout(function() { checkIfFailed(); }, 6000)
-    var remoteAudio = document.querySelector('#remoteAudio'); // UI Selector
-    var remoteVideo = document.querySelector('#remoteVideo'); // UI Selector
 
+    // DOM Selectors
+    remoteAudio = document.querySelector('#remoteAudio');
+    remoteVideo = document.querySelector('#remoteVideo');
+
+    // Opens secure socket connection
     socketConn = new WebSocket("wss://"+signalingSrvAddr+":"+signalingSrvPort);
     console.log("Connecting to the signaling server...");
 
 
-    // CALLBACKS
-    // The connection has been established
-    socketConn.onopen = function ()
+    // Defines the listeners for the socket connection
+    socketConn.onopen = function ()  // When the connection is open
     {
         console.log("Connected to the signaling server");
-        requestCall();
+        requestDoor();
     };
 
-    // Message received from the server
-    socketConn.onmessage = function (msg)
+    socketConn.onmessage = function (msg) // When a message is received from the server
     {
         console.log("Message received: ", msg.data);
         var data = JSON.parse(msg.data);
 
+        // This switch handles the different phases during the signaling process
         switch(data.type) {
-            case CALL_REQUEST:
+            case DOOR_REQUEST:
                 setupRTC(data.value);
-                setTimeout(function(){ startCall() }, 150);
                 break;
-            case "offer":
-                handleOffer(data.offer, data.name);
-                break;
-            case "answer":
+            case ANSWER:
                 handleAnswer(data.answer);
                 break;
-            case "candidate":
+            case CANDIDATE:
                 handleCandidate(data.candidate);
-                break;
-            case "leave":
-                handleLeave();
                 break;
             default:
                 console.log(data);
@@ -68,12 +69,13 @@ function startConnection()
         }
     };
 
-    socketConn.onerror = function (err) {
+    socketConn.onerror = function (err) // When an error occurs
+    {
         console.log("Got error ", err);
     };
-
 }
 
+/** Checks if the connection has failed, tries again **/
 function checkIfFailed()
 {
     if(socketConn.readyState == 1) // If connected do nothing
@@ -88,26 +90,18 @@ function checkIfFailed()
     }
 }
 
-
-// Sends the message via the socket in JSON format
+/** Sends the message via the socket in JSON format **/
 function send(message)
 {
     socketConn.send(JSON.stringify(message));
 }
 
-// Sends a request for a new call to the signaling server
-function requestCall()
-{
-    send({
-        type: CALL_REQUEST,
-        doorId: doorId
-    });
-}
-
-// Setup WebRTC for the call and starting a peer connection
+/** WEB RTC STUFF *****************************************************/
+/** *******************************************************************/
+/** Setup WebRTC for the call, collect the user media, ICE process and prepare a peer connection **/
 function setupRTC(value)
 {
-    if(value == "false")
+    if(value == -1) // When the server returns -1, means the door is not available
     {
         console.log("Error: cannot reach the requested door!");
     }
@@ -115,8 +109,8 @@ function setupRTC(value)
     {
         console.log("Setting up WebRTC..." )
 
-        // Getting local audio myLocalStream
-        navigator.webkitGetUserMedia({video: false, audio: true}, function (myStream) // Request for audio and video
+        // Getting the user media (Cam & Mic)
+        navigator.webkitGetUserMedia({video: false, audio: true}, function (myStream) // The client shares only audio
         {
             myLocalStream = myStream;
 
@@ -126,16 +120,17 @@ function setupRTC(value)
             };
 
             // Init WebRTC
-            RTCConnection = new RTCPeerConnection(); // (Pass configuration as a parameter if needed)
-            // Setup listening myLocalStream
-            RTCConnection.addStream(myLocalStream);
-            // When remote user add a myLocalStream
-            RTCConnection.onaddstream = function (e)
+            RTCConnection = new RTCPeerConnection(configuration);   // For use in & outside the local network
+            //RTCConnection = new RTCPeerConnection();              // For use only inside LAN
+
+            RTCConnection.addStream(myLocalStream); // Adds the local media stream, to the peer connection stream
+
+            RTCConnection.onaddstream = function (e)  // When remote user add his stream to the peer stream
             {
-                remoteVideo.src = window.URL.createObjectURL(e.stream); // Bind videostream to HTML element
+                remoteVideo.src = window.URL.createObjectURL(e.stream); // Bind the remote video stream to HTML element
             };
-            // Setup ice handling
-            RTCConnection.onicecandidate = function (event)
+
+            RTCConnection.onicecandidate = function (event) // Setup ICE handling
             {
                 if (event.candidate)
                 {
@@ -143,10 +138,10 @@ function setupRTC(value)
                         type: "candidate",
                         candidate: event.candidate
                     });
-
                 }
             };
-            // Called when connection is established
+
+            // Used to check when the connection has been established
             RTCConnection.oniceconnectionstatechange = function()
             {
                 if(RTCConnection.iceConnectionState == 'connected')
@@ -161,7 +156,7 @@ function setupRTC(value)
                 }
             };
 
-        }, function (error)
+        }, function (error) // Error handling
         {
             console.log("Error setting up WebRTC");
             console.log(error);
@@ -169,19 +164,28 @@ function setupRTC(value)
 
         $('#connectionStatus').html('Loading...');  // Change loading text
         console.log("Done! The call can now be initiated");
+        setTimeout(function(){ startCall() }, 150); // Delay needed for the RTC object to be populated (not so elegant)
     }
 };
 
-// Start the call by sending an offer to the signaling
+/** Sends a request for the given door, to ensure the door is available **/
+function requestDoor()
+{
+    send({
+        type: DOOR_REQUEST,
+        doorId: doorId
+    });
+}
+
+/** Start the call by sending an offer to the peer **/
 function startCall()
 {
-    // create an offer
+    // Create an offer
     RTCConnection.createOffer(function (offer) {
         send({
-            type: "offer",
+            type: OFFER,
             offer: offer
         });
-
         RTCConnection.setLocalDescription(offer);
     }, function (error) {
         alert("Error when creating an offer");
@@ -191,40 +195,38 @@ function startCall()
 }
 
 
-// When we got an answer after the offer
+/** Includes the information given by the peer with his answer **/
 function handleAnswer(answer)
 {
     RTCConnection.setRemoteDescription(new RTCSessionDescription(answer));
 };
 
-// When we got an ice candidate from a remote user
+/** Includes the ICE data received from the peer **/
 function handleCandidate(candidate)
 {
     RTCConnection.addIceCandidate(new RTCIceCandidate(candidate));
 };
 
-// Close
-function handleLeave()
+
+/** Terminates the call and reconfigures WebRTC **/
+function closeCall()
 {
-    console.log("Call terminated!");
+    // Informs the peer that I'm leaving
+    send({ type: LEAVE });
+    // Close what needs to be closed
     remoteVideo.src = null;
     RTCConnection.close();
     RTCConnection.onicecandidate = null;
     RTCConnection.onaddstream = null;
     RTCConnection = null;
-    setupRTC("true");
-};
-
-
-function closeCall()
-{
-    send({
-        type: "leave"
-    });
-
-    handleLeave();
+    console.log("Call terminated!");
+    // Reconfigures for future calls
+    setupRTC(1);
 }
 
+/** GUI CONTROL & MISC ************************************************/
+/** *******************************************************************/
+/** Turn the Mic on & Off **/
 function triggerMic()
 {
     if(micMuted)
@@ -241,7 +243,7 @@ function triggerMic()
     }
 }
 
-
+/** Change the Mic Status graphically **/
 function GUIMicStatus(active)
 {
     if(active)
@@ -260,6 +262,7 @@ function GUIMicStatus(active)
     }
 }
 
+/** Animates the door buttons and send the command to open the door **/
 function openDoor()
 {
     $('#btnRight').css("background-image", "url('../img/mainbtn.png')");

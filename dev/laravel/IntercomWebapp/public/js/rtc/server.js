@@ -5,13 +5,17 @@
 /**
  * CONSTANTS / VARIABLES
  */
-const doorId = 1212; //Math.random(); // Generate random name
+const doorId = 1212;
 const signalingSrvAddr = "192.168.0.18";
 const signalingSrvPort = "7007";
 const socketProtocol = "wss"; // wss or ws
 
-const PICK_UP = "PICK_UP";
 const DOOR_ONLINE = "DOOR_ONLINE";
+const DOOR_REQUEST = "DOOR_REQUEST";
+const OFFER = "OFFER";
+const ANSWER = "ANSWER";
+const CANDIDATE = "CANDIDATE";
+const LEAVE = "LEAVE";
 
 var status = "offline";
 var RTCConnection;
@@ -56,15 +60,15 @@ function startWebSocket()
                 setupRTC(data.value);
                 break;
             // When somebody wants to call us
-            case "offer":
+            case OFFER:
                 handleOffer(data.offer, data.name);
                 break;
             // When a remote peer sends an ice candidate to us
-            case "candidate":
+            case CANDIDATE:
                 handleCandidate(data.candidate);
                 break;
             // When the call is terminated
-            case "leave":
+            case LEAVE:
                 handleLeave();
                 break;
             default:
@@ -126,7 +130,7 @@ function setupRTC(value) {
             RTCConnection.onicecandidate = function (event) {
                 if (event.candidate) {
                     send({
-                        type: "candidate",
+                        type: CANDIDATE,
                         candidate: event.candidate
                     });
                 }
@@ -174,7 +178,7 @@ function handleOffer(offer, name)
         RTCConnection.setLocalDescription(answer);
 
         send({
-            type: "answer",
+            type: ANSWER,
             answer: answer
         });
 
