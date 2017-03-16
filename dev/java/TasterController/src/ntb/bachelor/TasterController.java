@@ -33,7 +33,8 @@ public class TasterController
     public static void main(String[] args) {
         try
         {
-            startKeyListener(); // Start the socket
+            Logging.log(Level.INFO, "Taster Controller started");
+            startKeyListener(); // Start the listener
         }
         catch (Exception e)
         {
