@@ -107,13 +107,13 @@ function setupRTC(value)
     {
         console.log("Setting up WebRTC..." )
 
-        // Getting local audio stream
+        // Getting local audio myLocalStream
         navigator.webkitGetUserMedia({video: false, audio: true}, function (myStream)
         {
             stream = myStream;
 
-            //displaying local audio stream on the page
-            //localAudio.src = window.URL.createObjectURL(stream);
+            //displaying local audio myLocalStream on the page
+            //localAudio.src = window.URL.createObjectURL(myLocalStream);
 
             // using Google public stun server (toglierlo per il traffico locale)
             var configuration = {
@@ -123,10 +123,10 @@ function setupRTC(value)
             // DONT GIVE ANY CONFIGURATION FOR LOCAL TRAFFIC
             RTCConnection = new webkitRTCPeerConnection(configuration);
 
-            // setup stream listening
+            // setup myLocalStream listening
             RTCConnection.addStream(stream);
 
-            //when a remote user adds stream to the peer connection, we display it
+            //when a remote user adds myLocalStream to the peer connection, we display it
             RTCConnection.onaddstream = function (e) {
                 remoteAudio.src = window.URL.createObjectURL(e.stream);
             };

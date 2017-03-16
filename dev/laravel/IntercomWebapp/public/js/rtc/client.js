@@ -12,9 +12,9 @@ const signalingSrvPort = "7007";
 
 const CALL_REQUEST = "CALL_REQUEST";
 
-var status = "DISCONNECTED";
+var micMuted = true;
 var RTCConnection;
-var stream;
+var myLocalStream;
 var socketConn;
 
 /**
@@ -29,14 +29,13 @@ function startConnection()
 
     socketConn = new WebSocket("wss://"+signalingSrvAddr+":"+signalingSrvPort);
     console.log("Connecting to the signaling server...");
-    status = "CONNECTING";
+
 
     // CALLBACKS
     // The connection has been established
     socketConn.onopen = function ()
     {
         console.log("Connected to the signaling server");
-        status = "CONNECTED";
         requestCall();
     };
 
@@ -49,6 +48,7 @@ function startConnection()
         switch(data.type) {
             case CALL_REQUEST:
                 setupRTC(data.value);
+                setTimeout(function(){ startCall() }, 150);
                 break;
             case "offer":
                 handleOffer(data.offer, data.name);
@@ -115,27 +115,24 @@ function setupRTC(value)
     {
         console.log("Setting up WebRTC..." )
 
-        // Getting local audio stream
+        // Getting local audio myLocalStream
         navigator.webkitGetUserMedia({video: false, audio: true}, function (myStream) // Request for audio and video
         {
-            stream = myStream;
+            myLocalStream = myStream;
 
-            // using Google public stun server (Remove for LAN connections)
+            // Using Google public stun server
             var configuration = {
                 "iceServers": [{"url": "stun:stun2.1.google.com:19302"}]
             };
 
             // Init WebRTC
-            RTCConnection = new webkitRTCPeerConnection(); // Add configuration for STUN Support
-            // Setup listening stream
-            RTCConnection.addStream(stream);
-            // When remote user add a stream
+            RTCConnection = new RTCPeerConnection(); // (Pass configuration as a parameter if needed)
+            // Setup listening myLocalStream
+            RTCConnection.addStream(myLocalStream);
+            // When remote user add a myLocalStream
             RTCConnection.onaddstream = function (e)
             {
-                //remoteAudio.src = window.URL.createObjectURL(e.stream);
-                remoteVideo.src = window.URL.createObjectURL(e.stream);
-                $('#audioWave').show();
-                $('#audioOff').hide();
+                remoteVideo.src = window.URL.createObjectURL(e.stream); // Bind videostream to HTML element
             };
             // Setup ice handling
             RTCConnection.onicecandidate = function (event)
@@ -146,6 +143,21 @@ function setupRTC(value)
                         type: "candidate",
                         candidate: event.candidate
                     });
+
+                }
+            };
+            // Called when connection is established
+            RTCConnection.oniceconnectionstatechange = function()
+            {
+                if(RTCConnection.iceConnectionState == 'connected')
+                {
+                    // Dont send any audio at the beginning (muted)
+                    myLocalStream.getAudioTracks()[0].enabled = false;
+                    // Set GUI elements
+                    GUIMicStatus(false);
+                    $('#btnLeft').fadeTo('fast', 1);
+                    $('#audioOff').hide();
+                    $('#audioWave').show();
                 }
             };
 
@@ -155,9 +167,8 @@ function setupRTC(value)
             console.log(error);
         });
 
-        status = "READY";
-        $('#btnLeft').fadeTo('fast', 1); // Activate button
-        console.log("Done! Now you can start the call");
+        $('#connectionStatus').html('Loading...');  // Change loading text
+        console.log("Done! The call can now be initiated");
     }
 };
 
@@ -184,7 +195,6 @@ function startCall()
 function handleAnswer(answer)
 {
     RTCConnection.setRemoteDescription(new RTCSessionDescription(answer));
-    status = "TRANSMITTING";
 };
 
 // When we got an ice candidate from a remote user
@@ -197,7 +207,7 @@ function handleCandidate(candidate)
 function handleLeave()
 {
     console.log("Call terminated!");
-    remoteAudio.src = null;
+    remoteVideo.src = null;
     RTCConnection.close();
     RTCConnection.onicecandidate = null;
     RTCConnection.onaddstream = null;
@@ -215,37 +225,38 @@ function closeCall()
     handleLeave();
 }
 
-function triggerCall()
+function triggerMic()
 {
-    if(status == "TRANSMITTING")
+    if(micMuted)
     {
-        closeCall();
-        changeBtn("off");
-    }
-    else if(status == "READY")
-    {
-        startCall();
-        changeBtn("on");
+        myLocalStream.getAudioTracks()[0].enabled = true;
+        GUIMicStatus(true);
+        micMuted = false;
     }
     else
     {
-        console.log("Not ready yet!");
+        myLocalStream.getAudioTracks()[0].enabled = false;
+        GUIMicStatus(false);
+        micMuted = true;
     }
 }
 
-function changeBtn(status)
+
+function GUIMicStatus(active)
 {
-    if(status == "on")
+    if(active)
     {
         $('#btnLeft').css("background-image", "url('../img/mainbtn.png')");
-        $('#iconLeft').css("background-image", "url('../img/speaker.png')");
+        $('#iconLeft').css("background-image", "url('../img/mic.png')");
+        //$('#audioOff').hide();
+        //$('#audioWave').show();
     }
     else
     {
         $('#btnLeft').css("background-image", "url('../img/mainbtn_no.png')");
-        $('#iconLeft').css("background-image", "url('../img/mute.png')");
-        $('#audioWave').hide();
-        $('#audioOff').show();
+        $('#iconLeft').css("background-image", "url('../img/mutedmic.png')");
+        //$('#audioWave').hide();
+        //$('#audioOff').show();
     }
 }
 

@@ -13,7 +13,7 @@
 
                     <div id="videofeed">
                         <div id="videoContent">
-                            <video id="remoteVideo" width="400" height="285" autoplay ></video>
+                            <video id="remoteVideo" width="100%" autoplay ></video>
                         </div>
 
                         <div id="audioStatus">
@@ -33,7 +33,7 @@
                             <div class="spinner">
                                 <div class="double-bounce1"></div>
                                 <div class="double-bounce2"></div>
-                                <p>Loading video feed...</p>
+                                <p id="connectionStatus">Connecting...</p>
                             </div>
                         </div>
 
@@ -42,7 +42,7 @@
 
                 <div class="row row-centered" id="buttons">
                     <div class="col-xs-6 ">
-                        <div id="btnLeft" onClick="triggerCall();">
+                        <div id="btnLeft" onClick="triggerMic();">
                             <div id="iconLeft"></div>
                             <p>MIC ON/OFF</p>
                         </div>
@@ -54,7 +54,6 @@
                         </div>
                     </div>
                 </div>
-                <audio id="remoteAudio" controls autoplay></audio>
             </div>
 
             <div class="container-fluid navbar-fixed-bottom" id="bottomContainer">

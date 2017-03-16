@@ -2,19 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5d1d5ad-83d8-4a8a-a8c6-685d24daa3c2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SignalingServer/ntb/bachelor/SignalingServer.class" afterPath="$PROJECT_DIR$/out/production/SignalingServer/ntb/bachelor/SignalingServer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.pdf" afterPath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.pdf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.synctex.gz" afterPath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.synctex.gz" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/public/img/mic.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/public/img/mutedmic.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SignalingServer/ntb/bachelor/Logging.class" afterPath="$PROJECT_DIR$/out/production/SignalingServer/ntb/bachelor/Logging.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ntb/bachelor/Logging.java" afterPath="$PROJECT_DIR$/src/ntb/bachelor/Logging.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ntb/bachelor/Main.java" afterPath="$PROJECT_DIR$/src/ntb/bachelor/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ntb/bachelor/SignalingServer.java" afterPath="$PROJECT_DIR$/src/ntb/bachelor/SignalingServer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../laravel/IntercomWebapp/public/css/animations/spinner.css" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/public/css/animations/spinner.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../laravel/IntercomWebapp/public/css/style.css" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/public/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../laravel/IntercomWebapp/public/js/rtc/client.js" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/public/js/rtc/client.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/Software.tex" afterPath="$PROJECT_DIR$/../../../docs/Bericht/Software.tex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.aux" afterPath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.aux" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.log" afterPath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.tex" afterPath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.tex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../laravel/IntercomWebapp/public/js/rtc/clientTest.js" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/public/js/rtc/clientTest.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../laravel/IntercomWebapp/public/js/rtc/server.js" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/public/js/rtc/server.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../laravel/IntercomWebapp/resources/views/clientApp.blade.php" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/resources/views/clientApp.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../laravel/IntercomWebapp/resources/views/layouts/main.blade.php" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/resources/views/layouts/main.blade.php" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
