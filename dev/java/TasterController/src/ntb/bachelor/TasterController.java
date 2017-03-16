@@ -10,6 +10,8 @@ import com.pi4j.io.gpio.GpioFactory;
 import com.pi4j.io.gpio.RaspiPin;
 //Keyevent import for simulate a keypress
 import java.awt.event.KeyEvent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -21,6 +23,9 @@ import java.awt.event.KeyEvent;
  */
 public class TasterController
 {
+    // Starts logging handlers
+    private static final Logger logger = Logger.getLogger("TasterLogger");
+
     /**
      * main method witch is executed at first
      * @param args
@@ -28,7 +33,8 @@ public class TasterController
     public static void main(String[] args) {
         try
         {
-            startKeyListener(); // Start the socket
+            Logging.log(Level.INFO, "Taster Controller started");
+            startKeyListener(); // Start the listener
         }
         catch (Exception e)
         {
@@ -66,9 +72,9 @@ public class TasterController
                 String state = event.getState().toString();
                 if(state == "HIGH")
                 {
-                    System.out.println("Button left pressed.");
                     robot.keyPress(KeyEvent.VK_KP_LEFT);
                     robot.keyRelease(KeyEvent.VK_KP_LEFT);
+                    Logging.log(Level.INFO, "Button left pressed.");
                 }
             }
         });
@@ -81,9 +87,9 @@ public class TasterController
                 String state = event.getState().toString();
                 if(state == "HIGH")
                 {
-                    System.out.println("Button middle pressed.");
                     robot.keyPress(KeyEvent.VK_KP_UP);
                     robot.keyRelease(KeyEvent.VK_KP_UP);
+                    Logging.log(Level.INFO, "Button middle pressed.");
                 }
             }
         });
@@ -96,9 +102,9 @@ public class TasterController
                 String state = event.getState().toString();
                 if(state == "HIGH")
                 {
-                    System.out.println("Button middle right.");
                     robot.keyPress(KeyEvent.VK_KP_RIGHT);
                     robot.keyRelease(KeyEvent.VK_KP_RIGHT);
+                    Logging.log(Level.INFO, "Button right pressed.");
                 }
             }
         });

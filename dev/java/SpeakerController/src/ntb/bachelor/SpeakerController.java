@@ -6,22 +6,19 @@ import java.util.Date;
 import java.util.logging.Level;
 
 /**
- * Created by Geo on 21.02.2017.
+ * Created by Federico on 16.03.2017.
  *
  * Turns the speaker on and off when it receives the command from the Webapp
  */
-public class SpeakerController extends Thread
+public class SpeakerController
 {
+
     // Vars
     private final String PERMITTED_HOST = "127.0.0.1";
     private final int TURN_ON = 1;
     private final int TURN_OFF = 0;
 
-    /**
-     * Thread entry point
-     */
-    public void run()
-    {
+    public void main(String[] args) {
         try
         {
             Logging.log(Level.INFO, "Speaker controller started");

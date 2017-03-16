@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.logging.*;
 
 /**
- * Created by Geo on 21.02.2017.
+ * Created by Federico on 15.03.2017.
  *
  * Class that configures the logging
  * The log method is public and static, so it can be accessed from everywhere in a static way
@@ -33,7 +33,8 @@ public class Logging
         // Instance the logger
         logger = Logger.getLogger(Logging.class.getName());
         // Instance the FileHandler
-        Handler fileHandler = new FileHandler("myLog.log",true);
+        // Limit size of the file is 1MB - no need of logrotate
+        Handler fileHandler = new FileHandler("/var/log/Aussensprechstelle/TasterController.log", 1024000, 1,true);
         // Instance formatter, set formatting, and handler
         Formatter plainText = new SimpleFormatter();
         fileHandler.setFormatter(plainText);
@@ -62,7 +63,7 @@ public class Logging
                 e.printStackTrace();
             }
         }
-
         logger.log(level, msg);
     }
 }
+
