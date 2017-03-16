@@ -5,9 +5,11 @@
 /**
  * CONSTANTS / VARIABLES
  */
-const doorId = 1212; //Math.random(); // Generate random name
+const doorId = 1212;
 const signalingSrvAddr = "192.168.0.18";
 const signalingSrvPort = "7007";
+
+
 const CALL_REQUEST = "CALL_REQUEST";
 
 var status = "DISCONNECTED";
@@ -21,8 +23,9 @@ var socketConn;
 // Start connection to the Signaling server
 function startConnection()
 {
-    setTimeout(function() { checkIfFailed(); }, 3000)
+    setTimeout(function() { checkIfFailed(); }, 6000)
     var remoteAudio = document.querySelector('#remoteAudio'); // UI Selector
+    var remoteVideo = document.querySelector('#remoteVideo'); // UI Selector
 
     socketConn = new WebSocket("wss://"+signalingSrvAddr+":"+signalingSrvPort);
     console.log("Connecting to the signaling server...");
@@ -46,7 +49,6 @@ function startConnection()
         switch(data.type) {
             case CALL_REQUEST:
                 setupRTC(data.value);
-                console.log("Done! Now you can start the call");
                 break;
             case "offer":
                 handleOffer(data.offer, data.name);
@@ -107,14 +109,14 @@ function setupRTC(value)
 {
     if(value == "false")
     {
-        console.log("Something went wrong here....");
+        console.log("Error: cannot reach the requested door!");
     }
     else
     {
         console.log("Setting up WebRTC..." )
 
         // Getting local audio stream
-        navigator.webkitGetUserMedia({video: false, audio: true}, function (myStream)
+        navigator.webkitGetUserMedia({video: false, audio: true}, function (myStream) // Request for audio and video
         {
             stream = myStream;
 
@@ -124,13 +126,14 @@ function setupRTC(value)
             };
 
             // Init WebRTC
-            RTCConnection = new webkitRTCPeerConnection(configuration);
+            RTCConnection = new webkitRTCPeerConnection(); // Add configuration for STUN Support
             // Setup listening stream
             RTCConnection.addStream(stream);
             // When remote user add a stream
             RTCConnection.onaddstream = function (e)
             {
-                remoteAudio.src = window.URL.createObjectURL(e.stream);
+                //remoteAudio.src = window.URL.createObjectURL(e.stream);
+                remoteVideo.src = window.URL.createObjectURL(e.stream);
                 $('#audioWave').show();
                 $('#audioOff').hide();
             };
@@ -154,6 +157,7 @@ function setupRTC(value)
 
         status = "READY";
         $('#btnLeft').fadeTo('fast', 1); // Activate button
+        console.log("Done! Now you can start the call");
     }
 };
 
@@ -170,6 +174,8 @@ function startCall()
         RTCConnection.setLocalDescription(offer);
     }, function (error) {
         alert("Error when creating an offer");
+    },
+        { 'mandatory': { 'OfferToReceiveAudio': true, 'OfferToReceiveVideo': true }
     });
 }
 

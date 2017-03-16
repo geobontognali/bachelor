@@ -23,6 +23,8 @@ var socketConn;
  * UI SELECTORS
  */
 var localAudio = document.querySelector('#localAudio');
+var localVideo = document.querySelector('#localVideo');
+var remoteVideo = document.querySelector('#remoteVideo');
 var remoteAudio = document.querySelector('#remoteAudio');
 
 
@@ -97,11 +99,12 @@ function setupRTC(value) {
         status = "configuring";
 
         //getting local audio stream
-        navigator.webkitGetUserMedia({ video: false, audio: true }, function (myStream) {
+        navigator.webkitGetUserMedia({ video: true, audio: true }, function (myStream) {
             stream = myStream;
 
             //displaying local audio stream on the page
-            localAudio.src = window.URL.createObjectURL(stream);
+            //localAudio.src = window.URL.createObjectURL(stream);
+            //localVideo.src = window.URL.createObjectURL(stream);
 
             //using Google public stun server
             var configuration = {
@@ -109,7 +112,7 @@ function setupRTC(value) {
             };
 
             // DONT GIVE ANY CONFIGURATION FOR LOCAL TRAFFIC
-            RTCConnection = new webkitRTCPeerConnection(configuration);
+            RTCConnection = new webkitRTCPeerConnection(); // Add configuration for STUN Support
 
             // setup stream listening
             RTCConnection.addStream(stream);
@@ -180,6 +183,8 @@ function handleOffer(offer, name)
     }, function (error)
     {
         console.log("Error when giving an answer to the offer");
+    },
+        { 'mandatory': { 'OfferToReceiveAudio': true, 'OfferToReceiveVideo': false } // Request for audio only
     });
 };
 

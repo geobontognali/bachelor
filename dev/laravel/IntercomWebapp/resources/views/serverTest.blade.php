@@ -33,6 +33,10 @@
             <div>
                 <audio id = "localAudio" controls></audio>
             </div>
+
+            <div>
+                <video id="localVideo" width="240"  autoplay style="border: 1px solid black;"></video>
+            </div>
             <br />
             <br />
             <div>

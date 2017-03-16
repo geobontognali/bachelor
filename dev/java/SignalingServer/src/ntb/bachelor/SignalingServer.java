@@ -139,7 +139,7 @@ public class SignalingServer extends WebSocketServer
     public void onError(WebSocket conn, Exception exc)
     {
         Logging.log(Level.WARNING, "Error happened: " + exc);
-        conn.send("ERRORACCIO"); // Replies with false if the door is offline
+        //conn.send("ERRORACCIO"); // Replies with false if the door is offline
     }
 
 }

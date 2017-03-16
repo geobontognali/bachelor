@@ -13,7 +13,7 @@
 
                     <div id="videofeed">
                         <div id="videoContent">
-                            <!--<img src="test.jpg" />-->
+                            <video id="remoteVideo" width="400" height="285" autoplay ></video>
                         </div>
 
                         <div id="audioStatus">
