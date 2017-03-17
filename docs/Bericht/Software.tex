@@ -15,9 +15,9 @@ Im Verbindung mit PHP kommt natürlich die Markup-Languages HTML5/CSS, welche f�
 Alle Dienste die Serverseitig und ohne Interaktion mit dem Enduser ausgeführt werden, werden in Java programmiert. Als stark typisierte und Objektorientierte Programmiersprache eignet sich Java für dieses Projekt. Für Java sind auch unzählige Libraries verfügbar, insbesondere für die Hardware Steuerung der Raspberry Pi. Eine zweite Variante wäre Python gewesen, die auch das Raspberry sehr gut unterstüzt. Python ist aber zu wenig typisiert und für eher kleinere Softwarestücke gedacht.
 
 \subsubsection{PHP/Javascript}
-Die Enduser Applikation sowohl auch die Applikation bei der Aussensprechstelle werden Web-Applikationen sein. Dies ermöglicht eine schnelle und zeitgemässe Softwareentwicklung. Für dieses Projekt ist die System-Eingriffstiefe von Webapplikationen jedenfalls ausreichend. Es muss lediglich Zugriff auf Mikrofon, Lautsprecher und Kamera garantiert werden. Ein weiteres Punkt zugunsten einer Webapplikation ist die Cross-Plattform Kompatibilität. 
+Die Client Applikation sowohl auch die Applikation bei der Aussensprechstelle werden Web-Applikationen sein. Dies ermöglicht eine schnelle und zeitgemässe Softwareentwicklung. Für dieses Projekt ist die System-Eingriffstiefe von Webapplikationen jedenfalls ausreichend. Es muss lediglich Zugriff auf Mikrofon, Lautsprecher und Kamera garantiert werden. Ein weiteres Punkt zugunsten einer Webapplikation ist die Cross-Plattform Kompatibilität. 
 \\
-Aus diesem Grund haben wir uns für PHP (Objektorientiert) im Kombination mit Javascript/HTML/CSS Entschieden. Eine zweite Variante wäre Java EE gewesen. Java EE eignet sich aber vor allem für grosse Softwarelösungen und bietet als gesamten Framework vieles mehr als was dieses Projekt benötigt. 
+Aus diesem Grund haben wir uns für PHP (Objektorientiert) im Kombination mit Javascript/HTML/CSS entschieden. Eine zweite Variante wäre Java EE gewesen. Java EE eignet sich aber vor allem für grosse Softwarelösungen und bietet als gesamten Framework vieles mehr als was dieses Projekt benötigt. 
 \\
 \subsubsection{PHP Framework: Laravel}
 Für die Entwicklung der Webapplikationen wird Laravel als PHP Framework eingesetzt. Laravel ist ein Open-Source PHP Web-Application-Framework, die sich für kleine bis zu mittelgrosse Projekte eignet. Laravel beruht auf dem Modell-View-Controller-Muster und ermöglicht eine Objektorientierte Programmierung in PHP.
@@ -37,13 +37,13 @@ Die Software wird in zwei Gruppen unterteilt. Einerseits gibt es alle Dienste/Se
 \\
 Die zweite Gruppe beinhaltet die Webapplikationen \textit{(Grün)}, die eine GUI besitzen und für die Interaktion mit dem System gedacht sind. Darunter zählen die Client-App für den Bewohner, die Applikation bei der Aussensprechstelle wo die Bewohner angezeigt werden und das Management Tool.
 \\
-Die Audio-Kommunikation zwischen die Aussensprechstellen und die Client-Apps wird mithilfe von WebRTC realisiert. Diese hat eine gewisse Komplexität und wird in ein eigenes Kapitel (\seeref{kap:webrtc}) behandelt.
+Die Audio/Video-Kommunikation zwischen die Aussensprechstellen und die Client-Apps wird mithilfe von WebRTC realisiert. Diese hat eine gewisse Komplexität und wird in ein eigenes Kapitel (\seeref{kap:webrtc}) behandelt.
 
 \subsection{Dienste}
 \label{kap:dienste}
 
 
-\subsubsection{Keymapper}
+\subsubsection{Taster Controller}
 Die Aussensprechstelle wird durch 3 Schalter bedient. Die Aufgabe des Keymappers besteht darin, bei einem Tastendruck eine Aktion auf der Aussensprechselle ausgeführt wird. Die drei Schalter wurden an GPIO Pins des Raspberry PI angeschlossen. Wie im \cref{kap:java}
 beschrieben wurde, wird Java eingesetzt. 
 \\
@@ -54,17 +54,13 @@ Die Desktop-Umgebung LXDE welche von Raspbian verwendet wird, bietet ein Autosta
 
 \subsubsection{Speaker Controller}
 ...
-\subsubsection{Streaming Server}
-\label{kap:streamingsrv}
-...
 \subsubsection{Relay Controller}
 ...
-\subsubsection{Watchdog}
-...
-
 \subsubsection{Signaling Server}
 Der Signaling-Server ist ein bestandteil von WebRTC und wird in ein eigenes Kapitel ausführlich beschrieben (\seeref{kap:signaling}).
 
+\subsubsection{Watchdog}
+...
 
 \subsection{Webapplikationen}
 \label{kap:webapp}
@@ -90,12 +86,10 @@ Bei der Design-Entwurf standen Übersichtlichkeit und Benutzerfreundlichkeit im 
 \label{kap:webrtc}
 WebRTC ist ein offener Standard, der eine Sammlung von Kommunikationsprotokollen und API beinhaltet. Die Standardisierung wird mehrheitlich betrieben und unterstützt von Google, Mozilla Foundation und Opera Software. WebRTC basiert auf HTML5 und Javascript und die Audio/Video Übertragung erfolgt über eine direkte Verbindung zwischen die Sprechpartner (Peer-to-Peer).
 \\
-Im unseren System wird WebRTC nur für den Audiostream verwendet. Das Videostream ist unidirektional und kann somit mit andere Methoden effizienter übertragen werden (\seeref{kap:streamingsrv}).
-\\
 \\
 WebRTC wird hauptsächlich für die Entwicklung von Videokonferenz Programme verwendet. Die Natur dieses Projekt ist allerdings nicht dieselbe wie die herkömmliche Real-Time-Communication Applikationen. Glücklicherweise wurde WebRTC so entwickelt, um möglichst viel Flexibilität zu garantieren. Aus diesem Grund beinhaltet der WebRTC-Standard keine Definition für den Signaling-Process, welcher zusammen mit dem ICE (Interactive Connectivity Establishment) für den Verbindungsaufbau zwischen den Sprechpartnern zuständig ist. 
 
-\begin{quote}
+\begin{quote} 
 	\textit{
 		"The thinking behind WebRTC call setup has been to fully specify and control the media plane, but to leave the signaling plane up to the application as much as possible. The rationale is that different applications may prefer to use different protocols, such as the existing SIP or Jingle call signaling protocols, or something custom to the particular application, perhaps for a novel use case. [...]"
 	} 
@@ -106,7 +100,7 @@ WebRTC wird hauptsächlich für die Entwicklung von Videokonferenz Programme ver
 \subsubsection{Signaling Process}
 \label{kap:signaling}
 
-Ähnlich wie bei VoIP-Telefonie \textit{(SIP)} brauchen die Sprechpartner ein gemeinsam bekanntes Knoten, um die Verbindung zu initialisieren (\seeref{fig:signaling}). In den meisten Fällen ist einem Partner, die logische Adressierung der andere Partner nicht bekannt. Es besteht also keine Möglichkeit um eine P2P Verbindung auf einmal zu starten. 
+Ähnlich wie bei VoIP-Telefonie \textit{(SIP)}, brauchen die Sprechpartner ein gemeinsam bekanntes Knoten, um die Verbindung zu initialisieren (\seeref{fig:signaling}). In den meisten Fällen ist einem Partner, die logische Adressierung der andere Partner nicht bekannt. Es besteht also keine Möglichkeit um eine P2P Verbindung auf einmal zu starten. 
 \begin{figure}[htb!]
 	\begin{center}
 		\includegraphics[width=0.75\textwidth]{signalingprocess}
@@ -125,7 +119,7 @@ Für die Zwecke unser Projekt wurde ein eigenes Signaling-Server entwickelt. Die
 \label{test}
 Eine Anforderung des Systems ist die Möglichkeit, auch ausserhalb des Heimnetzes mit den Aussensprechstellen sich verbinden zu können. Hier stellt das NAT-Protokoll (Network Adress Translation) ein Problem dar.
 \\
-Nach dem Signaling-Prozess wird das ICE-Prozess gestartet. Hier tauschen sich die zwei Partner Informationen über die eigene Adressierung und den \textit{best path} aus. Falls sich ein Sprechpartner hinter ein NAT-Knote befindet, wird für den anderen unmöglich eine Verbindung aufzubauen. Hier kommen die STUN-Servers im Spiel. Ähnlich wie bei dem Signalisierungsprozess stehen STUN-Servers als hilfe für den Verbindungsaufbau da (\seeref{fig:stun}). 
+Nach dem Signaling-Prozess wird das ICE-Prozess gestartet. Hier tauschen sich die zwei Partner Informationen über die eigene Adressierung und den \textit{best path} aus. Falls sich ein Sprechpartner hinter ein NAT-Knote befindet, wird für den anderen unmöglich sein eine Verbindung aufzubauen. Hier kommen die STUN-Servers im Spiel. Ähnlich wie bei dem Signalisierungsprozess stehen STUN-Servers als Hilfe für den Verbindungsaufbau da (\seeref{fig:stun}). 
 \begin{figure}[htb!]
 	\begin{center}
 		\includegraphics[width=0.75\textwidth]{stun}
