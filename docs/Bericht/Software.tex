@@ -23,7 +23,7 @@ Aus diesem Grund haben wir uns für PHP (Objektorientiert) im Kombination mit Ja
 Für die Entwicklung der Webapplikationen wird Laravel als PHP Framework eingesetzt. Laravel ist ein Open-Source PHP Web-Application-Framework, die sich für kleine bis zu mittelgrosse Projekte eignet. Laravel beruht auf dem Modell-View-Controller-Muster und ermöglicht eine Objektorientierte Programmierung in PHP.
 
 \subsection{System Übersicht}
-Das System besteht aus mehrere Hardware- und Softwarekomponenten die zusammenarbeiten müssen (\seeref{fig:echosystem}). Die Kommunikation zwischen den Knoten ist von TLS immer gewährleistet. Die einzelne Komponente werden in den nächsten Kapiteln genauer beschrieben.
+Das System besteht aus mehrere Hardware- und Softwarekomponenten die zusammenarbeiten müssen (\seeref{fig:echosystem}). Die  Vertraulichkeit der Kommunikation zwischen den Knoten ist von TLS immer gewährleistet. Die einzelne Komponenten, sowie das Thema Sicherheit, werden in den nächsten Kapiteln genauer beschrieben.
 
 \begin{figure}[htb!]
 	\begin{center}
@@ -33,7 +33,7 @@ Das System besteht aus mehrere Hardware- und Softwarekomponenten die zusammenarb
 	\end{center}
 \end{figure}
 
-Die Software wird in zwei Gruppen unterteilt. Einerseits gibt es alle Dienste/Services \textit{(Violett)} die Lokal ausgeführt werden und quasi das Backend des Systems darstellen.
+Die Software wird in zwei Gruppen unterteilt. Einerseits gibt es alle Dienste/Daemons \textit{(Violett)} die Lokal ausgeführt werden und quasi das Backend des Systems darstellen.
 \\
 Die zweite Gruppe beinhaltet die Webapplikationen \textit{(Grün)}, die eine GUI besitzen und für die Interaktion mit dem System gedacht sind. Darunter zählen die Client-App für den Bewohner, die Applikation bei der Aussensprechstelle wo die Bewohner angezeigt werden und das Management Tool.
 \\
@@ -44,16 +44,21 @@ Die Audio/Video-Kommunikation zwischen die Aussensprechstellen und die Client-Ap
 
 
 \subsubsection{Taster Controller}
-Die Aussensprechstelle wird durch 3 Schalter bedient. Die Aufgabe des Keymappers besteht darin, bei einem Tastendruck eine Aktion auf der Aussensprechselle ausgeführt wird. Die drei Schalter wurden an GPIO Pins des Raspberry PI angeschlossen. Wie im \cref{kap:java}
-beschrieben wurde, wird Java eingesetzt. 
+Die Aussensprechstelle wird durch 3 Schalter bedient. Die drei Schaltern werden an die GPIO-Pins des Raspberry PI angeschlossen. Die Aufgabe der Taster-Controller besteht darin, die GPIO-Input Signale, als verwendbare Tastatur-Eingaben umzuwandeln. Somit kann die GUI an der Aussensprechstelle gesteuert werden.
 \\
-Die ursprüngliche Idee war der Keymapper als Daemon im Hintergrund laufen zu lassen. Diese würde der Vorteil haben das der Daemon mittels run, stop und restart stabil gesteuert werden könnte. Da die eingesetzte java Library zum laufen zwingend ein X server benötigt, wurde der Keymapper im Init level 5 wo auch der X Server ausgeführt. Die Ausführung der Software ergibt in diesem Fall eine Fehlermeldung da die X Server noch nicht vollständig initialisiert ist. 
-Das Problem lag darin das per Definition ein Daemon Benutzerunabhängig ist. Somit steht der Library die auf dem X Server zugreift die wiederum Benutzerspezifisch ist, in Konflikt mit der Definition. 
-\\
-Die Desktop-Umgebung LXDE welche von Raspbian verwendet wird, bietet ein Autostart welche die Keymapper nach dem Initialisierung des X Server ausführt.
+Die ursprüngliche Idee war das Taster-Controller, so wie alle andere Dienste, als Daemon auszuführen. Das hätte den Vorteil, dass der Daemon mittels die übliche run, stop und restart Befehle gesteuert werden könnte. Eine der eingesetzten Java-Library benötigt aber den zugriff auf dem Graphisches Umgebung. Das Problem besteht darin, dass ein Daemon Benutzer-Unabhängig ist, während der X-Server beim Login einem Benutzer ausgeführt wird. Das ausführen der Deamon erst ab Init 5, da wo auch der X-Server ausgeführt wird, konnte aus diesem Grund das Problem auch nicht lösen.
+Die verwendete Library hat also keine Möglichkeit, als Deamon eine Verbindung mit dem X-Server aufzubauen. 
+\\\\
+Die Desktop-Umgebung LXDE welche von Raspbian verwendet wird, bietet aber ein Autostart welches das Taster-Controller nach dem Initialisierung des X-Server, unter dem gleichen Benutzer ausführt.
 
 \subsubsection{Speaker Controller}
-...
+Das Speaker Controller ist ein kleinen Dienst, welche den Lautsprecher ein- und ausschalten kann. Trotz einem Massentrennfilter sind immer noch leise Störsignale auf der Audio-Ausgang vorhanden. 
+Die Aufgabe des Speaker-Controllers besteht darin, die Stromspeisung des Speakers zu trennen, wenn es nicht verwendet wird. Somit ist das System Energieeffizienter und unnötige Geräusche können vermieden werden.
+\\
+\\
+Der Dienst besteht lediglich aus ein Socket-Server, der auf ein Signal wartet und durch die GPIO der Raspberry, ein kleines Relay steuert.
+Das Signal kommt von der Aussensprechstelle-Applikation \textit{(localhost)}. So kann den Lautsprecher bei Bedarf ein- und ausgeschaltet werden.
+
 \subsubsection{Relay Controller}
 ...
 \subsubsection{Signaling Server}
@@ -77,14 +82,16 @@ Der Bewohner muss über eine Applikation verfügen, die auf dem Tablet oder Hand
 	\end{center}
 \end{figure}
 \\
-Die \cref{fig:clientDemo} zeigt das Design für diese Webapplikation. Hier gezeigt ist die Smartphone Version. Dank ein Responsive-Design wird die selbe Applikation auch auf andere Geräte wie z.B. Tablets oder Computers passend angezeigt.
+Die \cref{fig:clientDemo} zeigt das Design für die Webapplikation. Hier gezeigt ist die Smartphone Version. Dank ein Responsive-Design wird die selbe Applikation auch auf andere Geräte wie z.B. Tablets oder Computers passend angezeigt.
 \\ 
 Bei der Design-Entwurf standen Übersichtlichkeit und Benutzerfreundlichkeit im Vordergrund. Aus diesem Grund werden die Tasten für die Audio-Kommunikation und für die Öffnung der Türe gross Angezeigt. Das Videostream von der ausgewählte Türe wird sofort angezeigt und benötigt keine weitere Interaktion. 
 
+\subsubsection{Aussensprechstelle Webapplikation}
+..
 
 \subsection{WebRTC}
 \label{kap:webrtc}
-WebRTC ist ein offener Standard, der eine Sammlung von Kommunikationsprotokollen und API beinhaltet. Die Standardisierung wird mehrheitlich betrieben und unterstützt von Google, Mozilla Foundation und Opera Software. WebRTC basiert auf HTML5 und Javascript und die Audio/Video Übertragung erfolgt über eine direkte Verbindung zwischen die Sprechpartner (Peer-to-Peer).
+WebRTC ist ein offener Standard, der eine Sammlung von Kommunikationsprotokollen und API beinhaltet. Die Standardisierung wird mehrheitlich betrieben und unterstützt von Google, Mozilla Foundation und Opera Software. WebRTC basiert auf HTML5 und Javascript und die Audio/Video Übertragung erfolgt über eine direkte Verbindung zwischen den Sprechpartner (Peer-to-Peer).
 \\
 \\
 WebRTC wird hauptsächlich für die Entwicklung von Videokonferenz Programme verwendet. Die Natur dieses Projekt ist allerdings nicht dieselbe wie die herkömmliche Real-Time-Communication Applikationen. Glücklicherweise wurde WebRTC so entwickelt, um möglichst viel Flexibilität zu garantieren. Aus diesem Grund beinhaltet der WebRTC-Standard keine Definition für den Signaling-Process, welcher zusammen mit dem ICE (Interactive Connectivity Establishment) für den Verbindungsaufbau zwischen den Sprechpartnern zuständig ist. 

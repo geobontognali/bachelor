@@ -2,14 +2,15 @@
  * Created by Geo on 24.02.2017.
  */
 
-/**
- * CONSTANTS / VARIABLES
- */
+/** VARIABLES **************************************************/
+/** ************************************************************/
+/** Constants **/
 const doorId = 1212;
 const signalingSrvAddr = "192.168.0.18";
 const signalingSrvPort = "7007";
 const socketProtocol = "wss"; // wss or ws
 
+/** Signaling Types **/
 const DOOR_ONLINE = "DOOR_ONLINE";
 const DOOR_REQUEST = "DOOR_REQUEST";
 const OFFER = "OFFER";
@@ -17,6 +18,7 @@ const ANSWER = "ANSWER";
 const CANDIDATE = "CANDIDATE";
 const LEAVE = "LEAVE";
 
+/** Variables **/
 var status = "offline";
 var RTCConnection;
 var stream;

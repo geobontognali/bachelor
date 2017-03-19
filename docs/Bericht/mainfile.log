@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.17)  17 MAR 2017 15:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.17)  17 MAR 2017 22:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1100,46 +1100,56 @@ len und die Client-
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 41.
 [8 <./img/ecosystem.png>]
-Package cleveref Info: loaded `ngerman' language definitions on input line 65.
- [9] <img/clientDemo.jpg, id=71, 1445.4pt x 2569.6pt>
-File: img/clientDemo.jpg Graphic file (type jpg)
-
-<use img/clientDemo.jpg>
-Package pdftex.def Info: img/clientDemo.jpg used on input line 74.
-(pdftex.def)             Requested size: 144.40025pt x 256.70059pt.
-Package cleveref Info: loaded `ngerman' language definitions on input line 85.
- [10 <./img/clientDemo.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 87--91
+Underfull \hbox (badness 10000) in paragraph at lines 47--53
 
  []
 
 
-LaTeX Warning: Citation `001' on page 11 undefined on input line 97.
+Underfull \hbox (badness 10000) in paragraph at lines 55--61
 
-<img/signalingprocess.jpg, id=75, 1003.75pt x 596.2275pt>
+ []
+
+Package cleveref Info: loaded `ngerman' language definitions on input line 61.
+[9] <img/clientDemo.jpg, id=71, 1445.4pt x 2569.6pt>
+File: img/clientDemo.jpg Graphic file (type jpg)
+ <use img/clientDemo.jpg>
+Package pdftex.def Info: img/clientDemo.jpg used on input line 79.
+(pdftex.def)             Requested size: 144.40025pt x 256.70059pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 94--98
+
+ []
+
+Package cleveref Info: loaded `ngerman' language definitions on input line 98.
+[10]
+
+LaTeX Warning: Citation `001' on page 11 undefined on input line 104.
+
+Package cleveref Info: loaded `ngerman' language definitions on input line 105.
+
+[11 <./img/clientDemo.jpg>]
+<img/signalingprocess.jpg, id=78, 1003.75pt x 596.2275pt>
 File: img/signalingprocess.jpg Graphic file (type jpg)
 
 <use img/signalingprocess.jpg>
-Package pdftex.def Info: img/signalingprocess.jpg used on input line 106.
+Package pdftex.def Info: img/signalingprocess.jpg used on input line 113.
 (pdftex.def)             Requested size: 309.42372pt x 183.80057pt.
-Package cleveref Info: loaded `ngerman' language definitions on input line 117.
 
- [11]
 <img/stun.png, id=79, 779.16093pt x 491.58656pt>
 File: img/stun.png Graphic file (type png)
  <use img/stun.png>
-Package pdftex.def Info: img/stun.png used on input line 125.
+Package pdftex.def Info: img/stun.png used on input line 132.
 (pdftex.def)             Requested size: 309.42372pt x 195.22095pt.
 
-Overfull \hbox (0.76872pt too wide) in paragraph at lines 120--133
+Overfull \hbox (0.76872pt too wide) in paragraph at lines 127--140
 \T1/lmr/m/n/12 Servers im Spiel. Ähn-lich wie bei dem Si-gna-li-sie-rungs-pro-z
 ess ste-hen STUN-Servers
  []
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 133.
+Package cleveref Info: loaded `ngerman' language definitions on input line 140.
 
 [12 <./img/signalingprocess.jpg>]
-Package cleveref Info: loaded `ngerman' language definitions on input line 134.
+Package cleveref Info: loaded `ngerman' language definitions on input line 141.
 
  [13 <./img/stun.png>]) (./mainfile.bbl
 
@@ -1201,7 +1211,7 @@ Here is how much of TeX's memory you used:
  11187 multiletter control sequences out of 15000+600000
  56117 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 47i,10n,51p,8514b,569s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 47i,10n,51p,8514b,634s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/
 texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/20
 16/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/local/texlive/2016/texmf-d
@@ -1211,7 +1221,7 @@ ic/lm/lmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmri1
 2.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmro12.pfb></us
 r/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/local/
 texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy10.pfb>
-Output written on mainfile.pdf (26 pages, 1075303 bytes).
+Output written on mainfile.pdf (26 pages, 1076102 bytes).
 PDF statistics:
  133 PDF objects out of 1000 (max. 8388607)
  84 compressed objects within 1 object stream
