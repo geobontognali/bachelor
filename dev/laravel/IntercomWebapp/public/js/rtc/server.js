@@ -118,7 +118,7 @@ function setupRTC(value) {
             };
 
             // DONT GIVE ANY CONFIGURATION FOR LOCAL TRAFFIC
-            RTCConnection = new webkitRTCPeerConnection(); // Add configuration for STUN Support
+            RTCConnection = new webkitRTCPeerConnection(configuration); // Add configuration for STUN Support
 
             // setup myLocalStream listening
             RTCConnection.addStream(stream);

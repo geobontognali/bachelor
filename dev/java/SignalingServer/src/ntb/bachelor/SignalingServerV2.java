@@ -15,20 +15,23 @@ import java.util.logging.Level;
 /**
  * Created by Geo on 24.02.2017.
  */
-public class SignalingServer extends WebSocketServer
+public class SignalingServerV2 extends WebSocketServer
 {
     private final String DOOR_ONLINE = "DOOR_ONLINE";
     private final String DOOR_REQUEST = "DOOR_REQUEST";
+    private final String DOOR_AVAILABLE = "1";
+    private final String DOOR_OFFLINE = "-1";
+    private final String DOOR_BUSY = "0";
 
     private int doorId;
-    private Map<Integer, WebSocket> onlineDoors = new HashMap<>();
     private Map<Integer,ArrayList<WebSocket>> rooms = new HashMap<>();
+    private Map<WebSocket, Integer> openCommunications = new HashMap<>();
 
 
     /**
      * Constructor
      */
-    public SignalingServer()
+    public SignalingServerV2()
     {
         super(new InetSocketAddress(7007));
 
@@ -52,6 +55,30 @@ public class SignalingServer extends WebSocketServer
                 conn.send(message);
             }
         }
+    }
+
+    /**
+     * When a client disconnects, his connection needs to be removed from any room in which it was present. This methods searches the Hashmaps for the connection and removes it
+     * @param connection The connection that needs to be cleared
+     */
+    private void leaveRoom(WebSocket connection)
+    {
+        // Get the id of the door with which it communicated
+        ArrayList<WebSocket> socketConnections;
+        try
+        {
+            doorId = openCommunications.get(connection);
+            socketConnections = rooms.get(doorId);
+        }
+        catch(Exception e)
+        {
+            Logging.log(Level.INFO, "Unable to remove the client connection. Probably never connected?");
+            return;
+        }
+        // Remove the connection from the connection-list with this door
+        socketConnections.remove(connection);
+        rooms.put(doorId, socketConnections);
+        Logging.log(Level.INFO, "Client removed from the connection list of the door " + doorId);
     }
 
 
@@ -82,37 +109,46 @@ public class SignalingServer extends WebSocketServer
             String msgType = obj.getString("type");
             switch (msgType)
             {
-                case DOOR_ONLINE: // When a door cames online
+                case DOOR_ONLINE: // When a door cames online, a room for this door is created
                     doorId = obj.getInt("doorId");
-                    if (onlineDoors.containsKey(doorId)) // Replace old connection with the new one if an older is presents
+                    if (rooms.containsKey(doorId)) // Replace old connection with the new one if an older is present
                     {
-                        onlineDoors.remove(doorId);
-                        Logging.log(Level.INFO, "A door came online. Older one deleted. ID: " + doorId);
+                        rooms.remove(doorId);
+                        Logging.log(Level.INFO, "A door came online and was already in the list. Older one deleted. ID: " + doorId);
                     }
-                    onlineDoors.put(doorId, connection);
-                    Logging.log(Level.INFO, "New door online. ID: " + doorId);
+                    socketConnections = new ArrayList<>();
+                    socketConnections.add(connection);
+                    rooms.put(doorId, socketConnections);
+                    Logging.log(Level.INFO, "Door online and room created. ID: " + doorId);
                     connection.send("{\"type\":\""+DOOR_ONLINE+"\",\"value\":\"true\"}"); // ACK reply
                     break;
 
                 case DOOR_REQUEST: // When a clients connects and requires to join the room of a specific door.
                     doorId = obj.getInt("doorId");
                     Logging.log(Level.INFO, "A client wants to communicate with the door " + doorId);
-                    if(onlineDoors.get(doorId) != null)
+                    if(rooms.get(doorId) != null)
                     {
-                        Logging.log(Level.INFO, "The requested door is online. Creating the room..");
+                        Logging.log(Level.INFO, "The requested door is online. Try to join the room...");
 
-                        WebSocket doorConnection = onlineDoors.get(doorId);
-                        socketConnections = new ArrayList<>();
-                        socketConnections.add(connection); // Add the connection of the client
-                        socketConnections.add(doorConnection); // Add the connection of the door
-                        rooms.put(doorId, socketConnections); // Creates the room
-                        // Signaling
-                        connection.send("{\"type\":\""+DOOR_REQUEST+"\",\"value\":1}"); // Replies with 1 if the door is online and available
+                        if(rooms.get(doorId).size() > 1) // When someone is already communicating with the door
+                        {
+                            Logging.log(Level.INFO, "The door is busy. Connection denied!");
+                            connection.send("{\"type\":\"" + DOOR_REQUEST + "\",\"value\":" + DOOR_BUSY + "}"); // Replies with 0 if the door is online but busy
+                        }
+                        else // Door available
+                        {
+                            Logging.log(Level.INFO, "Room joined successfully!");
+                            socketConnections = rooms.get(doorId);
+                            socketConnections.add(connection);
+                            rooms.put(doorId, socketConnections); // Updates the list with the new added connection
+                            openCommunications.put(connection, doorId); // Adds an entry for the current client. This is needed to keep track of who is communicating
+                            connection.send("{\"type\":\"" + DOOR_REQUEST + "\",\"value\":" + DOOR_AVAILABLE + "}"); // Replies with 1 if the door is online and available
+                        }
                     }
                     else
                     {
-                        Logging.log(Level.INFO, "The door is offline. Door ID: " + doorId);
-                        connection.send("{\"type\":\""+DOOR_REQUEST+"\",\"value\":-1}"); // Replies with -1 if the door is offline
+                        Logging.log(Level.INFO, "The requested door is offline. (Door ID: " + doorId + ")");
+                        connection.send("{\"type\":\""+DOOR_REQUEST+"\",\"value\":"+DOOR_OFFLINE+"}"); // Replies with -1 if the door is offline
                     }
                     break;
 
@@ -135,6 +171,8 @@ public class SignalingServer extends WebSocketServer
     public void onClose(WebSocket conn, int code, String reason, boolean remote)
     {
         Logging.log(Level.INFO, "Client disconnected. " + reason);
+        // Clears connection
+        leaveRoom(conn);
     }
 
     /**

@@ -16,6 +16,10 @@ const ANSWER = "ANSWER";
 const CANDIDATE = "CANDIDATE";
 const LEAVE = "LEAVE";
 
+const DOOR_AVAILABLE = 1;
+const DOOR_BUSY = 0;
+const DOOR_OFFLINE = -1;
+
 /** Variables **/
 var micMuted = true;
 var RTCConnection;
@@ -101,11 +105,15 @@ function send(message)
 /** Setup WebRTC for the call, collect the user media, ICE process and prepare a peer connection **/
 function setupRTC(value)
 {
-    if(value == -1) // When the server returns -1, means the door is not available
+    if(value == DOOR_OFFLINE) // The door is offline
     {
-        console.log("Error: cannot reach the requested door!");
+        console.log("Error: The requested door is offline!");
     }
-    else
+    else if(value == DOOR_BUSY) // The door is busy
+    {
+        console.log("Warning: Another user is connected to this door already!");
+    }
+    else if(value == DOOR_AVAILABLE) // The door is online and avialable
     {
         console.log("Setting up WebRTC..." )
 
