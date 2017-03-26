@@ -37,7 +37,7 @@ public class SSLServer
     public SSLServer() throws Exception
     {
         WebSocketImpl.DEBUG = false;
-        SignalingServerV2 signalingServer = new SignalingServerV2(); // Initialise the WebSocket server class
+        SignalingServer signalingServer = new SignalingServer(); // Initialise the WebSocket server class
         SSLContext sslContext = configSSL(); // Configures TLS
         signalingServer.setWebSocketFactory(new DefaultSSLWebSocketServerFactory(sslContext)); // Applies config
         signalingServer.start(); // Starts the server

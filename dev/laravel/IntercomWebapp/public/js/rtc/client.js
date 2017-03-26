@@ -5,7 +5,7 @@
 /** VARIABLES **************************************************/
 /** ************************************************************/
 /** Constants **/
-const doorId = 1212;
+const intercomId = 1212;
 const signalingSrvAddr = "192.168.0.18";
 const signalingSrvPort = "7007";
 
@@ -22,6 +22,8 @@ const DOOR_OFFLINE = -1;
 
 /** Variables **/
 var micMuted = true;
+var micBtnEnabled = false;
+var reconnectAttempts = 2;
 var RTCConnection;
 var myLocalStream;
 var socketConn;
@@ -33,7 +35,7 @@ var socketConn;
 function startConnection()
 {
     // Set timer to retry to connect after 6 seconds if failed
-    setTimeout(function() { checkIfFailed(); }, 6000)
+    setTimeout(function() { checkIfFailed(); }, 8000)
 
     // DOM Selectors
     remoteAudio = document.querySelector('#remoteAudio');
@@ -53,7 +55,7 @@ function startConnection()
 
     socketConn.onmessage = function (msg) // When a message is received from the server
     {
-        console.log("Message received: ", msg.data);
+        //console.log("Message received: ", msg.data);
         var data = JSON.parse(msg.data);
 
         // This switch handles the different phases during the signaling process
@@ -86,8 +88,14 @@ function checkIfFailed()
     {
         return true;
     }
-    else // ...retry
+    else if(socketConn.readyState == 0) // ...retry
     {
+        reconnectAttempts -= 1;
+        if(reconnectAttempts == 0)
+        {
+            showFatalError("Unable to connect to the signaling server");
+            return false;
+        }
         console.log("Connection attempt failed, retry...");
         socketConn.close();
         startConnection();
@@ -107,11 +115,11 @@ function setupRTC(value)
 {
     if(value == DOOR_OFFLINE) // The door is offline
     {
-        console.log("Error: The requested door is offline!");
+        showFatalError("The requested door is offline!")
     }
     else if(value == DOOR_BUSY) // The door is busy
     {
-        console.log("Warning: Another user is connected to this door already!");
+        showFatalError("Another user is connected to this door already!")
     }
     else if(value == DOOR_AVAILABLE) // The door is online and avialable
     {
@@ -158,6 +166,7 @@ function setupRTC(value)
                     myLocalStream.getAudioTracks()[0].enabled = false;
                     // Set GUI elements
                     GUIMicStatus(false);
+                    micBtnEnabled = true;
                     $('#btnLeft').fadeTo('fast', 1);
                     $('#audioOff').hide();
                     $('#audioWave').show();
@@ -171,17 +180,18 @@ function setupRTC(value)
         });
 
         $('#connectionStatus').html('Loading...');  // Change loading text
-        console.log("Done! The call can now be initiated");
-        setTimeout(function(){ startCall() }, 150); // Delay needed for the RTC object to be populated (not so elegant)
+        console.log("Done!");
+        setTimeout(function(){ startCall() }, 300); // Delay needed for the RTC object to be populated (not so elegant)
     }
 };
+
 
 /** Sends a request for the given door, to ensure the door is available **/
 function requestDoor()
 {
     send({
         type: DOOR_REQUEST,
-        doorId: doorId
+        intercomId: intercomId
     });
 }
 
@@ -200,6 +210,7 @@ function startCall()
     },
         { 'mandatory': { 'OfferToReceiveAudio': true, 'OfferToReceiveVideo': true }
     });
+
 }
 
 
@@ -217,19 +228,25 @@ function handleCandidate(candidate)
 
 
 /** Terminates the call and reconfigures WebRTC **/
-function closeCall()
+function closeConnection()
 {
     // Informs the peer that I'm leaving
     send({ type: LEAVE });
     // Close what needs to be closed
     remoteVideo.src = null;
     RTCConnection.close();
-    RTCConnection.onicecandidate = null;
-    RTCConnection.onaddstream = null;
-    RTCConnection = null;
-    console.log("Call terminated!");
+    //RTCConnection = null;
+    socketConn.close();
+    console.log("Connection terminated!");
     // Reconfigures for future calls
-    setupRTC(1);
+    //setupRTC(1);
+}
+
+function showFatalError(msg)
+{
+    console.log(msg);
+    $('#connectionErrorLog').html(msg);
+    $('#myModal').modal();
 }
 
 /** GUI CONTROL & MISC ************************************************/
@@ -237,13 +254,13 @@ function closeCall()
 /** Turn the Mic on & Off **/
 function triggerMic()
 {
-    if(micMuted)
+    if(micBtnEnabled & micMuted)
     {
         myLocalStream.getAudioTracks()[0].enabled = true;
         GUIMicStatus(true);
         micMuted = false;
     }
-    else
+    else if(micBtnEnabled)
     {
         myLocalStream.getAudioTracks()[0].enabled = false;
         GUIMicStatus(false);
@@ -276,3 +293,24 @@ function openDoor()
     $('#btnRight').css("background-image", "url('../img/mainbtn.png')");
     setTimeout(function() { $('#btnRight').css("background-image", "url('../img/mainbtn_no.png')") }, 3000)
 }
+
+
+function addVisibilityListener()
+{
+    console.log("Visibility listener added.")
+    document.addEventListener('visibilitychange', function ()
+    {
+        if (document.hidden)
+        {
+            closeConnection();
+        }
+        else
+        {
+            //setTimeout(function() { startConnection() }, 1000);
+            location.reload();
+        }
+    });
+
+}
+$( document ).ready(function() { addVisibilityListener(); });
+//setTimeout(function() { closeConnection(); }, 7000);

@@ -3,6 +3,27 @@
 @section('content')
 
 
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel" style="text-align: center;">Something went wrong...</h4>
+                    </div>
+                    <div class="modal-body">
+                        Failed to connect to the selected Intercom.<br /><br />
+                        Error: <i><span id="connectionErrorLog">Unknown</span></i>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Abort</button>
+                        <button type="button" onclick="location.reload()" class="btn btn-primary">Retry</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="row">
 
             <div class="container text-center" id="topContainer">
