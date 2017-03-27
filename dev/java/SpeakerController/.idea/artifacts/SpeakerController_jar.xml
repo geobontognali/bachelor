@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SpeakerController:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/SpeakerController_jar</output-path>
+    <root id="archive" name="SpeakerController.jar">
+      <element id="module-output" name="SpeakerController" />
+    </root>
+  </artifact>
+</component>

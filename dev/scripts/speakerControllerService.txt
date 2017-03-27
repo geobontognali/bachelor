@@ -1,23 +1,24 @@
 #!/bin/sh
-# start and stop doorController
+# created by Federico on 16.03.2017
+# start and stop speaker controller
 ### BEGIN INIT INFO
 # Provides:          speakerController
 # Required-Start:    $remote_fs $syslog
 # Required-Stop:     $remote_fs $syslog
-# Default-Start:     2 3 4 5
-# Default-Stop:      0 1 6
-# Short-Description: Start daemon at boot time
+# Default-Start:     5
+# Default-Stop:      0 1 2 3 4 6
+# Short-Description: Start speaker controller daemon at boot time
 # Description:       Enable service provided by daemon.
 ### END INIT INFO
 SERVICE_NAME=speakerController
-PATH_TO_JAR=/home/Aussensprechstelle/SpeakerController/SpeakerController.jar
-PID_PATH_NAME=/home/Aussensprechstelle/SpeakerController/SpeakerController-pid
-PATH_TO_LOG=/home/Aussensprechstelle/SpeakerController/speakercontroller.log
+PATH_TO_JAR=/home/door/Aussensprechstelle/SpeakerController/SpeakerController.jar
+PID_PATH_NAME=/home/door/Aussensprechstelle/SpeakerController/SpeakerController-pid
+# PATH_TO_LOG=/home/door/Aussensprechstelle/SpeakerController/speakercontrollerd.log
 case $1 in
     start)
         echo "Starting $SERVICE_NAME ..."
         if [ ! -f $PID_PATH_NAME ]; then
-            sudo java -jar $PATH_TO_JAR >>$PATH_TO_LOG 2>&1 &
+            sudo java -jar $PATH_TO_JAR &
             echo $! > $PID_PATH_NAME
             echo SpeakerController PID: $!
             echo "$SERVICE_NAME started ..."
@@ -44,7 +45,7 @@ case $1 in
             echo "$SERVICE_NAME stopped ...";
             rm $PID_PATH_NAME
             echo "$SERVICE_NAME starting ..."
-            sudo java -jar $PATH_TO_JAR >>$PATH_TO_LOG 2>&1 &
+            sudo java -jar $PATH_TO_JAR &
             echo $! > $PID_PATH_NAME
             echo "$SERVICE_NAME started ..."
         else
@@ -52,4 +53,3 @@ case $1 in
         fi
     ;;
 esac
-

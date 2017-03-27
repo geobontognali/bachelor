@@ -18,11 +18,13 @@ public class SpeakerController
     private final int TURN_ON = 1;
     private final int TURN_OFF = 0;
 
-    public void main(String[] args) {
+    public static void main(String[] args) {
         try
         {
             Logging.log(Level.INFO, "Speaker controller started");
-            startSocketServer(); // Start the socket
+
+            SpeakerController speakerController = new SpeakerController();
+            speakerController.startSocketServer(); // Start the socket
         }
         catch (Exception e)
         {
