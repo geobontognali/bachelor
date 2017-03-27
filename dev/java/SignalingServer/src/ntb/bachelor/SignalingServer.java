@@ -2,16 +2,13 @@ package ntb.bachelor;
 
 import org.java_websocket.WebSocket;
 import org.java_websocket.handshake.ClientHandshake;
-import org.java_websocket.server.DefaultSSLWebSocketServerFactory;
 import org.java_websocket.server.WebSocketServer;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.util.*;
 import java.util.logging.Level;
-
 
 
 
@@ -21,11 +18,16 @@ import java.util.logging.Level;
 public class SignalingServer extends WebSocketServer
 {
     private final String DOOR_ONLINE = "DOOR_ONLINE";
-    private final String CALL_REQUEST = "CALL_REQUEST";
+    private final String DOOR_REQUEST = "DOOR_REQUEST";
+    private final String DOOR_AVAILABLE = "1";
+    private final String DOOR_OFFLINE = "-1";
+    private final String DOOR_BUSY = "0";
 
-    private int doorId;
-    private Map<Integer, WebSocket> onlineDoors = new HashMap<>();
+    private int intercomId;
+    //private RoomsController roomsController;
     private Map<Integer,ArrayList<WebSocket>> rooms = new HashMap<>();
+    private Map<WebSocket, Integer> clientsConnectedToIntercom = new HashMap<>();
+
 
 
     /**
@@ -34,8 +36,113 @@ public class SignalingServer extends WebSocketServer
     public SignalingServer()
     {
         super(new InetSocketAddress(7007));
-
+        //roomsController = new RoomsController();
+        //roomsController.start();
         Logging.log(Level.INFO, "WebSocket server started");
+    }
+
+
+    /**
+     * When the connection is opened
+     */
+    @Override
+    public void onOpen(WebSocket conn, ClientHandshake handshake)
+    {
+        Logging.log(Level.INFO, "New inbound connection: " + conn.getRemoteSocketAddress() + " hash " + conn.getRemoteSocketAddress().hashCode());
+    }
+
+    /**
+     * When a message is received from a client.
+     * This is mostly just forwarding the incoming messages to the connected clientsConnectedToIntercom. When a door comes online, or a client makes a door requests
+     * saves the information and manages the rooms in which the partners are communicating
+     */
+    @Override
+    public void onMessage(WebSocket connection, String message)
+    {
+        ArrayList<WebSocket> socketConnections; // Used to store the connections of the partners inside a room
+        try
+        {
+            // Parse the JSON message to an object
+            JSONObject obj = new JSONObject(message);
+            //Logging.log(Level.INFO, "JSON Received: " + obj.toString());
+            String msgType = obj.getString("type");
+            switch (msgType)
+            {
+                case DOOR_ONLINE: // When a door comes online, a room for this door is created
+                    intercomId = obj.getInt("intercomId");
+                    if (rooms.containsKey(intercomId)) // Replace old connection with the new one if an older is present
+                    {
+                        rooms.remove(intercomId);
+                        Logging.log(Level.INFO, "A door came online and was already in the list. Older one deleted. ID: " + intercomId);
+                    }
+                    socketConnections = new ArrayList<>();
+                    socketConnections.add(connection);
+                    rooms.put(intercomId, socketConnections);
+                    Logging.log(Level.INFO, "Door online and room created. ID: " + intercomId);
+                    connection.send("{\"type\":\""+DOOR_ONLINE+"\",\"value\":\"true\"}"); // ACK reply
+                    break;
+
+                case DOOR_REQUEST: // When a clientsConnectedToIntercom connects and requires to join the room of a specific door.
+                    intercomId = obj.getInt("intercomId");
+                    Logging.log(Level.INFO, "A client wants to communicate with the door " + intercomId);
+                    if(rooms.get(intercomId) != null)
+                    {
+                        Logging.log(Level.INFO, "The requested door is online. Try to join the room...");
+
+                        if(rooms.get(intercomId).size() > 1) // When someone is already communicating with the door
+                        {
+                            Logging.log(Level.INFO, "The door is busy. Connection denied!");
+                            connection.send("{\"type\":\"" + DOOR_REQUEST + "\",\"value\":" + DOOR_BUSY + "}"); // Replies with 0 if the door is online but busy
+                        }
+                        else // Door available
+                        {
+                            Logging.log(Level.INFO, "Room joined successfully!");
+                            socketConnections = rooms.get(intercomId);
+                            socketConnections.add(connection);
+                            rooms.put(intercomId, socketConnections); // Updates the list with the new added connection
+                            clientsConnectedToIntercom.put(connection, intercomId); // Adds an entry for the current client. This is needed to keep track of who is communicating with who
+                            //roomsController.clientsConnectionTime.put(connection, new Date()); // This is needed to check if a connection expires
+                            connection.send("{\"type\":\"" + DOOR_REQUEST + "\",\"value\":" + DOOR_AVAILABLE + "}"); // Replies with 1 if the door is online and available
+                        }
+                    }
+                    else
+                    {
+                        Logging.log(Level.INFO, "The requested door is offline. (Door ID: " + intercomId + ")");
+                        connection.send("{\"type\":\""+DOOR_REQUEST+"\",\"value\":"+DOOR_OFFLINE+"}"); // Replies with -1 if the door is offline
+                    }
+                    break;
+
+                default: // Straight data exchange between the clientsConnectedToIntercom
+                    Logging.log(Level.INFO, "Forwarded message: " + message);
+                    //System.out.println("Exchange...");
+                    forwardMessage(connection, message);
+                    break;
+            }
+        }
+        catch (JSONException e)
+        {
+            Logging.log(Level.WARNING, "An invalid JSON payload has been received");
+        }
+    }
+
+    /**
+     * When the connection closes
+     */
+    @Override
+    public void onClose(WebSocket conn, int code, String reason, boolean remote)
+    {
+        Logging.log(Level.INFO, "Client disconnected. " + reason);
+        // Clear client connection
+        leaveRoom(conn);
+    }
+
+    /**
+     * Error handling
+     */
+    @Override
+    public void onError(WebSocket conn, Exception exc)
+    {
+        Logging.log(Level.WARNING, "Error happened: " + exc);
     }
 
 
@@ -46,7 +153,7 @@ public class SignalingServer extends WebSocketServer
      */
     private void forwardMessage(WebSocket currentConnection, String message)
     {
-        Iterator connections = rooms.get(doorId).iterator();
+        Iterator connections = rooms.get(intercomId).iterator();
         while (connections.hasNext())
         {
             WebSocket conn = (WebSocket) connections.next();
@@ -59,87 +166,28 @@ public class SignalingServer extends WebSocketServer
 
 
     /**
-     * Override Methods from the WebSocketServer Class
+     * When a client disconnects, his connection needs to be removed from any room in which it was present. This methods searches the Hashmaps for the connection and removes it
+     * @param connection The connection that needs to be cleared
      */
-    @Override
-    public void onOpen(WebSocket conn, ClientHandshake handshake)
+    public void leaveRoom(WebSocket connection)
     {
-        Logging.log(Level.INFO, "New client connected: " + conn.getRemoteSocketAddress() + " hash " + conn.getRemoteSocketAddress().hashCode());
-    }
-
-    @Override
-    public void onMessage(WebSocket connection, String message)
-    {
-        ArrayList<WebSocket> socketConnections; // Used to store the connections of the partners inside a room
         try
         {
-            // Parse the JSON message to an object
-            JSONObject obj = new JSONObject(message);
-            //Logging.log(Level.INFO, "JSON Received: " + obj.toString());
+            // Get the id of the door with which it was communicating
+            int doorId = clientsConnectedToIntercom.get(connection);
+            clientsConnectedToIntercom.remove(connection);
+            //clientsConnectionTime.remove(connection);
 
-            String msgType = obj.getString("type");
+            // Remove the connection from the connection-list with this door and updates the rooms list
+            ArrayList<WebSocket> socketConnections = rooms.get(doorId);
+            socketConnections.remove(connection);
+            rooms.put(doorId, socketConnections);
 
-            switch (msgType)
-            {
-                case DOOR_ONLINE:
-                    doorId = obj.getInt("doorId");
-                    if (onlineDoors.containsKey(doorId)) // Replace old connection with the new one if an older is presents
-                    {
-                        onlineDoors.remove(doorId);
-                        Logging.log(Level.INFO, "A door became online. Older one deleted. ID: " + doorId);
-                    }
-                    onlineDoors.put(doorId, connection);
-                    Logging.log(Level.INFO, "New door online. ID: " + doorId);
-                    connection.send("{\"type\":\"DOOR_ONLINE\",\"value\":\"true\"}"); // ACK reply
-                    break;
-
-                case CALL_REQUEST:
-                    doorId = obj.getInt("doorId");
-                    Logging.log(Level.INFO, "A client wants to call the door " + doorId);
-                    if(onlineDoors.get(doorId) != null)
-                    {
-                        Logging.log(Level.INFO, "The requested door is online. Both partner are in the room");
-                        // Creating and joining a room
-                        WebSocket doorConnection = onlineDoors.get(doorId);
-                        socketConnections = new ArrayList<>();
-                        socketConnections.add(connection); // Add the client calling connection
-                        socketConnections.add(doorConnection); // Add the door connection
-                        rooms.put(doorId, socketConnections);
-                        // Signaling
-                        connection.send("{\"type\":\"CALL_REQUEST\",\"value\":\"true\"}"); // Replies with true if the door is online
-                        //doorConnection.send("{\"type\":\"PICK_UP\",\"value\":\"true\"}"); // Sends a signal to the door pi to pick up the call
-                    }
-                    else
-                    {
-                        Logging.log(Level.INFO, "The door is offline. Door ID: " + doorId);
-                        connection.send("{\"type\":\"CALL_REQUEST\",\"value\":\"false\"}"); // Replies with false if the door is offline
-                    }
-                    break;
-                default: // Straight data exchange between the clients
-                    Logging.log(Level.INFO, "Forwarded message: " + message);
-                    System.out.println("Door ID:" + doorId );
-                    forwardMessage(connection, message);
-                    break;
-            }
+            Logging.log(Level.INFO, "Client removed from the connection list of the door " + doorId);
         }
-        catch (JSONException e)
+        catch(Exception e)
         {
-            Logging.log(Level.WARNING, "An invalid JSON payload has been received");
+            Logging.log(Level.INFO, "Unable to remove the client connection. Not a client or maybe never connected?");
         }
     }
-
-    @Override
-    public void onClose(WebSocket conn, int code, String reason, boolean remote)
-    {
-        Logging.log(Level.INFO, "Client disconnected. " + reason);
-
-    }
-
-    @Override
-    public void onError(WebSocket conn, Exception exc)
-    {
-        Logging.log(Level.WARNING, "Error happened: " + exc);
-        conn.send("ERRORACCIO"); // Replies with false if the door is offline
-    }
-
 }

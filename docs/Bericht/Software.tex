@@ -15,15 +15,15 @@ Im Verbindung mit PHP kommt natürlich die Markup-Languages HTML5/CSS, welche f�
 Alle Dienste die Serverseitig und ohne Interaktion mit dem Enduser ausgeführt werden, werden in Java programmiert. Als stark typisierte und Objektorientierte Programmiersprache eignet sich Java für dieses Projekt. Für Java sind auch unzählige Libraries verfügbar, insbesondere für die Hardware Steuerung der Raspberry Pi. Eine zweite Variante wäre Python gewesen, die auch das Raspberry sehr gut unterstüzt. Python ist aber zu wenig typisiert und für eher kleinere Softwarestücke gedacht.
 
 \subsubsection{PHP/Javascript}
-Die Enduser Applikation sowohl auch die Applikation bei der Aussensprechstelle werden Web-Applikationen sein. Dies ermöglicht eine schnelle und zeitgemässe Softwareentwicklung. Für dieses Projekt ist die System-Eingriffstiefe von Webapplikationen jedenfalls ausreichend. Es muss lediglich Zugriff auf Mikrofon, Lautsprecher und Kamera garantiert werden. Ein weiteres Punkt zugunsten einer Webapplikation ist die Cross-Plattform Kompatibilität. 
+Die Client Applikation sowohl auch die Applikation bei der Aussensprechstelle werden Web-Applikationen sein. Dies ermöglicht eine schnelle und zeitgemässe Softwareentwicklung. Für dieses Projekt ist die System-Eingriffstiefe von Webapplikationen jedenfalls ausreichend. Es muss lediglich Zugriff auf Mikrofon, Lautsprecher und Kamera garantiert werden. Ein weiteres Punkt zugunsten einer Webapplikation ist die Cross-Plattform Kompatibilität.
 \\
-Aus diesem Grund haben wir uns für PHP (Objektorientiert) im Kombination mit Javascript/HTML/CSS Entschieden. Eine zweite Variante wäre Java EE gewesen. Java EE eignet sich aber vor allem für grosse Softwarelösungen und bietet als gesamten Framework vieles mehr als was dieses Projekt benötigt. 
+Aus diesem Grund haben wir uns für PHP (Objektorientiert) im Kombination mit Javascript/HTML/CSS entschieden. Eine zweite Variante wäre Java EE gewesen. Java EE eignet sich aber vor allem für grosse Softwarelösungen und bietet als gesamten Framework vieles mehr als was dieses Projekt benötigt.
 \\
 \subsubsection{PHP Framework: Laravel}
 Für die Entwicklung der Webapplikationen wird Laravel als PHP Framework eingesetzt. Laravel ist ein Open-Source PHP Web-Application-Framework, die sich für kleine bis zu mittelgrosse Projekte eignet. Laravel beruht auf dem Modell-View-Controller-Muster und ermöglicht eine Objektorientierte Programmierung in PHP.
 
 \subsection{System Übersicht}
-Das System besteht aus mehrere Hardware- und Softwarekomponenten die zusammenarbeiten müssen (\seeref{fig:echosystem}). Die Kommunikation zwischen den Knoten ist von TLS immer gewährleistet. Die einzelne Komponente werden in den nächsten Kapiteln genauer beschrieben.
+Das System besteht aus mehrere Hardware- und Softwarekomponenten die zusammenarbeiten müssen (\seeref{fig:echosystem}). Die  Vertraulichkeit der Kommunikation zwischen den Knoten ist von TLS immer gewährleistet. Die einzelne Komponenten, sowie das Thema Sicherheit, werden in den nächsten Kapiteln genauer beschrieben.
 
 \begin{figure}[htb!]
 	\begin{center}
@@ -33,11 +33,11 @@ Das System besteht aus mehrere Hardware- und Softwarekomponenten die zusammenarb
 	\end{center}
 \end{figure}
 
-Die Software wird in zwei Gruppen unterteilt. Einerseits gibt es alle Dienste/Services \textit{(Violett)} die Lokal ausgeführt werden und quasi das Backend des Systems darstellen.
+Die Software wird in zwei Gruppen unterteilt. Einerseits gibt es alle Dienste/Daemons \textit{(Violett)} die Lokal ausgeführt werden und quasi das Backend des Systems darstellen.
 \\
 Die zweite Gruppe beinhaltet die Webapplikationen \textit{(Grün)}, die eine GUI besitzen und für die Interaktion mit dem System gedacht sind. Darunter zählen die Client-App für den Bewohner, die Applikation bei der Aussensprechstelle wo die Bewohner angezeigt werden und das Management Tool.
 \\
-Die Audio-Kommunikation zwischen die Aussensprechstellen und die Client-Apps wird mithilfe von WebRTC realisiert. Diese hat eine gewisse Komplexität und wird in ein eigenes Kapitel (\seeref{kap:webrtc}) behandelt.
+Die Audio/Video-Kommunikation zwischen die Aussensprechstellen und die Client-Apps wird mithilfe von WebRTC realisiert. Diese hat eine gewisse Komplexität und wird in ein eigenes Kapitel (\seeref{kap:webrtc}) behandelt.
 
 \subsection{Raspbian}
 \label{kap:raspbian}
@@ -46,26 +46,29 @@ Die Audio-Kommunikation zwischen die Aussensprechstellen und die Client-Apps wir
 \subsection{Dienste}
 \label{kap:dienste}
 
+\subsubsection{Hallo}
+skldjfalksjdfa
 
-\subsubsection{Keymapper}
-Die Aussensprechstelle wird durch 3 Schalter bedient. Die Aufgabe des Keymappers besteht darin, bei einem Tastendruck eine Aktion auf der Aussensprechselle ausgeführt wird. Die drei Schalter wurden an GPIO Pins des Raspberry PI angeschlossen. Wie im \cref{kap:java}
-beschrieben wurde, wird Java eingesetzt. 
+
+
+\subsubsection{Taster Controller}
+Die Aussensprechstelle wird durch 3 Schalter bedient. Die drei Schaltern werden an die GPIO-Pins des Raspberry PI angeschlossen. Die Aufgabe der Taster-Controller besteht darin, die GPIO-Input Signale, als verwendbare Tastatur-Eingaben umzuwandeln. Somit kann die GUI an der Aussensprechstelle gesteuert werden.
 \\
-Die ursprüngliche Idee war der Keymapper als Daemon im Hintergrund laufen zu lassen. Diese würde der Vorteil haben das der Daemon mittels run, stop und restart stabil gesteuert werden könnte. Da die eingesetzte java Library zum laufen zwingend ein X server benötigt, wurde der Keymapper im Init level 5 wo auch der X Server ausgeführt. Die Ausführung der Software ergibt in diesem Fall eine Fehlermeldung da die X Server noch nicht vollständig initialisiert ist. 
-Das Problem lag darin das per Definition ein Daemon Benutzerunabhängig ist. Somit steht der Library die auf dem X Server zugreift die wiederum Benutzerspezifisch ist, in Konflikt mit der Definition. 
-\\
-Die Desktop-Umgebung LXDE welche von Raspbian verwendet wird, bietet ein Autostart welche die Keymapper nach dem Initialisierung des X Server ausführt.
+Die ursprüngliche Idee war das Taster-Controller, so wie alle andere Dienste, als Daemon auszuführen. Das hätte den Vorteil, dass der Daemon mittels die übliche run, stop und restart Befehle gesteuert werden könnte. Eine der eingesetzten Java-Library benötigt aber den zugriff auf dem Graphisches Umgebung. Das Problem besteht darin, dass ein Daemon Benutzer-Unabhängig ist, während der X-Server beim Login einem Benutzer ausgeführt wird. Das ausführen der Deamon erst ab Init 5, da wo auch der X-Server ausgeführt wird, konnte aus diesem Grund das Problem auch nicht lösen.
+Die verwendete Library hat also keine Möglichkeit, als Deamon eine Verbindung mit dem X-Server aufzubauen.
+\\\\
+Die Desktop-Umgebung LXDE welche von Raspbian verwendet wird, bietet aber ein Autostart welches das Taster-Controller nach dem Initialisierung des X-Server, unter dem gleichen Benutzer ausführt.
 
 \subsubsection{Speaker Controller}
-...
-\subsubsection{Streaming Server}
-\label{kap:streamingsrv}
-...
+Das Speaker Controller ist ein kleinen Dienst, welche den Lautsprecher ein- und ausschalten kann. Trotz einem Massentrennfilter sind immer noch leise Störsignale auf der Audio-Ausgang vorhanden.
+Die Aufgabe des Speaker-Controllers besteht darin, die Stromspeisung des Speakers zu trennen, wenn es nicht verwendet wird. Somit ist das System Energieeffizienter und unnötige Geräusche können vermieden werden.
+\\
+\\
+Der Dienst besteht lediglich aus ein Socket-Server, der auf ein Signal wartet und durch die GPIO der Raspberry, ein kleines Relay steuert.
+Das Signal kommt von der Aussensprechstelle-Applikation \textit{(localhost)}. So kann den Lautsprecher bei Bedarf ein- und ausgeschaltet werden.
+
 \subsubsection{Relay Controller}
 ...
-\subsubsection{Watchdog}
-...
-
 \subsubsection{Signaling Server}
 Der Signaling-Server ist ein bestandteil von WebRTC und wird in ein eigenes Kapitel ausführlich beschrieben (\seeref{kap:signaling}).
 
@@ -73,6 +76,8 @@ Der Signaling-Server ist ein bestandteil von WebRTC und wird in ein eigenes Kapi
 \label{kap:logs}
 ....
 
+\subsubsection{Watchdog}
+...
 
 \subsection{Webapplikationen}
 \label{kap:webapp}
@@ -89,16 +94,16 @@ Der Bewohner muss über eine Applikation verfügen, die auf dem Tablet oder Hand
 	\end{center}
 \end{figure}
 \\
-Die \cref{fig:clientDemo} zeigt das Design für diese Webapplikation. Hier gezeigt ist die Smartphone Version. Dank ein Responsive-Design wird die selbe Applikation auch auf andere Geräte wie z.B. Tablets oder Computers passend angezeigt.
+Die \cref{fig:clientDemo} zeigt das Design für die Webapplikation. Hier gezeigt ist die Smartphone Version. Dank ein Responsive-Design wird die selbe Applikation auch auf andere Geräte wie z.B. Tablets oder Computers passend angezeigt.
 \\ 
 Bei der Design-Entwurf standen Übersichtlichkeit und Benutzerfreundlichkeit im Vordergrund. Aus diesem Grund werden die Tasten für die Audio-Kommunikation und für die Öffnung der Türe gross Angezeigt. Das Videostream von der ausgewählte Türe wird sofort angezeigt und benötigt keine weitere Interaktion. 
 
+\subsubsection{Aussensprechstelle Webapplikation}
+..
 
 \subsection{WebRTC}
 \label{kap:webrtc}
-WebRTC ist ein offener Standard, der eine Sammlung von Kommunikationsprotokollen und API beinhaltet. Die Standardisierung wird mehrheitlich betrieben und unterstützt von Google, Mozilla Foundation und Opera Software. WebRTC basiert auf HTML5 und Javascript und die Audio/Video Übertragung erfolgt über eine direkte Verbindung zwischen die Sprechpartner (Peer-to-Peer).
-\\
-Im unseren System wird WebRTC nur für den Audiostream verwendet. Das Videostream ist unidirektional und kann somit mit andere Methoden effizienter übertragen werden (\seeref{kap:streamingsrv}).
+WebRTC ist ein offener Standard, der eine Sammlung von Kommunikationsprotokollen und API beinhaltet. Die Standardisierung wird mehrheitlich betrieben und unterstützt von Google, Mozilla Foundation und Opera Software. WebRTC basiert auf HTML5 und Javascript und die Audio/Video Übertragung erfolgt über eine direkte Verbindung zwischen den Sprechpartner (Peer-to-Peer).
 \\
 \\
 WebRTC wird hauptsächlich für die Entwicklung von Videokonferenz Programme verwendet. Die Natur dieses Projekt ist allerdings nicht dieselbe wie die herkömmliche Real-Time-Communication Applikationen. Glücklicherweise wurde WebRTC so entwickelt, um möglichst viel Flexibilität zu garantieren. Aus diesem Grund beinhaltet der WebRTC-Standard keine Definition für den Signaling-Process, welcher zusammen mit dem ICE (Interactive Connectivity Establishment) für den Verbindungsaufbau zwischen den Sprechpartnern zuständig ist. 
@@ -114,7 +119,7 @@ WebRTC wird hauptsächlich für die Entwicklung von Videokonferenz Programme ver
 \subsubsection{Signaling Process}
 \label{kap:signaling}
 
-Ähnlich wie bei VoIP-Telefonie \textit{(SIP)} brauchen die Sprechpartner ein gemeinsam bekanntes Knoten, um die Verbindung zu initialisieren (\seeref{fig:signaling}). In den meisten Fällen ist einem Partner, die logische Adressierung der andere Partner nicht bekannt. Es besteht also keine Möglichkeit um eine P2P Verbindung auf einmal zu starten. 
+Ähnlich wie bei VoIP-Telefonie \textit{(SIP)}, brauchen die Sprechpartner ein gemeinsam bekanntes Knoten, um die Verbindung zu initialisieren (\seeref{fig:signaling}). In den meisten Fällen ist einem Partner, die logische Adressierung der andere Partner nicht bekannt. Es besteht also keine Möglichkeit um eine P2P Verbindung auf einmal zu starten.
 \begin{figure}[htb!]
 	\begin{center}
 		\includegraphics[width=0.75\textwidth]{signalingprocess}
@@ -130,9 +135,10 @@ Im Internet sind es mehrere Signaling-Server Libraries verfügbar. Allerdings si
 Für die Zwecke unser Projekt wurde ein eigenes Signaling-Server entwickelt. Dieser wird auf den Server ausgeführt und somit bleibt der Datenverkehr zwischen dem Client-App und der Aussensprechstelle, während jeder Schritt der Verbindungsaufbau und Kommunikation, innerhalb des lokales Netzwerkes. Das natürlich nur, solange der Bewohner sich zu Hause befindet.
 
 \subsubsection{STUN Servers \& Remote Verbindung}
+\label{test}
 Eine Anforderung des Systems ist die Möglichkeit, auch ausserhalb des Heimnetzes mit den Aussensprechstellen sich verbinden zu können. Hier stellt das NAT-Protokoll (Network Adress Translation) ein Problem dar.
 \\
-Nach dem Signaling-Prozess wird das ICE-Prozess gestartet. Hier tauschen sich die zwei Partner Informationen über die eigene Adressierung und den \textit{best path} aus. Falls sich ein Sprechpartner hinter ein NAT-Knote befindet, wird für den anderen unmöglich eine Verbindung aufzubauen. Hier kommen die STUN-Servers im Spiel. Ähnlich wie bei dem Signalisierungsprozess stehen STUN-Servers als hilfe für den Verbindungsaufbau da (\seeref{fig:stun}). 
+Nach dem Signaling-Prozess wird das ICE-Prozess gestartet. Hier tauschen sich die zwei Partner Informationen über die eigene Adressierung und den \textit{best path} aus. Falls sich ein Sprechpartner hinter ein NAT-Knote befindet, wird für den anderen unmöglich sein eine Verbindung aufzubauen. Hier kommen die STUN-Servers im Spiel. Ähnlich wie bei dem Signalisierungsprozess stehen STUN-Servers als Hilfe für den Verbindungsaufbau da (\seeref{fig:stun}).
 \begin{figure}[htb!]
 	\begin{center}
 		\includegraphics[width=0.75\textwidth]{stun}
@@ -143,6 +149,5 @@ Nach dem Signaling-Prozess wird das ICE-Prozess gestartet. Hier tauschen sich di
  STUN-Servers informieren die Clients über jegliche NAT Konfigurationen die sich dazwischen befinden würden. Die beide Sprechpartner erhalten somit Informationen über welche Ports und Öffentliche Adressen die Verbindung initialisiert werden kann. Für die Entwicklung dieses Projektes werden die Google STUN Servers verwendet, welche kostenfrei zur Verfügung stehen.
 \\
 Falls sich beide Sprechpartner im gleichen lokales Netzwerk befinden, werden keine STUN-Servers benötigt und den gesamten Datenverkehr bleibt innerhalb des Heimnetzwerkes.
-
 
 \newpage

@@ -2,9 +2,7 @@ package ntb.bachelor;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.security.*;
-import java.security.cert.CertificateException;
 
 import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
@@ -46,7 +44,7 @@ public class SSLServer
     }
 
     /**
-     * Import the Keystore file that contains the certificate needed to establish a TLS connection (WSS)
+     * Imports the Keystore file that contains the certificate needed to establish a TLS connection (WSS)
      *
      * @return The configuration object needed for the TLS connection
      * @throws KeyStoreException Keystore Exception

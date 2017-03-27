@@ -2,17 +2,23 @@
  * Created by Geo on 24.02.2017.
  */
 
-/**
- * CONSTANTS / VARIABLES
- */
-const doorId = 1212; //Math.random(); // Generate random name
+/** VARIABLES **************************************************/
+/** ************************************************************/
+/** Constants **/
+const intercomId = 1212;
 const signalingSrvAddr = "192.168.0.18";
 const signalingSrvPort = "7007";
 const socketProtocol = "wss"; // wss or ws
 
-const PICK_UP = "PICK_UP";
+/** Signaling Types **/
 const DOOR_ONLINE = "DOOR_ONLINE";
+const DOOR_REQUEST = "DOOR_REQUEST";
+const OFFER = "OFFER";
+const ANSWER = "ANSWER";
+const CANDIDATE = "CANDIDATE";
+const LEAVE = "LEAVE";
 
+/** Variables **/
 var status = "offline";
 var RTCConnection;
 var stream;
@@ -23,6 +29,8 @@ var socketConn;
  * UI SELECTORS
  */
 var localAudio = document.querySelector('#localAudio');
+var localVideo = document.querySelector('#localVideo');
+var remoteVideo = document.querySelector('#remoteVideo');
 var remoteAudio = document.querySelector('#remoteAudio');
 
 
@@ -32,7 +40,7 @@ var remoteAudio = document.querySelector('#remoteAudio');
 // Init point, fires up the connection
 function startWebSocket()
 {
-    console.log("My ID " + doorId);
+    console.log("My ID " + intercomId);
     console.log("Connecting to the signaling server...");
     socketConn = new WebSocket(socketProtocol +"://"+signalingSrvAddr+":"+signalingSrvPort);
 
@@ -54,15 +62,15 @@ function startWebSocket()
                 setupRTC(data.value);
                 break;
             // When somebody wants to call us
-            case "offer":
+            case OFFER:
                 handleOffer(data.offer, data.name);
                 break;
             // When a remote peer sends an ice candidate to us
-            case "candidate":
+            case CANDIDATE:
                 handleCandidate(data.candidate);
                 break;
             // When the call is terminated
-            case "leave":
+            case LEAVE:
                 handleLeave();
                 break;
             default:
@@ -96,12 +104,13 @@ function setupRTC(value) {
         console.log("The server acknowledged that we are online! Setting up WebRTC");
         status = "configuring";
 
-        //getting local audio stream
-        navigator.webkitGetUserMedia({ video: false, audio: true }, function (myStream) {
+        //getting local audio myLocalStream
+        navigator.webkitGetUserMedia({ video: true, audio: true }, function (myStream) {
             stream = myStream;
 
-            //displaying local audio stream on the page
-            localAudio.src = window.URL.createObjectURL(stream);
+            //displaying local audio myLocalStream on the page
+            //localAudio.src = window.URL.createObjectURL(myLocalStream);
+            //localVideo.src = window.URL.createObjectURL(myLocalStream);
 
             //using Google public stun server
             var configuration = {
@@ -109,12 +118,12 @@ function setupRTC(value) {
             };
 
             // DONT GIVE ANY CONFIGURATION FOR LOCAL TRAFFIC
-            RTCConnection = new webkitRTCPeerConnection(configuration);
+            RTCConnection = new webkitRTCPeerConnection(configuration); // Add configuration for STUN Support
 
-            // setup stream listening
+            // setup myLocalStream listening
             RTCConnection.addStream(stream);
 
-            //when a remote user adds stream to the peer connection, we display it
+            //when a remote user adds myLocalStream to the peer connection, we display it
             RTCConnection.onaddstream = function (e) {
                 remoteAudio.src = window.URL.createObjectURL(e.stream);
             };
@@ -123,7 +132,7 @@ function setupRTC(value) {
             RTCConnection.onicecandidate = function (event) {
                 if (event.candidate) {
                     send({
-                        type: "candidate",
+                        type: CANDIDATE,
                         candidate: event.candidate
                     });
                 }
@@ -149,7 +158,7 @@ function goOnline()
 {
     send({
         type: DOOR_ONLINE,
-        doorId: doorId
+        intercomId: intercomId
     });
 }
 
@@ -171,7 +180,7 @@ function handleOffer(offer, name)
         RTCConnection.setLocalDescription(answer);
 
         send({
-            type: "answer",
+            type: ANSWER,
             answer: answer
         });
 
@@ -180,6 +189,8 @@ function handleOffer(offer, name)
     }, function (error)
     {
         console.log("Error when giving an answer to the offer");
+    },
+        { 'mandatory': { 'OfferToReceiveAudio': true, 'OfferToReceiveVideo': false } // Request for audio only
     });
 };
 

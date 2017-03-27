@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.27)  16 MAR 2017 17:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.3.6)  26 MAR 2017 00:16
 entering extended mode
 **./mainfile.tex
 (mainfile.tex
@@ -770,19 +770,19 @@ LaTeX Warning: Label `sec:chapterexample@cref' multiply defined.
 (abkuerzungsverzeichnis.aux) (erklaerung.aux))
 \openout1 = `mainfile.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 130.
-LaTeX Font Info:    ... okay on input line 130.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 130.
-LaTeX Font Info:    ... okay on input line 130.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 130.
-LaTeX Font Info:    ... okay on input line 130.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 130.
-LaTeX Font Info:    ... okay on input line 130.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 130.
-LaTeX Font Info:    ... okay on input line 130.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 130.
-LaTeX Font Info:    ... okay on input line 130.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 130.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 131.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmr.fd"
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -950,7 +950,7 @@ Overfull \hbox (34.98824pt too wide) in paragraph at lines 25--32
 \openout2 = `zusammenfassung.aux'.
 
  (zusammenfassung.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 6--148
+Underfull \hbox (badness 10000) in paragraph at lines 6--149
 
  []
 
@@ -1094,52 +1094,71 @@ File: img/ecosystem.png Graphic file (type png)
 <use img/ecosystem.png>
 Package pdftex.def Info: img/ecosystem.png used on input line 30.
 (pdftex.def)             Requested size: 412.56497pt x 257.65518pt.
-Package cleveref Info: loaded `ngerman' language definitions on input line 41.
- [8 <./img/ecosystem.png>]
-Package cleveref Info: loaded `ngerman' language definitions on input line 68.
- [9]
-<img/clientDemo.jpg, id=70, 1445.4pt x 2569.6pt>
-File: img/clientDemo.jpg Graphic file (type jpg)
- <use img/clientDemo.jpg>
-Package pdftex.def Info: img/clientDemo.jpg used on input line 85.
-(pdftex.def)             Requested size: 144.40025pt x 256.70059pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 98--104
+Overfull \hbox (6.33755pt too wide) in paragraph at lines 36--41
+\T1/lmr/m/n/12 Die Audio/Video-Kommunikation zwi-schen die Aus-sen-sprech-stel-
+len und die Client-
+ []
+
+Package cleveref Info: loaded `ngerman' language definitions on input line 41.
+[8 <./img/ecosystem.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 51--57
 
  []
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 104.
+
+Underfull \hbox (badness 10000) in paragraph at lines 59--65
+
+ []
+
+Package cleveref Info: loaded `ngerman' language definitions on input line 65.
+[9] <img/clientDemo.jpg, id=70, 1445.4pt x 2569.6pt>
+File: img/clientDemo.jpg Graphic file (type jpg)
+ <use img/clientDemo.jpg>
+Package pdftex.def Info: img/clientDemo.jpg used on input line 83.
+(pdftex.def)             Requested size: 144.40025pt x 256.70059pt.
+Package cleveref Info: loaded `ngerman' language definitions on input line 96.
 
 [10]
+Underfull \hbox (badness 10000) in paragraph at lines 98--102
 
-LaTeX Warning: Citation `001' on page 11 undefined on input line 110.
+ []
 
-<img/signalingprocess.jpg, id=74, 1003.75pt x 596.2275pt>
+
+LaTeX Warning: Citation `001' on page 11 undefined on input line 108.
+
+Package cleveref Info: loaded `ngerman' language definitions on input line 109.
+
+[11 <./img/clientDemo.jpg>]
+<img/signalingprocess.jpg, id=77, 1003.75pt x 596.2275pt>
 File: img/signalingprocess.jpg Graphic file (type jpg)
 
 <use img/signalingprocess.jpg>
-Package pdftex.def Info: img/signalingprocess.jpg used on input line 119.
+Package pdftex.def Info: img/signalingprocess.jpg used on input line 117.
 (pdftex.def)             Requested size: 309.42372pt x 183.80057pt.
-Package cleveref Info: loaded `ngerman' language definitions on input line 130.
-
- [11 <./img/clientDemo.jpg>]
-<img/stun.png, id=78, 779.16093pt x 491.58656pt>
-File: img/stun.png Graphic file (type png)
- <use img/stun.png>
-Package pdftex.def Info: img/stun.png used on input line 137.
-(pdftex.def)             Requested size: 309.42372pt x 195.22095pt.
-Package cleveref Info: loaded `ngerman' language definitions on input line 145.
+Package cleveref Info: loaded `ngerman' language definitions on input line 128.
 
  [12 <./img/signalingprocess.jpg>]
-Package cleveref Info: loaded `ngerman' language definitions on input line 147.
+<img/stun.png, id=82, 779.16093pt x 491.58656pt>
+File: img/stun.png Graphic file (type png)
+ <use img/stun.png>
+Package pdftex.def Info: img/stun.png used on input line 136.
+(pdftex.def)             Requested size: 309.42372pt x 195.22095pt.
 
- [13 <./img/stun.png>]) (mainfile.bbl
+Overfull \hbox (0.76872pt too wide) in paragraph at lines 131--144
+\T1/lmr/m/n/12 Servers im Spiel. Ähn-lich wie bei dem Si-gna-li-sie-rungs-pro-z
+ess ste-hen STUN-Servers
+ []
+
+Package cleveref Info: loaded `ngerman' language definitions on input line 145.
+
+[13 <./img/stun.png>]) (mainfile.bbl
 
 LaTeX Warning: Empty `thebibliography' environment or \BreakBibliography
                before end of `thebibliography' environment on input line 3.
 
 )
-Package cleveref Info: loaded `ngerman' language definitions on input line 193.
+Package cleveref Info: loaded `ngerman' language definitions on input line 194.
 
  [14] (mainfile.lof
 Package cleveref Info: loaded `ngerman' language definitions on input line 1.
@@ -1147,7 +1166,7 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 1.
 \tf@lof=\write4
 \openout4 = `mainfile.lof'.
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 198.
+Package cleveref Info: loaded `ngerman' language definitions on input line 199.
 
  [15] (mainfile.lot
 Package cleveref Info: loaded `ngerman' language definitions on input line 1.
@@ -1155,7 +1174,7 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 1.
 \tf@lot=\write5
 \openout5 = `mainfile.lot'.
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 201.
+Package cleveref Info: loaded `ngerman' language definitions on input line 202.
 
  [16]
 \openout2 = `abkuerzungsverzeichnis.aux'.
@@ -1186,13 +1205,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 7990 strings out of 493333
- 133918 string characters out of 3139194
+ 7986 strings out of 493333
+ 133836 string characters out of 3139201
  303900 words of memory out of 3000000
- 11299 multiletter control sequences out of 15000+200000
+ 11295 multiletter control sequences out of 15000+200000
  56117 words of font info for 45 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 48i,10n,51p,8848b,567s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 48i,10n,51p,8848b,632s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}{C:/Program Files/M
 iKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files/MiKTeX 2.9/fonts/e
 nc/dvips/lm/lm-mathsy.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lm
@@ -1201,7 +1220,7 @@ ram Files/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb><C:/Program Files/MiKTeX 2
 .9/fonts/type1/public/lm/lmri12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
 blic/lm/lmro12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmssbx10.
 pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb>
-Output written on mainfile.pdf (26 pages, 1090084 bytes).
+Output written on mainfile.pdf (26 pages, 1090600 bytes).
 PDF statistics:
  131 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

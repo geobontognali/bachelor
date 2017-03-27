@@ -18,20 +18,19 @@
 \contentsline {subsubsection}{\numberline {5.1.2}PHP/Javascript}{7}
 \contentsline {subsubsection}{\numberline {5.1.3}PHP Framework: Laravel}{8}
 \contentsline {subsection}{\numberline {5.2}System \IeC {\"U}bersicht}{8}
-\contentsline {subsection}{\numberline {5.3}Raspbian}{9}
-\contentsline {subsection}{\numberline {5.4}Dienste}{9}
-\contentsline {subsubsection}{\numberline {5.4.1}Keymapper}{9}
-\contentsline {subsubsection}{\numberline {5.4.2}Speaker Controller}{9}
-\contentsline {subsubsection}{\numberline {5.4.3}Streaming Server}{9}
-\contentsline {subsubsection}{\numberline {5.4.4}Relay Controller}{9}
-\contentsline {subsubsection}{\numberline {5.4.5}Watchdog}{10}
-\contentsline {subsubsection}{\numberline {5.4.6}Signaling Server}{10}
-\contentsline {subsection}{\numberline {5.5}Logging}{10}
-\contentsline {subsection}{\numberline {5.6}Webapplikationen}{10}
-\contentsline {subsubsection}{\numberline {5.6.1}Client Webapplikation}{10}
-\contentsline {subsection}{\numberline {5.7}WebRTC}{10}
-\contentsline {subsubsection}{\numberline {5.7.1}Signaling Process}{12}
-\contentsline {subsubsection}{\numberline {5.7.2}STUN Servers \& Remote Verbindung}{13}
+\contentsline {subsection}{\numberline {5.3}Dienste}{9}
+\contentsline {subsubsection}{\numberline {5.3.1}Hallo}{9}
+\contentsline {subsubsection}{\numberline {5.3.2}Taster Controller}{9}
+\contentsline {subsubsection}{\numberline {5.3.3}Speaker Controller}{9}
+\contentsline {subsubsection}{\numberline {5.3.4}Relay Controller}{10}
+\contentsline {subsubsection}{\numberline {5.3.5}Signaling Server}{10}
+\contentsline {subsubsection}{\numberline {5.3.6}Watchdog}{10}
+\contentsline {subsection}{\numberline {5.4}Webapplikationen}{10}
+\contentsline {subsubsection}{\numberline {5.4.1}Client Webapplikation}{10}
+\contentsline {subsubsection}{\numberline {5.4.2}Aussensprechstelle Webapplikation}{11}
+\contentsline {subsection}{\numberline {5.5}WebRTC}{11}
+\contentsline {subsubsection}{\numberline {5.5.1}Signaling Process}{12}
+\contentsline {subsubsection}{\numberline {5.5.2}STUN Servers \& Remote Verbindung}{13}
 \contentsline {section}{Literaturverzeichnis}{14}
 \contentsline {section}{Abbildungsverzeichnis}{15}
 \contentsline {section}{Tabellenverzeichnis}{16}
