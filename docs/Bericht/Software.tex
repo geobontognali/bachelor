@@ -77,8 +77,13 @@ Der Signaling-Server ist ein bestandteil von WebRTC und wird in ein eigenes Kapi
 ....
 
 \subsubsection{Watchdog}
-...
+Das ganze Hardware die an die Türe installiert wird ist bei eine Endkunde schwer zugänglich. Sollte nun ein Problem mit dem System auftreten müsste man die Außensprechstelle ausbauen um diese neu starten zu können. Die Lösung heisst hier Hardware-Watchdog, die auf dem Raspberry komplett unabhängig vom eigentlichen System läuft. Der Vorteil von ein Hardware-Watchdog ist das wenn der System bzw. der Prozessor steht, führt diese unabhängige Hardware ihre Aufgabe weiterhin aus.
+Der Watchdog wird als standalone Gerät im Unix implementiert. Wird diese Gerät einmal beschrieben, dann muss diese im eine Zeitintervall von 15 Sekunden erneut beschrieben werden. Ist diese Bedingung nicht erfüllt, denn wird ein Hardware-Reset von Watchdog durchgeführt und das System wird sauber neugestartet.
+Das Beschrieben von der Watchdog-Gerät wird von eine Watchdog-Daemon übernommen. 
+Durch der Konfigurationsdatei des Daemon können verschiedene Parameter des System wie Temperatur, Auslastung der Prozessor usw. überwacht werden. Besonders relevant für die Türsprechanlage ist das PID-Monitoring. Diese ermöglicht das ständig überprüfen von spezifische Prozesse und Diensten die das System benötigt um sein Zweck als Aussensprechstelle zu erfüllen. Sobald eine diese Prozesse steht wird das System innerhalb von 15 Sekunden nuegestartet. 
+Somit ist auch der Problem der Verfügbarkeit des Türsprechanlage die zusammen mit den Sicherheit ein zentrales Thema ist, abgedeckt. 
 
+Ein solches Watchdog ermöglicht die Verfügbarkeit 
 \subsection{Webapplikationen}
 \label{kap:webapp}
 

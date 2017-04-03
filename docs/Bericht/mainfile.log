@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.3.6)  26 MAR 2017 00:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.27)  3 APR 2017 16:44
 entering extended mode
 **./mainfile.tex
 (mainfile.tex
@@ -1102,57 +1102,61 @@ len und die Client-
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 41.
 [8 <./img/ecosystem.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 51--57
+Underfull \hbox (badness 10000) in paragraph at lines 55--61
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 59--65
+Underfull \hbox (badness 10000) in paragraph at lines 63--69
 
  []
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 65.
-[9] <img/clientDemo.jpg, id=70, 1445.4pt x 2569.6pt>
+Package cleveref Info: loaded `ngerman' language definitions on input line 69.
+[9]
+Package cleveref Info: loaded `ngerman' language definitions on input line 85.
+ [10] <img/clientDemo.jpg, id=73, 1445.4pt x 2569.6pt>
 File: img/clientDemo.jpg Graphic file (type jpg)
- <use img/clientDemo.jpg>
-Package pdftex.def Info: img/clientDemo.jpg used on input line 83.
-(pdftex.def)             Requested size: 144.40025pt x 256.70059pt.
-Package cleveref Info: loaded `ngerman' language definitions on input line 96.
 
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 98--102
+<use img/clientDemo.jpg>
+Package pdftex.def Info: img/clientDemo.jpg used on input line 96.
+(pdftex.def)             Requested size: 144.40025pt x 256.70059pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 111--115
 
  []
 
+Package cleveref Info: loaded `ngerman' language definitions on input line 115.
 
-LaTeX Warning: Citation `001' on page 11 undefined on input line 108.
+[11]
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 109.
+LaTeX Warning: Citation `001' on page 12 undefined on input line 121.
 
-[11 <./img/clientDemo.jpg>]
 <img/signalingprocess.jpg, id=77, 1003.75pt x 596.2275pt>
 File: img/signalingprocess.jpg Graphic file (type jpg)
 
 <use img/signalingprocess.jpg>
-Package pdftex.def Info: img/signalingprocess.jpg used on input line 117.
+Package pdftex.def Info: img/signalingprocess.jpg used on input line 130.
 (pdftex.def)             Requested size: 309.42372pt x 183.80057pt.
-Package cleveref Info: loaded `ngerman' language definitions on input line 128.
+Package cleveref Info: loaded `ngerman' language definitions on input line 141.
 
- [12 <./img/signalingprocess.jpg>]
+ [12 <./img/clientDemo.jpg>]
 <img/stun.png, id=82, 779.16093pt x 491.58656pt>
 File: img/stun.png Graphic file (type png)
  <use img/stun.png>
-Package pdftex.def Info: img/stun.png used on input line 136.
+Package pdftex.def Info: img/stun.png used on input line 149.
 (pdftex.def)             Requested size: 309.42372pt x 195.22095pt.
 
-Overfull \hbox (0.76872pt too wide) in paragraph at lines 131--144
+Overfull \hbox (0.76872pt too wide) in paragraph at lines 144--157
 \T1/lmr/m/n/12 Servers im Spiel. Ähn-lich wie bei dem Si-gna-li-sie-rungs-pro-z
 ess ste-hen STUN-Servers
  []
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 145.
+Package cleveref Info: loaded `ngerman' language definitions on input line 157.
 
-[13 <./img/stun.png>]) (mainfile.bbl
+[13 <./img/signalingprocess.jpg>]
+Package cleveref Info: loaded `ngerman' language definitions on input line 158.
+
+ [14 <./img/stun.png>]) (mainfile.bbl
 
 LaTeX Warning: Empty `thebibliography' environment or \BreakBibliography
                before end of `thebibliography' environment on input line 3.
@@ -1160,7 +1164,7 @@ LaTeX Warning: Empty `thebibliography' environment or \BreakBibliography
 )
 Package cleveref Info: loaded `ngerman' language definitions on input line 194.
 
- [14] (mainfile.lof
+ [15] (mainfile.lof
 Package cleveref Info: loaded `ngerman' language definitions on input line 1.
 )
 \tf@lof=\write4
@@ -1168,7 +1172,7 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 1.
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 199.
 
- [15] (mainfile.lot
+ [16] (mainfile.lot
 Package cleveref Info: loaded `ngerman' language definitions on input line 1.
 )
 \tf@lot=\write5
@@ -1176,19 +1180,19 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 1.
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 202.
 
- [16]
+ [17]
 \openout2 = `abkuerzungsverzeichnis.aux'.
 
  (abkuerzungsverzeichnis.tex
-[17
+[18
 
 ])
 \openout2 = `erklaerung.aux'.
 
- (erklaerung.tex) [18
+ (erklaerung.tex) [19
 
 
-] [19
+] [20
 
 ] (mainfile.aux (title.aux)
 Package cleveref Info: loaded `ngerman' language definitions on input line 5.
@@ -1205,13 +1209,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 7986 strings out of 493333
- 133836 string characters out of 3139201
+ 7990 strings out of 493333
+ 133894 string characters out of 3139194
  303900 words of memory out of 3000000
- 11295 multiletter control sequences out of 15000+200000
+ 11299 multiletter control sequences out of 15000+200000
  56117 words of font info for 45 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 48i,10n,51p,8848b,632s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 48i,10n,51p,8848b,567s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}{C:/Program Files/M
 iKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files/MiKTeX 2.9/fonts/e
 nc/dvips/lm/lm-mathsy.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lm
@@ -1220,9 +1224,9 @@ ram Files/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb><C:/Program Files/MiKTeX 2
 .9/fonts/type1/public/lm/lmri12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
 blic/lm/lmro12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmssbx10.
 pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb>
-Output written on mainfile.pdf (26 pages, 1090600 bytes).
+Output written on mainfile.pdf (27 pages, 1093077 bytes).
 PDF statistics:
- 131 PDF objects out of 1000 (max. 8388607)
+ 134 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  51 words of extra memory for PDF output out of 10000 (max. 10000000)
 
