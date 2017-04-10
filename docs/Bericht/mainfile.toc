@@ -26,13 +26,13 @@
 \contentsline {subsubsection}{\numberline {5.4.4}Relay Controller}{10}
 \contentsline {subsubsection}{\numberline {5.4.5}Signaling Server}{10}
 \contentsline {subsection}{\numberline {5.5}Logging}{10}
-\contentsline {subsubsection}{\numberline {5.5.1}Watchdog}{10}
-\contentsline {subsection}{\numberline {5.6}Webapplikationen}{11}
-\contentsline {subsubsection}{\numberline {5.6.1}Client Webapplikation}{11}
-\contentsline {subsubsection}{\numberline {5.6.2}Aussensprechstelle Webapplikation}{11}
-\contentsline {subsection}{\numberline {5.7}WebRTC}{11}
-\contentsline {subsubsection}{\numberline {5.7.1}Signaling Process}{13}
-\contentsline {subsubsection}{\numberline {5.7.2}STUN Servers \& Remote Verbindung}{14}
+\contentsline {subsection}{\numberline {5.6}Watchdog}{10}
+\contentsline {subsection}{\numberline {5.7}Webapplikationen}{11}
+\contentsline {subsubsection}{\numberline {5.7.1}Client Webapplikation}{11}
+\contentsline {subsubsection}{\numberline {5.7.2}Aussensprechstelle Webapplikation}{11}
+\contentsline {subsection}{\numberline {5.8}WebRTC}{11}
+\contentsline {subsubsection}{\numberline {5.8.1}Signaling Process}{13}
+\contentsline {subsubsection}{\numberline {5.8.2}STUN Servers \& Remote Verbindung}{14}
 \contentsline {section}{Literaturverzeichnis}{15}
 \contentsline {section}{Abbildungsverzeichnis}{16}
 \contentsline {section}{Tabellenverzeichnis}{17}
