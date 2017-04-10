@@ -17,6 +17,7 @@ import java.util.logging.Level;
  */
 public class SignalingServer extends WebSocketServer
 {
+    private final String version = "0.0410b";
     private final String DOOR_ONLINE = "DOOR_ONLINE";
     private final String DOOR_REQUEST = "DOOR_REQUEST";
     private final String DOOR_AVAILABLE = "1";
@@ -38,7 +39,7 @@ public class SignalingServer extends WebSocketServer
         super(new InetSocketAddress(7007));
         //roomsController = new RoomsController();
         //roomsController.start();
-        Logging.log(Level.INFO, "WebSocket server started");
+        Logging.log(Level.INFO, "WebSocket server started! Version: " + version);
     }
 
 
