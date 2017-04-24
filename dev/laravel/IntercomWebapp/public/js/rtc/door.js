@@ -212,7 +212,44 @@ function handleLeave()
 startWebSocket();
 
 
+// GUI & Stuff //////////////////////////////////////////
+// Set a KeyPress listener
+document.addEventListener("keypress", slideCarousel);
+// Fired by the keypress listener
+var ringing = false;
+function slideCarousel(evt)
+{
+    // Get the pressed key as a char
+    evt = evt || window.event;
+    var charCode = evt.keyCode || evt.which;
+    var charStr = String.fromCharCode(charCode);
+    console.log(charStr);
+    if(charStr == "l" || charStr == "L")
+    {
+        carousel.cycleActive('previous');
+    }
+    else if(charStr == "j" || charStr == "J")
+    {
+        carousel.cycleActive('next');
+    }
+    else if(charStr == "k" ||charStr == "K")
+    {
+        callTheResident();
+    }
+}
 
+
+function callTheResident()
+{
+    if(ringing) { return false; } // Cancel if already ringing
+    ringing = true;
+    $('.btnIconMiddle img').attr("src", "img/alarm.png");
+    setTimeout(function() { $('.btnIconMiddle img').attr("src", "img/alarm_noring.png"); }, 1000);
+    setTimeout(function() { $('.btnIconMiddle img').attr("src", "img/alarm.png"); }, 1500);
+    setTimeout(function() { $('.btnIconMiddle img').attr("src", "img/alarm_noring.png"); }, 2500);
+    setTimeout(function() { $('.btnIconMiddle img').attr("src", "img/alarm.png"); }, 3000);
+    setTimeout(function() { $('.btnIconMiddle img').attr("src", "img/alarm_noring.png"); ringing = false; }, 4000);
+}
 
 
 

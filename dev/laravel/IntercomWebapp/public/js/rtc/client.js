@@ -6,7 +6,7 @@
 /** ************************************************************/
 /** Constants **/
 const intercomId = 1212;
-const signalingSrvAddr = "172.16.111.99";
+const signalingSrvAddr = "192.168.0.18";
 const signalingSrvPort = "7007";
 
 /** Signaling Types **/

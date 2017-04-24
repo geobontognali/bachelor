@@ -16,14 +16,14 @@ class AppController extends Controller
         return view('clientApp');
     }
 
-    public function clientTest()
-    {
-        return view('clientTest');
-    }
-
     public function server()
     {
         return view('serverTest');
+    }
+
+    public function door()
+    {
+        return view('doorApp');
     }
 
 }

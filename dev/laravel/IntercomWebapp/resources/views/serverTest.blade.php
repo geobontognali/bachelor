@@ -47,10 +47,15 @@
             </div>
     </div>
 
+    <div style="position: absolute; top: 0px; left: 0px;">
+        <img src="img/door_design2.png" />
+    </div>
+
 
 </div>
 
-<script src = "js/rtc/server.js"></script>
+
+<script src = "js/rtc/server.js" ></script>
 
 
 </body>

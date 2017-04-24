@@ -17,18 +17,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/animations/spinner.css">
-    <link rel="stylesheet" href="css/animations/wave.css">
 
 
-    <script src = "js/rtc/client.js"></script>
+    <link rel="stylesheet" href="css/jquery.circular-carousel.css">
+    <link rel="stylesheet" href="css/styleDoor.css">
+
 </head>
 
 <body style="background-color: #e7e7e7;">
 
 <!-- UNDER CONTAINER -->
-<div class="container-fluid" >
+<div class="mainContainer" >
 
     @yield('content')
 
