@@ -16,6 +16,10 @@ Route::get('/', function () { return view('welcome'); });
 
 
 // Aussensprechstelle
-Route::get('/door', 'AppController@door');
+Route::get('/door', 'DoorController@showView');
+Route::get('/client', 'ClientController@showView');
+
 Route::get('/server', 'AppController@server');
-Route::get('/client', 'AppController@client');
+
+
+

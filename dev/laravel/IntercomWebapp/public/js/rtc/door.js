@@ -5,7 +5,6 @@
 /** VARIABLES **************************************************/
 /** ************************************************************/
 /** Constants **/
-const intercomId = 1212;
 const signalingSrvAddr = "192.168.0.18";
 const signalingSrvPort = "7007";
 const socketProtocol = "wss"; // wss or ws

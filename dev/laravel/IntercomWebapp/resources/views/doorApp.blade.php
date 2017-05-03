@@ -99,6 +99,14 @@
     <script src="js/carousel/jquery.circular-carousel.js"></script>
     <script src="js/carousel/carousel-config.js"></script>
 
+
+    <script>
+        <?php
+        use App\Http\Controllers\DoorController;
+        $doorController = new DoorController();
+        $doorController->setDoorId();
+        ?>
+    </script>
     <script src="js/rtc/door.js" ></script>
 
 @endsection
