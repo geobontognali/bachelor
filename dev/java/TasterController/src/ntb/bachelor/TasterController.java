@@ -53,9 +53,9 @@ public class TasterController
         // create gpio controller
         final GpioController gpio = GpioFactory.getInstance();
         // provision gpio pin as an input pin with its internal pull down resistor enabled
-        final GpioPinDigitalInput btnleft = gpio.provisionDigitalInputPin(RaspiPin.GPIO_02, PinPullResistance.PULL_DOWN); //first button for switching left
-        final GpioPinDigitalInput btnmiddle = gpio.provisionDigitalInputPin(RaspiPin.GPIO_15, PinPullResistance.PULL_DOWN); //second button for making a call
-        final GpioPinDigitalInput btnright = gpio.provisionDigitalInputPin(RaspiPin.GPIO_16, PinPullResistance.PULL_DOWN); //third button for switching right
+        final GpioPinDigitalInput btnleft = gpio.provisionDigitalInputPin(RaspiPin.GPIO_00, PinPullResistance.PULL_DOWN); //first button for switching left
+        final GpioPinDigitalInput btnmiddle = gpio.provisionDigitalInputPin(RaspiPin.GPIO_02, PinPullResistance.PULL_DOWN); //second button for making a call
+        final GpioPinDigitalInput btnright = gpio.provisionDigitalInputPin(RaspiPin.GPIO_03, PinPullResistance.PULL_DOWN); //third button for switching right
 
         // set shutdown state for this input pin
         btnleft.setShutdownOptions(true);
@@ -72,8 +72,8 @@ public class TasterController
                 String state = event.getState().toString();
                 if(state == "HIGH")
                 {
-                    robot.keyPress(KeyEvent.VK_KP_LEFT);
-                    robot.keyRelease(KeyEvent.VK_KP_LEFT);
+                    robot.keyPress(KeyEvent.VK_J);
+                    robot.keyRelease(KeyEvent.VK_J);
                     Logging.log(Level.INFO, "Button left pressed.");
                 }
             }
@@ -87,14 +87,14 @@ public class TasterController
                 String state = event.getState().toString();
                 if(state == "HIGH")
                 {
-                    robot.keyPress(KeyEvent.VK_KP_UP);
-                    robot.keyRelease(KeyEvent.VK_KP_UP);
+                    robot.keyPress(KeyEvent.VK_K);
+                    robot.keyRelease(KeyEvent.VK_K);
                     Logging.log(Level.INFO, "Button middle pressed.");
                 }
             }
         });
 
-        // create and register gpio pin listener for btnmiddle
+        // create and register gpio pin listener for btnright
         btnright.addListener(new GpioPinListenerDigital() {
             @Override
             public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent event)
@@ -102,8 +102,8 @@ public class TasterController
                 String state = event.getState().toString();
                 if(state == "HIGH")
                 {
-                    robot.keyPress(KeyEvent.VK_KP_RIGHT);
-                    robot.keyRelease(KeyEvent.VK_KP_RIGHT);
+                    robot.keyPress(KeyEvent.VK_L);
+                    robot.keyRelease(KeyEvent.VK_L);
                     Logging.log(Level.INFO, "Button right pressed.");
                 }
             }
