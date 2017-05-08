@@ -5,6 +5,8 @@ import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.logging.Level;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import com.pi4j.io.gpio.GpioController;
 import com.pi4j.io.gpio.GpioFactory;
@@ -33,8 +35,13 @@ import com.pi4j.io.gpio.event.PinEventType;
 public class RelayController
 {
     // Vars
-    private final String PERMITTED_HOST = "127.0.0.1";
+    private final String PERMITTED_HOST = "192.168.0.213";
+    private final int PORT = 7743;
+    private final int DOOR_OPEN_TIME = 3; // Time that the door stays open (seconds)
+    private final int GONG_PLAY_TIME = 4; // Time that the door stays open (seconds)
 
+    private final String OPEN_DOOR = "OPEN_DOOR";
+    private final String PLAY_GONG = "PLAY_GONG";
 
     public RelayController() throws Exception
     {
@@ -47,17 +54,11 @@ public class RelayController
      * Payload: The first number is the address of the relay and the second is the value
      * i.E. 04-1 -> Relay 4 Status On
      *
-     * @param payload String received through the socket
+     * @param type Defines if its a gong or a door
+     * @param id The actual id of the element (appartment gong or door)
      */
-    private void relayDriver(String payload)
+    private void relayDriver(String type, int id)
     {
-        // TODO: Check that the payload a valid paylod is and not some ijected stuff
-
-        String[] data = payload.split("-");
-        String Addr = data[0];
-        String Status = data[1];
-
-
 
         // TODO: Do the shit with the GPIOs
         /*
@@ -76,18 +77,20 @@ public class RelayController
         while(true)
         {
             // Start socket (Accepts only from localhost)
-            ServerSocket serverSocket = new ServerSocket(7000, 1);
+            ServerSocket serverSocket = new ServerSocket(PORT, 1);
             Socket socket = serverSocket.accept();
 
             // Checks that the connection comes only from localhost
             String connectionAddr = socket.getInetAddress().toString().replace("/","");
+
+
             if(connectionAddr.equals(PERMITTED_HOST))
             {
-                Logging.log(Level.INFO, "New inbound connection from " + connectionAddr);
+                //Logging.log(Level.INFO, "New inbound connection from " + connectionAddr);
             }
             else // Block connections that are not allowed
             {
-                Logging.log(Level.SEVERE, "Inbound connection from " + connectionAddr + " - Connection denied");
+                Logging.log(Level.SEVERE, "Inbound connection from " + connectionAddr + " - Connection denied!");
                 socket.close();
                 serverSocket.close();
                 continue;
@@ -95,8 +98,6 @@ public class RelayController
 
             // Init Readers/Writers
             BufferedReader socketReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            //PrintStream socketWriter = new PrintStream(socket.getOutputStream()); // For testing
-
             // As long as connection is open, still waiting for commands
             while (true)
             {
@@ -105,22 +106,27 @@ public class RelayController
                 // Act accordingly
                 if (payload != null)
                 {
-                    // System.out.println(payload);
-                    // socketWriter.println("ACK: " + payload);
-                    relayDriver(payload);
-
-                    /* if(payload.equals(String.valueOf(TURN_ON)))
+                    System.out.println(payload);
+                    try
                     {
-                        // TODO: Do the shit with the GPIO and stuff
-
-                        Logging.log(Level.INFO, "Speaker turned ON");
+                        JSONObject obj = new JSONObject(payload);
+                        String msgType = obj.getString("type");
+                        switch (msgType)
+                        {
+                            case OPEN_DOOR: // Controls the relay to open the door
+                                int doorId = obj.getInt("doorId");
+                                relayDriver(msgType, doorId);
+                                break;
+                            case PLAY_GONG:
+                                int residentId = obj.getInt("residentId");
+                                relayDriver(msgType, residentId);
+                                break;
+                        }
                     }
-                    else if(payload.equals(String.valueOf(TURN_OFF)))
+                    catch (JSONException e)
                     {
-                        // TODO: Do the shit with the GPIO and stuff
-
-                        Logging.log(Level.INFO, "Speaker turned OFF");
-                    } */
+                        Logging.log(Level.WARNING, "An invalid JSON payload has been received");
+                    }
                 }
                 else
                 {

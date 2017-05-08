@@ -287,14 +287,7 @@ function GUIMicStatus(active)
     }
 }
 
-/** Animates the door buttons and send the command to open the door **/
-function openDoor()
-{
-    $('#btnRight').css("background-image", "url('../img/mainbtn.png')");
-    setTimeout(function() { $('#btnRight').css("background-image", "url('../img/mainbtn_no.png')") }, 3000)
-}
-
-
+/** Connects and disconects WEBRTC using the visibility API  **/
 function addVisibilityListener()
 {
     console.log("Visibility listener added.")
@@ -313,4 +306,37 @@ function addVisibilityListener()
 
 }
 $( document ).ready(function() { addVisibilityListener(); });
-//setTimeout(function() { closeConnection(); }, 7000);
+
+
+/** Animates the door buttons and send the command to open the door **/
+function openDoorAnimation()
+{
+    $('#btnRight').css("background-image", "url('../img/mainbtn.png')");
+    setTimeout(function() { $('#btnRight').css("background-image", "url('../img/mainbtn_no.png')") }, 3000)
+}
+
+/** Send a request to open the door via AJAX **/
+function openDoor()
+{
+    openDoorAnimation();
+    received = "";
+    console.log("Sending via AJAX");
+    $.getJSON("ajaxListener/openDoor/" + intercomId, function(data)
+    {
+        received = data; // Returned data
+
+    }).done(function()
+    {
+        // Print the data
+        if(received == true)
+        {
+            console.log("Door open!");
+        }
+        else
+        {
+            console.log("Error");
+            showFatalError("There was a problem trying to open the door. Door is not open!");
+        }
+
+    })
+}

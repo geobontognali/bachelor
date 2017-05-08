@@ -28,7 +28,7 @@ var socketConn;
  * UI SELECTORS
  */
 var localAudio = document.querySelector('#localAudio');
-var localVideo = document.querySelector('#localVideo');
+var localVideo = document.querySelector('#localVideo'); // Currently not used
 var remoteVideo = document.querySelector('#remoteVideo');
 var remoteAudio = document.querySelector('#remoteAudio');
 
@@ -242,6 +242,31 @@ function callTheResident()
 {
     if(ringing) { return false; } // Cancel if already ringing
     ringing = true;
+    residentId = $('#scroller .carousel .item.active .residentId').text();
+    // Send request to the relay server
+    received = "";
+    console.log("Sending via AJAX");
+    $.getJSON("ajaxListener/playGong/" + residentId, function(data)
+    {
+        received = data; // Returned data
+
+    }).done(function()
+    {
+        // Print the data
+        if(received == true)
+        {
+            console.log("Done!");
+        }
+        else
+        {
+            console.log("Error trying to play the gong....");
+        }
+    })
+
+
+
+
+    // GUI Animation & stuff
     $('.btnIconMiddle img').attr("src", "img/alarm.png");
     setTimeout(function() { $('.btnIconMiddle img').attr("src", "img/alarm_noring.png"); }, 1000);
     setTimeout(function() { $('.btnIconMiddle img').attr("src", "img/alarm.png"); }, 1500);

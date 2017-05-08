@@ -12,14 +12,14 @@
 */
 
 
-Route::get('/', function () { return view('welcome'); });
+Route::get('/', function () { return view('welcome'); }); // TODO: Delete this
 
-
-// Aussensprechstelle
+/** DOOR WEBAPP */
 Route::get('/door', 'DoorController@showView');
+Route::get('/ajaxListener/playGong/{id}', 'DoorController@playGong');
+
+/** CLIENT WEBAPP */
 Route::get('/client', 'ClientController@showView');
-
-Route::get('/server', 'AppController@server');
-
+Route::get('/ajaxListener/openDoor/{id}', 'ClientController@openDoor');
 
 
