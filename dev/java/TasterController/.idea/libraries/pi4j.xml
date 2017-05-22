@@ -7,12 +7,6 @@
       <root url="jar://$PROJECT_DIR$/lib/pi4j/pi4j-example.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/pi4j/pi4j-gpio-extension.jar!/" />
     </CLASSES>
-    <JAVADOC>
-      <root url="jar://$PROJECT_DIR$/lib/pi4j/pi4j-core-javadoc.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/pi4j/pi4j-device-javadoc.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/pi4j/pi4j-example-javadoc.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/pi4j/pi4j-gpio-extension-javadoc.jar!/" />
-    </JAVADOC>
     <SOURCES>
       <root url="jar://$PROJECT_DIR$/lib/pi4j/pi4j-core-sources.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/pi4j/pi4j-device-sources.jar!/" />
