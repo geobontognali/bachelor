@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
+    private $defaultDoor = "1212";
+
     public function showView()
     {
         return view('clientApp');
@@ -31,6 +33,22 @@ class ClientController extends Controller
         fclose($socket);
 
         return "true";
+    }
+
+    /**
+     * Inject the Javascript code containing the ID of the door. ID passed by get parameter
+     */
+    public function setDoorId()
+    {
+        if(isset($_GET['id']))
+        {
+            echo 'const doorId = '.$_GET['id'].';';
+        }
+        else
+        {
+            echo 'const doorId = '.$this->defaultDoor.';';
+            //echo 'alert("No door ID defined");';
+        }
     }
 
 

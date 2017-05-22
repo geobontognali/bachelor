@@ -5,7 +5,6 @@
 /** VARIABLES **************************************************/
 /** ************************************************************/
 /** Constants **/
-const intercomId = 1212;
 const signalingSrvAddr = "192.168.0.18";
 const signalingSrvPort = "7007";
 
@@ -191,7 +190,7 @@ function requestDoor()
 {
     send({
         type: DOOR_REQUEST,
-        intercomId: intercomId
+        doorId: doorId
     });
 }
 
@@ -321,7 +320,7 @@ function openDoor()
     openDoorAnimation();
     received = "";
     console.log("Sending via AJAX");
-    $.getJSON("ajaxListener/openDoor/" + intercomId, function(data)
+    $.getJSON("ajaxListener/openDoor/" + doorId, function(data)
     {
         received = data; // Returned data
 

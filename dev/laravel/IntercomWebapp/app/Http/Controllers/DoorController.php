@@ -22,7 +22,7 @@ class DoorController extends Controller
     {
         if(isset($_GET['id']))
         {
-            echo 'const intercomId = '.$_GET['id'].';';
+            echo 'const doorId = '.$_GET['id'].';';
         }
         else
         {
