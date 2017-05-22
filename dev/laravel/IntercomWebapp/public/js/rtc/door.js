@@ -157,7 +157,7 @@ function goOnline()
 {
     send({
         type: DOOR_ONLINE,
-        intercomId: doorId
+        doorId: doorId
     });
 }
 
