@@ -79,11 +79,18 @@
 
             <div class="container-fluid navbar-fixed-bottom" id="bottomContainer">
 
+                <div id="naviCont" class="row">
+                    <a href="?id=1211"><div class="col-xs-4 naviEntry">Garage</div></a>
+                    <a href="?id=1212"><div class="col-xs-4 naviEntry active">Türe Nord</div></a>
+                    <a href="?id=1213"><div class="col-xs-4 naviEntry">Türe Süd</div></a>
+                </div>
 
             </div>
 
 
         </div>
+
+
 
         <script>
             startConnection();

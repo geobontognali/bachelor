@@ -7,7 +7,7 @@
 /** Constants **/
 const signalingSrvAddr = "192.168.0.18";
 const signalingSrvPort = "7007";
-const socketProtocol = "wss"; // wss or ws
+const socketProtocol = "wss"; // use wss only
 
 /** Signaling Types **/
 const DOOR_ONLINE = "DOOR_ONLINE";
@@ -39,7 +39,7 @@ var remoteAudio = document.querySelector('#remoteAudio');
 // Init point, fires up the connection
 function startWebSocket()
 {
-    console.log("My ID " + intercomId);
+    console.log("My ID " + doorId);
     console.log("Connecting to the signaling server...");
     socketConn = new WebSocket(socketProtocol +"://"+signalingSrvAddr+":"+signalingSrvPort);
 
@@ -157,7 +157,7 @@ function goOnline()
 {
     send({
         type: DOOR_ONLINE,
-        intercomId: intercomId
+        intercomId: doorId
     });
 }
 

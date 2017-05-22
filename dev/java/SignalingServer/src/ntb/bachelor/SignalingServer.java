@@ -88,7 +88,7 @@ public class SignalingServer extends WebSocketServer
                     Logging.log(Level.INFO, "A client wants to communicate with the door " + doorId);
                     if(rooms.get(doorId) != null)
                     {
-                        Logging.log(Level.INFO, "The requested door is online. Try to join the room...");
+                        Logging.log(Level.INFO, "The requested door (" + doorId + ") is online. Try to join the room...");
 
                         if(rooms.get(doorId).size() > 1) // When someone is already communicating with the door
                         {
@@ -123,6 +123,7 @@ public class SignalingServer extends WebSocketServer
         catch (JSONException e)
         {
             Logging.log(Level.WARNING, "An invalid JSON payload has been received");
+            Logging.log(Level.WARNING, "Payload: " + message);
         }
     }
 
