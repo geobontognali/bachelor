@@ -36,6 +36,30 @@ class ClientController extends Controller
     }
 
     /**
+     * Generate the HTML for the bottom navigation bar
+     */
+    public function generateNavi()
+    {
+        // TODO: Get door list from DB
+        $tmpArray1 = array(1211, 1212, 1213);
+        $tmpArray2 = array("Garage", "Türe Nord", "Türe Süd");
+
+        if(isset($_GET['id']))
+        {
+            $this->activeDoor = $_GET['id'];
+        }
+        else
+        {
+            $this->activeDoor = $this->defaultDoor;
+        }
+        for($i = 0; $i<3; $i++)
+        {
+            if($tmpArray1[$i] == $this->activeDoor) { $active = "active"; } else { $active = ""; }
+            echo '<a href="?id='.$tmpArray1[$i].'"><div class="col-xs-4 naviEntry '.$active.'">'.$tmpArray2[$i].'</div></a>';
+        }
+    }
+
+    /**
      * Inject the Javascript code containing the ID of the door. ID passed by get parameter
      */
     public function setDoorId()
@@ -47,6 +71,7 @@ class ClientController extends Controller
         else
         {
             echo 'const doorId = '.$this->defaultDoor.';';
+
             //echo 'alert("No door ID defined");';
         }
     }

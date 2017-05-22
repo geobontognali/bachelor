@@ -7,17 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5d1d5ad-83d8-4a8a-a8c6-685d24daa3c2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SignalingServer/ntb/bachelor/SignalingServer.class" afterPath="$PROJECT_DIR$/out/production/SignalingServer/ntb/bachelor/SignalingServer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../RelayController/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../RelayController/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ntb/bachelor/SignalingServer.java" afterPath="$PROJECT_DIR$/src/ntb/bachelor/SignalingServer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../laravel/IntercomWebapp/app/Http/Controllers/ClientController.php" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/app/Http/Controllers/ClientController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../laravel/IntercomWebapp/app/Http/Controllers/DoorController.php" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/app/Http/Controllers/DoorController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../laravel/IntercomWebapp/public/css/styleClient.css" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/public/css/styleClient.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../laravel/IntercomWebapp/public/js/rtc/client.js" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/public/js/rtc/client.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../laravel/IntercomWebapp/public/js/rtc/door.js" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/public/js/rtc/door.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../laravel/IntercomWebapp/resources/views/clientApp.blade.php" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/resources/views/clientApp.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../laravel/IntercomWebapp/resources/views/layouts/mainClient.blade.php" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/resources/views/layouts/mainClient.blade.php" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,7 +40,7 @@
       <file leaf-file-name="Logging.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ntb/bachelor/Logging.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
+            <state relative-caret-position="487">
               <caret line="36" column="47" lean-forward="false" selection-start-line="36" selection-start-column="47" selection-end-line="36" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -68,7 +62,7 @@
       <file leaf-file-name="SignalingServer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ntb/bachelor/SignalingServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
+            <state relative-caret-position="925">
               <caret line="101" column="62" lean-forward="true" selection-start-line="101" selection-start-column="62" selection-end-line="101" selection-end-column="62" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -89,6 +83,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>an invalid</find>
+      <find>the request</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -482,7 +477,14 @@
       <option name="project" value="LOCAL" />
       <updated>1491853066119</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="client webapp now has menu for switching between doors">
+      <created>1495471491838</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1495471491838</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -498,7 +500,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3336945" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2112676" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25460455" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -527,7 +529,8 @@
     <MESSAGE value="signaling server &amp; webapps now handle multiple client connecting to one door" />
     <MESSAGE value="the client webapp now disconnects when in background and reconnects automatically" />
     <MESSAGE value="release per la presi con gredig" />
-    <option name="LAST_COMMIT_MESSAGE" value="release per la presi con gredig" />
+    <MESSAGE value="client webapp now has menu for switching between doors" />
+    <option name="LAST_COMMIT_MESSAGE" value="client webapp now has menu for switching between doors" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -957,13 +960,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ntb/bachelor/Logging.java">
+    <entry file="file://$PROJECT_DIR$/src/ntb/bachelor/SSLServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="36" column="47" lean-forward="false" selection-start-line="36" selection-start-column="47" selection-end-line="36" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="170">
+          <caret line="29" column="42" lean-forward="false" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -975,17 +976,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ntb/bachelor/SSLServer.java">
+    <entry file="file://$PROJECT_DIR$/src/ntb/bachelor/Logging.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="29" column="42" lean-forward="false" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
-          <folding />
+        <state relative-caret-position="487">
+          <caret line="36" column="47" lean-forward="false" selection-start-line="36" selection-start-column="47" selection-end-line="36" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ntb/bachelor/SignalingServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
+        <state relative-caret-position="925">
           <caret line="101" column="62" lean-forward="true" selection-start-line="101" selection-start-column="62" selection-end-line="101" selection-end-column="62" />
           <folding>
             <element signature="imports" expanded="true" />
