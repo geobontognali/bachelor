@@ -21,5 +21,3 @@ Route::get('/ajaxListener/playGong/{id}', 'DoorController@playGong');
 /** CLIENT WEBAPP */
 Route::get('/client', 'ClientController@showView');
 Route::get('/ajaxListener/openDoor/{id}', 'ClientController@openDoor');
-
-

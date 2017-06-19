@@ -13,6 +13,11 @@ class ClientController extends Controller
         return view('clientApp');
     }
 
+    public function showDebugView()
+    {
+        return view('clientAppDebug');
+    }
+
     // Send the order to open the door to the Relay controller
     public function openDoor($doorId)
     {

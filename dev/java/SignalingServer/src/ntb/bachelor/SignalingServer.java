@@ -17,7 +17,7 @@ import java.util.logging.Level;
  */
 public class SignalingServer extends WebSocketServer
 {
-    private final String version = "0.0410b";
+    private final String version = "0.0617b";
     private final String DOOR_ONLINE = "DOOR_ONLINE";
     private final String DOOR_REQUEST = "DOOR_REQUEST";
     private final String DOOR_AVAILABLE = "1";
