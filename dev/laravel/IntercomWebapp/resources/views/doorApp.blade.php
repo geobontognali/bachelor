@@ -1,7 +1,10 @@
 @extends('layouts.mainDoor')
 
 @section('content')
-
+<?php
+    use App\Http\Controllers\DoorController;
+    $doorController = new DoorController();
+    ?>
 
     <div id="header">
         <p id="datetime">
@@ -10,49 +13,12 @@
 
     <div class="row text-center">
         <h2>Willkommen</h2>
-        <div id="testt">
-            <ul class="intern">
-                testas</ul>
-        </div>
         <div id="scroller">
 
             <ul class="carousel">
-                <li class="item active">
-                    <p class="name">J. Locke</p>
-                    <p class="apartment">W1.3</p>
-                    <div style="display:none;" class="residentId">1</div>
-                </li>
-                <li class="item">
-                    <p class="name">H. Kate</p>
-                    <p class="apartment">W1.4</p>
-                    <div style="display:none;" class="residentId">2</div>
-                </li>
-                <li class="item">
-                    <p class="name">G. Marotta</p>
-                    <p class="apartment">W1.5</p>
-                    <div style="display:none;" class="residentId">3</div>
-                </li>
-                <li class="item">
-                    <p class="name">L. Messi</p>
-                    <p class="apartment">W2.1</p>
-                    <div style="display:none;" class="residentId">4</div>
-                </li>
-                <li class="item">
-                    <p class="name">G. Buffon</p>
-                    <p class="apartment">W2.2</p>
-                    <div style="display:none;" class="residentId">5</div>
-                </li>
-                <li class="item">
-                    <p class="name">R. Federer</p>
-                    <p class="apartment">W2.3</p>
-                    <div style="display:none;" class="residentId">6</div>
-                </li>
-
-                <li class="item">
-                    <p class="name">I. Newton</p>
-                    <p class="apartment">W2.4</p>
-                    <div style="display:none;" class="residentId">7</div>
-                </li>
+                <?php
+                    $doorController->listResidents();
+                ?>
             </ul>
 
         </div>
@@ -76,7 +42,7 @@
 
     </div>
 
-    <!-- DEBUG VIEW  ******************************************************** -->
+    <!-- DEBUG VIEW  (DISPLAY: NONE;) ******************************************************** -->
     <div id="debugView" class="text-center" style="display: none;">
         <div class = "row" >
             <br /><br />
@@ -112,8 +78,6 @@
 
     <script>
         <?php
-        use App\Http\Controllers\DoorController;
-        $doorController = new DoorController();
         $doorController->setDoorId();
         ?>
     </script>

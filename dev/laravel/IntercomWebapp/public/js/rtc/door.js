@@ -243,6 +243,7 @@ function callTheResident()
     if(ringing) { return false; } // Cancel if already ringing
     ringing = true;
     residentId = $('#scroller .carousel .item.active .residentId').text();
+
     // Send request to the relay server
     received = "";
     console.log("Sending via AJAX");
@@ -262,9 +263,6 @@ function callTheResident()
             console.log("Error trying to play the gong....");
         }
     })
-
-
-
 
     // GUI Animation & stuff
     $('.btnIconMiddle img').attr("src", "img/alarm.png");

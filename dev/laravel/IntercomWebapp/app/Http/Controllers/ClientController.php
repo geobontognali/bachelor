@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Door;
 
 class ClientController extends Controller
 {
-    private $defaultDoor = "1212";
+    private $defaultDoor = "2";
 
     public function showView()
     {
@@ -45,9 +46,9 @@ class ClientController extends Controller
      */
     public function generateNavi()
     {
-        // TODO: Get door list from DB
-        $tmpArray1 = array(1211, 1212, 1213);
-        $tmpArray2 = array("Garage", "Türe Nord", "Türe Süd");
+        // Connect to the model
+        $doors = new Door;
+        $doors = $doors->get();
 
         if(isset($_GET['id']))
         {
@@ -57,10 +58,10 @@ class ClientController extends Controller
         {
             $this->activeDoor = $this->defaultDoor;
         }
-        for($i = 0; $i<3; $i++)
+        foreach($doors as $door)
         {
-            if($tmpArray1[$i] == $this->activeDoor) { $active = "active"; } else { $active = ""; }
-            echo '<a href="?id='.$tmpArray1[$i].'"><div class="col-xs-4 naviEntry '.$active.'">'.$tmpArray2[$i].'</div></a>';
+            if($door->door_id == $this->activeDoor) { $active = "active"; } else { $active = ""; }
+            echo '<a href="?id='.$door->door_id.'"><div class="col-xs-4 naviEntry '.$active.'">'.$door->door_name.'</div></a>';
         }
     }
 
