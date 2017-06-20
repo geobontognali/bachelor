@@ -18,6 +18,49 @@ class ResidentController extends Controller
     }
 
     /**
+     * Show the list of the residents
+     */
+    public function getResidentList()
+    {
+        $residents = DB::table('tbl_resident')->get();
+
+        foreach ($residents as $resident) {
+            echo '
+            <tr>
+                <th scope="row">'.$resident->res_id.'</th>
+                <td>'.$resident->res_name.'</td>
+                <td>'.$resident->res_secondName.'</td>
+                <td>'.$resident->res_displayedName.'</td>
+                <td>'.$resident->res_apartment.'</td>
+                <td>
+                    <p data-placement="top" data-toggle="tooltip" title="Edit">
+                    <form action="resident/deleteResident/'.$resident->res_id.'" method="GET">
+                        <button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" type="submit"><span class="glyphicon glyphicon-pencil"></span></button>
+                    </form>
+                    </p>
+                </td>
+                <td>
+                    <p data-placement="top" data-toggle="tooltip" title="Delete">
+                    <form action="home/deleteResident/'.$resident->res_id.'" method="GET">
+                        <button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" type="submit"><span class="glyphicon glyphicon-trash"></span></button>
+                    </form>
+                    </p>
+                </td>
+            </tr>';
+        }
+    }
+
+    /**
+     * Delete Residents
+     */
+    public function deleteResident($residentId)
+    {
+        DB::table('tbl_resident')->where('res_id', '=', $residentId)->delete();
+
+        return redirect('/home');
+    }
+
+    /**
      * Test function for filling the db with some data
      */
     public function populateDummy()
