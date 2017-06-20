@@ -17,7 +17,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/resident', 'HomeController@index')->name('home');
+
+Route::get('/resident/deleteResident/{residentId}', 'ResidentController@deleteResident');
 
 // Dummy
 Route::get('/populate', 'ResidentController@populateDummy');
