@@ -180,7 +180,7 @@ function setupRTC(value)
 
         $('#connectionStatus').html('Loading...');  // Change loading text
         console.log("Done!");
-        setTimeout(function(){ startCall() }, 300); // Delay needed for the RTC object to be populated (not so elegant)
+        setTimeout(function(){ startCall() }, 1300); // Delay needed for the RTC object to be populated (not so elegant)
     }
 };
 
@@ -209,7 +209,6 @@ function startCall()
     },
         { 'mandatory': { 'OfferToReceiveAudio': true, 'OfferToReceiveVideo': true }
     });
-
 }
 
 
