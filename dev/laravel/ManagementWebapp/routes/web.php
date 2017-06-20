@@ -19,4 +19,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
+// Dummy
+Route::get('/populate', 'ResidentController@populateDummy');
