@@ -2,16 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1ed41bf8-68a0-4ec9-95a4-e9f18ca329bd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/app/Door.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/app/Notification.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/app/Resident.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/app/Config.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RelayDriver.log" afterPath="$PROJECT_DIR$/RelayDriver.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SignalingServer/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../SignalingServer/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../laravel/IntercomWebapp/app/Http/Controllers/ClientController.php" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/app/Http/Controllers/ClientController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../laravel/IntercomWebapp/app/Http/Controllers/DoorController.php" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/app/Http/Controllers/DoorController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../laravel/IntercomWebapp/public/js/rtc/client.js" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/public/js/rtc/client.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../laravel/IntercomWebapp/public/js/rtc/door.js" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/public/js/rtc/door.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../laravel/IntercomWebapp/resources/views/doorApp.blade.php" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/resources/views/doorApp.blade.php" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,8 +39,8 @@
       <file leaf-file-name="RelayController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ntb/bachelor/RelayController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1598">
-              <caret line="120" column="46" lean-forward="false" selection-start-line="120" selection-start-column="46" selection-end-line="120" selection-end-column="46" />
+            <state relative-caret-position="578">
+              <caret line="60" column="5" lean-forward="true" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -379,7 +375,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="-8" width="1696" height="1026" extended-state="6" />
+    <frame x="1912" y="-8" width="1696" height="1026" extended-state="7" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -483,8 +479,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ntb/bachelor/RelayController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1598">
-          <caret line="120" column="46" lean-forward="false" selection-start-line="120" selection-start-column="46" selection-end-line="120" selection-end-column="46" />
+        <state relative-caret-position="578">
+          <caret line="60" column="5" lean-forward="true" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
           <folding />
         </state>
       </provider>

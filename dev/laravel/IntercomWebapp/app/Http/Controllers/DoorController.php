@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Resident;
 use App\Notification;
+use App\Config;
 
 class DoorController extends Controller
 {
@@ -37,20 +38,21 @@ class DoorController extends Controller
     /**
      * Send the order to play the gong to the Relay controller
      **/
-    public function playGong($residentId)
+    public function playGong($residentId, $doorId)
     {
+        // Add notification to the DB
+        $notify = new Notification;
+        $notify->not_resident = $residentId;
+        $notify->not_door = $doorId;
+        $notify->not_time = time();
+        $notify->not_img = "";
+        $notify->not_notificationcol = "";
+        $notify->save();
 
-      // Add notification to the DB
-      $notify = new Notification;
-      $notify->not_resident = $residentId;
-      $notify->not_door = 1;
-      $notify->not_time = time();
-      $notify->not_img = "";
-      $notify->not_notificationcol = "";
-      $notify->save();
-
-        $relayControllerServer = "192.168.0.213";
-        $relayControllerServerPort = 7743;
+        // Send signal to the relay controller
+        $config = new Config;
+        $relayControllerServer = $config->relayControllerServer;
+        $relayControllerServerPort = $config->relayControllerServerPort;
         // Connects to the server
         $socket = fsockopen($relayControllerServer, $relayControllerServerPort);
         if(!$socket)

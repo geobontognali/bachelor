@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Intercom Webapp</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -63,6 +63,8 @@
                 margin-bottom: 30px;
             }
         </style>
+
+        <script src="js/notification.js"></script>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
@@ -79,16 +81,16 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Intercom Webapp
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <div id="txtOut">
+
                 </div>
+                <div id="txtOut2">
+
+                </div>
+
             </div>
         </div>
     </body>

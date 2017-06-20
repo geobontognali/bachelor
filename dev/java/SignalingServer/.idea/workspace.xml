@@ -7,16 +7,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5d1d5ad-83d8-4a8a-a8c6-685d24daa3c2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/app/Door.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/app/Notification.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/app/Resident.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/app/Config.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../RelayController/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../RelayController/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../RelayController/RelayDriver.log" afterPath="$PROJECT_DIR$/../RelayController/RelayDriver.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../laravel/IntercomWebapp/app/Http/Controllers/ClientController.php" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/app/Http/Controllers/ClientController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../laravel/IntercomWebapp/app/Http/Controllers/DoorController.php" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/app/Http/Controllers/DoorController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../laravel/IntercomWebapp/public/js/rtc/client.js" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/public/js/rtc/client.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../laravel/IntercomWebapp/public/js/rtc/door.js" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/public/js/rtc/door.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../laravel/IntercomWebapp/resources/views/doorApp.blade.php" afterPath="$PROJECT_DIR$/../../laravel/IntercomWebapp/resources/views/doorApp.blade.php" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -494,11 +490,18 @@
       <option name="project" value="LOCAL" />
       <updated>1495474129412</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="db interconnection between apps done">
+      <created>1497969598780</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1497969598780</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="-8" width="1696" height="1026" extended-state="6" />
+    <frame x="1912" y="-8" width="1696" height="1026" extended-state="7" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -541,7 +544,8 @@
     <MESSAGE value="release per la presi con gredig" />
     <MESSAGE value="client webapp now has menu for switching between doors" />
     <MESSAGE value="multi door code improovements" />
-    <option name="LAST_COMMIT_MESSAGE" value="multi door code improovements" />
+    <MESSAGE value="db interconnection between apps done" />
+    <option name="LAST_COMMIT_MESSAGE" value="db interconnection between apps done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />

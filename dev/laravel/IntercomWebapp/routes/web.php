@@ -16,7 +16,7 @@ Route::get('/', function () { return view('welcome'); }); // TODO: Delete this
 
 /** DOOR WEBAPP */
 Route::get('/door', 'DoorController@showView');
-Route::get('/ajaxListener/playGong/{id}', 'DoorController@playGong');
+Route::get('/ajaxListener/playGong/{residentId}/{doorId}', 'DoorController@playGong');
 
 /** CLIENT WEBAPP */
 Route::get('/client', 'ClientController@showView');

@@ -247,7 +247,7 @@ function callTheResident()
     // Send request to the relay server
     received = "";
     console.log("Sending via AJAX");
-    $.getJSON("ajaxListener/playGong/" + residentId, function(data)
+    $.getJSON("ajaxListener/playGong/" + residentId + "/" + doorId, function(data)
     {
         received = data; // Returned data
 
