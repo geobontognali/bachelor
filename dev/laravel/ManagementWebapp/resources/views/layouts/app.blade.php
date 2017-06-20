@@ -23,8 +23,8 @@
 <!-- NAVBAR -->
 <nav class="navbar navbar-default darkbar" role="navigation">
     <div class="navbar-header">
-        <a class="navbar-brand" href="http://lineup.dev">
-            <img id="lineuplogo" alt="Brand" src="img/managementlogo.png">
+        <a class="navbar-brand" href="http://managementwebapp.dev">
+            <img id="managementlogo" alt="Brand" src="img/managementlogo.png">
         </a>
 
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse" style="border-color: gray; margin-top: 18px;">
