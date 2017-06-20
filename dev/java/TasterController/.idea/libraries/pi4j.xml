@@ -7,6 +7,7 @@
       <root url="jar://$PROJECT_DIR$/lib/pi4j/pi4j-example.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/pi4j/pi4j-gpio-extension.jar!/" />
     </CLASSES>
+    <JAVADOC />
     <SOURCES>
       <root url="jar://$PROJECT_DIR$/lib/pi4j/pi4j-core-sources.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/pi4j/pi4j-device-sources.jar!/" />

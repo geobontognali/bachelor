@@ -1,21 +1,21 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Federico
+ * Date: 19.06.2017
+ * Time: 17:12
+ */?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Management Tool</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/clock.css">
-    <script src="js/code.js"></script>
     <script src="js/clock.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $('[data-toggle="popover"]').popover();
-        });
-    </script>
 </head>
 
 <body>
@@ -23,7 +23,7 @@
 <!-- NAVBAR -->
 <nav class="navbar navbar-default darkbar" role="navigation">
     <div class="navbar-header">
-        <a class="navbar-brand" href="http://lineup.dev">
+        <a class="navbar-brand" href="http://ManagementApp.dev">
             <img id="lineuplogo" alt="Brand" src="img/managementlogo.png">
         </a>
 
@@ -36,37 +36,23 @@
 
     <div class = "collapse navbar-collapse" id = "example-navbar-collapse">
         <ul class = "nav navbar-nav navbar-right">
-            <li><a href="/home">Benutzer</a></li>
-            <li><a href="/settings">Türe</a></li>
-            <li>
-                <a href="{{ url('/logout') }}"
-                   onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();">
-                    Logout
-                </a>
-
-                <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                    {{ csrf_field() }}
-                </form>
-            </li>
+            <li><a href="{{ url('/register') }}">(Register)</a></li>
+            <li><a href="{{ url('/login') }}">Login</a></li>
         </ul>
-    </div>
+   </div>
 </nav>
 
-<!-- INFOBAR -->
-<div class="infobar">
-    Sie sind angemeldet als: {{ Auth::user()->name }}
-</div>
-
 <!-- OVER CONTAINER -->
-<div class="container-fluid" id="overcontainer">
+<div class="container-fluid" id="overcontainer" style="margin-bottom: 27px;">
     <div class="row">
         <div class="col-sm-5 timer">
+
             <div id="digiClock">00:00:00</div>
             <script >
-                // Init DigiClock
-                digiClock();
+// Init DigiClock
+digiClock();
             </script>
+
         </div>
         <div class="col-sm-2 hidden-xs">
 
@@ -85,8 +71,8 @@
                 </article>
             </div>
             <script >
-                // Init Clock
-                initLocalClocks();
+// Init Clock
+initLocalClocks();
                 setUpMinuteHands();
                 moveSecondHands();
             </script>
@@ -95,8 +81,8 @@
         <div class="col-sm-5 datum">
             <div id="showDate">00.00.00</div>
             <script >
-                // Init DigiClock
-                printDate();
+// Init DigiClock
+printDate();
             </script>
         </div>
     </div>
@@ -105,7 +91,7 @@
 <!-- UNDER CONTAINER -->
 <div class="container-fluid" id="undercontainer">
 
-    @yield('content')
+@yield('content')
 
 </div>
 

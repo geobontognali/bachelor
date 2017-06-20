@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravels
+                    Management Webapp
                 </div>
 
                 <div class="links">
