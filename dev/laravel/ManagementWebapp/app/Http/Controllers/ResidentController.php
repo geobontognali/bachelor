@@ -59,7 +59,7 @@ class ResidentController extends Controller
             'inputApartment' => 'required|max:255',
         ]);
 
-        if($validator->fails() & isset($filledData->moduleId) & $filledData->moduleId != '')
+        if($validator->fails() & isset($filledData->residentId) & $filledData->residentId != '')
         {
             return redirect()->back()->withErrors($validator)->withInput();
         }
@@ -124,7 +124,7 @@ class ResidentController extends Controller
             'inputApartment' => 'required|max:255',
         ]);
 
-        if($validator->fails() & isset($filledData->moduleId) & $filledData->moduleId != '')
+        if($validator->fails() & isset($filledData->residentId) & $filledData->residentId != '')
         {
             return redirect()->back()->withErrors($validator)->withInput();
         }

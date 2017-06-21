@@ -13,7 +13,6 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Einwohner</div>
                 <div class="panel-body">
-
                     <table class="table table-hover">
                         <thead>
                             <tr>

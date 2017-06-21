@@ -14,4 +14,5 @@ class Door extends Model
 {
     // Table Name
     protected $table = 'tbl_door';
+    protected $primaryKey = 'door_id';
 }

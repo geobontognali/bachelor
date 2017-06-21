@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
+// Resident
 Route::get('/resident', 'HomeController@index')->name('resident');
 
 Route::get('/resident/deleteResident/{residentId}', 'ResidentController@deleteResident');
@@ -26,6 +28,13 @@ Route::post('/resident/updateResident', 'ResidentController@updateResident');
 Route::post('/resident/addResident', 'ResidentController@addResident');
 
 Route::get('/door', 'DoorController@showView');
+
+// Door
+Route::post('/door/addDoor', 'DoorController@addDoor');
+
+Route::get('/door/deleteDoor/{doorId}', 'DoorController@deleteDoor');
+
+Route::post('/door/updateDoor', 'DoorController@updateDoor');
 
 // Dummy
 Route::get('/populate', 'ResidentController@populateDummy');
