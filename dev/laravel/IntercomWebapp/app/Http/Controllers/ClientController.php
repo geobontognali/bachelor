@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Door;
+use App\Config;
 
 class ClientController extends Controller
 {
-    private $defaultDoor = "1212";
-
     public function showView()
     {
         return view('clientApp');
@@ -21,8 +21,9 @@ class ClientController extends Controller
     // Send the order to open the door to the Relay controller
     public function openDoor($doorId)
     {
-        $relayControllerServer = "192.168.0.213";
-        $relayControllerServerPort = 7743;
+        $config = new Config;
+        $relayControllerServer = $config->relayControllerServer;
+        $relayControllerServerPort = $config->relayControllerPort;
         // Connects to the server
         $socket = fsockopen($relayControllerServer, $relayControllerServerPort);
         if(!$socket)
@@ -45,9 +46,9 @@ class ClientController extends Controller
      */
     public function generateNavi()
     {
-        // TODO: Get door list from DB
-        $tmpArray1 = array(1211, 1212, 1213);
-        $tmpArray2 = array("Garage", "Türe Nord", "Türe Süd");
+        // Connect to the model
+        $doors = new Door;
+        $doors = $doors->get();
 
         if(isset($_GET['id']))
         {
@@ -55,12 +56,13 @@ class ClientController extends Controller
         }
         else
         {
-            $this->activeDoor = $this->defaultDoor;
+            $config = new Config;
+            $this->activeDoor = $config->defaultDoor;
         }
-        for($i = 0; $i<3; $i++)
+        foreach($doors as $door)
         {
-            if($tmpArray1[$i] == $this->activeDoor) { $active = "active"; } else { $active = ""; }
-            echo '<a href="?id='.$tmpArray1[$i].'"><div class="col-xs-4 naviEntry '.$active.'">'.$tmpArray2[$i].'</div></a>';
+            if($door->door_id == $this->activeDoor) { $active = "active"; } else { $active = ""; }
+            echo '<a href="?id='.$door->door_id.'"><div class="col-xs-4 naviEntry '.$active.'">'.$door->door_name.'</div></a>';
         }
     }
 
@@ -75,7 +77,8 @@ class ClientController extends Controller
         }
         else
         {
-            echo 'const doorId = '.$this->defaultDoor.';';
+            $config = new Config;
+            echo 'const doorId = '.$config->defaultDoor.';';
 
             //echo 'alert("No door ID defined");';
         }
