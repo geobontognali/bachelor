@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Resident;
+use App;
 use App\Door;
 use DB;
+use Validator;
 
 class ResidentController extends Controller
 {
@@ -14,7 +16,7 @@ class ResidentController extends Controller
      */
     public function showView()
     {
-        return view('home');
+        return view('resident');
     }
 
     /**
@@ -33,21 +35,116 @@ class ResidentController extends Controller
                 <td>'.$resident->res_displayedName.'</td>
                 <td>'.$resident->res_apartment.'</td>
                 <td>
-                    <p data-placement="top" data-toggle="tooltip" title="Edit">
-                    <form action="resident/deleteResident/'.$resident->res_id.'" method="GET">
-                        <button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" type="submit"><span class="glyphicon glyphicon-pencil"></span></button>
-                    </form>
-                    </p>
+                    <form action="" method="GET">
+                        <button class="btn btn-primary btn-xs" type="submit" name="editResident" value="'.$resident->res_id.'"><span class="glyphicon glyphicon-pencil"></button>
+                    </form>                
                 </td>
                 <td>
-                    <p data-placement="top" data-toggle="tooltip" title="Delete">
-                    <form action="home/deleteResident/'.$resident->res_id.'" method="GET">
+                    <form action="resident/deleteResident/'.$resident->res_id.'" method="GET">
                         <button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" type="submit"><span class="glyphicon glyphicon-trash"></span></button>
                     </form>
-                    </p>
                 </td>
             </tr>';
         }
+    }
+
+    /**
+     * Add a new resident to the database
+     */
+    public function addResident(Request $filledData){
+        $validator =  Validator::make($filledData->all(), [
+            'inputFirstname' => 'required|max:255',
+            'inputSecondname' => 'required|max:255',
+            'inputDisplayedname' => 'required|max:255',
+            'inputApartment' => 'required|max:255',
+        ]);
+
+        if($validator->fails() & isset($filledData->moduleId) & $filledData->moduleId != '')
+        {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        else if ($validator->fails())
+        {
+            return redirect('/resident')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $resident = new Resident;
+
+        $resident->res_pw = "default pwd";
+        $resident->res_name = $filledData->inputFirstname;
+        $resident->res_secondName = $filledData->inputSecondname;
+        $resident->res_displayedName = $filledData->inputDisplayedname;
+        $resident->res_apartment = $filledData->inputApartment;
+        $resident->save();
+
+        return redirect('/resident');
+
+    }
+
+    /**
+     * Edit the selected resident
+     */
+    public function editResident($residentId){
+        // Generate the modal content
+        $residents = new Resident();
+        $residents = $residents->where('res_id', $residentId)->first();
+
+        echo'
+            <input type="hidden" name="inputId" value="'.$residentId.'">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Vorname</label>
+                <input type="text" class="form-control" name="inputFirstname" id="inputFirstname" value="'.$residents->res_name.'">
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Nachname</label>
+                <input type="text" class="form-control" name="inputSecondname" id="inputSecondname" value="'.$residents->res_secondName.'">
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Angezeigte Name</label>
+                <input type="text" class="form-control" name="inputDisplayedname" id="inputDisplayedname" value="'.$residents->res_displayedName.'">
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Wohnung</label>
+                <input type="text" class="form-control" name="inputApartment" id="inputApartment" value="'.$residents->res_apartment.'">
+            </div>
+        ';
+    }
+
+    /**
+     * saves the modified resident to the database
+     */
+    public function updateResident(Request $filledData){
+
+        $validator =  Validator::make($filledData->all(), [
+            'inputFirstname' => 'required|max:255',
+            'inputSecondname' => 'required|max:255',
+            'inputDisplayedname' => 'required|max:255',
+            'inputApartment' => 'required|max:255',
+        ]);
+
+        if($validator->fails() & isset($filledData->moduleId) & $filledData->moduleId != '')
+        {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        else if ($validator->fails())
+        {
+            return redirect('/resident')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $resident = App\Resident::find($filledData->inputId);
+
+        $resident->res_pw = "default pwd";
+        $resident->res_name = $filledData->inputFirstname;
+        $resident->res_secondName = $filledData->inputSecondname;
+        $resident->res_displayedName = $filledData->inputDisplayedname;
+        $resident->res_apartment = $filledData->inputApartment;
+        $resident->save();
+
+        return redirect('/resident');
     }
 
     /**
@@ -57,7 +154,7 @@ class ResidentController extends Controller
     {
         DB::table('tbl_resident')->where('res_id', '=', $residentId)->delete();
 
-        return redirect('/home');
+        return redirect('/resident');
     }
 
     /**

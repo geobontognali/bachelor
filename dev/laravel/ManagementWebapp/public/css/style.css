@@ -102,6 +102,7 @@ h1
 {
     border-top: 1px solid #89cbfe;
     background-image: url("../img/transpback.png");
+    background-repeat: repeat-x;
     min-height: 475px;
     padding-top: 50px;
 }

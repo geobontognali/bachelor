@@ -36,8 +36,8 @@
 
     <div class = "collapse navbar-collapse" id = "example-navbar-collapse">
         <ul class = "nav navbar-nav navbar-right">
-            <li><a href="/home">Benutzer</a></li>
-            <li><a href="/settings">Türe</a></li>
+            <li><a href="/resident">Einwohner</a></li>
+            <li><a href="/door">Türe</a></li>
             <li>
                 <a href="{{ url('/logout') }}"
                    onclick="event.preventDefault();

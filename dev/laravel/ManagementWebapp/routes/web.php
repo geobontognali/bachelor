@@ -17,9 +17,15 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/resident', 'HomeController@index')->name('home');
+Route::get('/resident', 'HomeController@index')->name('resident');
 
 Route::get('/resident/deleteResident/{residentId}', 'ResidentController@deleteResident');
+
+Route::post('/resident/updateResident', 'ResidentController@updateResident');
+
+Route::post('/resident/addResident', 'ResidentController@addResident');
+
+Route::get('/door', 'DoorController@showView');
 
 // Dummy
 Route::get('/populate', 'ResidentController@populateDummy');

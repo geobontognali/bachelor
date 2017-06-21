@@ -14,4 +14,5 @@ class Resident extends Model
 {
     // Table Name
     protected $table = 'tbl_resident';
+    protected $primaryKey = 'res_id';
 }
