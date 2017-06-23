@@ -242,7 +242,7 @@ function callTheResident()
 {
     if(ringing) { return false; } // Cancel if already ringing
     ringing = true;
-    residentId = $('#scroller .carousel .item.active .residentId').text();
+    residentId = $('#scroller .carousel .item.active .residentId').text(); // get the user id of the current selected user
 
     // Send request to the relay server
     received = "";
