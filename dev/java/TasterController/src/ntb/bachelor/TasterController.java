@@ -53,9 +53,9 @@ public class TasterController
         // create gpio controller
         final GpioController gpio = GpioFactory.getInstance();
         // provision gpio pin as an input pin with its internal pull down resistor enabled
-        final GpioPinDigitalInput btnleft = gpio.provisionDigitalInputPin(RaspiPin.GPIO_00, PinPullResistance.PULL_DOWN); //first button for switching left
-        final GpioPinDigitalInput btnmiddle = gpio.provisionDigitalInputPin(RaspiPin.GPIO_02, PinPullResistance.PULL_DOWN); //second button for making a call
-        final GpioPinDigitalInput btnright = gpio.provisionDigitalInputPin(RaspiPin.GPIO_03, PinPullResistance.PULL_DOWN); //third button for switching right
+        final GpioPinDigitalInput btnleft = gpio.provisionDigitalInputPin(RaspiPin.GPIO_27, PinPullResistance.PULL_DOWN); //first button for switching left
+        final GpioPinDigitalInput btnmiddle = gpio.provisionDigitalInputPin(RaspiPin.GPIO_28, PinPullResistance.PULL_DOWN); //second button for making a call
+        final GpioPinDigitalInput btnright = gpio.provisionDigitalInputPin(RaspiPin.GPIO_29, PinPullResistance.PULL_DOWN); //third button for switching right
 
         // set shutdown state for this input pin
         btnleft.setShutdownOptions(true);

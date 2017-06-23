@@ -24,11 +24,7 @@
                                 <th></th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <?php
-                            $doorsController->getDoorList();
-                            ?>
-                        </tbody>
+
                     </table>
                 </div>
             </div>
