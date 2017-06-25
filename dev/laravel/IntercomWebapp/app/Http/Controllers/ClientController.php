@@ -66,6 +66,14 @@ class ClientController extends Controller
         }
     }
 
+
+    public function checkNotification($userId)
+    {
+        $notification = new Notification();
+        $notification = $notification->where('not_resident', '=', $userId);
+        return $notification->toJson();
+    }
+
     /**
      * Inject the Javascript code containing the ID of the door. ID passed by get parameter
      */
