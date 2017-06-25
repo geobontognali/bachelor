@@ -54,9 +54,12 @@
 </nav>
 
 <!-- INFOBAR -->
-<div class="infobar">
-    Sie sind angemeldet als: {{ Auth::user()->name }}
-</div>
+    @if (Auth::guest())
+    @else
+        <div class="infobar">
+        Sie sind angemeldet als: {{ Auth::user()->name }}
+        </div>
+    @endif
 
 <!-- OVER CONTAINER -->
 <div class="container-fluid" id="overcontainer">
