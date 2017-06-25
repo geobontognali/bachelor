@@ -30,6 +30,8 @@ Route::post('/resident/addResident', 'ResidentController@addResident');
 Route::get('/door', 'DoorController@showView');
 
 // Door
+Route::get('/door', 'DoorController@index')->name('door');
+
 Route::post('/door/addDoor', 'DoorController@addDoor');
 
 Route::get('/door/deleteDoor/{doorId}', 'DoorController@deleteDoor');
