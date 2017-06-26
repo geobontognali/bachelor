@@ -5,7 +5,7 @@
 /** VARIABLES **************************************************/
 /** ************************************************************/
 /** Constants **/
-const signalingSrvAddr = "127.0.0.1";
+const signalingSrvAddr = "192.168.0.18";
 const signalingSrvPort = "7007";
 const userId = 1;
 
@@ -338,31 +338,3 @@ function openDoor()
         }
     })
 }
-
-/***
- * Check if a notification has to be shown
- * @returns {boolean}
- */
-function checkForNotification()
-{
-    //
-    console.log("Sending via AJAX");
-    $.getJSON("ajaxListener/checkNotification/" + userId, function(data)
-    {
-        received = data; // Returned data
-
-    }).done(function()
-    {
-        // Print the data
-        if(received == true)
-        {
-            console.log("Received!");
-            console.log(received);
-        }
-        else
-        {
-            console.log("Error 000");
-        }
-    })
-}
-setInterval('checkForNotification', 2000);

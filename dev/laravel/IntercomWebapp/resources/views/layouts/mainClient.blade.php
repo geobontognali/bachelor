@@ -28,6 +28,7 @@
         $clientController->setDoorId();
         ?>
     </script>
+    <script src = "js/notification.js"></script>
     <script src = "js/rtc/client.js"></script>
 </head>
 

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Door;
 use App\Config;
+use App\Notification;
+use DB;
 
 class ClientController extends Controller
 {
@@ -21,6 +23,8 @@ class ClientController extends Controller
     // Send the order to open the door to the Relay controller
     public function openDoor($doorId)
     {
+        // TODO: Add Security by checking if the user is logged
+
         $config = new Config;
         $relayControllerServer = $config->relayControllerServer;
         $relayControllerServerPort = $config->relayControllerPort;
@@ -66,13 +70,40 @@ class ClientController extends Controller
         }
     }
 
-
+    /**
+     * Check the DB for new notifications. Triggered via AJAX by the client-app
+     *
+     * @param $userId
+     * @return The notification itself as JSON string
+     */
     public function checkNotification($userId)
     {
-        $notification = new Notification();
-        $notification = $notification->where('not_resident', '=', $userId);
-        return $notification->toJson();
+        // Get the lines
+        $notification = DB::table('tbl_notification')
+            ->join('tbl_door', 'door_id', '=', 'not_door')
+            ->where('not_resident', '=', $userId)
+            ->where('not_received', '=', '0')
+            ->get();
+        // Update the received field
+        //$editNotification = new Notification();
+        //$editNotification->where('not_resident', '=', $userId)->where('not_received', '=', '0')->update(['not_received' => 1]);
+        // Return as json
+        return  $notification->toJson();
     }
+
+    /**
+     * Marks a notification as received when the client confirms that has been received
+     * @param $userId
+     */
+    public function clearNotification($userId)
+    {
+        // Update the received field
+        $editNotification = new Notification();
+        $editNotification->where('not_resident', '=', $userId)->where('not_received', '=', '0')->update(['not_received' => 1]);
+        // Return as json
+        return 'true';
+    }
+
 
     /**
      * Inject the Javascript code containing the ID of the door. ID passed by get parameter
@@ -87,8 +118,6 @@ class ClientController extends Controller
         {
             $config = new Config;
             echo 'const doorId = '.$config->defaultDoor.';';
-
-            //echo 'alert("No door ID defined");';
         }
     }
 

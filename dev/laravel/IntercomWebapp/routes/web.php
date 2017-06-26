@@ -21,4 +21,5 @@ Route::get('/ajaxListener/playGong/{residentId}/{doorId}', 'DoorController@playG
 /** CLIENT WEBAPP */
 Route::get('/client', 'ClientController@showView');
 Route::get('/ajaxListener/openDoor/{id}', 'ClientController@openDoor');
-Route::get('/ajaxListener/checkNotification//{userId}', 'ClientController@checkNotification');
+Route::get('/ajaxListener/checkNotification/{userId}', 'ClientController@checkNotification');
+Route::get('/ajaxListener/clearNotification/{userId}', 'ClientController@clearNotification');

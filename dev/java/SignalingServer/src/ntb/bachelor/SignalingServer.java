@@ -115,7 +115,6 @@ public class SignalingServer extends WebSocketServer
 
                 default: // Straight data exchange between the clientsConnectedToIntercom
                     Logging.log(Level.INFO, "Forwarded message: " + message);
-                    //System.out.println("Exchange...");
                     forwardMessage(connection, message);
                     break;
             }
