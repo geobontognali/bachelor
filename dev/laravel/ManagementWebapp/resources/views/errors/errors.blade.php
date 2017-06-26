@@ -5,11 +5,12 @@
  * Date: 26.06.2017
  * Time: 13:03
  */
+?>
 
 @if (count($errors) > 0)
     <!-- Form Error List -->
     <div class="alert alert-danger" >
-        <strong>Folgende Angaben fehlen oder sind fehlerhaft:</strong>
+        <strong>Folgende Angaben fehlen oder sind fehlerhaft, bitte füllen Sie das Formular nochmal aus:</strong>
 
         <br><br>
 

@@ -11,6 +11,10 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
 
+            <!-- Display Validation Errors -->
+
+                @include('errors.errors')
+
 
             <!-- Show confirmation if needed -->
             <?php
@@ -22,6 +26,22 @@
                         </div>
                         ';
                 }
+                if(isset($_GET['residentSuccessfullyAdded']) and $_GET['residentSuccessfullyAdded'] == "true")
+                {
+                    echo '
+                            <div class="alert alert-info">
+                                Einwohner wurde erfolgreich hinzugefügt.</strong>
+                            </div>
+                            ';
+                }
+                if(isset($_GET['residentSuccessfullyUpdated']) and $_GET['residentSuccessfullyUpdated'] == "true")
+                {
+                    echo '
+                                <div class="alert alert-info">
+                                    Einwohner wurde erfolgreich modifiziert.</strong>
+                                </div>
+                                ';
+                }
             ?>
 
             <div class="panel panel-default">
@@ -31,8 +51,8 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Vorname</th>
-                                <th>Nachname</th>
+                                <th>Name</th>
+                                <th>Benutzername</th>
                                 <th>Angezeigte Name</th>
                                 <th>Wohnung</th>
                                 <th></th>
@@ -53,15 +73,15 @@
                     <form action="/resident/addResident" method="POST" class="form-horizontal">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Vorname</label>
+                            <label class="col-sm-2 control-label">Name</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="inputFirstname" id="inputFirstname" placeholder="z.B Hans">
+                                <input type="text" class="form-control" name="inputName" id="inputName" placeholder="z.B Hans Muster">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Nachname</label>
+                            <label class="col-sm-2 control-label">Benutzername</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="inputSecondname" id="inputSecondname" placeholder="z.B Muster">
+                                <input type="text" class="form-control" name="inputUsername" id="inputUsername" placeholder="muster">
                             </div>
                         </div>
                         <div class="form-group">
@@ -74,6 +94,18 @@
                             <label class="col-sm-2 control-label">Wohnung</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" name="inputApartment" id="inputApartment" placeholder="z.B 4 OG Links">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Passwort</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" name="inputPassword" id="inputPassword" placeholder="passwort">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Passwort bestätigen</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" name="inputPasswordConfirmation" id="inputPasswordConfirmation" placeholder="passwort">
                             </div>
                         </div>
 
