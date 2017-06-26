@@ -10,6 +10,19 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
+
+            <!-- Show confirmation if needed -->
+            <?php
+            if(isset($_GET['doorSuccessfullyDeleted']) and $_GET['doorSuccessfullyDeleted'] == "true")
+            {
+                echo '
+                        <div class="alert alert-info">
+                            Türe wurde erfolgreich entfernt.</strong>
+                        </div>
+                        ';
+            }
+            ?>
+
             <div class="panel panel-default">
                 <div class="panel-heading">Türe</div>
                 <div class="panel-body">
@@ -24,7 +37,11 @@
                                 <th></th>
                             </tr>
                         </thead>
-
+                        <tbody>
+                        <?php
+                        $doorsController->getDoorList();
+                        ?>
+                        </tbody>
                     </table>
                 </div>
             </div>

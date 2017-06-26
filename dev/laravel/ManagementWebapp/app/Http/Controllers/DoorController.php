@@ -77,7 +77,7 @@ class DoorController extends Controller
      */
     public function addDoor(Request $filledData){
         $validator =  Validator::make($filledData->all(), [
-            'inputName' => 'required|max:255',
+            'inputName' => 'required|max:9',
             'inputDescription' => 'required|max:255',
         ]);
 
@@ -109,7 +109,7 @@ class DoorController extends Controller
     {
         DB::table('tbl_door')->where('door_id', '=', $doorId)->delete();
 
-        return redirect('/door');
+        return redirect('/door?doorSuccessfullyDeleted=true');
     }
 
     /**
@@ -139,7 +139,7 @@ class DoorController extends Controller
     public function updateDoor(Request $filledData){
 
         $validator =  Validator::make($filledData->all(), [
-            'inputName' => 'required|max:255',
+            'inputName' => 'required|max:9',
             'inputDescription' => 'required|max:255',
         ]);
 

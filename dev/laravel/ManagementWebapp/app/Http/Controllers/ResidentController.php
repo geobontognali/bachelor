@@ -53,10 +53,10 @@ class ResidentController extends Controller
      */
     public function addResident(Request $filledData){
         $validator =  Validator::make($filledData->all(), [
-            'inputFirstname' => 'required|max:255',
-            'inputSecondname' => 'required|max:255',
-            'inputDisplayedname' => 'required|max:255',
-            'inputApartment' => 'required|max:255',
+            'inputFirstname' => 'required|max:45',
+            'inputSecondname' => 'required|max:45',
+            'inputDisplayedname' => 'required|max:16',
+            'inputApartment' => 'required|max:16',
         ]);
 
         if($validator->fails() & isset($filledData->residentId) & $filledData->residentId != '')
@@ -65,7 +65,7 @@ class ResidentController extends Controller
         }
         else if ($validator->fails())
         {
-            return redirect('/resident')
+            return redirect('/resident?residenSuccessfullyAdded=true')
                 ->withErrors($validator)
                 ->withInput();
         }
@@ -118,10 +118,10 @@ class ResidentController extends Controller
     public function updateResident(Request $filledData){
 
         $validator =  Validator::make($filledData->all(), [
-            'inputFirstname' => 'required|max:255',
-            'inputSecondname' => 'required|max:255',
-            'inputDisplayedname' => 'required|max:255',
-            'inputApartment' => 'required|max:255',
+            'inputFirstname' => 'required|max:45',
+            'inputSecondname' => 'required|max:45',
+            'inputDisplayedname' => 'required|max:16',
+            'inputApartment' => 'required|max:16',
         ]);
 
         if($validator->fails() & isset($filledData->residentId) & $filledData->residentId != '')
@@ -154,7 +154,7 @@ class ResidentController extends Controller
     {
         DB::table('tbl_resident')->where('res_id', '=', $residentId)->delete();
 
-        return redirect('/resident');
+        return redirect('/resident?residentSuccessfullyDeleted=true');
     }
 
     /**

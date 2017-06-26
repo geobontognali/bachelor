@@ -10,6 +10,20 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
+
+
+            <!-- Show confirmation if needed -->
+            <?php
+                if(isset($_GET['residentSuccessfullyDeleted']) and $_GET['residentSuccessfullyDeleted'] == "true")
+                {
+                    echo '
+                        <div class="alert alert-info">
+                            Einwohner wurde erfolgreich entfernt.</strong>
+                        </div>
+                        ';
+                }
+            ?>
+
             <div class="panel panel-default">
                 <div class="panel-heading">Einwohner</div>
                 <div class="panel-body">
