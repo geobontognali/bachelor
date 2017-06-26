@@ -14,4 +14,6 @@ class Notification extends Model
 {
     // Table Name
     protected $table = 'tbl_notification';
+
+
 }

@@ -28,8 +28,8 @@ public class SSLServer
     // Vars
     private final String STORE_TYPE = "JKS";
     private final String KEYSTORE_FILE = "keystore.jks";
-    private final String KEYSTORE_PASSWORD = "storepassword";
-    private final String KEY_PASSWORD = "storepassword";  // Can be ignored if not defined
+    private final String KEYSTORE_PASSWORD = "bachelor";
+    private final String KEY_PASSWORD = "bachelor";  // Can be ignored if not defined
 
     /**
      * Constructor - Starts up the WebSocket server with TLS support

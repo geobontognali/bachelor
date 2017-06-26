@@ -47,6 +47,7 @@ class DoorController extends Controller
         $notify->not_time = time();
         $notify->not_img = "";
         $notify->not_notificationcol = "";
+        $notify->not_received = 0;
         $notify->save();
 
         // Send signal to the relay controller
