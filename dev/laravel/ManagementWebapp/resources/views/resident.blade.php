@@ -12,9 +12,7 @@
         <div class="col-md-8 col-md-offset-2">
 
             <!-- Display Validation Errors -->
-
-                @include('errors.errors')
-
+            @include('errors.errors')
 
             <!-- Show confirmation if needed -->
             <?php
@@ -52,15 +50,16 @@
                             <tr>
                                 <th>#</th>
                                 <th>Name</th>
-                                <th>Benutzername</th>
-                                <th>Angezeigte Name</th>
-                                <th>Wohnung</th>
+                                <th class="visible-md visible-lg">Benutzername</th>
+                                <th class="visible-md visible-lg">Angezeigte Name</th>
+                                <th class="visible-md visible-lg">Wohnung</th>
                                 <th></th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
+                            //generate the table content
                             $residentsController->getResidentList();
                             ?>
                         </tbody>
@@ -70,6 +69,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Einwohner hinzufügen</div>
                 <div class="panel-body">
+                    <!-- Form for adding new residents -->
                     <form action="/resident/addResident" method="POST" class="form-horizontal">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-group">
@@ -119,7 +119,7 @@
                 <!-- Modal -->
                 <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
-                        <div class="modal-content">
+                        <div class="modal-content"  style="max-width: 100%">
                             <form action="/resident/updateResident" method="POST">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <div class="modal-header">
@@ -128,6 +128,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <?php
+                                    //generate the content of the modal
                                     if(isset($_GET['editResident']))
                                         {
                                         $residentsController->editResident($_GET['editResident']);

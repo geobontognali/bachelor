@@ -14,7 +14,12 @@ use App\Door;
 use DB;
 use Validator;
 
-
+/**
+ * Class DoorController
+ * @package App\Http\Controllers
+ * This class handles all the backend task of the Door view such as showing the view and performing CRUD operation
+ * on the database using the eloquent ORM
+ */
 class DoorController extends Controller
 {
     /**
@@ -46,18 +51,20 @@ class DoorController extends Controller
     }
 
     /**
-     * Show the list of the doors
+     * generate a list of all the doors
      */
     public function getDoorList()
     {
-        $doors = DB::table('tbl_door')->get();
+        //Eloquent model object
+        $doors= Door::orderBy('door_nr')->get();
 
+        //iterating through the doors
         foreach ($doors as $door) {
             echo '
             <tr>
-                <th scope="row">'.$door->door_id.'</th>
+                <th scope="row">'.$door->door_nr.'</th>
                 <td>'.$door->door_name.'</td>
-                <td>'.$door->door_desc.'</td>
+                <td class="visible-md visible-lg">'.$door->door_desc.'</td>
                 <td>
                     <form action="" method="GET">
                         <button class="btn btn-primary btn-xs" type="submit" name="editDoor" value="'.$door->door_id.'"><span class="glyphicon glyphicon-pencil"></button>
@@ -76,30 +83,38 @@ class DoorController extends Controller
      * Add a new door to the database
      */
     public function addDoor(Request $filledData){
-        $validator =  Validator::make($filledData->all(), [
-            'inputName' => 'required|max:9',
-            'inputDescription' => 'required|max:255',
-        ]);
 
-        if($validator->fails() & isset($filledData->moduleId) & $filledData->moduleId != '')
+        //Naming the input attributes for the outputted errors
+        $attributeNames = array(
+            'inputDoorId' => 'Türe Id',
+            'inputName' => 'Name',
+            'inputDescription' => 'Beschreibung'
+        );
+
+        //validator rules
+        $rules = array(
+            'inputDoorId' => 'required|integer',
+            'inputName' => 'required|max:9',
+            'inputDescription' => 'required|max:255'
+        );
+
+        $validator =  Validator::make($filledData->all(), $rules);
+        $validator->setAttributeNames($attributeNames);
+
+
+        if ($validator->fails())
         {
             return redirect()->back()->withErrors($validator)->withInput();
         }
-        else if ($validator->fails())
-        {
-            return redirect('/door')
-                ->withErrors($validator)
-                ->withInput();
-        }
 
+        //inserting data into the database
         $door = new Door;
-
+        $door->door_nr = $filledData->inputDoorId;
         $door->door_name = $filledData->inputName;
         $door->door_desc = $filledData->inputDescription;
         $door->save();
 
-        return redirect('/door');
-
+        return redirect('/door?doorSuccessfullyAdded=true');
     }
 
     /**
@@ -108,12 +123,11 @@ class DoorController extends Controller
     public function deleteDoor($doorId)
     {
         DB::table('tbl_door')->where('door_id', '=', $doorId)->delete();
-
         return redirect('/door?doorSuccessfullyDeleted=true');
     }
 
     /**
-     * Edit the selected door
+     * Generate the modal popup dialog and insert the data from the database
      */
     public function editDoor($doorId){
         // Generate the modal content
@@ -122,6 +136,10 @@ class DoorController extends Controller
 
         echo'
             <input type="hidden" name="inputId" value="'.$doorId.'">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Türe Id</label>
+                <input type="number" class="form-control" name="inputDoorId" id="inputDoorId" placeholder="z.B 8" value="'.$doors->door_nr.'">
+            </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label">Name</label>
                 <input type="text" class="form-control" name="inputName" id="inputName" value="'.$doors->door_name.'">
@@ -138,28 +156,36 @@ class DoorController extends Controller
      */
     public function updateDoor(Request $filledData){
 
-        $validator =  Validator::make($filledData->all(), [
+        //Naming the input attributes for the outputted errors
+        $attributeNames = array(
+            'inputDoorId' => 'Türe Id',
+            'inputName' => 'Name',
+            'inputDescription' => 'Beschreibung'
+        );
+
+        //validator rules
+        $rules = array(
+            'inputDoorId' => 'required|integer',
             'inputName' => 'required|max:9',
-            'inputDescription' => 'required|max:255',
-        ]);
+            'inputDescription' => 'required|max:255'
+        );
 
-        if($validator->fails() & isset($filledData->doorId) & $filledData->doorId != '')
+        $validator =  Validator::make($filledData->all(), $rules);
+        $validator->setAttributeNames($attributeNames);
+
+
+        if ($validator->fails())
         {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
-        else if ($validator->fails())
-        {
-            return redirect('/door')
-                ->withErrors($validator)
-                ->withInput();
+            return redirect('/door')->withErrors($validator)->withInput();
         }
 
+        //update database content
         $door = App\Door::find($filledData->inputId);
-
         $door->door_name = $filledData->inputName;
         $door->door_desc = $filledData->inputDescription;
+        $door->door_nr = $filledData->inputDoorId;
         $door->save();
 
-        return redirect('/door');
+        return redirect('/door?doorSuccessfullyUpdated=true');
     }
 }

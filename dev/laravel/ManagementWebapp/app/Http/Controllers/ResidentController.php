@@ -9,6 +9,12 @@ use App\Door;
 use DB;
 use Validator;
 
+/**
+ * Class ResidentController
+ * @package App\Http\Controllers
+ * This class handles all the backend task of the Resident view such as showing the view and performing CRUD operation
+ * on the database using the eloquent ORM
+ */
 class ResidentController extends Controller
 {
     /**
@@ -20,20 +26,22 @@ class ResidentController extends Controller
     }
 
     /**
-     * Show the list of the residents
+     * generate a list of all the residents
      */
     public function getResidentList()
     {
-        $residents = DB::table('tbl_resident')->get();
+        //Eloquent model object
+        $residents = App\Resident::all();
 
+        //iterating through the residents
         foreach ($residents as $resident) {
             echo '
             <tr>
                 <th scope="row">'.$resident->res_id.'</th>
                 <td>'.$resident->res_name.'</td>
-                <td>'.$resident->res_username.'</td>
-                <td>'.$resident->res_displayedName.'</td>
-                <td>'.$resident->res_apartment.'</td>
+                <td class="visible-md visible-lg">'.$resident->res_username.'</td>
+                <td class="visible-md visible-lg">'.$resident->res_displayedName.'</td>
+                <td class="visible-md visible-lg">'.$resident->res_apartment.'</td>
                 <td>
                     <form action="" method="GET">
                         <button class="btn btn-primary btn-xs" type="submit" name="editResident" value="'.$resident->res_id.'"><span class="glyphicon glyphicon-pencil"></button>
@@ -53,6 +61,7 @@ class ResidentController extends Controller
      */
     public function addResident(Request $filledData){
 
+        //Naming the input attributes for the outputted errors
         $attributeNames = array(
             'inputName' => 'Name',
             'inputUsername' => 'Benutzername',
@@ -62,28 +71,27 @@ class ResidentController extends Controller
             'inputPasswordConfirmation' => 'Passwort Bestätigung',
         );
 
-        $validator =  Validator::make($filledData->all(), [
+        //validator rules
+        $rules = array(
             'inputName' => 'required|max:45',
             'inputUsername' => 'required|max:45',
             'inputDisplayedname' => 'required|max:16',
             'inputApartment' => 'required|max:16',
-            'inputPassword' => 'required|regex:^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$^', //Minimum eight characters, at least one letter and one number:
+            'inputPassword' => array('required', 'regex:/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/'), //Minimum eight characters, at least one letter and one number:
             'inputPasswordConfirmation' => 'required|same:inputPassword'
-        ]);
+        );
 
+        $validator =  Validator::make($filledData->all(), $rules);
         $validator->setAttributeNames($attributeNames);
 
         if ($validator->fails())
         {
             return redirect()->back()->withErrors($validator)->withInput();
-            //return redirect('/settings')
-                //->withErrors($validator)
-                //->withInput();
         }
 
+        //inserting data into the database
         $resident = new Resident;
-
-        $resident->res_pw = $filledData->inputPassword;
+        $resident->res_pw = md5($filledData->inputPassword);
         $resident->res_name = $filledData->inputName;
         $resident->res_username = $filledData->inputUsername;
         $resident->res_displayedName = $filledData->inputDisplayedname;
@@ -94,7 +102,7 @@ class ResidentController extends Controller
     }
 
     /**
-     * Edit the selected resident
+     * Generate the modal popup dialog and insert the data from the database
      */
     public function editResident($residentId){
         // Generate the modal content
@@ -136,25 +144,37 @@ class ResidentController extends Controller
      */
     public function updateResident(Request $filledData){
 
-        $validator =  Validator::make($filledData->all(), [
+        //Naming the input attributes for the outputted errors
+        $attributeNames = array(
+            'inputName' => 'Name',
+            'inputUsername' => 'Benutzername',
+            'inputDisplayedname' => 'Angezeigte Name',
+            'inputApartment' => 'Wohnung',
+            'inputPassword' => 'Passwort',
+            'inputPasswordConfirmation' => 'Passwort Bestätigung',
+        );
+
+        //validator rules
+        $rules = array(
             'inputName' => 'required|max:45',
             'inputUsername' => 'required|max:45',
             'inputDisplayedname' => 'required|max:16',
             'inputApartment' => 'required|max:16',
-            'inputPassword' => 'regex:^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$^', //Minimum eight characters, at least one letter and one number:
+            'inputPassword' => array('regex:/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/'), //Minimum eight characters, at least one letter and one number:
             'inputPasswordConfirmation' => 'same:inputPassword'
-        ]);
+        );
 
-        if($validator->fails())
+        $validator =  Validator::make($filledData->all(), $rules);
+        $validator->setAttributeNames($attributeNames);
+
+        if ($validator->fails())
         {
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
+        //update database content
         $resident = App\Resident::find($filledData->inputId);
-
-        if($filledData->inputPassword != ""){
-            $resident->res_pw = $filledData->inputPassword;
-        }
+        $resident->res_pw = md5($filledData->inputPassword);
         $resident->res_name = $filledData->inputName;
         $resident->res_username = $filledData->inputUsername;
         $resident->res_displayedName = $filledData->inputDisplayedname;
@@ -175,7 +195,7 @@ class ResidentController extends Controller
     }
 
     /**
-     * Test function for filling the db with some data
+     * function for filling the db with some data
      */
     public function populateDummy()
     {
@@ -185,53 +205,53 @@ class ResidentController extends Controller
         DB::statement("SET foreign_key_checks=1");
 
         $residents = new Resident;
-        $residents->res_pw = "1234";
+        $residents->res_pw = md5("DefaultPassword1");
         $residents->res_name = "Federico Crameri";
-        $residents->res_username = "cuciu";
+        $residents->res_username = "fcrameri";
         $residents->res_displayedName = "F. Crameri";
         $residents->res_apartment = "3 OG Rechts";
         $residents->save();
 
         $residents = new Resident;
-        $residents->res_pw = "1234";
-        $residents->res_name = "Geo";
-        $residents->res_username = "Bontognali";
+        $residents->res_pw = md5("DefaultPassword1");
+        $residents->res_name = "Geo Bontognali";
+        $residents->res_username = "gbontognali";
         $residents->res_displayedName = "G. Bontognali";
         $residents->res_apartment = "1 OG Links";
         $residents->save();
 
         $residents = new Resident;
-        $residents->res_pw = "1234";
-        $residents->res_name = "Jöri";
-        $residents->res_username = "Gredig";
+        $residents->res_pw = md5("DefaultPassword1");
+        $residents->res_name = "Jöri Gredig";
+        $residents->res_username = "ggredig";
         $residents->res_displayedName = "J. Gredig";
         $residents->res_apartment = "2 OG Links";
         $residents->save();
 
         $residents = new Resident;
-        $residents->res_pw = "1234";
-        $residents->res_name = "Ulrich";
-        $residents->res_username = "Hauser";
+        $residents->res_pw = md5("DefaultPassword1");
+        $residents->res_name = "Ulrich Hauser";
+        $residents->res_username = "uhauser";
         $residents->res_displayedName = "U. Hauser";
         $residents->res_apartment = "4 OG Links";
         $residents->save();
 
         $residents = new Resident;
-        $residents->res_pw = "1234";
-        $residents->res_name = "Lukas";
-        $residents->res_username = "Toggenburger";
+        $residents->res_pw = md5("DefaultPassword1");
+        $residents->res_name = "Lukas Toggenburger";
+        $residents->res_username = "ltoggenburger";
         $residents->res_displayedName = "L. Toggenburger";
         $residents->res_apartment = "2 OG Rechts";
         $residents->save();
 
         $doors = new Door;
-        $doors->door_name = "Türe 1";
-        $doors->door_desc = "Garage untererdisch";
+        $doors->door_name = "Garage";
+        $doors->door_desc = "Garage unterirdisch nord";
         $doors->door_nr = 23;
         $doors->save();
 
         $doors = new Door;
-        $doors->door_name = "Türe 2";
+        $doors->door_name = "Süd";
         $doors->door_desc = "Eingang Süden";
         $doors->door_nr = 30;
         $doors->save();
