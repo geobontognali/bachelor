@@ -1,0 +1,7 @@
+# Initialisierung Autostart 
+# path: /home/pi/.config/autostart/Aussensprechstelle.desktop
+[Desktop Entry]
+Type=Application
+Name=Aussensprechstelle initializer
+Comment=Start the Taster Controller wich listen at keypresses add the GPIO and simulate arrows keypress
+Exec=sudo /home/pi/Aussensprechstelle/Startup/AussensprechstelleLauncher.sh
