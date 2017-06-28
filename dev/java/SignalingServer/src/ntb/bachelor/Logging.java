@@ -20,7 +20,7 @@ import java.util.logging.*;
  */
 public class Logging
 {
-    private static Level logLevel = Level.INFO; // Change this for production release
+    private static Level logLevel = Level.WARNING; // Change this for production release
     private static Logger logger;
     private static boolean devMode = false; // Only prints to the console
 
@@ -34,7 +34,7 @@ public class Logging
         // Instance the logger
         logger = Logger.getLogger(Logging.class.getName());
         // Instance the FileHandler
-        Handler fileHandler = new FileHandler("SignalingServer.log",true);
+        Handler fileHandler = new FileHandler("/var/log/signalingServer.log", 1024000, 1,true);
         // Instance formatter, set formatting, and handler
         Formatter plainText = new SimpleFormatter();
         fileHandler.setFormatter(plainText);

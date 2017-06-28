@@ -1,26 +1,25 @@
 #!/bin/sh
 # created by Federico on 16.03.2017
-# start and stop speaker controller
+# start and stop Signaling Server
 ### BEGIN INIT INFO
-# Provides:          speakerController
+# Provides:          signalingServer
 # Required-Start:    $remote_fs $syslog
 # Required-Stop:     $remote_fs $syslog
 # Default-Start:     5
 # Default-Stop:      0 1 2 3 4 6
-# Short-Description: Start speaker controller daemon at boot time
-# Description:       Enable service provided by daemon.
+# Short-Description: Start Signaling Server Daemon at boot time
+# Description:       Enable service provided by Daemon.
 ### END INIT INFO
-SERVICE_NAME=speakerController
-PATH_TO_JAR=/home/door/Aussensprechstelle/SpeakerController/SpeakerController.jar
-PID_PATH_NAME=/home/door/Aussensprechstelle/SpeakerController/SpeakerController-pid
-# PATH_TO_LOG=/home/door/Aussensprechstelle/SpeakerController/speakercontrollerd.log
+SERVICE_NAME=signalingServer
+PATH_TO_JAR=/home/pi/server/signalingServer/SignalingServer.jar
+PID_PATH_NAME=/var/run/SignalingServer.pid
 case $1 in
     start)
         echo "Starting $SERVICE_NAME ..."
         if [ ! -f $PID_PATH_NAME ]; then
             sudo java -jar $PATH_TO_JAR &
             echo $! > $PID_PATH_NAME
-            echo SpeakerController PID: $!
+            echo signalingServer PID: $!
             echo "$SERVICE_NAME started ..."
         else
             echo "$SERVICE_NAME is already running ..."
@@ -53,3 +52,4 @@ case $1 in
         fi
     ;;
 esac
+
