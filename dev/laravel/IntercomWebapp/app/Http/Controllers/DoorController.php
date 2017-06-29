@@ -106,4 +106,13 @@ class DoorController extends Controller
         }
     }
 
+    /**
+     * Inject the Javascript code containing the IP of the server and stuff
+     */
+    public function setConfig()
+    {
+        $config = new Config;
+        echo 'const signalingSrvAddr = "'.$config->signalingServerAddress.'"; const signalingSrvPort = "'.$config->signalingServerPort.'";';
+    }
+
 }

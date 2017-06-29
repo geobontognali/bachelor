@@ -79,6 +79,7 @@
     <script>
         <?php
         $doorController->setDoorId();
+        $doorController->setConfig();
         ?>
     </script>
     <script src="js/rtc/door.js" ></script>
