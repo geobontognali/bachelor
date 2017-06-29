@@ -27,7 +27,7 @@ class ClientController extends Controller
 
         $config = new Config;
         $relayControllerServer = $config->relayControllerServer;
-        $relayControllerServerPort = $config->relayControllerPort;
+        $relayControllerServerPort = $config->relayControllerServerPort;
         // Connects to the server
         $socket = fsockopen($relayControllerServer, $relayControllerServerPort);
         if(!$socket)
