@@ -35,7 +35,7 @@ import com.pi4j.io.gpio.event.PinEventType;
 public class RelayController
 {
     // Vars
-    private final String PERMITTED_HOST = "192.168.0.213";
+    private final String PERMITTED_HOST = "127.0.0.1";
     private final int PORT = 7743;
     private final int DOOR_OPEN_TIME = 3; // Time that the door stays open (seconds)
     private final int GONG_PLAY_TIME = 4; // Time that the door stays open (seconds)
@@ -45,7 +45,7 @@ public class RelayController
 
     public RelayController() throws Exception
     {
-        Logging.log(Level.INFO, "Relay driver started");
+        Logging.log(Level.INFO, "Relay Controller Started");
         startSocketServer();
     }
 
@@ -59,7 +59,7 @@ public class RelayController
      */
     private void relayDriver(String type, int id)
     {
-
+        Logging.log(Level.INFO, "Action: " + type);
         // TODO: Do the shit with the GPIOs
         /*
         GpioController gpio = GpioFactory.getInstance();
@@ -86,7 +86,7 @@ public class RelayController
 
             if(connectionAddr.equals(PERMITTED_HOST))
             {
-                //Logging.log(Level.INFO, "New inbound connection from " + connectionAddr);
+                Logging.log(Level.INFO, "New inbound connection from " + connectionAddr);
             }
             else // Block connections that are not allowed
             {
@@ -106,7 +106,7 @@ public class RelayController
                 // Act accordingly
                 if (payload != null)
                 {
-                    System.out.println(payload);
+                    //System.out.println(payload);
                     try
                     {
                         JSONObject obj = new JSONObject(payload);

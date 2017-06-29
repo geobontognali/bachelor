@@ -5,9 +5,7 @@
 /** VARIABLES **************************************************/
 /** ************************************************************/
 /** Constants **/
-const signalingSrvAddr = "192.168.0.18";
-const signalingSrvPort = "7007";
-const userId = 1;
+//const userId = 1;
 
 /** Signaling Types **/
 const DOOR_REQUEST = "DOOR_REQUEST";

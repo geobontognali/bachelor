@@ -80,22 +80,26 @@
             <div class="container-fluid navbar-fixed-bottom" id="bottomContainer">
 
                 <div id="naviCont" class="row">
-                    <?php
+                    <?php // Generate Navigation with the door from the database
                         use App\Http\Controllers\ClientController;
                         $clientController = new ClientController();
                         $clientController->generateNavi();
                     ?>
                 </div>
-
             </div>
-
-
         </div>
 
-
-
         <script>
-            startConnection();
+            <?php // Inject IDs and Configs
+            $clientController->setConfig();
+            $clientController->setDoorId();
+            $clientController->setUserId();
+            ?>
+        </script>
+        <script src = "js/notification.js"></script>
+        <script src = "js/rtc/client.js"></script>
+        <script>
+            startConnection(); // INIT
         </script>
 
 

@@ -21,15 +21,6 @@
     <link rel="stylesheet" href="css/animations/spinner.css">
     <link rel="stylesheet" href="css/animations/wave.css">
 
-    <script>
-        <?php
-        use App\Http\Controllers\ClientController;
-        $clientController = new ClientController();
-        $clientController->setDoorId();
-        ?>
-    </script>
-    <script src = "js/notification.js"></script>
-    <script src = "js/rtc/client.js"></script>
 </head>
 
 <body style="background-color: #e7e7e7;">

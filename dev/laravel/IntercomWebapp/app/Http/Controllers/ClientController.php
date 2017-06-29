@@ -54,19 +54,28 @@ class ClientController extends Controller
         $doors = new Door;
         $doors = $doors->get();
 
-        if(isset($_GET['id']))
+        $config = new Config;
+        if(isset($_GET['userId']))
         {
-            $this->activeDoor = $_GET['id'];
+            $userId = $_GET['userId'];
         }
         else
         {
-            $config = new Config;
+            $userId = $config->defaultUser.';';
+        }
+
+        if(isset($_GET['doorId']))
+        {
+            $this->activeDoor = $_GET['doorId'];
+        }
+        else
+        {
             $this->activeDoor = $config->defaultDoor;
         }
         foreach($doors as $door)
         {
             if($door->door_id == $this->activeDoor) { $active = "active"; } else { $active = ""; }
-            echo '<a href="?id='.$door->door_id.'"><div class="col-xs-4 naviEntry '.$active.'">'.$door->door_name.'</div></a>';
+            echo '<a href="?doorId='.$door->door_id.'&userId='.$userId.'"><div class="col-xs-4 naviEntry '.$active.'">'.$door->door_name.'</div></a>';
         }
     }
 
@@ -84,9 +93,6 @@ class ClientController extends Controller
             ->where('not_resident', '=', $userId)
             ->where('not_received', '=', '0')
             ->get();
-        // Update the received field
-        //$editNotification = new Notification();
-        //$editNotification->where('not_resident', '=', $userId)->where('not_received', '=', '0')->update(['not_received' => 1]);
         // Return as json
         return  $notification->toJson();
     }
@@ -94,6 +100,7 @@ class ClientController extends Controller
     /**
      * Marks a notification as received when the client confirms that has been received
      * @param $userId
+     * @return true
      */
     public function clearNotification($userId)
     {
@@ -110,15 +117,40 @@ class ClientController extends Controller
      */
     public function setDoorId()
     {
-        if(isset($_GET['id']))
+        if(isset($_GET['doorId']))
         {
-            echo 'const doorId = '.$_GET['id'].';';
+            echo 'const doorId = '.$_GET['doorId'].';';
         }
         else
         {
             $config = new Config;
             echo 'const doorId = '.$config->defaultDoor.';';
         }
+    }
+
+    /**
+     * Inject the Javascript code containing the ID of the current logged user. ID passed by get parameter
+     */
+    public function setUserId()
+    {
+        if(isset($_GET['userId']))
+        {
+            echo 'const userId = '.$_GET['userId'].';';
+        }
+        else
+        {
+            $config = new Config;
+            echo 'const userId = '.$config->defaultUser.';';
+        }
+    }
+
+    /**
+     * Inject the Javascript code containing the IP of the server and stuff
+     */
+    public function setConfig()
+    {
+        $config = new Config;
+        echo 'const signalingSrvAddr = "'.$config->signalingServerAddress.'"; const signalingSrvPort = "'.$config->signalingServerPort.'";';
     }
 
 
