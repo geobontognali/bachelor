@@ -12,10 +12,10 @@ self.addEventListener('notificationclick', function(event) {
     }).then(function(clientList) {
         for (var i = 0; i < clientList.length; i++) {
             var client = clientList[i];
-            if (client.url == 'https://bachelor.dev/client' && 'focus' in client)
+            if (client.url == 'https://192.168.0.18/client' && 'focus' in client)
                 return client.focus();
         }
         if (clients.openWindow)
-            return clients.openWindow('https://bachelor.dev/client');
+            return clients.openWindow('https://192.168.0.18/client');
     }));
 });
