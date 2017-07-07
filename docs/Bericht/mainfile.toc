@@ -12,29 +12,29 @@
 \contentsline {section}{\numberline {4}Hardware}{6}
 \contentsline {subsection}{\numberline {4.1}Server}{6}
 \contentsline {subsection}{\numberline {4.2}Aussensprechstelle}{6}
-\contentsline {section}{\numberline {5}Software}{7}
-\contentsline {subsection}{\numberline {5.1}Programmiersprachen}{7}
-\contentsline {subsubsection}{\numberline {5.1.1}Java}{7}
-\contentsline {subsubsection}{\numberline {5.1.2}PHP/Javascript}{7}
-\contentsline {subsubsection}{\numberline {5.1.3}PHP Framework: Laravel}{8}
-\contentsline {subsection}{\numberline {5.2}System \IeC {\"U}bersicht}{8}
-\contentsline {subsection}{\numberline {5.3}Raspbian}{9}
-\contentsline {subsection}{\numberline {5.4}Dienste}{9}
-\contentsline {subsubsection}{\numberline {5.4.1}Hallo}{9}
-\contentsline {subsubsection}{\numberline {5.4.2}Taster Controller}{9}
-\contentsline {subsubsection}{\numberline {5.4.3}Speaker Controller}{10}
-\contentsline {subsubsection}{\numberline {5.4.4}Relay Controller}{10}
-\contentsline {subsubsection}{\numberline {5.4.5}Signaling Server}{10}
-\contentsline {subsection}{\numberline {5.5}Logging}{10}
-\contentsline {subsection}{\numberline {5.6}Watchdog}{10}
-\contentsline {subsection}{\numberline {5.7}Webapplikationen}{11}
-\contentsline {subsubsection}{\numberline {5.7.1}Client Webapplikation}{11}
-\contentsline {subsubsection}{\numberline {5.7.2}Aussensprechstelle Webapplikation}{11}
-\contentsline {subsection}{\numberline {5.8}WebRTC}{11}
-\contentsline {subsubsection}{\numberline {5.8.1}Signaling Process}{13}
-\contentsline {subsubsection}{\numberline {5.8.2}STUN Servers \& Remote Verbindung}{14}
-\contentsline {section}{Literaturverzeichnis}{15}
-\contentsline {section}{Abbildungsverzeichnis}{16}
-\contentsline {section}{Tabellenverzeichnis}{17}
-\contentsline {section}{Abk\IeC {\"u}rzungsverzeichnis}{18}
-\contentsline {section}{Eidesstattliche Erkl\IeC {\"a}rung}{19}
+\contentsline {subsection}{\numberline {4.3}PoE}{7}
+\contentsline {section}{\numberline {5}Software}{8}
+\contentsline {subsection}{\numberline {5.1}Programmiersprachen}{8}
+\contentsline {subsubsection}{\numberline {5.1.1}Java}{8}
+\contentsline {subsubsection}{\numberline {5.1.2}PHP/Javascript}{8}
+\contentsline {subsubsection}{\numberline {5.1.3}PHP Framework: Laravel}{9}
+\contentsline {subsection}{\numberline {5.2}System \IeC {\"U}bersicht}{9}
+\contentsline {subsection}{\numberline {5.3}Raspbian}{10}
+\contentsline {subsection}{\numberline {5.4}Dienste}{10}
+\contentsline {subsubsection}{\numberline {5.4.1}Taster Controller}{10}
+\contentsline {subsubsection}{\numberline {5.4.2}Speaker Controller}{11}
+\contentsline {subsubsection}{\numberline {5.4.3}Relay Controller}{11}
+\contentsline {subsubsection}{\numberline {5.4.4}Signaling Server}{11}
+\contentsline {subsection}{\numberline {5.5}Logging}{11}
+\contentsline {subsection}{\numberline {5.6}Watchdog}{11}
+\contentsline {subsection}{\numberline {5.7}Webapplikationen}{12}
+\contentsline {subsubsection}{\numberline {5.7.1}Client Webapplikation}{12}
+\contentsline {subsubsection}{\numberline {5.7.2}Aussensprechstelle Webapplikation}{12}
+\contentsline {subsection}{\numberline {5.8}WebRTC}{13}
+\contentsline {subsubsection}{\numberline {5.8.1}Signaling Process}{14}
+\contentsline {subsubsection}{\numberline {5.8.2}STUN Servers \& Remote Verbindung}{15}
+\contentsline {section}{Literaturverzeichnis}{16}
+\contentsline {section}{Abbildungsverzeichnis}{17}
+\contentsline {section}{Tabellenverzeichnis}{18}
+\contentsline {section}{Abk\IeC {\"u}rzungsverzeichnis}{19}
+\contentsline {section}{Eidesstattliche Erkl\IeC {\"a}rung}{20}

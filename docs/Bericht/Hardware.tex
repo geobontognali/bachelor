@@ -26,4 +26,25 @@ Für die Audiowiedergabe ist ein kleines Lautsprecher und ein Verstärker nötig
 \\
 \\
 
+\subsection{PoE}
+\label{sec:poe}
+Moderne Hausalte werden meistens mit ethernet Verkabelung verlegt. Ziel des Aussensprechstelle ist die Installationskosten zu senken und die Montage zu vereinfachen. Drei Anschlusse werden von den Aussensprechstelle benötigt um sein Ziel zu erreichen und zwar Strom, Internetverbindung und eine Leitung der für den Türöffner zuständig ist. Alle diese Fünktionalität können in einem Kat 7 Ethernet Kabel zusammengeführt werden. 
+\\
+Cisco Catalyst 3560g welcher für den PoE Stromversorgung zuständigt ist verwendet das Phantomspeisung oder Mode A. Das heisst dass die mit Datenübertragung belegten Adern mit der Stromversorgung überlagert werden. Diese ist möglich da Elektrizität hat eine niedrige Frequenz von 60 Hz und Datenübertragungen im bereich 10-100MHz liegt.
+
+\begin{figure}[htb!]
+	\begin{center}
+		\includegraphics[width=0.89\textwidth]{CatalystPoEpinouts}
+		\caption[Catalyst 3560g PoE Pinbelegung]{Catalyst Pinouts}
+		\label{fig:catalystPinouts}
+	\end{center}
+\end{figure}
+
+
+Die einzige Nachteil bei dieser Konfiguration 
+
+<-- ABBILDUNG CON IL CAVO ETHERNET
+\\
+
+
 \newpage
