@@ -26,6 +26,13 @@ Für die Audiowiedergabe ist ein kleines Lautsprecher und ein Verstärker nötig
 \\
 \\
 
+\subsection{Microcontroller}
+\label{sec:microcontroller}
+Wieso wurde raspberry pi eingesetzt (Kompatibilität)
+\\
+Konkurrenz Produkte (Lattepanda) -> mehr leisutng beim encoding/decoding Prozesse
+\\
+
 \subsection{PoE}
 \label{sec:poe}
 Moderne Hausalte werden meistens mit ethernet Verkabelung verlegt. Ziel des Aussensprechstelle ist die Installationskosten zu senken und die Montage zu vereinfachen. Drei Anschlusse werden von den Aussensprechstelle benötigt um sein Ziel zu erreichen und zwar Strom, Internetverbindung und eine Leitung der für den Türöffner zuständig ist. Alle diese Fünktionalität können in einem Kat 7 Ethernet Kabel zusammengeführt werden. 
@@ -35,16 +42,20 @@ Cisco Catalyst 3560g welcher für den PoE Stromversorgung zuständigt ist verwen
 \begin{figure}[htb!]
 	\begin{center}
 		\includegraphics[width=0.89\textwidth]{CatalystPoEpinouts}
-		\caption[Catalyst 3560g PoE Pinbelegung]{Catalyst Pinouts}
+		\caption[Catalyst Pinouts]{Catalyst 3560g PoE Pinbelegung}
 		\label{fig:catalystPinouts}
 	\end{center}
 \end{figure}
 
+Wie im Abbild nr.5!!? dargestellt werden die Adern 7 und 8 dazu verwendet um der Türöffner zu betätigen. Aus den 3 verbliebenden Adernpaare kann maximal die Ethernet Kategorie 100BASE-T erreicht werden. Da aber WebRTC eine erhebliche kleinere Bandbreite in Anspruch nimmt, stellt für die Aussensprechtellen kein Hinderniss.
 
-Die einzige Nachteil bei dieser Konfiguration 
-
-<-- ABBILDUNG CON IL CAVO ETHERNET
-\\
+\begin{figure}[htb!]
+	\begin{center}
+		\includegraphics[width=0.89\textwidth]{EthernetPinbelegung}
+		\caption[EthernetPinbelegung]{Cat. 7 Ethernet Pinbelegung für die Aussensprechstellen}
+		\label{fig:catalystPinouts}
+	\end{center}
+\end{figure}
 
 
 \newpage

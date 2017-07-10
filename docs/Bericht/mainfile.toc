@@ -1,43 +1,40 @@
 \select@language {ngerman}
-\contentsline {section}{\numberline {1}Einleitung}{1}
-\contentsline {subsection}{\numberline {1.1}Subsection test}{1}
-\contentsline {subsubsection}{\numberline {1.1.1}Subsubsection test}{1}
-\contentsline {subsubsection}{\numberline {1.1.2}Subsubsubsection test}{2}
-\contentsline {section}{\numberline {2}Einf\IeC {\"u}hrung}{3}
-\contentsline {subsection}{\numberline {2.1}Problemstellung}{3}
-\contentsline {subsection}{\numberline {2.2}Grundidee}{3}
-\contentsline {section}{\numberline {3}Projektplanung}{4}
-\contentsline {subsection}{\numberline {3.1}Prozess}{4}
-\contentsline {subsection}{\numberline {3.2}Zeitplanung}{5}
-\contentsline {section}{\numberline {4}Aktueller Stand}{6}
-\contentsline {subsection}{\numberline {4.1}Die Herausforderungen der Digitalisierung}{6}
-\contentsline {subsection}{\numberline {4.2}Marktsituation}{7}
-\contentsline {section}{\numberline {5}Hardware}{8}
-\contentsline {subsection}{\numberline {5.1}Server}{8}
-\contentsline {subsection}{\numberline {5.2}Aussensprechstelle}{8}
-\contentsline {subsection}{\numberline {5.3}PoE}{9}
-\contentsline {section}{\numberline {6}Software}{10}
-\contentsline {subsection}{\numberline {6.1}Programmiersprachen}{10}
-\contentsline {subsubsection}{\numberline {6.1.1}Java}{10}
-\contentsline {subsubsection}{\numberline {6.1.2}PHP/Javascript}{10}
-\contentsline {subsubsection}{\numberline {6.1.3}PHP Framework: Laravel}{11}
-\contentsline {subsection}{\numberline {6.2}System \IeC {\"U}bersicht}{11}
-\contentsline {subsection}{\numberline {6.3}Raspbian}{12}
-\contentsline {subsection}{\numberline {6.4}Dienste}{12}
-\contentsline {subsubsection}{\numberline {6.4.1}Taster Controller}{12}
-\contentsline {subsubsection}{\numberline {6.4.2}Speaker Controller}{13}
-\contentsline {subsubsection}{\numberline {6.4.3}Relay Controller}{13}
-\contentsline {subsubsection}{\numberline {6.4.4}Signaling Server}{13}
-\contentsline {subsection}{\numberline {6.5}Logging}{13}
-\contentsline {subsection}{\numberline {6.6}Watchdog}{13}
-\contentsline {subsection}{\numberline {6.7}Webapplikationen}{14}
-\contentsline {subsubsection}{\numberline {6.7.1}Client Webapplikation}{14}
-\contentsline {subsubsection}{\numberline {6.7.2}Aussensprechstelle Webapplikation}{14}
-\contentsline {subsection}{\numberline {6.8}WebRTC}{15}
-\contentsline {subsubsection}{\numberline {6.8.1}Signaling Process}{16}
-\contentsline {subsubsection}{\numberline {6.8.2}STUN Servers \& Remote Verbindung}{17}
-\contentsline {section}{Literaturverzeichnis}{18}
-\contentsline {section}{Abbildungsverzeichnis}{19}
-\contentsline {section}{Tabellenverzeichnis}{20}
-\contentsline {section}{Abk\IeC {\"u}rzungsverzeichnis}{21}
-\contentsline {section}{Eidesstattliche Erkl\IeC {\"a}rung}{22}
+\contentsline {section}{\numberline {1}Einf\IeC {\"u}hrung}{1}
+\contentsline {subsection}{\numberline {1.1}Problemstellung}{1}
+\contentsline {subsection}{\numberline {1.2}Grundidee}{1}
+\contentsline {section}{\numberline {2}Projektplanung}{2}
+\contentsline {subsection}{\numberline {2.1}Prozess}{2}
+\contentsline {subsection}{\numberline {2.2}Zeitplanung}{3}
+\contentsline {section}{\numberline {3}Aktueller Stand}{4}
+\contentsline {subsection}{\numberline {3.1}Die Herausforderungen der Digitalisierung}{4}
+\contentsline {subsection}{\numberline {3.2}Marktsituation}{5}
+\contentsline {section}{\numberline {4}Hardware}{6}
+\contentsline {subsection}{\numberline {4.1}Server}{6}
+\contentsline {subsection}{\numberline {4.2}Aussensprechstelle}{6}
+\contentsline {subsection}{\numberline {4.3}Microcontroller}{7}
+\contentsline {subsection}{\numberline {4.4}PoE}{7}
+\contentsline {section}{\numberline {5}Software}{8}
+\contentsline {subsection}{\numberline {5.1}Programmiersprachen}{8}
+\contentsline {subsubsection}{\numberline {5.1.1}Java}{8}
+\contentsline {subsubsection}{\numberline {5.1.2}PHP/Javascript}{9}
+\contentsline {subsubsection}{\numberline {5.1.3}PHP Framework: Laravel}{9}
+\contentsline {subsection}{\numberline {5.2}System \IeC {\"U}bersicht}{9}
+\contentsline {subsection}{\numberline {5.3}Raspbian}{10}
+\contentsline {subsection}{\numberline {5.4}Dienste}{10}
+\contentsline {subsubsection}{\numberline {5.4.1}Taster Controller}{10}
+\contentsline {subsubsection}{\numberline {5.4.2}Speaker Controller}{11}
+\contentsline {subsubsection}{\numberline {5.4.3}Relay Controller}{11}
+\contentsline {subsubsection}{\numberline {5.4.4}Signaling Server}{11}
+\contentsline {subsection}{\numberline {5.5}Logging}{12}
+\contentsline {subsection}{\numberline {5.6}Watchdog}{12}
+\contentsline {subsection}{\numberline {5.7}Webapplikationen}{13}
+\contentsline {subsubsection}{\numberline {5.7.1}Client Webapplikation}{13}
+\contentsline {subsubsection}{\numberline {5.7.2}Aussensprechstelle Webapplikation}{13}
+\contentsline {subsection}{\numberline {5.8}WebRTC}{14}
+\contentsline {subsubsection}{\numberline {5.8.1}Signaling Process}{14}
+\contentsline {subsubsection}{\numberline {5.8.2}STUN Servers \& Remote Verbindung}{15}
+\contentsline {section}{Literaturverzeichnis}{17}
+\contentsline {section}{Abbildungsverzeichnis}{18}
+\contentsline {section}{Tabellenverzeichnis}{19}
+\contentsline {section}{Abk\IeC {\"u}rzungsverzeichnis}{20}
+\contentsline {section}{Eidesstattliche Erkl\IeC {\"a}rung}{21}

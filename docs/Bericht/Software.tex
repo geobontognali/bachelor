@@ -71,7 +71,8 @@ Der Signaling-Server ist ein bestandteil von WebRTC und wird in ein eigenes Kapi
 
 \subsection{Logging}
 \label{kap:logs}
-....
+Für die Identifikation und Rückverfolgung von Fehlern sowie für den Monitoring sind Logs File von grosse Bedeutung. Diese werden bei allen Services und Dienste konsequent druchgeführt. Das Logrotate wird nicht eingesetzt, statdessen kümmert sich das Java runtime environment um die Grösse des generiertes Log File. Aus dem Grund dass es sich noch um ein Protoyp handelt wurde das Logging Stufe auf 7 eingestellt. In diese Stufe werden alle Emergency Nachrichten bis auf die Debug Nachrichten im Log Dateien gespeichert.
+Gemäss der FHS (Filesystem Hierarchy Standard) werden die Logs unter /var/log/Aussensprechstelle gesichert. 
 
 \subsection{Watchdog}
 \label{kap:watchdog}
@@ -100,6 +101,10 @@ Die \cref{fig:clientDemo} zeigt das Design für die Webapplikation. Hier gezeigt
 Bei der Design-Entwurf standen Übersichtlichkeit und Benutzerfreundlichkeit im Vordergrund. Aus diesem Grund werden die Tasten für die Audio-Kommunikation und für die Öffnung der Türe gross Angezeigt. Das Videostream von der ausgewählte Türe wird sofort angezeigt und benötigt keine weitere Interaktion. 
 
 \subsubsection{Aussensprechstelle Webapplikation}
+..
+
+\subsection{Management Tool}
+\label{kap:managementtool}
 ..
 
 \subsection{WebRTC}
