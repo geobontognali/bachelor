@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.7.6)  12 JUL 2017 16:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.7.6)  12 JUL 2017 22:52
 entering extended mode
 **./mainfile.tex
 (mainfile.tex
@@ -1150,59 +1150,54 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 102.
 
 
 [12]
-Overfull \hbox (0.44223pt too wide) in paragraph at lines 108--110
-\T1/lmr/m/n/12 fü-gen zu kön-nen. Die-se Schnit-stel-le wur-de mit web-tech-no-
-lo-gi-en ent-wi-ckelt(HTML,
- []
+Package cleveref Info: loaded `ngerman' language definitions on input line 112.
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 110.
-
-[13 <./img/clientDemo.jpg>]
+ [13 <./img/clientDemo.jpg>]
 <img/managementtool.png, id=90, 1436.36626pt x 676.77844pt>
 File: img/managementtool.png Graphic file (type png)
 
 <use img/managementtool.png>
-Package pdftex.def Info: img/managementtool.png used on input line 113.
+Package pdftex.def Info: img/managementtool.png used on input line 115.
 (pdftex.def)             Requested size: 412.56497pt x 194.39157pt.
 
 
 LaTeX Warning: Reference `fig:aussensprechstelle' on page 14 undefined on input
- line 121.
+ line 123.
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 124.
+Package cleveref Info: loaded `ngerman' language definitions on input line 126.
 
 [14 <./img/managementtool.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 132--136
+Underfull \hbox (badness 10000) in paragraph at lines 134--138
 
  []
 
 
-LaTeX Warning: Citation `001' on page 15 undefined on input line 142.
+LaTeX Warning: Citation `001' on page 15 undefined on input line 144.
 
 <img/signalingprocess.jpg, id=95, 1003.75pt x 596.2275pt>
 File: img/signalingprocess.jpg Graphic file (type jpg)
 
 <use img/signalingprocess.jpg>
-Package pdftex.def Info: img/signalingprocess.jpg used on input line 151.
+Package pdftex.def Info: img/signalingprocess.jpg used on input line 153.
 (pdftex.def)             Requested size: 309.42372pt x 183.80057pt.
-Package cleveref Info: loaded `ngerman' language definitions on input line 162.
+Package cleveref Info: loaded `ngerman' language definitions on input line 164.
 
  [15]
 <img/stun.png, id=99, 779.16093pt x 491.58656pt>
 File: img/stun.png Graphic file (type png)
  <use img/stun.png>
-Package pdftex.def Info: img/stun.png used on input line 170.
+Package pdftex.def Info: img/stun.png used on input line 172.
 (pdftex.def)             Requested size: 309.42372pt x 195.22095pt.
 
-Overfull \hbox (0.76872pt too wide) in paragraph at lines 165--178
+Overfull \hbox (0.76872pt too wide) in paragraph at lines 167--180
 \T1/lmr/m/n/12 Servers im Spiel. Ähn-lich wie bei dem Si-gna-li-sie-rungs-pro-z
 ess ste-hen STUN-Servers
  []
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 178.
+Package cleveref Info: loaded `ngerman' language definitions on input line 180.
 
 [16 <./img/signalingprocess.jpg>]
-Package cleveref Info: loaded `ngerman' language definitions on input line 179.
+Package cleveref Info: loaded `ngerman' language definitions on input line 181.
 
  [17 <./img/stun.png>]) (mainfile.bbl
 
@@ -1271,7 +1266,7 @@ r12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmri12.pfb><C:/Progr
 am Files/MiKTeX 2.9/fonts/type1/public/lm/lmro12.pfb><C:/Program Files/MiKTeX 2
 .9/fonts/type1/public/lm/lmssbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 public/lm/lmsy10.pfb>
-Output written on mainfile.pdf (30 pages, 1949927 bytes).
+Output written on mainfile.pdf (30 pages, 1950283 bytes).
 PDF statistics:
  147 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

@@ -42,7 +42,7 @@ Die Audio/Video-Kommunikation zwischen die Aussensprechstellen und die Client-Ap
 \subsection{Raspbian}
 \label{kap:raspbian}
 Auf alle Raspberry Pi wurde den Betriebssystem Raspbian Jessie installiert. Diese wird von Raspberry Pi Foundation mitgeliefert und gilt als besonders hochoptimerte OS für die mit niedriger Leistung und geringem Stromverbrauch ARM Prozessoren.
-Der Raspbian Jessie Betriebssystem basiert auf Debian welch unter der DFSG (Debian Free Software Guidelines) Lizent steht. Diese erlaubt der unbeschränkte Weitergabe des Software sowie abgeleitete und modifizierte  Werke weiterzugeben. 
+Raspbian basiert auf Debian welche unter der DFSG (Debian Free Software Guidelines) Lizent steht. Diese erlaubt der unbeschränkte Weitergabe des Software sowie abgeleitete und modifizierte  Werke weiterzugeben. 
 Raspbian enthält Java SE Platform Prudukte welches und dem BCL(Oracle Binary Code License) lizensiert sind. Dieses Lizenz gewährleistet die obengenannten Freiheite ebenfalls.
 
 \subsection{Dienste}
@@ -105,8 +105,10 @@ Bei der Design-Entwurf standen Übersichtlichkeit und Benutzerfreundlichkeit im 
 
 \subsection{Management Tool}
 \label{kap:managementtool}
-Das Management Tool wurde entwickelt um die Installation und Konfigurazionprozess zu vereinfachen. Der Hauswart beziehungsweise der Mieter soll über eine Schnittstelle verfühgen um die verschiedene Bewohner/Türe editieren oder hinzufügen zu können.
+Das Management Tool wurde entwickelt um die Installation und Konfigurazionprozess zu vereinfachen. Der Hauswart beziehungsweise der Mieter soll über eine Schnittstelle verfühgen um die verschiedene Bewohner/Türe editieren oder erfassen zu können.
 Diese Schnitstelle wurde mit webtechnologien entwickelt(HTML, PHP, Js) und wird zusammen mit den MySQL Database auf den localen Raspberry Server gehostet. Aus Sicherheitsgründen werden alle eingehende und ausgehende Verbindungen abhörsicher aufgebaut.
+\\
+Grund dafür das einsetzten von Webtechnologien ist die Plattformunabhängigkeit sowie die Einfachkeit und die Standardisierung der Sprachen. Für den ersten Prototyp lag der Fokus auf die funktionale Eingenschaften der Tool. Bei einer zukünfitige Weiterentwicklung des Produkt kann man, dank der Webtechnologien mit gerigere Aufwand das Tool skalieren bzw. neue Features hinzufühgen.  
 
 \begin{figure}[htb!]
 	\begin{center}
