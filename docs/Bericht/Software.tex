@@ -105,6 +105,26 @@ Bei der Design-Entwurf standen Übersichtlichkeit und Benutzerfreundlichkeit im 
 
 \subsection{Management Tool}
 \label{kap:managementtool}
+Das Management Tool wurde entwickelt um die Installation und Konfigurazionprozess zu vereinfachen. Der Hauswart beziehungsweise der Mieter soll über eine Schnittstelle verfühgen um die verschiedene Bewohner/Türe editieren oder hinzufügen zu können.
+Diese Schnitstelle wurde mit webtechnologien entwickelt(HTML, PHP, Js) und wird zusammen mit den MySQL Database auf den localen Raspberry Server gehostet. Aus Sicherheitsgründen werden alle eingehende und ausgehende Verbindungen abhörsicher aufgebaut.
+
+\begin{figure}[htb!]
+	\begin{center}
+		\includegraphics[width=1\textwidth]{managementtool}
+		\caption[Design der Management tool]{Design der Management tool}
+		\label{fig:managementtool}
+	\end{center}
+\end{figure}
+
+Das Tool in mit ein Login versehen, somit ist sichergestellt das nur der Hausverwalter die Anlage verwalten kann. 
+\subsubsection{Bewohner}
+Unter die Bewohner Seite werden alle Wohnungen, beziehungsweise alle Bewohner aufgelistet. Diese verfühgen über ein Benutzername sowie eine Passwort die Von der Client App wervendet wird um sie sich bei den Server zu authentifizieren. Dieser Abschnitt bietet noch die Möglichkeit der Name und die Position der Wohnung welcher an den Aussensprechstelle ~\ref{fig:aussensprechstelle} angezeigt wird, abzuändern.
+\subsubsection{Türen}
+Bei der Einbau eine neue Tür, kann diese in dem Management Tool aufgeführt werden. Dabei muss beachtet werden dass der Id mit derjenige die auf den neu installierte Aussensprechstelle übereinstimmt. In diese Sektion sind auch die Namen der Türen definiert, welche denn auf den Client App (Siehe Abbildung ~\ref{fig:managementtool})  angezeigt werden. 
+
+
+\subsection{Remote Verbindung}
+\label{kap:remote}
 ..
 
 \subsection{WebRTC}
