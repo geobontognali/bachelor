@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.7.6)  12 JUL 2017 22:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.7.6)  13 JUL 2017 17:08
 entering extended mode
 **./mainfile.tex
 (mainfile.tex
@@ -485,6 +485,50 @@ Package: setspace 2011/12/19 v6.7a set line spacing
 ("C:\Program Files\MiKTeX 2.9\tex\latex\cleveref\cleveref.sty"
 Package: cleveref 2013/12/28 v0.19 Intelligent cross-referencing
 )
+("C:\Program Files\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty"
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\color.cfg"
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def"
+File: pdftex.def 2017/01/12 v0.06k Graphics/color for pdfTeX
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count92
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\colortbl\colortbl.sty"
+Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
+Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
+\col@sep=\dimen112
+\extrarowheight=\dimen113
+\NC@list=\toks18
+\extratabsurround=\skip55
+\backup@length=\skip56
+)
+\everycr=\toks19
+\minrowclearance=\skip57
+)
+\rownum=\count93
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
@@ -498,20 +542,9 @@ Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 99.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def"
-File: pdftex.def 2017/01/12 v0.06k Graphics/color for pdfTeX
-
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
-Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
-Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
-)
-\Gread@gobject=\count92
-))
-\Gin@req@height=\dimen112
-\Gin@req@width=\dimen113
+\Gin@req@height=\dimen114
+\Gin@req@width=\dimen115
 )
 
 Class scrartcl Warning: Usage of package `fancyhdr' together
@@ -519,20 +552,20 @@ Class scrartcl Warning: Usage of package `fancyhdr' together
 (scrartcl)              I'd suggest to use 
 (scrartcl)              package `scrlayer-scrpage'.
 (scrartcl)              Nevertheless, using requested
-(scrartcl)              package `fancyhdr' on input line 55.
+(scrartcl)              package `fancyhdr' on input line 56.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\fancyhdr\fancyhdr.sty"
 Package: fancyhdr 2017/06/30 v3.9a Extensive control of page headers and footer
 s
-\f@nch@headwidth=\skip55
-\f@nch@O@elh=\skip56
-\f@nch@O@erh=\skip57
-\f@nch@O@olh=\skip58
-\f@nch@O@orh=\skip59
-\f@nch@O@elf=\skip60
-\f@nch@O@erf=\skip61
-\f@nch@O@olf=\skip62
-\f@nch@O@orf=\skip63
+\f@nch@headwidth=\skip58
+\f@nch@O@elh=\skip59
+\f@nch@O@erh=\skip60
+\f@nch@O@olh=\skip61
+\f@nch@O@orh=\skip62
+\f@nch@O@elf=\skip63
+\f@nch@O@erf=\skip64
+\f@nch@O@olf=\skip65
+\f@nch@O@orf=\skip66
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\lmodern.sty"
 Package: lmodern 2009/10/30 v1.6 Latin Modern Fonts
@@ -571,23 +604,23 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\multicol.sty"
 Package: multicol 2017/04/11 v1.8q multicolumn formatting (FMi)
-\c@tracingmulticols=\count93
+\c@tracingmulticols=\count94
 \mult@box=\box28
-\multicol@leftmargin=\dimen114
-\c@unbalance=\count94
-\c@collectmore=\count95
-\doublecol@number=\count96
-\multicoltolerance=\count97
-\multicolpretolerance=\count98
-\full@width=\dimen115
-\page@free=\dimen116
-\premulticols=\dimen117
-\postmulticols=\dimen118
-\multicolsep=\skip64
-\multicolbaselineskip=\skip65
+\multicol@leftmargin=\dimen116
+\c@unbalance=\count95
+\c@collectmore=\count96
+\doublecol@number=\count97
+\multicoltolerance=\count98
+\multicolpretolerance=\count99
+\full@width=\dimen117
+\page@free=\dimen118
+\premulticols=\dimen119
+\postmulticols=\dimen120
+\multicolsep=\skip67
+\multicolbaselineskip=\skip68
 \partial@page=\box29
 \last@line=\box30
-\maxbalancingoverflow=\dimen119
+\maxbalancingoverflow=\dimen121
 \mult@rightbox=\box31
 \mult@grightbox=\box32
 \mult@gfirstbox=\box33
@@ -609,44 +642,35 @@ Package: multicol 2017/04/11 v1.8q multicolumn formatting (FMi)
 \@tempa=\box49
 \@tempa=\box50
 \@tempa=\box51
-\c@columnbadness=\count99
-\c@finalcolumnbadness=\count100
-\last@try=\dimen120
-\multicolovershoot=\dimen121
-\multicolundershoot=\dimen122
+\c@columnbadness=\count100
+\c@finalcolumnbadness=\count101
+\last@try=\dimen122
+\multicolovershoot=\dimen123
+\multicolundershoot=\dimen124
 \mult@nat@firstbox=\box52
 \colbreak@box=\box53
-\mc@col@check@num=\count101
+\mc@col@check@num=\count102
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\tabularx.sty"
 Package: tabularx 2016/02/03 v2.11 `tabularx' package (DPC)
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
-Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
-\col@sep=\dimen123
-\extrarowheight=\dimen124
-\NC@list=\toks18
-\extratabsurround=\skip66
-\backup@length=\skip67
-)
 \TX@col@width=\dimen125
 \TX@old@table=\dimen126
 \TX@old@col=\dimen127
 \TX@target=\dimen128
 \TX@delta=\dimen129
-\TX@cols=\count102
-\TX@ftn=\toks19
+\TX@cols=\count103
+\TX@ftn=\toks20
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\multirow\multirow.sty"
 Package: multirow 2016/11/25 v2.2 Span multiple rows of a table
-\multirow@colwidth=\skip68
-\multirow@cntb=\count103
-\multirow@dima=\skip69
+\multirow@colwidth=\skip69
+\multirow@cntb=\count104
+\multirow@dima=\skip70
 \bigstrutjot=\dimen130
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\@emptytoks=\toks20
+\@emptytoks=\toks21
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
@@ -654,7 +678,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
 Package: amsmath 2016/11/05 v2.16a AMS math features
-\@mathmargin=\skip70
+\@mathmargin=\skip71
 
 For additional information on amsmath, use the `?' option.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
@@ -662,7 +686,7 @@ Package: amstext 2000/06/29 v2.01 AMS text
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks21
+\@emptytoks=\toks22
 \ex@=\dimen131
 ))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
@@ -672,13 +696,13 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count104
+\inf@bad=\count105
 LaTeX Info: Redefining \frac on input line 213.
-\uproot@=\count105
-\leftroot@=\count106
+\uproot@=\count106
+\leftroot@=\count107
 LaTeX Info: Redefining \overline on input line 375.
-\classnum@=\count107
-\DOTSCASE@=\count108
+\classnum@=\count108
+\DOTSCASE@=\count109
 LaTeX Info: Redefining \ldots on input line 472.
 LaTeX Info: Redefining \dots on input line 475.
 LaTeX Info: Redefining \cdots on input line 596.
@@ -687,26 +711,26 @@ LaTeX Info: Redefining \cdots on input line 596.
 \big@size=\dimen133
 LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
-\macc@depth=\count109
-\c@MaxMatrixCols=\count110
+\macc@depth=\count110
+\c@MaxMatrixCols=\count111
 \dotsspace@=\muskip10
-\c@parentequation=\count111
-\dspbrk@lvl=\count112
-\tag@help=\toks22
-\row@=\count113
-\column@=\count114
-\maxfields@=\count115
-\andhelp@=\toks23
+\c@parentequation=\count112
+\dspbrk@lvl=\count113
+\tag@help=\toks23
+\row@=\count114
+\column@=\count115
+\maxfields@=\count116
+\andhelp@=\toks24
 \eqnshift@=\dimen134
 \alignsep@=\dimen135
 \tagshift@=\dimen136
 \tagwidth@=\dimen137
 \totwidth@=\dimen138
 \lineht@=\dimen139
-\@envbody=\toks24
-\multlinegap=\skip71
-\multlinetaggap=\skip72
-\mathdisplay@stack=\toks25
+\@envbody=\toks25
+\multlinegap=\skip72
+\multlinetaggap=\skip73
+\mathdisplay@stack=\toks26
 LaTeX Info: Redefining \[ on input line 2817.
 LaTeX Info: Redefining \] on input line 2818.
 )
@@ -789,19 +813,19 @@ LaTeX Warning: Label `sec:chapterexample@cref' multiply defined.
 (abkuerzungsverzeichnis.aux) (erklaerung.aux))
 \openout1 = `mainfile.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 131.
-LaTeX Font Info:    ... okay on input line 131.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 131.
-LaTeX Font Info:    ... okay on input line 131.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 131.
-LaTeX Font Info:    ... okay on input line 131.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 131.
-LaTeX Font Info:    ... okay on input line 131.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 131.
-LaTeX Font Info:    ... okay on input line 131.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 131.
-LaTeX Font Info:    ... okay on input line 131.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 131.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 132.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmr.fd"
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -842,17 +866,17 @@ File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count116
+\scratchcounter=\count117
 \scratchdimen=\dimen140
 \scratchbox=\box56
-\nofMPsegments=\count117
-\nofMParguments=\count118
-\everyMPshowfont=\toks26
-\MPscratchCnt=\count119
+\nofMPsegments=\count118
+\nofMParguments=\count119
+\everyMPshowfont=\toks27
+\MPscratchCnt=\count120
 \MPscratchDim=\dimen141
-\MPnumerator=\count120
-\makeMPintoPDFobject=\count121
-\everyMPtoPDFconversion=\toks27
+\MPnumerator=\count121
+\makeMPintoPDFobject=\count122
+\everyMPtoPDFconversion=\toks28
 ) ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
 Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -953,7 +977,7 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 25.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (34.98824pt too wide) in paragraph at lines 25--32
+Overfull \hbox (34.9882pt too wide) in paragraph at lines 25--32
  [][] 
  []
 
@@ -969,7 +993,7 @@ Overfull \hbox (34.98824pt too wide) in paragraph at lines 25--32
 \openout2 = `zusammenfassung.aux'.
 
  (zusammenfassung.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 6--149
+Underfull \hbox (badness 10000) in paragraph at lines 6--150
 
  []
 
@@ -1082,30 +1106,38 @@ Underfull \hbox (badness 10000) in paragraph at lines 25--28
 
  []
 
+Package cleveref Info: loaded `ngerman' language definitions on input line 36.
+[6]
 
-Underfull \hbox (badness 10000) in paragraph at lines 31--35
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 40.
+
+Package cleveref Info: loaded `ngerman' language definitions on input line 65.
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 67--71
 
  []
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 35.
-[6] <img/CatalystPoEpinouts.png, id=60, 438.8897pt x 187.45032pt>
+<img/CatalystPoEpinouts.png, id=63, 438.8897pt x 187.45032pt>
 File: img/CatalystPoEpinouts.png Graphic file (type png)
 
 <use img/CatalystPoEpinouts.png>
-Package pdftex.def Info: img/CatalystPoEpinouts.png used on input line 44.
+Package pdftex.def Info: img/CatalystPoEpinouts.png used on input line 80.
 (pdftex.def)             Requested size: 367.18257pt x 156.82791pt.
 
-<img/EthernetPinbelegung.png, id=61, 487.8225pt x 219.06844pt>
+<img/EthernetPinbelegung.png, id=64, 487.8225pt x 219.06844pt>
 File: img/EthernetPinbelegung.png Graphic file (type png)
 
 <use img/EthernetPinbelegung.png>
-Package pdftex.def Info: img/EthernetPinbelegung.png used on input line 54.
+Package pdftex.def Info: img/EthernetPinbelegung.png used on input line 90.
 (pdftex.def)             Requested size: 367.18257pt x 164.89256pt.
-Package cleveref Info: loaded `ngerman' language definitions on input line 61.
- [7 <./img/CatalystPoEpinouts.png>])
-(Software.tex
+Package cleveref Info: loaded `ngerman' language definitions on input line 94.
+ [8 <./img/CatalystPoEpinouts.png>]
+Package cleveref Info: loaded `ngerman' language definitions on input line 97.
+ [9 <./img/EthernetPinbelegung.png>]) (Software.tex
 LaTeX Font Info:    Try loading font information for OMS+lmr on input line 7.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omslmr.fd"
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omslmr.fd"
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
@@ -1115,11 +1147,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 18--22
 
  []
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 22.
-[8 <./img/EthernetPinbelegung.png>]
-<img/ecosystem.png, id=71, 773.89125pt x 483.30562pt>
+Package cleveref Info: loaded `ngerman' language definitions on input line 24.
+[10] <img/ecosystem.png, id=77, 773.89125pt x 483.30562pt>
 File: img/ecosystem.png Graphic file (type png)
- <use img/ecosystem.png>
+
+<use img/ecosystem.png>
 Package pdftex.def Info: img/ecosystem.png used on input line 30.
 (pdftex.def)             Requested size: 412.56497pt x 257.65518pt.
 
@@ -1128,53 +1160,52 @@ Overfull \hbox (6.33755pt too wide) in paragraph at lines 36--41
 len und die Client-
  []
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 42.
-[9]
+Package cleveref Info: loaded `ngerman' language definitions on input line 41.
+[11 <./img/ecosystem.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 52--58
 
  []
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 58.
-[10 <./img/ecosystem.png>]
+[12]
 Underfull \hbox (badness 10000) in paragraph at lines 60--66
 
  []
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 76.
-[11] <img/clientDemo.jpg, id=82, 1445.4pt x 2569.6pt>
+Package cleveref Info: loaded `ngerman' language definitions on input line 84.
+[13] <img/clientDemo.jpg, id=89, 1445.4pt x 2569.6pt>
 File: img/clientDemo.jpg Graphic file (type jpg)
  <use img/clientDemo.jpg>
 Package pdftex.def Info: img/clientDemo.jpg used on input line 93.
 (pdftex.def)             Requested size: 144.40025pt x 256.70059pt.
-Package cleveref Info: loaded `ngerman' language definitions on input line 102.
+Package cleveref Info: loaded `ngerman' language definitions on input line 103.
 
 
-[12]
-Package cleveref Info: loaded `ngerman' language definitions on input line 112.
-
- [13 <./img/clientDemo.jpg>]
-<img/managementtool.png, id=90, 1436.36626pt x 676.77844pt>
+[14] <img/managementtool.png, id=93, 1436.36626pt x 676.77844pt>
 File: img/managementtool.png Graphic file (type png)
 
 <use img/managementtool.png>
 Package pdftex.def Info: img/managementtool.png used on input line 115.
 (pdftex.def)             Requested size: 412.56497pt x 194.39157pt.
+Package cleveref Info: loaded `ngerman' language definitions on input line 122.
 
+ [15 <./img/clientDemo.jpg>]
 
-LaTeX Warning: Reference `fig:aussensprechstelle' on page 14 undefined on input
+LaTeX Warning: Reference `fig:aussensprechstelle' on page 16 undefined on input
  line 123.
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 126.
 
-[14 <./img/managementtool.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 134--138
 
  []
 
+Package cleveref Info: loaded `ngerman' language definitions on input line 138.
 
-LaTeX Warning: Citation `001' on page 15 undefined on input line 144.
+[16 <./img/managementtool.png>]
 
-<img/signalingprocess.jpg, id=95, 1003.75pt x 596.2275pt>
+LaTeX Warning: Citation `001' on page 17 undefined on input line 144.
+
+<img/signalingprocess.jpg, id=101, 1003.75pt x 596.2275pt>
 File: img/signalingprocess.jpg Graphic file (type jpg)
 
 <use img/signalingprocess.jpg>
@@ -1182,8 +1213,8 @@ Package pdftex.def Info: img/signalingprocess.jpg used on input line 153.
 (pdftex.def)             Requested size: 309.42372pt x 183.80057pt.
 Package cleveref Info: loaded `ngerman' language definitions on input line 164.
 
- [15]
-<img/stun.png, id=99, 779.16093pt x 491.58656pt>
+ [17]
+<img/stun.png, id=105, 779.16093pt x 491.58656pt>
 File: img/stun.png Graphic file (type png)
  <use img/stun.png>
 Package pdftex.def Info: img/stun.png used on input line 172.
@@ -1196,46 +1227,46 @@ ess ste-hen STUN-Servers
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 180.
 
-[16 <./img/signalingprocess.jpg>]
+[18 <./img/signalingprocess.jpg>]
 Package cleveref Info: loaded `ngerman' language definitions on input line 181.
 
- [17 <./img/stun.png>]) (mainfile.bbl
+ [19 <./img/stun.png>]) (mainfile.bbl
 
 LaTeX Warning: Empty `thebibliography' environment or \BreakBibliography
                before end of `thebibliography' environment on input line 3.
 
 )
-Package cleveref Info: loaded `ngerman' language definitions on input line 195.
+Package cleveref Info: loaded `ngerman' language definitions on input line 196.
 
- [18] (mainfile.lof
+ [20] (mainfile.lof
 Package cleveref Info: loaded `ngerman' language definitions on input line 1.
 )
 \tf@lof=\write4
 \openout4 = `mainfile.lof'.
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 200.
+Package cleveref Info: loaded `ngerman' language definitions on input line 201.
 
- [19] (mainfile.lot
+ [21] (mainfile.lot
 Package cleveref Info: loaded `ngerman' language definitions on input line 1.
 )
 \tf@lot=\write5
 \openout5 = `mainfile.lot'.
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 203.
+Package cleveref Info: loaded `ngerman' language definitions on input line 204.
 
- [20]
+ [22]
 \openout2 = `abkuerzungsverzeichnis.aux'.
 
  (abkuerzungsverzeichnis.tex
-[21
+[23
 
 ])
 \openout2 = `erklaerung.aux'.
 
- (erklaerung.tex) [22
+ (erklaerung.tex) [24
 
 
-] [23
+] [25
 
 ] (mainfile.aux (title.aux)
 Package cleveref Info: loaded `ngerman' language definitions on input line 5.
@@ -1252,13 +1283,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 8070 strings out of 493323
- 135229 string characters out of 3139058
- 308144 words of memory out of 3000000
- 11384 multiletter control sequences out of 15000+200000
+ 8604 strings out of 493323
+ 141474 string characters out of 3139058
+ 321993 words of memory out of 3000000
+ 11908 multiletter control sequences out of 15000+200000
  56117 words of font info for 45 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 48i,10n,51p,8848b,567s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 48i,12n,51p,8848b,589s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Fil
 es/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}<C:/Program Files/MiKTeX 2.9/fonts/t
 ype1/public/lm/lmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lm
@@ -1266,9 +1297,9 @@ r12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmri12.pfb><C:/Progr
 am Files/MiKTeX 2.9/fonts/type1/public/lm/lmro12.pfb><C:/Program Files/MiKTeX 2
 .9/fonts/type1/public/lm/lmssbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 public/lm/lmsy10.pfb>
-Output written on mainfile.pdf (30 pages, 1950283 bytes).
+Output written on mainfile.pdf (32 pages, 1954318 bytes).
 PDF statistics:
- 147 PDF objects out of 1000 (max. 8388607)
+ 154 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  71 words of extra memory for PDF output out of 10000 (max. 10000000)
 
