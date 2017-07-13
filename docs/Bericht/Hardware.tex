@@ -1,7 +1,50 @@
 \section{Hardware}
 \label{sec:chapterexample}
 
-Das System wird Hardwareseitig in zwei Teile unterteilt. Der Server, die zentrale Einheit und die Aussensprechstelle. An beide Orte wird eine Raspberry Pi 3 und das nötige Hardware eingesetzt.
+Das System wird Hardwareseitig in zwei Teile unterteilt. Der Server, die zentrale Einheit und die Aussensprechstelle.
+\\
+\\
+Die \cref{tbl:SrvHW} und die \cref{tbl:DoorHW} zeigen die benötigten HW-Komponenten, welchen an die jeweilige Stellen benötigt werden.
+\\
+Um den Überblick über die Kosten aller Hardware-Komponenten zu behalten, sind hier auch die Preisen aufgelistet. Wichtig hier ist sicherzustellen, dass die gesamten Hardwarekosten diejenigen der von der Konkurrenz angebotenen Produkte nicht übersteigen.
+\\
+Die Preise können natürlich leicht abweichen da es sich um Standardkomponenten handelt und die Preise sich schnell ändern. Die Summen sind mehr als Kostenschätzung zu betrachten.
+
+\begin{table}[]
+	\centering
+	\label{my-label}
+	\begin{tabular}{l|ll}
+		\multicolumn{1}{r|}{} \textbf{Anzahl} & \textbf{Komponent} \hspace{180pt} & \textbf{Preis} 	\\ \hline
+		1	&	Raspberry Pi 3 Model B						& 50.-				\\ \hline
+		1	&	Raspberry Gehäuse und Netzteil				& 25.-			\\ \hline
+		2	&	8-Kanal Relais Modul						& 15.-			\\ \hline
+		1	&	\textit{Kleinmaterial}						& 15.-			\\ \hline
+		\textbf{Total}	&									& \textbf{140.-}			\\ \hline
+	\end{tabular}
+	\caption{Server HW Komponenten}
+	\label{tbl:SrvHW}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\label{my-label}
+	\begin{tabular}{l|ll}
+		\multicolumn{1}{r|}{} \textbf{Anzahl} & \textbf{Komponent} \hspace{180pt} & \textbf{Preis} 	\\ \hline
+		1	&	Raspberry Pi 3 Model B		   				& 50.-			\\ \hline
+		1	&	4" Bildschirm								& 64.-			\\ \hline
+		1	&	Raspberry Kamera							& 59.-			\\ \hline
+		1	&	PoE Adapter									& 50.-			\\ \hline
+		3	&	Schalter									& 25.-			\\ \hline
+		1	&	Mikrophon									& 12.-			\\ \hline
+		1	&	Lautsprecher								& 9.-			\\ \hline
+		1	&	Audio Verstärker							& 10.-			\\ \hline
+		1	&	\textit{Kleinmaterial / Gehäuse}			& 50.-			\\ \hline
+		\textbf{Total}	&									& \textbf{329.-}			\\ \hline
+	\end{tabular}
+	\caption{Aussensprechstelle HW Komponenten}
+	\label{tbl:DoorHW}
+\end{table}
+
 
 \subsection{Server}
 \label{sec:chapterexample}
@@ -37,9 +80,9 @@ Der Raspberry Pi 3 war während der Entwicklungsphase des Prototyp die richtige 
 \subsubsection{Alternative}
 Mit den gesammelte Erfahrungen während der Prototyp Entwicklung kann eine bessere Alternative zur Raspberry für eine Weiterenwicklung der Anlage ausgewertet werden. 
 \\
-Der Microcontroller Banana Pi M3 hat in Gegensatz zum Raspberry, wie im Tabelle 1 erischtlich ?? ref, erheblich mehr Datenverarbeitungsleistung zu bieten. Dazu kommt noch dass diese Microcontroller das H.264 hardware acceleration unterstüzt und somit der Videostream weiterhin optimisiert würde.
+Der Microcontroller Banana Pi M3 hat in Gegensatz zum Raspberry erheblich mehr Datenverarbeitungsleistung zu bieten (\seeref{tbl:Comaparison}). Dazu kommt noch dass diese Microcontroller das H.264 hardware acceleration unterstüzt und somit der Videostream weiterhin optimisiert würde.
 
-\begin{table}[]
+\begin{table}[]     
 	\centering
 	\label{my-label}
 	\begin{tabular}{l|ll}
