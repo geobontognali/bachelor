@@ -11,7 +11,7 @@ Die Komponenten, die für solche Systeme notwendig sind, sind aber heutzutage ko
 Natürlich spielen die Kosten einer Türsprechanlage auf die Investitionen eines Neubaus keine grosse Rolle. Sicher besteht aber in diesem Bereich eine Marktlücke und somit die Möglichkeit neue, bessere und günstigere Lösungen zu entwickeln.  
 
 \subsection{Grundidee}
-\label{sec:chapterexample}
+\label{sec:grundidee}
 
 Die Grundidee dieser Arbeit ist es, durch das Zusammenspiel verschiedener Systemen/Technologien, eine kostengünstige und funktionale Türsprechanlage zu entwickeln.
 \\ 
@@ -20,5 +20,20 @@ Um den Kostenfaktor zu berücksichtigen, soll die Anlage auf schon vorhandene Te
 In der Zeit, in der die Hausautomation und das «Internet of things» immer mehr Bedeutung gewinnen, soll die Türsprechanlage diese Standards in Betracht ziehen.   
 Dieses System soll den Benutzern ermöglichen, Ihre Sprechtüranlage durch herkömmliche Smartphone oder Tablet zu bedienen.
 \\
-Klingelt ein Besucher an der Eingangstüre, soll der Wohnungsbesitzer über sein Smartphone darauf aufmerksam gemacht werden. Über eine am Eingang installierte Kamera, bekommt er auch die Möglichkeit den Besucher im Streaming zu sehen und die Türe, falls erwünscht, durch einen Handybefehl zu öffnen. 
+Klingelt ein Besucher an der Eingangstüre, soll der Wohnungsbesitzer über sein Smartphone darauf aufmerksam gemacht werden. Über eine am Eingang installierte Kamera, bekommt er auch die Möglichkeit den Besucher im Streaming zu sehen und die Türe, falls erwünscht, durch einen Handybefehl zu öffnen.
+
+\subsection{Lösungskonzept}
+\label{sec:lösungskonzept}
+Folgende Diagramm (?? referenz) zeigt eine Grobe Darstellung der verschiedenen Komponente die für den Türsprechanlage notwendig sind. Bei der Vorführung werden die Türöffner und die Glocken durch LEDs simulieret. 
+An diese Stellen werden zwei Begriffe erklärt die in diesem Dokument von grosse Bedeutung sind. Die erte ist die Türsprechanlage, damit gemeint ist die Gesamtheit der Komponenten die denn Zusammen den Endprodukt darstellen.
+Die zweite Begriff ist die Aussensprechstelle. Wie im Abbild ?? ersichtilich ist in Grunde genommen ein Microcontroller mit verschiedene Modulen die an den Eingangstüre installiert wird. Räumlich von der Aussensprechstelle getrennt befindet sich der Serverbereich. Diese besteht aus ein Microcontroller die als Server im Einsatz ist, ein Switch die dazu dient die Aussenssprechstelle mit Strom und Datenverbindung zu versorgen und die Relais die den Türöffner und Glocken betätigen.
+
+\begin{figure}[htb!]
+	\begin{center}
+		\includegraphics[width=0.89\textwidth]{loesungskonzept}
+		\caption[Lösungskonzept]{Lösungskonzept des Türsprechanlage}
+		\label{fig:Lösungskonzept}
+	\end{center}
+\end{figure}
+ 
 \newpage
