@@ -1,9 +1,18 @@
 \section{Hardware}
 \label{sec:chapterexample}
 
-Das System wird Hardwareseitig in zwei Teile unterteilt. Der Server, die zentrale Einheit und die Aussensprechstelle.
+\subsection{Hardware System Übersicht}
+Das System wird Hardwareseitig hauptsächlich in zwei Teile unterteilt. Der Server, die zentrale Einheit und die Aussensprechstelle.
 \\
-\\
+Die \cref{fig:hwoverview} bietet ein Überblick über die verschiedene Hardware Komponenten die zusammenarbeiten werden.
+\begin{figure}[htb!]
+	\begin{center}
+		\includegraphics[width=1\textwidth]{hwoverview}
+		\caption[Hardware Ecosystem]{Hardware Ecosystem}
+		\label{fig:hwoverview}
+	\end{center}
+\end{figure}
+\subsection{Komponenten}
 Die \cref{tbl:SrvHW} und die \cref{tbl:DoorHW} zeigen die benötigten HW-Komponenten, welchen an die jeweilige Stellen benötigt werden.
 \\
 Um den Überblick über die Kosten aller Hardware-Komponenten zu behalten, sind hier auch die Preisen aufgelistet. Wichtig hier ist sicherzustellen, dass die gesamten Hardwarekosten diejenigen der von der Konkurrenz angebotenen Produkte nicht übersteigen.
@@ -49,25 +58,70 @@ Die Preise können natürlich leicht abweichen da es sich um Standardkomponenten
 \subsection{Server}
 \label{sec:chapterexample}
 
-Der Server wird mit einem Relay-Board verbunden. Diese wird die Gongs und die Türöffner bedienen. An dieser Stelle ist die Hardware-Konfiguration sehr einfach. Je nach wie viele Gongs und Türe verbunden werden müssen, könnten bis zwei 8-Channel Relayboards verbunden werden.
-\\
+Der Server wird mit einem Relay-Board verbunden. Diese wird die Gongs und die Türöffner bedienen. An dieser Stelle ist die Hardware-Konfiguration sehr einfach. Mit der jetzige Hardwarekonfiguration könnten bis auf 8 Wohnungen und 8 Aussensprechstellen angeschlossen werden. Die \cref{fig:pipins} und die \cref{fig:boardpins} zeigen die PIN-Belegung auf den Pi und auf dem Relay-Board. Die \cref{tbl:pinroutes} zeigt wie die verschiedene Pins miteinander angeschlossen werden.
 
-<-- ABBILDUNG CON LA PI E I RELAY E I PIN A CUI SONO COLLEGATI
-\\
-\\
+\begin{figure}[htb!]
+	\begin{center}
+		\includegraphics[width=0.8\textwidth]{pipins}
+		\caption[EthernetPinbelegung]{Pinbelegung für die Aussensprechstellen}
+		\label{fig:pipins}
+	\end{center}
+\end{figure}
+
+\begin{figure}[htb!]
+	\begin{center}
+		\includegraphics[width=0.55\textwidth]{boardpins}
+		\caption[EthernetPinbelegung]{Pinbelegung für das Relais-Modul}
+		\label{fig:boardpins}
+	\end{center}
+\end{figure}
+
+\begin{table}[]
+	\centering
+	\label{my-label}
+	\begin{tabular}{l|ll}
+		\multicolumn{1}{r|}{} \textbf{Pi GPIO (PIN)} & \textbf{Relais IN (Board Nr)} & \textbf{Funktion}  \hspace{60pt}	\\ \hline
+		GPIO4 (7)	&	IN1 (1)			& Gong WG.1			\\ \hline
+		GPIO17 (11)	&	IN2 (1)			& Gong WG.2			\\ \hline
+		GPIO27 (13)	&	IN3 (1)			& Gong WG.3			\\ \hline
+		GPIO22 (15)	&	IN4 (1)			& Gong WG.4			\\ \hline
+		GPIO5 (29)	&	IN5 (1)			& Gong WG.5			\\ \hline
+		GPIO6 (31)	&	IN6 (1)			& Gong WG.6			\\ \hline
+		GPIO13 (33)	&	IN7 (1)			& Gong WG.7			\\ \hline
+		GPIO19 (35)	&	IN8 (1)			& Gong WG.8			\\ \hline
+		GPIO18 (12)	&	IN1 (2)			& Türöffner Türe 1			\\ \hline
+		GPIO23 (16)	&	IN2 (2)			& Türöffner Türe 2			\\ \hline
+		GPIO24 (18)	&	IN3 (2)			& Türöffner Türe 3			\\ \hline
+		GPIO25 (22)	&	IN4 (2)			& Türöffner Türe 4			\\ \hline
+		GPIO12 (32)	&	IN5 (2)			& Türöffner Türe 5			\\ \hline
+		GPIO16 (36)	&	IN6 (2)			& Türöffner Türe 6			\\ \hline
+		GPIO20 (38)	&	IN7 (2)			& Türöffner Türe 7			\\ \hline
+		GPIO21 (40)	&	IN8 (2)			& Türöffner Türe 8			\\ \hline
+	\end{tabular}
+	\caption{PIN-Zuweisung zwischen den Server und die Relais Module}
+	\label{tbl:pinroutes}
+\end{table}
+
 
 \subsection{Aussensprechstelle}
 \label{sec:chapterexample}
 
 Bei der Aussensprechstelle wird auch eine Raspberry Pi eingesetzt. Hier sind mehrere Zusatzkomponenten notwendig. Die Speisung an dieser stelle erfolgt nur über PoE, aus diesem Grund ist PoE-Splitter vorhanden.
 \\
-\\
-Für die Audiowiedergabe ist ein kleines Lautsprecher und ein Verstärker nötig. Die Chinch-Anschluss der Raspberry Pi hat eine zu kleine innere Widerstand um direkt ein solches Lautsprecher anschliessen zu können. Die Hauptproblematik nun besteht darin, dass die Massen des Raspberry Pi, der Verstärker und des Audio-Interface alle zusammen gekoppelt sind. Das führt zu Brunschleifen die wiederum Störsignale auf dem Audio-Ausgang erzeugen. Um das zu vermeiden ist eine Massentrennfilter an dieser Stelle notwendig.
-\\
-
-<-- ABBILDUNG CON LA PI E COMPONENTI COLLEGATI
-\\
-\\
+Für die Audiowiedergabe ist ein kleines Lautsprecher und ein Verstärker nötig. Die Chinch-Anschluss der Raspberry Pi hat eine viel zu kleine innere Widerstand um direkt ein solches Lautsprecher anschliessen zu können. Die Hauptproblematik nun besteht darin, dass die Massen des Raspberry Pi, der Verstärker und des Audio-Interface alle zusammen gekoppelt sind. Das führt zu Brunschleifen die wiederum Störsignale auf dem Audio-Ausgang erzeugen. Um das zu vermeiden ist eine Massentrennfilter an dieser Stelle notwendig. Diese Problematik wird im ein eigenes Kapitel genauer erläutert.
+Die drei Schalter, die für die Bedienung der Aussensprechstelle notwendig sind werden an die GPIOs der Raspberry PI angeschlossen. Die \cref{tbl:pinroutesdoor} zeigt die PIN-Zuweisung.
+\begin{table}[]
+	\centering
+	\label{my-label}
+	\begin{tabular}{l|ll}
+		\multicolumn{1}{r|}{} \textbf{Pi GPIO (PIN)} & \textbf{Schalter} & \textbf{Funktion} \hspace{60pt}	\\ \hline
+		GPIO16 (36)	&	Schalter Links		&	Nach Links Scrollen	\\ \hline
+		GPIO20 (38)	&	Schalter Mitte		&	Glocke läuten		\\ \hline
+		GPIO21 (40)	&	Schalter Rechts		&	Nach Rechts Scrollen		\\ \hline
+	\end{tabular}
+	\caption{PIN-Zuweisung zwischen den Raspberry PI und die Schalter}
+	\label{tbl:pinroutesdoor}
+\end{table}
 
 \subsection{Microcontroller Problematik}
 \label{sec:microcontroller}
