@@ -1,0 +1,42 @@
+\section{Probleme}
+\label{sec:chapterexample}
+Hier aufgelistet, sind alle Problemen die während der Entwicklung aufgetaucht sind. Aus Zeitgründen könnten wir nicht für alle Problematiken eine Lösung implementieren. Nichtsdestotrotz wurde für alle Problemen eine Theoretische Lösungsweg konzipiert. 
+
+\subsection{Rechenleistung der Mikrocontroller}
+\label{sec:microcontroller}
+WebRTC basiert, für den Video encoding auf den von Google offengelegte VP8 codec. Der Codierung im Gegensatz zu den Decodierung, wie bei der Mehrheit solche Systemen ist sehr Leistungsintensiv. Die Situation kommt bei der Aussensprechstelle genau so vor, dort wird der Videostream auf den Raspberry Codiert und am Client für die Decodierung weitergeleitet. Diese bringt, was der Rechenkapazität anbelanget,  die Rapspberry  an ihre Grenzen. Obwohl eine Kamera mit hohe Auflösung im Einsatz ist, wird WebRTC im Folge des niedriges Framerates die Qualität des Stream verringern. Sobald die Qualität herabgesetzt ist, ist die Raspberry wieder im Stand die Codierung im Echtzeit durchzuführen.
+\\
+Aufgrund der hohe Überlastung des Prozessor während der Kodierung, tauchen Wärmeabführung Probeme auf. Bei einer verlängerte Videostreaming-Session, was normalerweise bein eine Türsprechanlage nicht der Fall ist, könnte der Raspberry zu einer Absturz bringen. 
+\\
+Der Raspberry Pi 3 war während der Entwicklungsphase des Prototyp die richtige Entscheidung. Haptgrund war der hohe Kompatibilität, die Standardisierung bei ein soches sehr gut etabliertes Produktund und die Stabilität. Dazu kommen noch die Unzählige Infos, Dokumentationen die im Interet über diese Microcontroller zu finden sind.
+
+\subsubsection{Alternative}
+Mit den gesammelte Erfahrungen während der Prototyp Entwicklung kann eine bessere Alternative zur Raspberry für eine Weiterenwicklung der Anlage ausgewertet werden. 
+\\
+Der Microcontroller Banana Pi M3 hat in Gegensatz zum Raspberry erheblich mehr Datenverarbeitungsleistung zu bieten (\seeref{tbl:Comaparison}). Dazu kommt noch dass diese Microcontroller das H.264 hardware acceleration unterstüzt und somit der Videostream weiterhin optimisiert würde.
+
+\begin{table}[]     
+	\centering
+	\label{my-label}
+	\begin{tabular}{l|ll}
+		\multicolumn{1}{r|}{} & Raspberry Pi Model 3 & Banana Pi M3 \\ \hline
+		CPU Cores             & 4                    & 8            \\ \hline
+		CPU Design            & Cortex A53           & Cortex A7    \\ \hline
+		CPU Frequenz          & 1.2GHz               & 1.8GHz       \\ \hline
+		Memory                & 1GB DDR2             & 2GB DDR3     \\ \hline
+		Memory Frequenz       & 400MHz               & 672MHz       \\ \hline
+		H264 Decoding         & 1080P30              & 1080P60      \\ \hline
+		H264 Encoding         & 1080P30              & 1080P60      \\ \hline
+		Preis				  & CHF 50.0             & CHF 99.00    \\ \hline
+	\end{tabular}
+	\caption{Verwendete Raspberry Pi im Vegleich mit die Banana Pi Alternative}
+	\label{tbl:microcontrollerComparison}
+\end{table}
+
+Ein weiteres Vorteil des Banana Pi is das der Raspbian OS ebenfalls ünterstützt wird. Die mit dem Projekt mitgeliferte Image des Betriebsistem für die Aussensprechstellen könnte somit auf den neue Microcontroller mit geringere Aufwand aufgespielt werden. Auch die Verkabelung stellt kein Problem dar, da die Pinbelegung eins zu eins die von der Raspberri entspricht.
+
+\subsection{Das Mikrophon}
+...
+\\
+\subsection{MORE PROBLEMS}
+...
