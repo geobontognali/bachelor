@@ -1,0 +1,206 @@
+\section{Anhang}
+\label{sec:anhang}
+
+\subsection{Aussensprechstelle Konfigurationsanleitung}
+Diese Anleitung ist an den Weiterentwikler des Prototyp gerichtet. Mithilfe von diese Dokumentation und den mitgelieferte Image des Aussensprechstelle, soll ein Entwickler im Stand sein ein fresh installiert Raspbian OS zu einer Aussensprechstelle zu konfigurieren. Alles was Konfiguriert wurde, wurde Dokumentiert und in den Anleitung aufgeführt. Diese soll auch das Hinzufügen von zukünftige Funktionalitäten erleichtern. 
+
+\subsubsection{Aktuelle Stand}
+Betriebssystem:	Raspbian jessie with pixel\\
+Version: April 2017\\
+Kernel Version: 4.4
+
+\subsubsection{Namen und Passwortkonzept}
+Hostname: DoorPixxx (x= fortlaufende Nummerierung)\\
+User: pi\\
+Password: bachelor (Einfachheitshalber wurde diese schwach Passwort ausgewählt. Sollte aber bei eine Produktive inbetriebnahme zwingend geändert werden)\\
+
+\subsubsection{Betriebssystem Installation}
+\begin{itemize}
+	\item Das Image von raspberry.com herunterladen und extrahieren. (https://www.raspberrypi.org/downloads/raspbian/)
+	\item Um die Image auf der SD Karte zu bringen benutzt man Etcher. (https://etcher.io/)
+	\item Mit den Standard-Anmeldedaten Anmelden. User: pi Password: raspberry
+\end{itemize}
+
+
+
+\subsubsection{Allgemeine Einstellungen}
+
+Der System soll auf dem neuste Stand aktualisieren werden
+\begin{lstlisting}[backgroundcolor = \color{snippetcolor},
+language = bash,
+xleftmargin = 1cm,
+framexleftmargin = 0.1em,
+breaklines=true]
+	apt-get update 
+	sudo apt-get upgrade
+\end{lstlisting}
+
+Mit den Terminal Kommando 'sudo raspi-config' können durch eine grafische Oberfläche folgende allgemeine Einstellungen angepasst werden:
+\begin{itemize}
+	\item Unter 'Interfacing Options' muss die SSH Server aktiviert werden.
+	\item Hostname gemäss Namenskonzept anpassen
+	\item Neue Passwort für den Pi Benutzer gemäss Passwordkonzept setzen.
+	\item Zum schluss soll noch die Zeit-Zone, den Land und die Tastatuslayout angepasst werden.
+\end{itemize}
+
+\subsubsection{Bidschirm Konfiguration}
+Die Display Treiber von waveshare.com herunterladen und auf dem SD Karte in Root Directory speichern. (http://www.waveshare.com/wiki/4inch\char`_HDMI\char`_LCD)\\
+Mit folgenden bash Kommandos wird der Treiber Instelliert:
+\begin{lstlisting}[backgroundcolor = \color{snippetcolor},
+language = bash,
+xleftmargin = 1cm,
+framexleftmargin = 0.1em,
+breaklines=true]
+	tar xzvf /boot/LCD-show-YYMMDD.tar.gz 
+	cd LCD-show/
+	chmod +x LCD4-800x480-show
+	./LCD4-800x480-show
+\end{lstlisting}
+Nachdem das der Bildschirm Treiber installiert wurde, müssen die Einstellungen für den Bildschirm angepasst werden. Folgende Code-Zeilen müssen am ende des 'config.txt' Datei der sich in den root directory befindet, hinzugefügt werden.
+\begin{lstlisting}[backgroundcolor = \color{snippetcolor},
+language = bash,
+xleftmargin = 1cm,
+framexleftmargin = 0.1em,
+breaklines=true]
+	hdmi_group=2
+	hdmi_mode=87
+	hdmi_cvt 480 800 60 6 0 0 0
+	dtoverlay=ads7846,cs=1,penirq=25,penirq_pull=2,
+	speed=50000,keep_vref_on=0,swapxy=0,pmax=255,
+	xohms=150,xmin=200,xmax=3900,ymin=200,ymax=3900
+	display_rotate=3
+\end{lstlisting}
+
+\subsubsection{Browser Kiosk-mode}
+Als erstes wir die unclutter tool installiert um den Mausepfeil auszublenden.
+\begin{lstlisting}[backgroundcolor = \color{snippetcolor},
+language = bash,
+xleftmargin = 1cm,
+framexleftmargin = 0.1em,
+breaklines=true]
+	sudo apt-get install unclutter
+\end{lstlisting}
+Kios-mode Einstellungen werden im config Datei (/home/pi/.config/lxsession/LXDE-pi/autostart) wie folgendes angepasst.
+\begin{lstlisting}[backgroundcolor = \color{snippetcolor},
+language = bash,
+xleftmargin = 1cm,
+framexleftmargin = 0.1em,
+breaklines=true]
+	# Chromium auto start in kiosk mode
+	# path: /home/pi/.config/lxsession/LXDE-pi/autostart
+	@lxpanel --profile LXDE-pi
+	@pcmanfm --desktop --profile LXDE-pi
+	#@xscreensaver -no-splash
+	@point-rpi
+	@xset s off
+	@xset s noblank
+	@xset -dpms
+	@chromium-browser --noerrdialogs --kiosk --incognito https://172.16.111.99/server
+\end{lstlisting}
+
+\subsubsection{Aussensprechstelle Initialisierung}
+Im Homeverzeichnis unter .config/autostart wird die Datei Aussensprechstelle.desktop erstellt.
+\begin{lstlisting}[backgroundcolor = \color{snippetcolor},
+language = bash,
+xleftmargin = 1cm,
+framexleftmargin = 0.1em,
+breaklines=true]
+	touch /home/pi/Aussensprechstelle/Startup/AussensprechstelleLauncher.sh
+\end{lstlisting}
+Inhalt der Script:
+\begin{lstlisting}[backgroundcolor = \color{snippetcolor},
+language = bash,
+xleftmargin = 1cm,
+framexleftmargin = 0.1em,
+breaklines=true]
+	#!/bin/bash
+	# This script executes the needed commands on startup to initialize the Aussensprechstelle
+	# /home/pi/Aussensprechstelle/Startup/AussensprechstelleLauncher.sh
+	#
+	# Activates the Camera Driver (Safe mode because of the chrome resolution bug)
+	sudo modprobe bcm2835-v4l2 gst_v4l2src_is_broken=1
+	#
+	# Clears the old TasterController PID of the process (In case of system shutdown)
+	file="/var/run/TasterController.pid"
+	if [ -f $file ] ; then
+		rm $file
+	fi
+	#
+	# Starts the TasterController
+	sudo java -jar /home/pi/Aussensprechstelle/TasterController/TasterController.jar &
+	#
+	# Creates the PID for the taster controller
+	sudo echo $! > /var/run/TasterController.pid
+	#
+	# Starts the watchdog service
+	sudo service watchdog start	
+\end{lstlisting}
+
+\subsubsection{Taster Controller}
+Die Tastencontroller die für den Key Mapping zuständig ist wird von dem oben gezeigte AussensprechstelleLauncher.sh unter /home/pi/Aussensprechstelle/TasterController/TasterController.jar gestartet. Also muss die kompilierte Jar Artefakt dorthin kopiert werden. \\
+Folgende GPIO Pins werden von den 3 Tasten benötigt um die Aussensprechstelle zu steuern.
+\begin{itemize}
+	\item GPIO17(16) simuliert den Tastendruck J «Links navigieren»
+	\item GPIO27(20) simuliert den Tastendruck K «Anrufen»
+	\item GPIO22(21) simuliert den Tastendruck L «Rechts navigieren»
+\end{itemize}
+
+\subsubsection{Speaker Controller Service}
+Als erstes muss der mitgelieferte Jar Artefakt SpeakerController.jar unter folgendes Pfad kopiert werden:
+\begin{lstlisting}[backgroundcolor = \color{snippetcolor},
+language = bash,
+xleftmargin = 1cm,
+framexleftmargin = 0.1em,
+breaklines=true]
+	/home/door/Aussensprechstelle/SpeakerController/SpeakerController.jar
+\end{lstlisting}
+Um den SpeakerController als Service unter Unix laufen zu lassen muss unter /etc/init.d/ der speakerController Script erzeugt werden. Der Inhalt des Script wird mit den Projekt mitgeliefert.
+Um es ausführbar zu machen muss noch die «execute» Berechtigung gegeben werden
+\begin{lstlisting}[backgroundcolor = \color{snippetcolor},
+language = bash,
+xleftmargin = 1cm,
+framexleftmargin = 0.1em,
+breaklines=true]
+	touch /etc/init.d/speakerController
+	chmod +x /etc/init.d/speakerController
+\end{lstlisting}
+Damit der speakerController Service auch automatisch beim Systemstart  ausgeführt wird muss noch folgendes Kommando ausgeführt werden:
+\begin{lstlisting}[backgroundcolor = \color{snippetcolor},
+language = bash,
+xleftmargin = 1cm,
+framexleftmargin = 0.1em,
+breaklines=true]
+	sudo update-rc.d speakerController defaults
+\end{lstlisting}
+Der Speaker Controller kann nun mit folgende commandos gestartet und gestoppt werden
+\begin{lstlisting}[backgroundcolor = \color{snippetcolor},
+language = bash,
+xleftmargin = 1cm,
+framexleftmargin = 0.1em,
+breaklines=true]
+	sudo service speakerController start
+	sudo service speakerController stop
+	sudo service speakerController restart
+	sudo service speakerController status
+\end{lstlisting}
+
+\subsubsection{Watchdog/Watchdog deamon}
+Um die von den Aussensprechstelle benötigte Dienste zu monitorieren die es benötigt wird ein Watchdog verwendet. Raspberry Pi hat ein «stad-alone» Hardware Watchdog die ein Autostart durchführt sobald eine der Dienste oder den OS steht. 
+Mit folgende Kommandos wird der watchdog installiert:
+\begin{lstlisting}[backgroundcolor = \color{snippetcolor},
+language = bash,
+xleftmargin = 1cm,
+framexleftmargin = 0.1em,
+breaklines=true]
+	sudo modprobe bcm2835-wdt
+	sudo apt-get install watchdog chkconfig
+	sudo chkconfig watchdog on
+	sudo /etc/init.d/watchdog start
+\end{lstlisting}
+Damit die SpeakerController und die TasterController von den Watchdog überwachen werden muss unter /etc/watchdog.conf die Konfiguratiosdatei abgeändert werden. Der Inhalt des Konfigurationsdatei wird mit dem Projekt mitgeliefert. 
+
+\subsubsection{Sicherheitszertifikate Intallazion}
+....
+
+\subsection{Server Konfigurationsanleitung}
+Geo 

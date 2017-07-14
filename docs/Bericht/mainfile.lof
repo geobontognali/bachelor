@@ -1,14 +1,17 @@
 \select@language {ngerman}
-\contentsline {figure}{\numberline {1}{\ignorespaces L\IeC {\"o}sungskonzept}}{2}
+\contentsline {figure}{\numberline {1}{\ignorespaces Hardware Ecosystem}}{2}
 \contentsline {figure}{\numberline {2}{\ignorespaces Hybrides Vorgehensmodell}}{3}
 \contentsline {figure}{\numberline {3}{\ignorespaces Projektplanung Meilensteine}}{4}
 \contentsline {figure}{\numberline {4}{\ignorespaces Projektplanung}}{4}
 \contentsline {figure}{\numberline {5}{\ignorespaces Analoge T\IeC {\"u}rsprechanlage mit In-House Display}}{5}
 \contentsline {figure}{\numberline {6}{\ignorespaces Telecom Behnkle MyIntercom}}{6}
-\contentsline {figure}{\numberline {7}{\ignorespaces Catalyst Pinouts}}{9}
-\contentsline {figure}{\numberline {8}{\ignorespaces EthernetPinbelegung}}{10}
-\contentsline {figure}{\numberline {9}{\ignorespaces Software / Hardware Ecosystem}}{12}
-\contentsline {figure}{\numberline {10}{\ignorespaces Design der Client-Webapp}}{16}
-\contentsline {figure}{\numberline {11}{\ignorespaces Design der Management tool}}{17}
-\contentsline {figure}{\numberline {12}{\ignorespaces Der Signaling Prozess}}{19}
-\contentsline {figure}{\numberline {13}{\ignorespaces STUN Server}}{20}
+\contentsline {figure}{\numberline {7}{\ignorespaces Hardware Ecosystem}}{7}
+\contentsline {figure}{\numberline {8}{\ignorespaces EthernetPinbelegung}}{9}
+\contentsline {figure}{\numberline {9}{\ignorespaces EthernetPinbelegung}}{9}
+\contentsline {figure}{\numberline {10}{\ignorespaces Catalyst Pinouts}}{11}
+\contentsline {figure}{\numberline {11}{\ignorespaces EthernetPinbelegung}}{11}
+\contentsline {figure}{\numberline {12}{\ignorespaces Software Ecosystem}}{13}
+\contentsline {figure}{\numberline {13}{\ignorespaces Design der Client-Webapp}}{17}
+\contentsline {figure}{\numberline {14}{\ignorespaces Design der Management tool}}{18}
+\contentsline {figure}{\numberline {15}{\ignorespaces Der Signaling Prozess}}{20}
+\contentsline {figure}{\numberline {16}{\ignorespaces STUN Server}}{21}

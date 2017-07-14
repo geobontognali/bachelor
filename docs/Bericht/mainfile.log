@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.7.6)  13 JUL 2017 19:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.7.6)  14 JUL 2017 17:37
 entering extended mode
 **./mainfile.tex
 (mainfile.tex
@@ -529,6 +529,31 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 )
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.sty"
+\lst@mode=\count94
+\lst@gtempboxa=\box28
+\lst@token=\toks20
+\lst@length=\count95
+\lst@currlwidth=\dimen114
+\lst@column=\count96
+\lst@pos=\count97
+\lst@lostspace=\dimen115
+\lst@width=\dimen116
+\lst@newlines=\count98
+\lst@lineno=\count99
+\lst@maxwidth=\dimen117
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+\c@lstnumber=\count100
+\lst@skipnumbers=\count101
+\lst@framebox=\box29
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.cfg"
+File: listings.cfg 2015/06/04 1.6 listings configuration
+))
+Package: listings 2015/06/04 1.6 (Carsten Heinz)
+
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
@@ -543,8 +568,8 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 99.
 )
-\Gin@req@height=\dimen114
-\Gin@req@width=\dimen115
+\Gin@req@height=\dimen118
+\Gin@req@width=\dimen119
 )
 
 Class scrartcl Warning: Usage of package `fancyhdr' together
@@ -552,7 +577,7 @@ Class scrartcl Warning: Usage of package `fancyhdr' together
 (scrartcl)              I'd suggest to use 
 (scrartcl)              package `scrlayer-scrpage'.
 (scrartcl)              Nevertheless, using requested
-(scrartcl)              package `fancyhdr' on input line 56.
+(scrartcl)              package `fancyhdr' on input line 58.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\fancyhdr\fancyhdr.sty"
 Package: fancyhdr 2017/06/30 v3.9a Extensive control of page headers and footer
@@ -604,29 +629,27 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\multicol.sty"
 Package: multicol 2017/04/11 v1.8q multicolumn formatting (FMi)
-\c@tracingmulticols=\count94
-\mult@box=\box28
-\multicol@leftmargin=\dimen116
-\c@unbalance=\count95
-\c@collectmore=\count96
-\doublecol@number=\count97
-\multicoltolerance=\count98
-\multicolpretolerance=\count99
-\full@width=\dimen117
-\page@free=\dimen118
-\premulticols=\dimen119
-\postmulticols=\dimen120
+\c@tracingmulticols=\count102
+\mult@box=\box30
+\multicol@leftmargin=\dimen120
+\c@unbalance=\count103
+\c@collectmore=\count104
+\doublecol@number=\count105
+\multicoltolerance=\count106
+\multicolpretolerance=\count107
+\full@width=\dimen121
+\page@free=\dimen122
+\premulticols=\dimen123
+\postmulticols=\dimen124
 \multicolsep=\skip67
 \multicolbaselineskip=\skip68
-\partial@page=\box29
-\last@line=\box30
-\maxbalancingoverflow=\dimen121
-\mult@rightbox=\box31
-\mult@grightbox=\box32
-\mult@gfirstbox=\box33
-\mult@firstbox=\box34
-\@tempa=\box35
-\@tempa=\box36
+\partial@page=\box31
+\last@line=\box32
+\maxbalancingoverflow=\dimen125
+\mult@rightbox=\box33
+\mult@grightbox=\box34
+\mult@gfirstbox=\box35
+\mult@firstbox=\box36
 \@tempa=\box37
 \@tempa=\box38
 \@tempa=\box39
@@ -642,35 +665,37 @@ Package: multicol 2017/04/11 v1.8q multicolumn formatting (FMi)
 \@tempa=\box49
 \@tempa=\box50
 \@tempa=\box51
-\c@columnbadness=\count100
-\c@finalcolumnbadness=\count101
-\last@try=\dimen122
-\multicolovershoot=\dimen123
-\multicolundershoot=\dimen124
-\mult@nat@firstbox=\box52
-\colbreak@box=\box53
-\mc@col@check@num=\count102
+\@tempa=\box52
+\@tempa=\box53
+\c@columnbadness=\count108
+\c@finalcolumnbadness=\count109
+\last@try=\dimen126
+\multicolovershoot=\dimen127
+\multicolundershoot=\dimen128
+\mult@nat@firstbox=\box54
+\colbreak@box=\box55
+\mc@col@check@num=\count110
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\tabularx.sty"
 Package: tabularx 2016/02/03 v2.11 `tabularx' package (DPC)
-\TX@col@width=\dimen125
-\TX@old@table=\dimen126
-\TX@old@col=\dimen127
-\TX@target=\dimen128
-\TX@delta=\dimen129
-\TX@cols=\count103
-\TX@ftn=\toks20
+\TX@col@width=\dimen129
+\TX@old@table=\dimen130
+\TX@old@col=\dimen131
+\TX@target=\dimen132
+\TX@delta=\dimen133
+\TX@cols=\count111
+\TX@ftn=\toks21
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\multirow\multirow.sty"
 Package: multirow 2016/11/25 v2.2 Span multiple rows of a table
 \multirow@colwidth=\skip69
-\multirow@cntb=\count104
+\multirow@cntb=\count112
 \multirow@dima=\skip70
-\bigstrutjot=\dimen130
+\bigstrutjot=\dimen134
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\@emptytoks=\toks21
+\@emptytoks=\toks22
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
@@ -686,51 +711,51 @@ Package: amstext 2000/06/29 v2.01 AMS text
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks22
-\ex@=\dimen131
+\@emptytoks=\toks23
+\ex@=\dimen135
 ))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen132
+\pmbraise@=\dimen136
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count105
+\inf@bad=\count113
 LaTeX Info: Redefining \frac on input line 213.
-\uproot@=\count106
-\leftroot@=\count107
+\uproot@=\count114
+\leftroot@=\count115
 LaTeX Info: Redefining \overline on input line 375.
-\classnum@=\count108
-\DOTSCASE@=\count109
+\classnum@=\count116
+\DOTSCASE@=\count117
 LaTeX Info: Redefining \ldots on input line 472.
 LaTeX Info: Redefining \dots on input line 475.
 LaTeX Info: Redefining \cdots on input line 596.
-\Mathstrutbox@=\box54
-\strutbox@=\box55
-\big@size=\dimen133
+\Mathstrutbox@=\box56
+\strutbox@=\box57
+\big@size=\dimen137
 LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
-\macc@depth=\count110
-\c@MaxMatrixCols=\count111
+\macc@depth=\count118
+\c@MaxMatrixCols=\count119
 \dotsspace@=\muskip10
-\c@parentequation=\count112
-\dspbrk@lvl=\count113
-\tag@help=\toks23
-\row@=\count114
-\column@=\count115
-\maxfields@=\count116
-\andhelp@=\toks24
-\eqnshift@=\dimen134
-\alignsep@=\dimen135
-\tagshift@=\dimen136
-\tagwidth@=\dimen137
-\totwidth@=\dimen138
-\lineht@=\dimen139
-\@envbody=\toks25
+\c@parentequation=\count120
+\dspbrk@lvl=\count121
+\tag@help=\toks24
+\row@=\count122
+\column@=\count123
+\maxfields@=\count124
+\andhelp@=\toks25
+\eqnshift@=\dimen138
+\alignsep@=\dimen139
+\tagshift@=\dimen140
+\tagwidth@=\dimen141
+\totwidth@=\dimen142
+\lineht@=\dimen143
+\@envbody=\toks26
 \multlinegap=\skip72
 \multlinetaggap=\skip73
-\mathdisplay@stack=\toks26
+\mathdisplay@stack=\toks27
 LaTeX Info: Redefining \[ on input line 2817.
 LaTeX Info: Redefining \] on input line 2818.
 )
@@ -781,6 +806,18 @@ LaTeX Warning: Label `sec:chapterexample' multiply defined.
 LaTeX Warning: Label `sec:chapterexample@cref' multiply defined.
 
 
+LaTeX Warning: Label `fig:hwoverview' multiply defined.
+
+
+LaTeX Warning: Label `fig:hwoverview@cref' multiply defined.
+
+
+LaTeX Warning: Label `my-label' multiply defined.
+
+
+LaTeX Warning: Label `my-label@cref' multiply defined.
+
+
 LaTeX Warning: Label `sec:chapterexample' multiply defined.
 
 
@@ -791,6 +828,18 @@ LaTeX Warning: Label `sec:chapterexample' multiply defined.
 
 
 LaTeX Warning: Label `sec:chapterexample@cref' multiply defined.
+
+
+LaTeX Warning: Label `my-label' multiply defined.
+
+
+LaTeX Warning: Label `my-label@cref' multiply defined.
+
+
+LaTeX Warning: Label `my-label' multiply defined.
+
+
+LaTeX Warning: Label `my-label@cref' multiply defined.
 
 
 LaTeX Warning: Label `fig:catalystPinouts' multiply defined.
@@ -804,22 +853,34 @@ LaTeX Warning: Label `sec:chapterexample' multiply defined.
 
 LaTeX Warning: Label `sec:chapterexample@cref' multiply defined.
 
+
+LaTeX Warning: Label `sec:chapterexample' multiply defined.
+
+
+LaTeX Warning: Label `sec:chapterexample@cref' multiply defined.
+
+
+LaTeX Warning: Label `my-label' multiply defined.
+
+
+LaTeX Warning: Label `my-label@cref' multiply defined.
+
 (abkuerzungsverzeichnis.aux) (erklaerung.aux))
 \openout1 = `mainfile.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 132.
-LaTeX Font Info:    ... okay on input line 132.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 132.
-LaTeX Font Info:    ... okay on input line 132.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 132.
-LaTeX Font Info:    ... okay on input line 132.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 132.
-LaTeX Font Info:    ... okay on input line 132.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 132.
-LaTeX Font Info:    ... okay on input line 132.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 132.
-LaTeX Font Info:    ... okay on input line 132.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 132.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 134.
+LaTeX Font Info:    ... okay on input line 134.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 134.
+LaTeX Font Info:    ... okay on input line 134.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 134.
+LaTeX Font Info:    ... okay on input line 134.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 134.
+LaTeX Font Info:    ... okay on input line 134.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 134.
+LaTeX Font Info:    ... okay on input line 134.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 134.
+LaTeX Font Info:    ... okay on input line 134.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 134.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmr.fd"
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -860,17 +921,17 @@ File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count117
-\scratchdimen=\dimen140
-\scratchbox=\box56
-\nofMPsegments=\count118
-\nofMParguments=\count119
-\everyMPshowfont=\toks27
-\MPscratchCnt=\count120
-\MPscratchDim=\dimen141
-\MPnumerator=\count121
-\makeMPintoPDFobject=\count122
-\everyMPtoPDFconversion=\toks28
+\scratchcounter=\count125
+\scratchdimen=\dimen144
+\scratchbox=\box58
+\nofMPsegments=\count126
+\nofMParguments=\count127
+\everyMPshowfont=\toks28
+\MPscratchCnt=\count128
+\MPscratchDim=\dimen145
+\MPnumerator=\count129
+\makeMPintoPDFobject=\count130
+\everyMPtoPDFconversion=\toks29
 ) ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
 Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -913,6 +974,7 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
+\c@lstlisting=\count131
 \openout2 = `title.aux'.
 
  (title.tex <image/ntb.jpg, id=1, 1778.645pt x 706.64pt>
@@ -986,50 +1048,35 @@ Overfull \hbox (34.9882pt too wide) in paragraph at lines 25--32
 ]
 \openout2 = `zusammenfassung.aux'.
 
- (zusammenfassung.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 6--150
-
- []
-
-[1
+ (zusammenfassung.tex) [1
 
 ]
 \openout2 = `abstract.aux'.
 
- (abstract.tex
-Underfull \hbox (badness 10000) in paragraph at lines 5--6
-
- []
-
-
-Overfull \hbox (0.32225pt too wide) in paragraph at lines 8--9
-[]\T1/lmr/m/n/12 There was al-so car-ried out ve-ri-fi-ca-ti-on with mea-su-re-
-ments of He-lix Car-bon GmbH,
- []
-
-) [2
+ (abstract.tex) [2
 
 
 ] [3
 
-] (mainfile.toc
+]
+(mainfile.toc
 Package cleveref Info: loaded `ngerman' language definitions on input line 1.
  [4])
 \tf@toc=\write3
 \openout3 = `mainfile.toc'.
 
- [5] (Einfuehrung.tex
+ [5] [6] (Einfuehrung.tex
 Package cleveref Info: loaded `ngerman' language definitions on input line 30.
  [1]
-<img/loesungskonzept.png, id=33, 785.18344pt x 519.44063pt>
-File: img/loesungskonzept.png Graphic file (type png)
+<img/hwoverview.png, id=36, 795.72281pt x 525.46312pt>
+File: img/hwoverview.png Graphic file (type png)
 
-<use img/loesungskonzept.png>
-Package pdftex.def Info: img/loesungskonzept.png used on input line 33.
-(pdftex.def)             Requested size: 367.18257pt x 242.91652pt.
+<use img/hwoverview.png>
+Package pdftex.def Info: img/hwoverview.png used on input line 33.
+(pdftex.def)             Requested size: 412.56497pt x 272.4406pt.
 Package cleveref Info: loaded `ngerman' language definitions on input line 39.
- [2 <./img/loesungskonzept.png>])
-(Projektplanung.tex <img/hybridesModell.png, id=37, 505.13719pt x 362.85562pt>
+ [2 <./img/hwoverview.png>]) (Projektplanung.tex
+<img/hybridesModell.png, id=42, 505.13719pt x 362.85562pt>
 File: img/hybridesModell.png Graphic file (type png)
 
 <use img/hybridesModell.png>
@@ -1037,14 +1084,14 @@ Package pdftex.def Info: img/hybridesModell.png used on input line 15.
 (pdftex.def)             Requested size: 367.18257pt x 263.76398pt.
 Package cleveref Info: loaded `ngerman' language definitions on input line 32.
  [3 <./img/hybridesModell.png>]
-<img/projektPlanAchse.png, id=43, 971.12813pt x 155.45578pt>
+<img/projektPlanAchse.png, id=47, 971.12813pt x 155.45578pt>
 File: img/projektPlanAchse.png Graphic file (type png)
 
 <use img/projektPlanAchse.png>
 Package pdftex.def Info: img/projektPlanAchse.png used on input line 35.
 (pdftex.def)             Requested size: 412.56497pt x 66.04054pt.
 
-<img/projektPlanung.png, id=44, 756.20015pt x 495.35063pt>
+<img/projektPlanung.png, id=48, 756.20015pt x 495.35063pt>
 File: img/projektPlanung.png Graphic file (type png)
 
 <use img/projektPlanung.png>
@@ -1053,7 +1100,7 @@ Package pdftex.def Info: img/projektPlanung.png used on input line 44.
 Package cleveref Info: loaded `ngerman' language definitions on input line 52.
  [4 <./img/projektPlanAchse.png> <./img/projektPlanung.png>]) (Marktanalyse.tex
 
-<img/analog_intercom.png, id=49, 451.6875pt x 249.18094pt>
+<img/analog_intercom.png, id=53, 451.6875pt x 249.18094pt>
 File: img/analog_intercom.png Graphic file (type png)
 
 <use img/analog_intercom.png>
@@ -1061,7 +1108,7 @@ Package pdftex.def Info: img/analog_intercom.png used on input line 8.
 (pdftex.def)             Requested size: 272.29439pt x 150.22452pt.
 Package cleveref Info: loaded `ngerman' language definitions on input line 24.
  [5 <./img/analog_intercom.png>]
-<img/myintercom.png, id=54, 158.09062pt x 226.59656pt>
+<img/myintercom.png, id=59, 158.09062pt x 226.59656pt>
 File: img/myintercom.png Graphic file (type png)
 
 <use img/myintercom.png>
@@ -1074,66 +1121,70 @@ Underfull \hbox (badness 10000) in paragraph at lines 37--41
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 42.
 [6 <./img/myintercom.png>]) (Hardware.tex
-Underfull \hbox (badness 10000) in paragraph at lines 9--11
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 12--15
-
- []
+File: img/hwoverview.png Graphic file (type png)
+ <use img/hwoverview.png>
+Package pdftex.def Info: img/hwoverview.png used on input line 10.
+(pdftex.def)             Requested size: 412.56497pt x 272.4406pt.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 12--15
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 22.
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 19--24
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 19--24
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 25--28
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 25--28
-
- []
-
-Package cleveref Info: loaded `ngerman' language definitions on input line 36.
+Package cleveref Info: loaded `ngerman' language definitions on input line 35.
 [7]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 42.
+               Default added (so using `tbp') on input line 37.
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 67.
-[8] <img/CatalystPoEpinouts.png, id=67, 438.8897pt x 187.45032pt>
+<img/pipins.png, id=68, 606.76688pt x 439.6425pt>
+File: img/pipins.png Graphic file (type png)
+ <use img/pipins.png>
+Package pdftex.def Info: img/pipins.png used on input line 65.
+(pdftex.def)             Requested size: 330.05322pt x 239.14758pt.
+
+<img/boardpins.png, id=69, 566.115pt x 555.57562pt>
+File: img/boardpins.png Graphic file (type png)
+ <use img/boardpins.png>
+Package pdftex.def Info: img/boardpins.png used on input line 73.
+(pdftex.def)             Requested size: 226.91199pt x 222.68408pt.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 79.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 113.
+
+Package cleveref Info: loaded `ngerman' language definitions on input line 125.
+
+[8]
+Package cleveref Info: loaded `ngerman' language definitions on input line 125.
+
+ [9 <./img/pipins.png> <./img/boardpins.png>]
+Package cleveref Info: loaded `ngerman' language definitions on input line 132.
+
+ [10]
+<img/CatalystPoEpinouts.png, id=81, 438.8897pt x 187.45032pt>
 File: img/CatalystPoEpinouts.png Graphic file (type png)
 
 <use img/CatalystPoEpinouts.png>
-Package pdftex.def Info: img/CatalystPoEpinouts.png used on input line 70.
+Package pdftex.def Info: img/CatalystPoEpinouts.png used on input line 135.
 (pdftex.def)             Requested size: 367.18257pt x 156.82791pt.
-Package cleveref Info: loaded `ngerman' language definitions on input line 77.
- [9 <./img/CatalystPoEpinouts.png>]
-<img/EthernetPinbelegung.png, id=72, 487.8225pt x 219.06844pt>
+
+<img/EthernetPinbelegung.png, id=82, 487.8225pt x 219.06844pt>
 File: img/EthernetPinbelegung.png Graphic file (type png)
 
 <use img/EthernetPinbelegung.png>
-Package pdftex.def Info: img/EthernetPinbelegung.png used on input line 80.
+Package pdftex.def Info: img/EthernetPinbelegung.png used on input line 145.
 (pdftex.def)             Requested size: 367.18257pt x 164.89256pt.
-Package cleveref Info: loaded `ngerman' language definitions on input line 87.
- [10 <./img/EthernetPinbelegung.png>])
-(Software.tex
+Package cleveref Info: loaded `ngerman' language definitions on input line 152.
+
+ [11 <./img/CatalystPoEpinouts.png> <./img/EthernetPinbelegung.png>]) (Software
+.tex
 LaTeX Font Info:    Try loading font information for OMS+lmr on input line 7.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omslmr.fd"
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omslmr.fd"
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
@@ -1144,7 +1195,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 18--22
  []
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 24.
-[11] <img/ecosystem.png, id=81, 773.89125pt x 483.30562pt>
+[12] <img/ecosystem.png, id=93, 773.89125pt x 483.30562pt>
 File: img/ecosystem.png Graphic file (type png)
 
 <use img/ecosystem.png>
@@ -1157,112 +1208,174 @@ len und die Client-
  []
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 41.
-[12 <./img/ecosystem.png>]
+[13 <./img/ecosystem.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 52--58
 
  []
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 58.
-[13]
+[14]
 Underfull \hbox (badness 10000) in paragraph at lines 60--66
 
  []
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 84.
-[14] <img/clientDemo.jpg, id=93, 1445.4pt x 2569.6pt>
+[15] <img/clientDemo.jpg, id=104, 1445.4pt x 2569.6pt>
 File: img/clientDemo.jpg Graphic file (type jpg)
- <use img/clientDemo.jpg>
+
+<use img/clientDemo.jpg>
 Package pdftex.def Info: img/clientDemo.jpg used on input line 93.
 (pdftex.def)             Requested size: 144.40025pt x 256.70059pt.
 Package cleveref Info: loaded `ngerman' language definitions on input line 103.
 
-
-[15] <img/managementtool.png, id=97, 1436.36626pt x 676.77844pt>
+ [16]
+<img/managementtool.png, id=108, 1436.36626pt x 676.77844pt>
 File: img/managementtool.png Graphic file (type png)
 
 <use img/managementtool.png>
 Package pdftex.def Info: img/managementtool.png used on input line 115.
 (pdftex.def)             Requested size: 412.56497pt x 194.39157pt.
-Package cleveref Info: loaded `ngerman' language definitions on input line 122.
 
- [16 <./img/clientDemo.jpg>]
 
 LaTeX Warning: Reference `fig:aussensprechstelle' on page 17 undefined on input
- line 123.
+ line 125.
 
+Package cleveref Info: loaded `ngerman' language definitions on input line 130.
 
-Underfull \hbox (badness 10000) in paragraph at lines 134--138
+[17 <./img/clientDemo.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 138--142
 
  []
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 138.
+Package cleveref Info: loaded `ngerman' language definitions on input line 142.
 
-[17 <./img/managementtool.png>]
+[18 <./img/managementtool.png>]
 
-LaTeX Warning: Citation `001' on page 18 undefined on input line 144.
+LaTeX Warning: Citation `001' on page 19 undefined on input line 148.
 
-<img/signalingprocess.jpg, id=105, 1003.75pt x 596.2275pt>
+<img/signalingprocess.jpg, id=117, 1003.75pt x 596.2275pt>
 File: img/signalingprocess.jpg Graphic file (type jpg)
 
 <use img/signalingprocess.jpg>
-Package pdftex.def Info: img/signalingprocess.jpg used on input line 153.
+Package pdftex.def Info: img/signalingprocess.jpg used on input line 157.
 (pdftex.def)             Requested size: 309.42372pt x 183.80057pt.
-Package cleveref Info: loaded `ngerman' language definitions on input line 164.
+Package cleveref Info: loaded `ngerman' language definitions on input line 168.
 
- [18]
-<img/stun.png, id=110, 779.16093pt x 491.58656pt>
+ [19]
+<img/stun.png, id=121, 779.16093pt x 491.58656pt>
 File: img/stun.png Graphic file (type png)
  <use img/stun.png>
-Package pdftex.def Info: img/stun.png used on input line 172.
+Package pdftex.def Info: img/stun.png used on input line 176.
 (pdftex.def)             Requested size: 309.42372pt x 195.22095pt.
 
-Overfull \hbox (0.76872pt too wide) in paragraph at lines 167--180
+Overfull \hbox (0.76872pt too wide) in paragraph at lines 171--184
 \T1/lmr/m/n/12 Servers im Spiel. Ähn-lich wie bei dem Si-gna-li-sie-rungs-pro-z
 ess ste-hen STUN-Servers
  []
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 180.
+Package cleveref Info: loaded `ngerman' language definitions on input line 185.
 
-[19 <./img/signalingprocess.jpg>]
-Package cleveref Info: loaded `ngerman' language definitions on input line 181.
+[20 <./img/signalingprocess.jpg>]) (Probleme.tex
+Overfull \hbox (6.92227pt too wide) in paragraph at lines 7--12
+\T1/lmr/m/n/12 was nor-ma-ler-wei-se bein ei-ne Tür-sprech-an-la-ge nicht der F
+all ist, könn-te der Raspber-
+ []
 
- [20 <./img/stun.png>]) (mainfile.bbl
+Package cleveref Info: loaded `ngerman' language definitions on input line 12.
+[21 <./img/stun.png>]
+
+LaTeX Warning: Reference `tbl:Comaparison' on page 1 undefined on input line 16
+.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 18.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--41
+
+ []
+
+) (Tests.tex) (Fazit.tex
+Package cleveref Info: loaded `ngerman' language definitions on input line 1.
+ [22]) (Anhang.tex
+Underfull \hbox (badness 10000) in paragraph at lines 13--16
+
+ []
+
+
+Overfull \hbox (199.97212pt too wide) in paragraph at lines 19--20
+[]\T1/lmr/m/n/12 Das Image von raspber-ry.com her-un-ter-la-den und ex-tra-hie-
+ren. (htt-ps://www.raspberrypi.org/downloads/raspbian/) 
+ []
+
+Package cleveref Info: loaded `ngerman' language definitions on input line 22.
+[23] ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+Overfull \hbox (5.80849pt too wide) in paragraph at lines 47--53
+\T1/lmr/m/n/12 Root Di-rec-to-ry spei-chern. (http://www.waveshare.com/wiki/4in
+ch_HDMI_LCD) 
+ []
+
+Package cleveref Info: loaded `ngerman' language definitions on input line 72.
+[24]
+Overfull \hbox (20.04683pt too wide) in paragraph at lines 83--88
+\T1/lmr/m/n/12 Kios-mode Ein-stel-lun-gen wer-den im con-fig Da-tei (/home/pi/.
+config/lxsession/LXDE-
+ []
+
+Package cleveref Info: loaded `ngerman' language definitions on input line 121.
+
+[25]
+Package cleveref Info: loaded `ngerman' language definitions on input line 154.
+
+ [26]
+Package cleveref Info: loaded `ngerman' language definitions on input line 205.
+
+ [27])
+Package cleveref Info: loaded `ngerman' language definitions on input line 200.
+
+ [28] (mainfile.bbl
 
 LaTeX Warning: Empty `thebibliography' environment or \BreakBibliography
                before end of `thebibliography' environment on input line 3.
 
 )
-Package cleveref Info: loaded `ngerman' language definitions on input line 196.
+Package cleveref Info: loaded `ngerman' language definitions on input line 204.
 
- [21] (mainfile.lof
+ [29] (mainfile.lof
 Package cleveref Info: loaded `ngerman' language definitions on input line 1.
 )
 \tf@lof=\write4
 \openout4 = `mainfile.lof'.
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 201.
+Package cleveref Info: loaded `ngerman' language definitions on input line 209.
 
- [22] (mainfile.lot
+ [30] (mainfile.lot
 Package cleveref Info: loaded `ngerman' language definitions on input line 1.
 )
 \tf@lot=\write5
 \openout5 = `mainfile.lot'.
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 204.
+Package cleveref Info: loaded `ngerman' language definitions on input line 212.
 
- [23]
+ [31]
 \openout2 = `abkuerzungsverzeichnis.aux'.
 
  (abkuerzungsverzeichnis.tex
-[24
+[32
 
 ])
 \openout2 = `erklaerung.aux'.
 
- (erklaerung.tex) [25
+ (erklaerung.tex) [33
 
 
-] [26
+] [34
 
 ] (mainfile.aux (title.aux)
 Package cleveref Info: loaded `ngerman' language definitions on input line 5.
@@ -1279,13 +1392,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 8615 strings out of 493323
- 141757 string characters out of 3139058
- 322993 words of memory out of 3000000
- 11918 multiletter control sequences out of 15000+200000
+ 10504 strings out of 493323
+ 166382 string characters out of 3139058
+ 386238 words of memory out of 3000000
+ 13775 multiletter control sequences out of 15000+200000
  56117 words of font info for 45 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 48i,11n,51p,8848b,576s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 48i,12n,51p,8848b,2072s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Fil
 es/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}<C:/Program Files/MiKTeX 2.9/fonts/t
 ype1/public/lm/lmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lm
@@ -1293,9 +1406,9 @@ r12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmri12.pfb><C:/Progr
 am Files/MiKTeX 2.9/fonts/type1/public/lm/lmro12.pfb><C:/Program Files/MiKTeX 2
 .9/fonts/type1/public/lm/lmssbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 public/lm/lmsy10.pfb>
-Output written on mainfile.pdf (33 pages, 2146517 bytes).
+Output written on mainfile.pdf (42 pages, 3097320 bytes).
 PDF statistics:
- 158 PDF objects out of 1000 (max. 8388607)
+ 193 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 76 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 86 words of extra memory for PDF output out of 10000 (max. 10000000)
 
