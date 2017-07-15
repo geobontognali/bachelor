@@ -23,7 +23,7 @@ Aus diesem Grund haben wir uns für PHP (Objektorientiert) im Kombination mit Ja
 Für die Entwicklung der Webapplikationen wird Laravel als PHP Framework eingesetzt. Laravel ist ein Open-Source PHP Web-Application-Framework, die sich für kleine bis zu mittelgrosse Projekte eignet. Laravel beruht auf dem Modell-View-Controller-Muster und ermöglicht eine Objektorientierte Programmierung in PHP.
 
 \subsection{System Übersicht}
-Das System besteht aus mehrere Hardware- und Softwarekomponenten die zusammenarbeiten müssen (\seeref{fig:echosystem}). Die  Vertraulichkeit der Kommunikation zwischen den Knoten ist von TLS immer gewährleistet. Die einzelne Komponenten, sowie das Thema Sicherheit, werden in den nächsten Kapiteln genauer beschrieben.
+Das System besteht aus mehrere Softwarekomponenten die zusammenarbeiten müssen (\seeref{fig:echosystem}). Die  Vertraulichkeit der Kommunikation zwischen den Knoten ist von TLS immer gewährleistet. Die einzelne Komponenten, sowie das Thema Sicherheit, werden in den nächsten Kapiteln genauer beschrieben.
 
 \begin{figure}[htb!]
 	\begin{center}
@@ -58,14 +58,21 @@ Die Desktop-Umgebung LXDE welche von Raspbian verwendet wird, bietet aber ein Au
 
 \subsubsection{Speaker Controller}
 Das Speaker Controller ist ein kleinen Dienst, welche den Lautsprecher ein- und ausschalten kann. Trotz einem Massentrennfilter sind immer noch leise Störsignale auf der Audio-Ausgang vorhanden.
-Die Aufgabe des Speaker-Controllers besteht darin, die Stromspeisung des Speakers zu trennen, wenn es nicht verwendet wird. Somit ist das System Energieeffizienter und unnötige Geräusche können vermieden werden.
+Die Aufgabe des Speaker-Controllers besteht darin, die Stromspeisung des Speakers zu trennen, wenn es nicht verwendet wird. Somit ist das System Energieeffizienter und unnötige Geräusche können vermieden werden. Das Speaker Controller wird auf der Aussensprechstelle als Daemon ausgeführt.
 \\
 \\
 Der Dienst besteht lediglich aus ein Socket-Server, der auf ein Signal wartet und durch die GPIO der Raspberry, ein kleines Relay steuert.
-Das Signal kommt von der Aussensprechstelle-Applikation \textit{(localhost)}. So kann den Lautsprecher bei Bedarf ein- und ausgeschaltet werden.
+Das Signal kommt aus der Javascript Seite der Aussensprechstelle-Webpplikation \textit{(localhost)}. So kann den Lautsprecher bei Bedarf ein- und ausgeschaltet werden.
 
 \subsubsection{Relay Controller}
-...
+Das Relay Controller ist sehr ähnlich aufgebaut wie das Speaker Controller. Auch hier handelt sich um ein kleines Socket-Server der auf ein Signal wartet und durch die GPIO der Raspberry, ein oder mehrere Relays steuert.
+\\
+Das Relay Controller wird auf dem Server ausgeführt und wartet auf die Befehle von den Webapplikationen. Das Relay ist an die Türöffner und an die Gongs in den Wohnungen angeschlossen.
+\\
+Der Datenaustausch zwischen den Relay-Controller und die Webapplikationen erfolgt im Form eine JSON String.
+\\
+Währen bei der Speaker-Controller die befehle aus der Client Seite stammen, kommen die Daten bei dem Relay-Controller aus dem PHP-Backend auf dem Server selbst. Somit bleibt den Datenverkehr nur auf dem Localhost und werden Man in the Middle oder Injection Attacke ausgeschlossen. Aus diesem Grund lauscht dieser Server nur auf Verbindungen die aus dem Localhost stammen.
+
 \subsubsection{Signaling Server}
 Der Signaling-Server ist ein bestandteil von WebRTC und wird in ein eigenes Kapitel ausführlich beschrieben (\seeref{kap:signaling}).
 
@@ -81,57 +88,6 @@ Der Watchdog wird als standalone Gerät im Unix erkennt. Wird diese Gerät einma
 Das Beschrieben von der Watchdog-Gerät wird von eine Watchdog-Daemon übernommen. 
 Durch der Konfigurationsdatei des Daemon können verschiedene Parameter des System wie Temperatur, Auslastung der Prozessor usw. überwacht werden. Besonders relevant für die Türsprechanlage ist das PID-Monitoring. Diese ermöglicht das ständig überprüfen von spezifische Prozesse und Diensten die das System benötigt, um sein Zweck als Aussensprechstelle zu erfüllen. Sobald eine diese Prozesse steht wird das System innerhalb von 15 Sekunden nuegestartet. 
 Ein solches Mechanismus steigert die Verfügbarkeit des Dienst, die für eine Türsprechanlage von grosse Bedeutung ist.
-\subsection{Webapplikationen}
-\label{kap:webapp}
-
-
-\subsubsection{Client Webapplikation}
-Der Bewohner muss über eine Applikation verfügen, die auf dem Tablet oder Handy ausführbar sein muss. Mithilfe dieser App muss der Enduser folgendes können: Sich mit alle Aussensprechstellen verbinden können, ein Video Signal von der Kamera aller Eingänge erhalten, alle Türe öffnen und mit der Person bei der Türe über die Anlage kommunizieren können.
-\\
-\begin{figure}[htb!]
-	\begin{center}
-		\includegraphics[width=0.35\textwidth]{clientDemo}
-		\caption[Design der Client-Webapp]{Design der Client-Webapp}
-		\label{fig:clientDemo}
-	\end{center}
-\end{figure}
-\\
-Die \cref{fig:clientDemo} zeigt das Design für die Webapplikation. Hier gezeigt ist die Smartphone Version. Dank ein Responsive-Design wird die selbe Applikation auch auf andere Geräte wie z.B. Tablets oder Computers passend angezeigt.
-\\ 
-Bei der Design-Entwurf standen Übersichtlichkeit und Benutzerfreundlichkeit im Vordergrund. Aus diesem Grund werden die Tasten für die Audio-Kommunikation und für die Öffnung der Türe gross Angezeigt. Das Videostream von der ausgewählte Türe wird sofort angezeigt und benötigt keine weitere Interaktion. 
-
-\subsubsection{Aussensprechstelle Webapplikation}
-..
-
-\subsubsection{Management Tool}
-\label{kap:managementtool}
-Um eine schnellere Inbetriebnahme und eine zentrale Verwaltung des Systems zu gewährleisten, wurde der Management Tool etwickelt. Dieses Portal ermöglicht die Erfassung der Gegensprechanlagen und der Wohnungen.
-Diese Schnitstelle wurde mit webtechnologien entwickelt(HTML, PHP, Js) und wird zusammen mit den MySQL Database auf den localen Raspberry Server gehostet. Aus Sicherheitsgründen werden alle eingehende und ausgehende Verbindungen abhörsicher aufgebaut.
-\\
-Grund dafür das einsetzten von Webtechnologien ist die Plattformunabhängigkeit sowie die Einfachkeit und die Standardisierung der Sprachen. Für den ersten Prototyp lag der Fokus auf die funktionale Eingenschaften der Tool. Bei einer zukünfitige Weiterentwicklung des Produkt kann man, dank der Webtechnologien mit gerigere Aufwand das Tool skalieren bzw. neue Features hinzufühgen.  
-
-\begin{figure}[htb!]
-	\begin{center}
-		\includegraphics[width=1\textwidth]{managementtool}
-		\caption[Design der Management tool]{Design der Management tool}
-		\label{fig:managementtool}
-	\end{center}
-\end{figure}
-
-Das Tool in mit ein Login versehen, somit ist sichergestellt das nur der Hausverwalter die Anlage verwalten kann. 
-\\
-\textbf{Bewohner} 
-\\
-Unter die Bewohner Seite werden alle Wohnungen, beziehungsweise alle Bewohner aufgelistet. Diese verfühgen über ein Benutzername sowie eine Passwort die Von der Client App wervendet wird um sie sich bei den Server zu authentifizieren. Dieser Abschnitt bietet noch die Möglichkeit der Name und die Position der Wohnung welcher an den Aussensprechstelle ~\ref{fig:aussensprechstelle} angezeigt wird, abzuändern.
-\\
-\textbf{Türen} 
-\\
-Bei der Einbau eine neue Tür, kann diese in dem Management Tool aufgeführt werden. Dabei muss beachtet werden dass der Id mit derjenige die auf den neu installierte Aussensprechstelle übereinstimmt. In diese Sektion sind auch die Namen der Türen definiert, welche denn auf den Client App (Siehe Abbildung ~\ref{fig:managementtool})  angezeigt werden. 
-
-
-\subsection{Remote Verbindung}
-\label{kap:remote}
-..
 
 \subsection{WebRTC}
 \label{kap:webrtc}
@@ -178,8 +134,82 @@ Nach dem Signaling-Prozess wird das ICE-Prozess gestartet. Hier tauschen sich di
 		\label{fig:stun}
 	\end{center}
 \end{figure}
- STUN-Servers informieren die Clients über jegliche NAT Konfigurationen die sich dazwischen befinden würden. Die beide Sprechpartner erhalten somit Informationen über welche Ports und Öffentliche Adressen die Verbindung initialisiert werden kann. Für die Entwicklung dieses Projektes werden die Google STUN Servers verwendet, welche kostenfrei zur Verfügung stehen.
+STUN-Servers informieren die Clients über jegliche NAT Konfigurationen die sich dazwischen befinden würden. Die beide Sprechpartner erhalten somit Informationen über welche Ports und Öffentliche Adressen die Verbindung initialisiert werden kann. Für die Entwicklung dieses Projektes werden die Google STUN Servers verwendet, welche kostenfrei zur Verfügung stehen.
 \\
 Falls sich beide Sprechpartner im gleichen lokales Netzwerk befinden, werden keine STUN-Servers benötigt und den gesamten Datenverkehr bleibt innerhalb des Heimnetzwerkes.
+
+\subsection{Webapplikationen}
+\label{kap:webapp}
+Während die verschiedene Java Dienste relativ kleine Programme sind, besteht den Gesamten Quellcode der Webapplikationen aus mehrere tausende Codezeilen.
+\\
+Das PHP-Backend im Zusammenarbeit mit Javascript auf den Client-Seite ist für die meisten Aufgaben der Anlage sowohl auch für ein Teil der Sicherheitsaspekten zuständig.
+
+\subsubsection{Die Datenbank}
+
+...
+\\
+<-- DATABASE SCHEME
+
+\subsubsection{Client Webapplikation}
+Der Bewohner muss über eine Applikation verfügen, die auf dem Tablet oder Handy ausführbar sein muss. Mithilfe dieser App muss der Enduser folgendes können: Sich mit alle Aussensprechstellen verbinden können, ein Video Signal von der Kamera aller Eingänge erhalten, alle Türe öffnen und mit der Person bei der Türe über die Anlage kommunizieren können.
+\\
+\begin{figure}[htb!]
+	\begin{center}
+		\includegraphics[width=0.35\textwidth]{clientDemo}
+		\caption[Design der Client-Webapp]{Design der Client-Webapp}
+		\label{fig:clientDemo}
+	\end{center}
+\end{figure}
+\\
+Die \cref{fig:clientDemo} zeigt das Design für die Webapplikation. Hier gezeigt ist die Smartphone Version. Dank ein Responsive-Design wird die selbe Applikation auch auf andere Geräte wie z.B. Tablets oder Computers passend angezeigt.
+\\ 
+Bei der Design-Entwurf standen Übersichtlichkeit und Benutzerfreundlichkeit im Vordergrund. Aus diesem Grund werden die Tasten für die Audio-Kommunikation und für die Öffnung der Türe gross Angezeigt. Das Videostream von der ausgewählte Türe wird sofort angezeigt und benötigt keine weitere Interaktion. 
+
+\subsubsection{Aussensprechstelle Webapplikation}
+Die Aussensprechstelle ist mit einem Bildschirm ausgestattet. Hier wird die Bewohnerliste angezeigt. Mithilfe von drei Schalter können diesen durchgeblättert und angerufen werden (\seeref{fig:doordesign}).
+\\
+\\
+Währen der Bewohner die Möglichkeit hat, die Person an der Türe zu sehen, erhaltet der Besucher an der Türe kein Videosignal. Das wäre Technisch absolut möglich. Als Einwohner will man aber die Möglichkeit haben, die Türe nicht zu öffnen oder dem Besucher unsere Präsenz gar nicht bekanntgeben. 
+
+
+\begin{figure}[htb!]
+	\begin{center}
+		\includegraphics[width=0.70\textwidth]{doordesignbeta}
+		\caption[Design der Client-Webapp]{Design der Client-Webapp}
+		\label{fig:doordesign}
+	\end{center}
+\end{figure}
+
+\subsubsection{Management Tool}
+\label{kap:managementtool}
+Um eine schnellere Inbetriebnahme und eine zentrale Verwaltung des Systems zu gewährleisten, wurde der Management Tool etwickelt. Dieses Portal ermöglicht die Erfassung der Gegensprechanlagen und der Wohnungen.
+Diese Schnitstelle wurde mit webtechnologien entwickelt(HTML, PHP, Js) und wird zusammen mit den MySQL Database auf den localen Raspberry Server gehostet. Aus Sicherheitsgründen werden alle eingehende und ausgehende Verbindungen abhörsicher aufgebaut.
+\\
+Grund dafür das einsetzten von Webtechnologien ist die Plattformunabhängigkeit sowie die Einfachkeit und die Standardisierung der Sprachen. Für den ersten Prototyp lag der Fokus auf die funktionale Eingenschaften der Tool. Bei einer zukünfitige Weiterentwicklung des Produkt kann man, dank der Webtechnologien mit gerigere Aufwand das Tool skalieren bzw. neue Features hinzufühgen.  
+
+\begin{figure}[htb!]
+	\begin{center}
+		\includegraphics[width=1\textwidth]{managementtool}
+		\caption[Design der Management tool]{Design der Management tool}
+		\label{fig:managementtool}
+	\end{center}
+\end{figure}
+
+Das Tool in mit ein Login versehen, somit ist sichergestellt das nur der Hausverwalter die Anlage verwalten kann. 
+\\
+\textbf{Bewohner} 
+\\
+Unter die Bewohner Seite werden alle Wohnungen, beziehungsweise alle Bewohner aufgelistet. Diese verfühgen über ein Benutzername sowie eine Passwort die Von der Client App wervendet wird um sie sich bei den Server zu authentifizieren. Dieser Abschnitt bietet noch die Möglichkeit der Name und die Position der Wohnung welcher an den Aussensprechstelle ~\ref{fig:aussensprechstelle} angezeigt wird, abzuändern.
+\\
+\textbf{Türen} 
+\\
+Bei der Einbau eine neue Tür, kann diese in dem Management Tool aufgeführt werden. Dabei muss beachtet werden dass der Id mit derjenige die auf den neu installierte Aussensprechstelle übereinstimmt. In diese Sektion sind auch die Namen der Türen definiert, welche denn auf den Client App (Siehe Abbildung ~\ref{fig:managementtool})  angezeigt werden. 
+
+
+\subsubsection{Remote Verbindung}
+\label{kap:remote}
+..
+
+
 
 \newpage

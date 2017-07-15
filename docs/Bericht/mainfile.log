@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.7.6)  14 JUL 2017 17:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.7.9)  15 JUL 2017 13:15
 entering extended mode
 **./mainfile.tex
 (mainfile.tex
@@ -1061,11 +1061,11 @@ Overfull \hbox (34.9882pt too wide) in paragraph at lines 25--32
 ]
 (mainfile.toc
 Package cleveref Info: loaded `ngerman' language definitions on input line 1.
- [4])
+ [4] [5])
 \tf@toc=\write3
 \openout3 = `mainfile.toc'.
 
- [5] [6] (Einfuehrung.tex
+ [6] (Einfuehrung.tex
 Package cleveref Info: loaded `ngerman' language definitions on input line 30.
  [1]
 <img/hwoverview.png, id=36, 795.72281pt x 525.46312pt>
@@ -1213,76 +1213,90 @@ Underfull \hbox (badness 10000) in paragraph at lines 52--58
 
  []
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 58.
+Package cleveref Info: loaded `ngerman' language definitions on input line 59.
 [14]
 Underfull \hbox (badness 10000) in paragraph at lines 60--66
 
  []
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 84.
-[15] <img/clientDemo.jpg, id=104, 1445.4pt x 2569.6pt>
-File: img/clientDemo.jpg Graphic file (type jpg)
-
-<use img/clientDemo.jpg>
-Package pdftex.def Info: img/clientDemo.jpg used on input line 93.
-(pdftex.def)             Requested size: 144.40025pt x 256.70059pt.
-Package cleveref Info: loaded `ngerman' language definitions on input line 103.
-
- [16]
-<img/managementtool.png, id=108, 1436.36626pt x 676.77844pt>
-File: img/managementtool.png Graphic file (type png)
-
-<use img/managementtool.png>
-Package pdftex.def Info: img/managementtool.png used on input line 115.
-(pdftex.def)             Requested size: 412.56497pt x 194.39157pt.
-
-
-LaTeX Warning: Reference `fig:aussensprechstelle' on page 17 undefined on input
- line 125.
-
-Package cleveref Info: loaded `ngerman' language definitions on input line 130.
-
-[17 <./img/clientDemo.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 138--142
+Package cleveref Info: loaded `ngerman' language definitions on input line 83.
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 94--98
 
  []
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 142.
+Package cleveref Info: loaded `ngerman' language definitions on input line 98.
+[16]
 
-[18 <./img/managementtool.png>]
+LaTeX Warning: Citation `001' on page 17 undefined on input line 104.
 
-LaTeX Warning: Citation `001' on page 19 undefined on input line 148.
-
-<img/signalingprocess.jpg, id=117, 1003.75pt x 596.2275pt>
+<img/signalingprocess.jpg, id=107, 1003.75pt x 596.2275pt>
 File: img/signalingprocess.jpg Graphic file (type jpg)
 
 <use img/signalingprocess.jpg>
-Package pdftex.def Info: img/signalingprocess.jpg used on input line 157.
+Package pdftex.def Info: img/signalingprocess.jpg used on input line 113.
 (pdftex.def)             Requested size: 309.42372pt x 183.80057pt.
-Package cleveref Info: loaded `ngerman' language definitions on input line 168.
+Package cleveref Info: loaded `ngerman' language definitions on input line 124.
 
- [19]
-<img/stun.png, id=121, 779.16093pt x 491.58656pt>
+ [17]
+<img/stun.png, id=112, 779.16093pt x 491.58656pt>
 File: img/stun.png Graphic file (type png)
  <use img/stun.png>
-Package pdftex.def Info: img/stun.png used on input line 176.
+Package pdftex.def Info: img/stun.png used on input line 132.
 (pdftex.def)             Requested size: 309.42372pt x 195.22095pt.
 
-Overfull \hbox (0.76872pt too wide) in paragraph at lines 171--184
+Overfull \hbox (0.76872pt too wide) in paragraph at lines 127--140
 \T1/lmr/m/n/12 Servers im Spiel. Ähn-lich wie bei dem Si-gna-li-sie-rungs-pro-z
 ess ste-hen STUN-Servers
  []
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 185.
+Package cleveref Info: loaded `ngerman' language definitions on input line 146.
 
-[20 <./img/signalingprocess.jpg>]) (Probleme.tex
+[18 <./img/signalingprocess.jpg>]
+<img/clientDemo.jpg, id=116, 1445.4pt x 2569.6pt>
+File: img/clientDemo.jpg Graphic file (type jpg)
+ <use img/clientDemo.jpg>
+Package pdftex.def Info: img/clientDemo.jpg used on input line 158.
+(pdftex.def)             Requested size: 144.40025pt x 256.70059pt.
+Package cleveref Info: loaded `ngerman' language definitions on input line 167.
+
+
+[19 <./img/stun.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 169--173
+
+ []
+
+<img/doordesignbeta.png, id=120, 601.4972pt x 359.09157pt>
+File: img/doordesignbeta.png Graphic file (type png)
+
+<use img/doordesignbeta.png>
+Package pdftex.def Info: img/doordesignbeta.png used on input line 177.
+(pdftex.def)             Requested size: 288.79422pt x 172.41678pt.
+Package cleveref Info: loaded `ngerman' language definitions on input line 189.
+
+ [20 <./img/clientDemo.jpg>]
+<img/managementtool.png, id=124, 1436.36626pt x 676.77844pt>
+File: img/managementtool.png Graphic file (type png)
+
+<use img/managementtool.png>
+Package pdftex.def Info: img/managementtool.png used on input line 192.
+(pdftex.def)             Requested size: 412.56497pt x 194.39157pt.
+
+
+LaTeX Warning: Reference `fig:aussensprechstelle' on page 21 undefined on input
+ line 202.
+
+Package cleveref Info: loaded `ngerman' language definitions on input line 209.
+
+[21 <./img/doordesignbeta.png>]
+Package cleveref Info: loaded `ngerman' language definitions on input line 215.
+
+ [22 <./img/managementtool.png>]) (Probleme.tex
 Overfull \hbox (6.92227pt too wide) in paragraph at lines 7--12
 \T1/lmr/m/n/12 was nor-ma-ler-wei-se bein ei-ne Tür-sprech-an-la-ge nicht der F
 all ist, könn-te der Raspber-
  []
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 12.
-[21 <./img/stun.png>]
 
 LaTeX Warning: Reference `tbl:Comaparison' on page 1 undefined on input line 16
 .
@@ -1291,14 +1305,18 @@ LaTeX Warning: Reference `tbl:Comaparison' on page 1 undefined on input line 16
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 18.
 
-
+Package cleveref Info: loaded `ngerman' language definitions on input line 37.
+[23]
 Underfull \hbox (badness 10000) in paragraph at lines 39--41
 
  []
 
-) (Tests.tex) (Fazit.tex
-Package cleveref Info: loaded `ngerman' language definitions on input line 1.
- [22]) (Anhang.tex
+Package cleveref Info: loaded `ngerman' language definitions on input line 42.
+[24]) (Tests.tex
+Package cleveref Info: loaded `ngerman' language definitions on input line 4.
+ [25]) (Fazit.tex
+Package cleveref Info: loaded `ngerman' language definitions on input line 4.
+ [26]) (Anhang.tex
 Underfull \hbox (badness 10000) in paragraph at lines 13--16
 
  []
@@ -1309,37 +1327,71 @@ Overfull \hbox (199.97212pt too wide) in paragraph at lines 19--20
 ren. (htt-ps://www.raspberrypi.org/downloads/raspbian/) 
  []
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 22.
-[23] ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
+Package cleveref Info: loaded `ngerman' language definitions on input line 41.
+ [27]
 Overfull \hbox (5.80849pt too wide) in paragraph at lines 47--53
 \T1/lmr/m/n/12 Root Di-rec-to-ry spei-chern. (http://www.waveshare.com/wiki/4in
 ch_HDMI_LCD) 
  []
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 72.
-[24]
+
 Overfull \hbox (20.04683pt too wide) in paragraph at lines 83--88
 \T1/lmr/m/n/12 Kios-mode Ein-stel-lun-gen wer-den im con-fig Da-tei (/home/pi/.
 config/lxsession/LXDE-
  []
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 121.
+Package cleveref Info: loaded `ngerman' language definitions on input line 88.
+[28]
+Package cleveref Info: loaded `ngerman' language definitions on input line 125.
 
-[25]
-Package cleveref Info: loaded `ngerman' language definitions on input line 154.
+ [29]
+Package cleveref Info: loaded `ngerman' language definitions on input line 163.
 
- [26]
-Package cleveref Info: loaded `ngerman' language definitions on input line 205.
+ [30]
+Underfull \hbox (badness 10000) in paragraph at lines 210--213
 
- [27])
+ []
+
+Package cleveref Info: loaded `ngerman' language definitions on input line 213.
+
+[31]
+Package cleveref Info: loaded `ngerman' language definitions on input line 256.
+
+ [32]
+Overfull \hbox (17.47829pt too wide) in paragraph at lines 257--258
+\T1/lmr/m/n/12 Falls ein IP Als host-na-me ver-wen-det wird, kann man \T1/lmr/m
+/it/12 @alt_names \T1/lmr/m/n/12 mit IP:192.168.0.18
+ []
+
+Package cleveref Info: loaded `ngerman' language definitions on input line 288.
+
+[33]
+Underfull \hbox (badness 10000) in paragraph at lines 292--294
+
+ []
+
+Package cleveref Info: loaded `ngerman' language definitions on input line 328.
+
+[34]
+Underfull \hbox (badness 10000) in paragraph at lines 368--370
+
+ []
+
+Package cleveref Info: loaded `ngerman' language definitions on input line 370.
+
+[35]
+Package cleveref Info: loaded `ngerman' language definitions on input line 422.
+
+ [36])
 Package cleveref Info: loaded `ngerman' language definitions on input line 200.
 
- [28] (mainfile.bbl
+ [37] (mainfile.bbl
 
 LaTeX Warning: Empty `thebibliography' environment or \BreakBibliography
                before end of `thebibliography' environment on input line 3.
@@ -1347,7 +1399,7 @@ LaTeX Warning: Empty `thebibliography' environment or \BreakBibliography
 )
 Package cleveref Info: loaded `ngerman' language definitions on input line 204.
 
- [29] (mainfile.lof
+ [38] (mainfile.lof
 Package cleveref Info: loaded `ngerman' language definitions on input line 1.
 )
 \tf@lof=\write4
@@ -1355,7 +1407,7 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 1.
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 209.
 
- [30] (mainfile.lot
+ [39] (mainfile.lot
 Package cleveref Info: loaded `ngerman' language definitions on input line 1.
 )
 \tf@lot=\write5
@@ -1363,19 +1415,19 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 1.
 
 Package cleveref Info: loaded `ngerman' language definitions on input line 212.
 
- [31]
+ [40]
 \openout2 = `abkuerzungsverzeichnis.aux'.
 
  (abkuerzungsverzeichnis.tex
-[32
+[41
 
 ])
 \openout2 = `erklaerung.aux'.
 
- (erklaerung.tex) [33
+ (erklaerung.tex) [42
 
 
-] [34
+] [43
 
 ] (mainfile.aux (title.aux)
 Package cleveref Info: loaded `ngerman' language definitions on input line 5.
@@ -1392,13 +1444,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 10504 strings out of 493323
- 166382 string characters out of 3139058
- 386238 words of memory out of 3000000
- 13775 multiletter control sequences out of 15000+200000
+ 10648 strings out of 493323
+ 168095 string characters out of 3139067
+ 406894 words of memory out of 3000000
+ 13918 multiletter control sequences out of 15000+200000
  56117 words of font info for 45 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 48i,12n,51p,8848b,2072s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 48i,12n,51p,8848b,2076s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Fil
 es/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}<C:/Program Files/MiKTeX 2.9/fonts/t
 ype1/public/lm/lmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lm
@@ -1406,9 +1458,9 @@ r12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmri12.pfb><C:/Progr
 am Files/MiKTeX 2.9/fonts/type1/public/lm/lmro12.pfb><C:/Program Files/MiKTeX 2
 .9/fonts/type1/public/lm/lmssbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 public/lm/lmsy10.pfb>
-Output written on mainfile.pdf (42 pages, 3097320 bytes).
+Output written on mainfile.pdf (51 pages, 3215579 bytes).
 PDF statistics:
- 193 PDF objects out of 1000 (max. 8388607)
+ 224 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 86 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 91 words of extra memory for PDF output out of 10000 (max. 10000000)
 

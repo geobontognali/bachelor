@@ -1,8 +1,8 @@
 \section{Anhang}
 \label{sec:anhang}
+Diese Anleitungen sind an den Weiterentwikler des Prototyp gerichtet. Mithilfe von diese Dokumentation und den mitgelieferte Image des Aussensprechstelle, soll ein Entwickler im Stand sein ein fresh installiert Raspbian OS zu einer Aussensprechstelle/Server zu konfigurieren. Alles was Konfiguriert wurde, wurde Dokumentiert und in den Anleitung aufgeführt. Diese soll auch das Hinzufügen von zukünftige Funktionalitäten erleichtern. 
 
 \subsection{Aussensprechstelle Konfigurationsanleitung}
-Diese Anleitung ist an den Weiterentwikler des Prototyp gerichtet. Mithilfe von diese Dokumentation und den mitgelieferte Image des Aussensprechstelle, soll ein Entwickler im Stand sein ein fresh installiert Raspbian OS zu einer Aussensprechstelle zu konfigurieren. Alles was Konfiguriert wurde, wurde Dokumentiert und in den Anleitung aufgeführt. Diese soll auch das Hinzufügen von zukünftige Funktionalitäten erleichtern. 
 
 \subsubsection{Aktuelle Stand}
 Betriebssystem:	Raspbian jessie with pixel\\
@@ -199,8 +199,240 @@ breaklines=true]
 \end{lstlisting}
 Damit die SpeakerController und die TasterController von den Watchdog überwachen werden muss unter /etc/watchdog.conf die Konfiguratiosdatei abgeändert werden. Der Inhalt des Konfigurationsdatei wird mit dem Projekt mitgeliefert. 
 
-\subsubsection{Sicherheitszertifikate Intallazion}
-....
 
 \subsection{Server Konfigurationsanleitung}
-Geo 
+\subsubsection{Aktuelle Stand}
+Betriebssystem:	Raspbian jessie with pixel\\
+Version: April 2017\\
+Kernel Version: 4.4
+
+\subsubsection{Namen und Passwortkonzept}
+Hostname: SrvPixxx (x= fortlaufende Nummerierung)\\
+User: pi\\
+Password: raspberry (Default Password)\\
+
+
+\subsubsection{Software Installation}
+Nun werden die benötigten Dienste und Tools installiert, die von dem Server benötigt werden.
+
+\begin{itemize}
+	\item Installation der Webserver. (PHP, Nginx, MySQL, Java SDK, Composer, Utils)
+\end{itemize}
+
+\begin{lstlisting}[backgroundcolor = \color{snippetcolor},
+language = bash,
+xleftmargin = 0.5cm,
+framexleftmargin = 0.1em,
+breaklines=true]
+	apt-get install nginx
+	udo apt-get install mysql-server
+	apt-get install php5-fpm php5-mysql
+	sudo apt-get install mysql-server mysql-client
+	sudo apt-get install oracle-java8-jdk
+	sudo apt-get install curl php5-cli git
+	curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+\end{lstlisting}
+
+\subsubsection{Erstellung SSL Zertifikate}
+Bevor die Webapplikationen installiert werden können, müssen die Zertifikate generiert werden. (Self-Signed) 
+
+\begin{itemize}
+	\item Erstellung SSL Zertifikat für die Client Webapplikation.
+	Als Hostname wird hier als Beispiel intercom.app verwendet. Zuerst muss eine Konfigurationsdatei (v3.ext) mit dem folgenden Inhalt generiert werden:
+\end{itemize}
+
+\begin{lstlisting}[backgroundcolor = \color{snippetcolor},
+language = bash,
+xleftmargin = 0.5cm,
+framexleftmargin = 0.1em,
+breaklines=true]
+	authorityKeyIdentifier=keyid,issuer
+	basicConstraints=CA:TRUE
+	keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
+	subjectAltName = @alt_names
+	
+	[alt_names]
+	DNS.1 = intercom.app
+\end{lstlisting}
+Falls ein IP Als hostname verwendet wird, kann man \textit{@alt\_names} mit IP:192.168.0.18 ersetzen.
+
+\begin{itemize}
+	\item Nun müssen folgende Befehle eingegeben werden. Wenn gefragt, muss der Hostname oder IP als Common Name (CN) Eingegeben werden. Als Password kann immer dieselbe verwendet werden und muss das Keystore Password der Signaling-Server entsprechen.
+\end{itemize}
+
+\begin{lstlisting}[backgroundcolor = \color{snippetcolor},
+xleftmargin = 0.5cm,
+framexleftmargin = 0.1em,
+breaklines=true]
+	sudo openssl genrsa -des3 -out rootCA.key 2048
+	
+	sudo openssl req -x509 -new -nodes -key rootCA.key -sha256 -days 1024 -out rootCA.pem
+	
+	sudo openssl req -new -sha256 -nodes -out server.csr -newkey rsa:2048 -keyout server.key
+	
+	sudo openssl x509 -req -in server.csr -CA rootCA.pem -CAkey rootCA.key -CAcreateserial -out server.crt -days 500 -sha256 -extfile v3.ext
+	
+	sudo openssl pkcs12 -export -in server.crt -inkey server.key -out cert.p12
+	
+	sudo keytool -importkeystore -srckeystore cert.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS
+	
+	sudo openssl x509 -inform PEM -outform DER -in server.crt -out phone.der.crt
+
+\end{lstlisting}
+
+Somit wurden diverse Dateien generiert. Die folgenden werden später gebraucht.
+\begin{itemize}
+	\item server.cert und server.key -> SSL Zertifikate für Apache2
+	\item rootCA.pem -> Root CA. Das muss in den Client-Browser importiert werden, damit die Clients den Server als Vertraulich erkennen. 
+	\item phone.der.crt -> Root CA für Mobilegeräte. Bei Mobilegeräte kann es per E-Mail verschickt werden und dann aus der Systemeinstellungen installiert werden.
+	\item keystore.jks -> Das muss später in die Selber Verzeichnis kopiert werden, wo der SignalingServer installiert wird.  
+\end{itemize}
+
+\subsubsection{Konfiguration von Nginx}
+Vor dem Deploy den Webapplikationen muss der Webserver noch konfiguriert werden.
+\\
+\begin{itemize}
+	\item In der Datei /etc/php5/fpm/php.ini muss die folgende Zeile auskommentiert und editiert werden: 
+\end{itemize}
+
+\begin{lstlisting}[backgroundcolor = \color{snippetcolor},
+language = bash,
+xleftmargin = 0.5cm,
+framexleftmargin = 0.1em,
+breaklines=true]
+	cgi.fix_pathinfo=0
+\end{lstlisting}
+
+\begin{itemize}
+	\item Nun muss Nginx so konfiguriert werden, dass PHP als compiler verwendet wird. Der Datei \textit{/etc/nginx/sites-available/default} muss editiert werden. Im rot markiert sind die Stellen die angepasst werden müssen.
+	\item Nun müssen die zwei VirtualHosts für die zwei WebApps konfiguriert werden. Diese werden unter verschiedene Ports laufen. Für das müssen zwei Konfigurationsdatei unter \textit{/etc/nginx/sites-available} erstellt werden. Bsp: intercom.app und management.app.
+	Der Inhalt muss wie folgendes aussehen. Im rot markiert sind die Stellen, die unterschiedlich sein müssen für die beiden Webapplikationen. Der Path zu den SSL-Zertifikate muss auch angepasst werden.	
+\end{itemize}
+
+\begin{lstlisting}[backgroundcolor = \color{snippetcolor},
+language = bash,
+xleftmargin = 0.5cm,
+framexleftmargin = 0.1em,
+breaklines=true]
+# Default server configuration
+server {
+# SSL configuration
+listen 443 ssl;  # 444 for the second host
+listen [::]:443 ssl;
+
+ssl_certificate /path/to/the/certificate/server.crt;
+ssl_certificate_key /path/to/the/certificate/server.key;
+
+root /var/www/intercom/public;  # /management/public for the second host
+
+# Add index.php to the list if you are using PHP
+index index.php index.html index.htm index.nginx-debian.html;
+
+server_name _;
+
+location / {
+# First attempt to serve request as file, then
+# as directory, then fall back to displaying a 404.
+try_files $uri $uri/ /index.php?$query_string;
+}
+
+location ~ \.php$ {
+include snippets/fastcgi-php.conf;
+fastcgi_pass unix:/var/run/php5-fpm.sock;
+}
+location ~ /\.ht {
+deny all;
+}
+}
+\end{lstlisting}
+
+\begin{itemize}
+	\item Zum Abschliessen noch die folgenden Befehle eingeben:
+\end{itemize}
+
+\begin{lstlisting}[backgroundcolor = \color{snippetcolor},
+language = bash,
+xleftmargin = 0.5cm,
+framexleftmargin = 0.1em,
+breaklines=true]
+sudo ln -s /etc/nginx/sites-available/intercom.app /etc/nginx/sites-enabled/
+sud ln -s /etc/nginx/sites-available/management.app /etc/nginx/sites-enabled/
+sudo service nginx reload
+sudo service nginx restart
+sudo service php5-fpm restart
+sudo reboot
+
+\end{lstlisting}
+
+\subsubsection{Deploy Webapplikationen}
+Vor dem Deploy den Webapplikationen muss der Webserver noch konfiguriert werden.
+\\
+\begin{itemize}
+	\item Die beide Webapplikationen müssen zuerst auf dem Server unter den passenden Verzeichnissen kopiert werden.\\
+		/var/www/management\\
+		/var/www/intercom
+	\item Rechte anpassen
+\end{itemize}
+
+\begin{lstlisting}[backgroundcolor = \color{snippetcolor},
+language = bash,
+xleftmargin = 0.5cm,
+framexleftmargin = 0.1em,
+breaklines=true]
+sudo chmod -R 775 /var/www
+sudo chmod -R 777 /var/www/management/storage
+sudo chmod -R 775 /var/www/intercom/storage
+sudo chgrp -R www-data /var/www/
+\end{lstlisting}
+
+\begin{itemize}
+	\item MySQL Database erstellen, dann Anmeldedaten und Database Name in der Datei: .env eingeben. (Falls .env nicht vorhanden: cp .env.example .env)
+	\item Webapplikation installieren: (Diese befehle müssen in der Root Dir von jede Webapp eingegeben werden).
+\end{itemize}
+
+\begin{lstlisting}[backgroundcolor = \color{snippetcolor},
+language = bash,
+xleftmargin = 0.5cm,
+framexleftmargin = 0.1em,
+breaklines=true]
+composer install
+php artisan migrate (MNGMT Tool Only)
+php artisan key:generate
+\end{lstlisting}
+Die zwei Webapps müssten nun unter die ports 443 und 444 aufrufbar sein.
+
+\subsubsection{Deploy Dienste und Services}
+\begin{itemize}
+	\item Zuerst die benötigten Pfade erstellen
+\end{itemize}
+
+\begin{lstlisting}[backgroundcolor = \color{snippetcolor},
+language = bash,
+xleftmargin = 0.5cm,
+framexleftmargin = 0.1em,
+breaklines=true]
+mkdir /home/pi/server/signalingServer
+mkdir /home/pi/server/relayController
+\end{lstlisting}
+
+\begin{itemize}
+	\item Die beide kompilierte JARs in den entsprechenden Verzeichnissen kopieren. Die kompilierten JARs sind in den jeweilige Projekts Verzeichnisse unter /deploy zu finden.
+	\item Nun muss noch für den SignalingServer noch das vorher hergestellte keystore.jks kopiert werden. Der Keystore muss sich in dem gleichen Verzeichnis wie der Signaling Server befinden.
+	\item Für beide Dienste muss noch das autostart Skript unter /etc/init.d/ kopiert werden. Die Skripte sind unter dem Script-Verzeichnis gespeichert. Auch diese Skripte müssen ausführbar sein. Folgende Befehle müssen noch eingegeben werden:
+\end{itemize}
+
+\begin{lstlisting}[backgroundcolor = \color{snippetcolor},
+language = bash,
+xleftmargin = 0.5cm,
+framexleftmargin = 0.1em,
+breaklines=true]
+sudo chmod +x /etc/init.d/signalingServer
+sudo chmod +x /etc/init.d/relayController
+sudo update-rc.d signalingServer defaults
+sudo update-rc.d relayController defaults 
+
+\end{lstlisting}
+
+\subsection{Zertifikate}
+....
+
