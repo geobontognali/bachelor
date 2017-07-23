@@ -1,6 +1,6 @@
 \select@language {ngerman}
-\contentsline {table}{\numberline {1}{\ignorespaces Server HW Komponenten}}{8}
-\contentsline {table}{\numberline {2}{\ignorespaces Aussensprechstelle HW Komponenten}}{8}
-\contentsline {table}{\numberline {3}{\ignorespaces PIN-Zuweisung zwischen den Server und die Relais Module}}{10}
-\contentsline {table}{\numberline {4}{\ignorespaces PIN-Zuweisung zwischen den Raspberry PI und die Schalter}}{10}
-\contentsline {table}{\numberline {5}{\ignorespaces Verwendete Raspberry Pi im Vegleich mit die Banana Pi Alternative}}{24}
+\contentsline {table}{\numberline {1}{\ignorespaces Server HW Komponenten}}{7}
+\contentsline {table}{\numberline {2}{\ignorespaces Aussensprechstelle HW Komponenten}}{7}
+\contentsline {table}{\numberline {3}{\ignorespaces PIN-Zuweisung zwischen den Server und die Relais Module}}{11}
+\contentsline {table}{\numberline {4}{\ignorespaces PIN-Zuweisung zwischen den Raspberry PI und die Schalter}}{11}
+\contentsline {table}{\numberline {5}{\ignorespaces Verwendete Raspberry Pi im Vegleich mit die Banana Pi Alternative}}{21}

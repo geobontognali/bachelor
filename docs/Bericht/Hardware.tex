@@ -1,18 +1,27 @@
-\section{Hardware}
-\label{sec:chapterexample}
-
-\subsection{Hardware System Übersicht}
-Das System wird Hardwareseitig hauptsächlich in zwei Teile unterteilt. Der Server, die zentrale Einheit und die Aussensprechstelle.
+\section{Lösungskonzept}
+\label{sec:lösungskonzept}
+Die \cref{fig:hwoverview} bietet ein Überblick über den verschiedenen Hardware-Komponenten, die für den Türsprechanlage notwendig sind. 
 \\
-Die \cref{fig:hwoverview} bietet ein Überblick über die verschiedene Hardware Komponenten die zusammenarbeiten werden.
+Es werden nun zwei Begriffe erklärt, die in diesem Dokument von grosse Bedeutung sind. Das erste ist die Türsprechanlage. Damit gemeint ist die Gesamtheit der Komponenten die denn Zusammen den Endprodukt darstellen.
+\\
+Das zweite Begriff ist die Aussensprechstelle. Wie in der \cref{fig:hwoverview} ersichtlich handelt sich hauptsächlich um ein Mikrocontroller mit verschiedene Modulen die an den Eingangstüre installiert wird.
+\\
+Räumlich von der Aussensprechstelle getrennt befindet sich der Server. Diese besteht aus ein Mikrocontroller, die als Server im Einsatz ist, ein Switch die dazu dient die Aussenssprechstelle mit Strom und Datenverbindung zu versorgen und die Relais welche den Türöffner und Glocken betätigen.
 \begin{figure}[htb!]
 	\begin{center}
-		\includegraphics[width=1\textwidth]{hwoverview}
+		\includegraphics[width=0.95\textwidth]{hwoverview}
 		\caption[Hardware Ecosystem]{Hardware Ecosystem}
 		\label{fig:hwoverview}
 	\end{center}
 \end{figure}
+\\
+Das System wird nicht nur aus Hardware bestehen, sondern auch aus viel Software-Elemente die zusammen arbeiten werden. Als erstes, wie in der Projektplanung bereits definiert, wird die Hardware Seite der Lösung realisiert. Sobald alle Hardware Komponenten getestet und auf Kompatibilität geprüft sein werden, wird die Programmierung stattfinden.
+
+\section{Hardware}
+\label{sec:chapterexample}
 \subsection{Komponenten}
+Das System wird Hardwareseitig hauptsächlich in zwei Teile unterteilt. Der Server und die Aussensprechstelle.
+\\
 Die \cref{tbl:SrvHW} und die \cref{tbl:DoorHW} zeigen die benötigten HW-Komponenten, welchen an die jeweilige Stellen benötigt werden.
 \\
 Um den Überblick über die Kosten aller Hardware-Komponenten zu behalten, sind hier auch die Preisen aufgelistet. Wichtig hier ist sicherzustellen, dass die gesamten Hardwarekosten diejenigen der von der Konkurrenz angebotenen Produkte nicht übersteigen.
@@ -53,6 +62,36 @@ Die Preise können natürlich leicht abweichen da es sich um Standardkomponenten
 	\caption{Aussensprechstelle HW Komponenten}
 	\label{tbl:DoorHW}
 \end{table}
+
+\subsection{Stromspeisung}
+\label{sec:poe}
+Ein Ziel unser Lösung ist die Installationskosten zu senken und die Montage zu vereinfachen. Aus diesem Grund war für unsere Lösung wichtig, Power over Ethernet zu verwenden.
+Moderne Hausalte werden meistens mit Ethernet Verkabelung verlegt. Dank PoE ist nur noch ein Kabel notwendig, welches Strom und Konnektivität gewährleistet.
+\\
+\\
+Zusätzlich braucht das System eine Leitung, welche den Server und der Türöffner verbindet.
+Auch hier kann das Endinstallation vereinfacht werden. Anstatt ein dediziertes Kabel zwischen Server und Türöffner einzuziehen, werden zwei Drähte von dem bereits installierten Ethernet Kabel verwendet.
+\\
+\\
+Cisco Catalyst 3560g welcher für den PoE Stromversorgung zuständigt ist verwendet das Phantomspeisung oder Mode A. Das heisst, dass die mit Datenübertragung belegten Drähte mit der Stromversorgung überlagert werden. Das ist möglich da Elektrizität mit eine Frequenz von 60 Hz schwingt und die Datenübertragungen im bereich 10-100MHz liegen.
+\begin{figure}[htb!]
+	\begin{center}
+		\includegraphics[width=0.89\textwidth]{CatalystPoEpinouts}
+		\caption[Catalyst Pinouts]{Catalyst 3560g PoE Pinbelegung}
+		\label{fig:catalystPinouts}
+	\end{center}
+\end{figure}
+\\
+Wie im \cref{fig:ethernetBelegung} dargestellt werden die Adern 7 und 8 dazu verwendet um der Türöffner zu betätigen. Aus den 3 verbliebenden Adernpaare kann maximal die Ethernet Kategorie 100BASE-T erreicht werden. Da aber WebRTC eine erhebliche kleinere Bandbreite in Anspruch nimmt, stellt für die Aussensprechtellen kein Hinderniss dar.
+
+\begin{figure}[htb!]
+	\begin{center}
+		\includegraphics[width=0.89\textwidth]{EthernetPinbelegung}
+		\caption[EthernetPinbelegung]{Cat. 7 Ethernet Pinbelegung für die Aussensprechstellen}
+		\label{fig:ethernetBelegung}
+	\end{center}
+\end{figure}
+
 
 
 \subsection{Server}
@@ -108,7 +147,8 @@ Der Server wird mit einem Relay-Board verbunden. Diese wird die Gongs und die T�
 
 Bei der Aussensprechstelle wird auch eine Raspberry Pi eingesetzt. Hier sind mehrere Zusatzkomponenten notwendig. Die Speisung an dieser stelle erfolgt nur über PoE, aus diesem Grund ist PoE-Splitter vorhanden.
 \\
-Für die Audiowiedergabe ist ein kleines Lautsprecher und ein Verstärker nötig. Die Chinch-Anschluss der Raspberry Pi hat eine viel zu kleine innere Widerstand um direkt ein solches Lautsprecher anschliessen zu können. Die Hauptproblematik nun besteht darin, dass die Massen des Raspberry Pi, der Verstärker und des Audio-Interface alle zusammen gekoppelt sind. Das führt zu Brunschleifen die wiederum Störsignale auf dem Audio-Ausgang erzeugen. Um das zu vermeiden ist eine Massentrennfilter an dieser Stelle notwendig. Diese Problematik wird im ein eigenes Kapitel genauer erläutert.
+Für die Audiowiedergabe ist ein kleines Lautsprecher und ein Verstärker nötig. Die Chinch-Anschluss der Raspberry Pi hat eine viel zu kleine Ausgangsleistung um direkt ein solches Lautsprecher anschliessen zu können. 
+\\
 Die drei Schalter, die für die Bedienung der Aussensprechstelle notwendig sind werden an die GPIOs der Raspberry PI angeschlossen. Die \cref{tbl:pinroutesdoor} zeigt die PIN-Zuweisung.
 \begin{table}[]
 	\centering
@@ -123,30 +163,18 @@ Die drei Schalter, die für die Bedienung der Aussensprechstelle notwendig sind 
 	\label{tbl:pinroutesdoor}
 \end{table}
 
-
-\subsection{Power over Ethernet}
-\label{sec:poe}
-Moderne Hausalte werden meistens mit ethernet Verkabelung verlegt. Ziel des Aussensprechstelle ist die Installationskosten zu senken und die Montage zu vereinfachen. Drei Anschlusse werden von den Aussensprechstelle benötigt um sein Ziel zu erreichen und zwar Strom, Internetverbindung und eine Leitung der den Türöffner betätigt. Alle diese Fünktionalität können in einem Kat 7 Ethernet Kabel zusammengeführt werden. 
+\subsubsection{Problemen}
+Während der Zusammenstellung der Aussensprechstelle sind die erste unvorhergesehene Problemen aufgetaucht. Die Audiowiedergabe und Audioaufnahme stellten eine grössere Herausforderung als geplant dar.
 \\
-Cisco Catalyst 3560g welcher für den PoE Stromversorgung zuständigt ist verwendet das Phantomspeisung oder Mode A. Das heisst dass die mit Datenübertragung belegten Adern mit der Stromversorgung überlagert werden. Diese ist möglich da Elektrizität eine niedrige Frequenz von 60 Hz hat und Datenübertragungen im bereich 10-100MHz liegen.
-
-\begin{figure}[htb!]
-	\begin{center}
-		\includegraphics[width=0.89\textwidth]{CatalystPoEpinouts}
-		\caption[Catalyst Pinouts]{Catalyst 3560g PoE Pinbelegung}
-		\label{fig:catalystPinouts}
-	\end{center}
-\end{figure}
-
-Wie im Abbild nr.5!!? dargestellt werden die Adern 7 und 8 dazu verwendet um der Türöffner zu betätigen. Aus den 3 verbliebenden Adernpaare kann maximal die Ethernet Kategorie 100BASE-T erreicht werden. Da aber WebRTC eine erhebliche kleinere Bandbreite in Anspruch nimmt, stellt für die Aussensprechtellen kein Hinderniss dar.
-
-\begin{figure}[htb!]
-	\begin{center}
-		\includegraphics[width=0.89\textwidth]{EthernetPinbelegung}
-		\caption[EthernetPinbelegung]{Cat. 7 Ethernet Pinbelegung für die Aussensprechstellen}
-		\label{fig:catalystPinouts}
-	\end{center}
-\end{figure}
-
-
+\\
+\textbf{Audiowidergabe} 
+\\
+Die grösste Problematik bei der Audiowiedergabe besteht darin, dass die Massen des Raspberry Pi, der Verstärker und des Audio-Interface alle zusammen gekoppelt sind. Das führt zu Brummschleifen die wiederum Störsignale auf dem Audio-Ausgang erzeugen. Um das zu vermeiden wird ein Massentrennfilter an dieser Stelle eingesetzt.
+\\
+Die Störsignale sind nun fast komplett verschwunden, ein klein Hintergrundgeräusch ist aber immer noch vorhanden. Um dieses Problem umzugehen, wird ein zusätzliches Relay installiert, welche das Lautsprecher-Stromkreis unterbricht, wenn diese nicht verwendet wird.
+\\
+\\
+\textbf{Das Mikrophon}
+\\
+Das Problem bei der Audioaufnahme liegt bei der Mikrophon selber. Die Raspberry Pi besitzt kein integriertes Audio-Input. Aus diesem Grund wurde ein USB-Audio Interface verwendet. Es hat sich aber herausgestellt, dass nicht so einfach ist, kostengünstige und qualitatives USB Mikrophone zu finden. Die meisten Produkten sind nicht für den Outdoor-Betrieb gedacht. Für unser Prototyp ist das eingesetzte Mikrophon völlig ausreichen. Für das Endprodukt sollte man hier noch etwas Zeit und Geld in der Evaluation ein besseres Mikrophon investieren.
 \newpage

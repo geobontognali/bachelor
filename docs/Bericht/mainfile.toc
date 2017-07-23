@@ -2,71 +2,66 @@
 \contentsline {section}{\numberline {1}Einf\IeC {\"u}hrung}{1}
 \contentsline {subsection}{\numberline {1.1}Problemstellung}{1}
 \contentsline {subsection}{\numberline {1.2}Grundidee}{1}
-\contentsline {subsection}{\numberline {1.3}L\IeC {\"o}sungskonzept}{1}
-\contentsline {section}{\numberline {2}Projektplanung}{3}
-\contentsline {subsection}{\numberline {2.1}Prozess}{3}
-\contentsline {subsection}{\numberline {2.2}Zeitplanung}{4}
-\contentsline {section}{\numberline {3}Aktueller Stand}{5}
-\contentsline {subsection}{\numberline {3.1}Die Herausforderungen der Digitalisierung}{5}
-\contentsline {subsection}{\numberline {3.2}Marktsituation}{6}
-\contentsline {section}{\numberline {4}Hardware}{7}
-\contentsline {subsection}{\numberline {4.1}Hardware System \IeC {\"U}bersicht}{7}
-\contentsline {subsection}{\numberline {4.2}Komponenten}{7}
-\contentsline {subsection}{\numberline {4.3}Server}{8}
-\contentsline {subsection}{\numberline {4.4}Aussensprechstelle}{8}
-\contentsline {subsection}{\numberline {4.5}Power over Ethernet}{10}
-\contentsline {section}{\numberline {5}Software}{12}
-\contentsline {subsection}{\numberline {5.1}Programmiersprachen}{12}
-\contentsline {subsubsection}{\numberline {5.1.1}Java}{12}
-\contentsline {subsubsection}{\numberline {5.1.2}PHP/Javascript}{12}
-\contentsline {subsubsection}{\numberline {5.1.3}PHP Framework: Laravel}{13}
-\contentsline {subsection}{\numberline {5.2}System \IeC {\"U}bersicht}{13}
-\contentsline {subsection}{\numberline {5.3}Raspbian}{14}
-\contentsline {subsection}{\numberline {5.4}Dienste}{14}
-\contentsline {subsubsection}{\numberline {5.4.1}Taster Controller}{14}
-\contentsline {subsubsection}{\numberline {5.4.2}Speaker Controller}{15}
-\contentsline {subsubsection}{\numberline {5.4.3}Relay Controller}{15}
-\contentsline {subsubsection}{\numberline {5.4.4}Signaling Server}{15}
-\contentsline {subsection}{\numberline {5.5}Logging}{16}
-\contentsline {subsection}{\numberline {5.6}Watchdog}{16}
-\contentsline {subsection}{\numberline {5.7}WebRTC}{16}
-\contentsline {subsubsection}{\numberline {5.7.1}Signaling Process}{17}
-\contentsline {subsubsection}{\numberline {5.7.2}STUN Servers \& Remote Verbindung}{18}
-\contentsline {subsection}{\numberline {5.8}Webapplikationen}{19}
-\contentsline {subsubsection}{\numberline {5.8.1}Die Datenbank}{19}
-\contentsline {subsubsection}{\numberline {5.8.2}Client Webapplikation}{19}
-\contentsline {subsubsection}{\numberline {5.8.3}Aussensprechstelle Webapplikation}{20}
-\contentsline {subsubsection}{\numberline {5.8.4}Management Tool}{20}
-\contentsline {subsubsection}{\numberline {5.8.5}Remote Verbindung}{22}
-\contentsline {section}{\numberline {6}Probleme}{23}
-\contentsline {subsection}{\numberline {6.1}Rechenleistung der Mikrocontroller}{23}
-\contentsline {subsubsection}{\numberline {6.1.1}Alternative}{23}
-\contentsline {subsection}{\numberline {6.2}Das Mikrophon}{24}
-\contentsline {section}{\numberline {7}Testabnahme}{25}
-\contentsline {section}{\numberline {8}Fazit und Ausblick}{26}
-\contentsline {section}{\numberline {9}Anhang}{27}
-\contentsline {subsection}{\numberline {9.1}Aussensprechstelle Konfigurationsanleitung}{27}
-\contentsline {subsubsection}{\numberline {9.1.1}Aktuelle Stand}{27}
-\contentsline {subsubsection}{\numberline {9.1.2}Namen und Passwortkonzept}{27}
-\contentsline {subsubsection}{\numberline {9.1.3}Betriebssystem Installation}{27}
-\contentsline {subsubsection}{\numberline {9.1.4}Allgemeine Einstellungen}{27}
-\contentsline {subsubsection}{\numberline {9.1.5}Bidschirm Konfiguration}{28}
-\contentsline {subsubsection}{\numberline {9.1.6}Browser Kiosk-mode}{28}
-\contentsline {subsubsection}{\numberline {9.1.7}Aussensprechstelle Initialisierung}{29}
-\contentsline {subsubsection}{\numberline {9.1.8}Taster Controller}{30}
-\contentsline {subsubsection}{\numberline {9.1.9}Speaker Controller Service}{30}
-\contentsline {subsubsection}{\numberline {9.1.10}Watchdog/Watchdog deamon}{31}
-\contentsline {subsection}{\numberline {9.2}Server Konfigurationsanleitung}{31}
-\contentsline {subsubsection}{\numberline {9.2.1}Aktuelle Stand}{31}
-\contentsline {subsubsection}{\numberline {9.2.2}Namen und Passwortkonzept}{32}
-\contentsline {subsubsection}{\numberline {9.2.3}Software Installation}{32}
-\contentsline {subsubsection}{\numberline {9.2.4}Erstellung SSL Zertifikate}{32}
-\contentsline {subsubsection}{\numberline {9.2.5}Konfiguration von Nginx}{34}
-\contentsline {subsubsection}{\numberline {9.2.6}Deploy Webapplikationen}{36}
-\contentsline {subsubsection}{\numberline {9.2.7}Deploy Dienste und Services}{36}
-\contentsline {subsection}{\numberline {9.3}Zertifikate}{37}
-\contentsline {section}{Literaturverzeichnis}{38}
-\contentsline {section}{Abbildungsverzeichnis}{39}
-\contentsline {section}{Tabellenverzeichnis}{40}
-\contentsline {section}{Abk\IeC {\"u}rzungsverzeichnis}{41}
-\contentsline {section}{Eidesstattliche Erkl\IeC {\"a}rung}{42}
+\contentsline {section}{\numberline {2}Projektplanung}{2}
+\contentsline {subsection}{\numberline {2.1}Prozess}{2}
+\contentsline {subsection}{\numberline {2.2}Zeitplanung}{3}
+\contentsline {section}{\numberline {3}Aktueller Stand der Technik}{4}
+\contentsline {subsection}{\numberline {3.1}Die Herausforderungen der Digitalisierung}{4}
+\contentsline {subsection}{\numberline {3.2}Marktsituation}{5}
+\contentsline {section}{\numberline {4}L\IeC {\"o}sungskonzept}{6}
+\contentsline {section}{\numberline {5}Hardware}{7}
+\contentsline {subsection}{\numberline {5.1}Komponenten}{7}
+\contentsline {subsection}{\numberline {5.2}Stromspeisung}{8}
+\contentsline {subsection}{\numberline {5.3}Server}{9}
+\contentsline {subsection}{\numberline {5.4}Aussensprechstelle}{10}
+\contentsline {subsubsection}{\numberline {5.4.1}Problemen}{10}
+\contentsline {section}{\numberline {6}Software}{13}
+\contentsline {subsection}{\numberline {6.1}Programmiersprachen}{13}
+\contentsline {subsubsection}{\numberline {6.1.1}Java}{13}
+\contentsline {subsubsection}{\numberline {6.1.2}PHP/Javascript}{13}
+\contentsline {subsubsection}{\numberline {6.1.3}PHP Framework: Laravel}{14}
+\contentsline {subsection}{\numberline {6.2}System \IeC {\"U}bersicht}{14}
+\contentsline {subsection}{\numberline {6.3}M\IeC {\"u}hsame Security Policies}{15}
+\contentsline {subsection}{\numberline {6.4}WebRTC}{16}
+\contentsline {subsubsection}{\numberline {6.4.1}Signaling Process}{16}
+\contentsline {subsubsection}{\numberline {6.4.2}STUN Servers \& Remote Verbindung}{17}
+\contentsline {subsection}{\numberline {6.5}Webapplikationen}{18}
+\contentsline {subsubsection}{\numberline {6.5.1}Client Webapplikation}{18}
+\contentsline {subsubsection}{\numberline {6.5.2}Aussensprechstelle Webapplikation}{19}
+\contentsline {subsubsection}{\numberline {6.5.3}Management Tool}{21}
+\contentsline {subsubsection}{\numberline {6.5.4}Remote Verbindung}{22}
+\contentsline {subsection}{\numberline {6.6}OS und Dienste}{22}
+\contentsline {subsubsection}{\numberline {6.6.1}Raspbian}{23}
+\contentsline {subsubsection}{\numberline {6.6.2}Taster Controller}{23}
+\contentsline {subsubsection}{\numberline {6.6.3}Speaker Controller}{23}
+\contentsline {subsubsection}{\numberline {6.6.4}Relay Controller}{24}
+\contentsline {subsection}{\numberline {6.7}Logging}{24}
+\contentsline {subsection}{\numberline {6.8}Watchdog}{25}
+\contentsline {section}{\numberline {7}Testabnahme}{26}
+\contentsline {section}{\numberline {8}Fazit und Ausblick}{27}
+\contentsline {section}{\numberline {9}Anhang}{28}
+\contentsline {subsection}{\numberline {9.1}Aussensprechstelle Konfigurationsanleitung}{28}
+\contentsline {subsubsection}{\numberline {9.1.1}Aktuelle Stand}{28}
+\contentsline {subsubsection}{\numberline {9.1.2}Namen und Passwortkonzept}{28}
+\contentsline {subsubsection}{\numberline {9.1.3}Betriebssystem Installation}{28}
+\contentsline {subsubsection}{\numberline {9.1.4}Allgemeine Einstellungen}{28}
+\contentsline {subsubsection}{\numberline {9.1.5}Bidschirm Konfiguration}{29}
+\contentsline {subsubsection}{\numberline {9.1.6}Browser Kiosk-mode}{29}
+\contentsline {subsubsection}{\numberline {9.1.7}Aussensprechstelle Initialisierung}{30}
+\contentsline {subsubsection}{\numberline {9.1.8}Taster Controller}{31}
+\contentsline {subsubsection}{\numberline {9.1.9}Speaker Controller Service}{31}
+\contentsline {subsubsection}{\numberline {9.1.10}Watchdog/Watchdog deamon}{32}
+\contentsline {subsection}{\numberline {9.2}Server Konfigurationsanleitung}{32}
+\contentsline {subsubsection}{\numberline {9.2.1}Aktuelle Stand}{32}
+\contentsline {subsubsection}{\numberline {9.2.2}Namen und Passwortkonzept}{33}
+\contentsline {subsubsection}{\numberline {9.2.3}Software Installation}{33}
+\contentsline {subsubsection}{\numberline {9.2.4}Erstellung SSL Zertifikate}{33}
+\contentsline {subsubsection}{\numberline {9.2.5}Konfiguration von Nginx}{35}
+\contentsline {subsubsection}{\numberline {9.2.6}Deploy Webapplikationen}{37}
+\contentsline {subsubsection}{\numberline {9.2.7}Deploy Dienste und Services}{37}
+\contentsline {subsection}{\numberline {9.3}Zertifikate}{38}
+\contentsline {section}{Literaturverzeichnis}{39}
+\contentsline {section}{Abbildungsverzeichnis}{40}
+\contentsline {section}{Tabellenverzeichnis}{41}
+\contentsline {section}{Abk\IeC {\"u}rzungsverzeichnis}{42}
+\contentsline {section}{Eidesstattliche Erkl\IeC {\"a}rung}{43}
