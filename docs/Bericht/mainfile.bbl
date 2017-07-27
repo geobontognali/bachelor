@@ -1,3 +1,651 @@
-\begin{thebibliography}{}
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.8 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
 
-\end{thebibliography}
+
+\refsection{0}
+  \sortlist[entry]{nty/global/}
+    \entry{_35+_????}{online}{}
+      \field{sortinit}{3}
+      \field{sortinithash}{197da6d6c34c6b20ce45c4d4baace5a4}
+      \field{labeltitlesource}{title}
+      \field{title}{35+ {jQuery} 3D Slider \& Carousel Plugin with Examples Demo}
+      \field{urlday}{18}
+      \field{urlmonth}{4}
+      \field{urlyear}{2017}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb 35+ jQuery 3D Slider & Carousel Plugin with Examples Demo:C\:\\Users\\Federico\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi52j2r.default\\zotero\\storage\\V8D5R9NH\\3d-slider-carousel.html:text/html
+      \endverb
+      \verb{url}
+      \verb http://www.jqueryrain.com/demo/3d-slider-carousel/
+      \endverb
+    \endentry
+    \entry{_4inch_????}{online}{}
+      \field{sortinit}{4}
+      \field{sortinithash}{d221becdd544034cf9082056cd6e6d2d}
+      \field{labeltitlesource}{title}
+      \field{title}{4inch {HDMI} {LCD} - Waveshare Wiki}
+      \field{urlday}{20}
+      \field{urlmonth}{2}
+      \field{urlyear}{2017}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb 4inch HDMI LCD - Waveshare Wiki:C\:\\Users\\Federico\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi52j2r.default\\zotero\\storage\\E2KFW4H8\\4inch_HDMI_LCD.html:text/html
+      \endverb
+      \verb{url}
+      \verb http://www.waveshare.com/wiki/4inch_HDMI_LCD
+      \endverb
+    \endentry
+    \entry{4th_webrtc_????}{online}{}
+      \name{author}{3}{}{%
+        {{hash=b374d797c2bad1e11e05a424d6809b79}{%
+           family={4th},
+           familyi={4\bibinitperiod},
+           given={Sam\bibnamedelimb Dutton\bibnamedelimb Published:\bibnamedelima November},
+           giveni={S\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim P\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=05f31aa2939aa121fb72992e3e29342f}{%
+           family={4th},
+           familyi={4\bibinitperiod},
+           given={2013\bibnamedelimb Updated:\bibnamedelima November},
+           giveni={2\bibinitperiod\bibinitdelim U\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=e589d9b60089a2b3e0b8850fa3a278c7}{%
+           family={article},
+           familyi={a\bibinitperiod},
+           given={2013\bibnamedelimb Comments:\bibnamedelimb 2\bibnamedelimb Your\bibnamedelimb browser\bibnamedelimb may\bibnamedelimb not\bibnamedelimb support\bibnamedelimb the\bibnamedelimb functionality\bibnamedelimb in\bibnamedelima this},
+           giveni={2\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim 2\bibinitperiod\bibinitdelim Y\bibinitperiod\bibinitdelim b\bibinitperiod\bibinitdelim m\bibinitperiod\bibinitdelim n\bibinitperiod\bibinitdelim s\bibinitperiod\bibinitdelim t\bibinitperiod\bibinitdelim f\bibinitperiod\bibinitdelim i\bibinitperiod\bibinitdelim t\bibinitperiod}}}%
+      }
+      \strng{namehash}{f0fcec094a3ad8578ef9caa163d99f57}
+      \strng{fullhash}{f0fcec094a3ad8578ef9caa163d99f57}
+      \strng{authornamehash}{f0fcec094a3ad8578ef9caa163d99f57}
+      \strng{authorfullhash}{f0fcec094a3ad8578ef9caa163d99f57}
+      \field{sortinit}{4}
+      \field{sortinithash}{d221becdd544034cf9082056cd6e6d2d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Build the back-end services you need to run a {WebRTC} application.}
+      \field{shorttitle}{{WebRTC} in the real world}
+      \field{title}{{WebRTC} in the real world: {STUN}, {TURN} and signaling - {HTML}5 Rocks}
+      \field{titleaddon}{{HTML}5 Rocks - A resource for open web {HTML}5 developers}
+      \field{urlday}{23}
+      \field{urlmonth}{2}
+      \field{urlyear}{2017}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\Federico\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi52j2r.default\\zotero\\storage\\XARN2WVW\\4th et al. - WebRTC in the real world STUN, TURN and signaling.html:text/html
+      \endverb
+      \verb{url}
+      \verb https://www.html5rocks.com/en/tutorials/webrtc/infrastructure/
+      \endverb
+    \endentry
+    \entry{aboutssl.org_how_????}{online}{}
+      \name{author}{1}{}{%
+        {{hash=856f0d8b8f448b062bf37945de40fa3f}{%
+           family={{AboutSSL}.org},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{856f0d8b8f448b062bf37945de40fa3f}
+      \strng{fullhash}{856f0d8b8f448b062bf37945de40fa3f}
+      \strng{authornamehash}{856f0d8b8f448b062bf37945de40fa3f}
+      \strng{authorfullhash}{856f0d8b8f448b062bf37945de40fa3f}
+      \field{sortinit}{A}
+      \field{sortinithash}{3248043b5fe8d0a34dab5ab6b8d4309b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Learn in detail about Create and Import Self Sign {SSL} Certificate on Android Devices and also learn how to install it on android.}
+      \field{title}{How to Create and Import Self Sign {SSL} Certificate on Android}
+      \field{titleaddon}{{AboutSSL}.org}
+      \field{urlday}{19}
+      \field{urlmonth}{6}
+      \field{urlyear}{2017}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\Federico\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi52j2r.default\\zotero\\storage\\9HUISKUH\\how-to-create-and-import-self-signed-certificate-to-android-device.html:text/html
+      \endverb
+      \verb{url}
+      \verb https://aboutssl.org/how-to-create-and-import-self-signed-certificate-to-android-device/
+      \endverb
+    \endentry
+    \entry{_adding_????}{online}{}
+      \field{sortinit}{A}
+      \field{sortinithash}{3248043b5fe8d0a34dab5ab6b8d4309b}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In this codelab you'll how to add push notifications to your web app.}
+      \field{title}{Adding Push Notifications to a Web App {|} Web}
+      \field{titleaddon}{Google Developers}
+      \field{urlday}{20}
+      \field{urlmonth}{6}
+      \field{urlyear}{2017}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\Federico\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi52j2r.default\\zotero\\storage\\DV6RB32T\\push-notifications.html:text/html
+      \endverb
+      \verb{url}
+      \verb https://developers.google.com/web/fundamentals/getting-started/codelabs/push-notifications/
+      \endverb
+    \endentry
+    \entry{_building_????}{book}{}
+      \field{sortinit}{B}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Building a signaling server in Java In this recipe, we will cover the implementation of a signaling server in Java. Getting {readyThis} recipe uses Java, so you...}
+      \field{isbn}{978-1-78328-445-0}
+      \field{title}{Building a signaling server in Java - {WebRTC} Cookbook}
+      \field{urlday}{23}
+      \field{urlmonth}{2}
+      \field{urlyear}{2017}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\Federico\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi52j2r.default\\zotero\\storage\\GWEVPHCM\\Building a signaling server in Java - WebRTC Cookb.html:text/html
+      \endverb
+      \verb{url}
+      \verb https://www.packtpub.com/mapt/book/Application-Development/9781783284450/1/ch01lvl1sec10/Building%20a%20signaling%20server%20in%20Java
+      \endverb
+    \endentry
+    \entry{_change_????}{online}{}
+      \field{sortinit}{C}
+      \field{sortinithash}{095692fd22cc3c74d7fe223d02314dbd}
+      \field{labeltitlesource}{title}
+      \field{title}{Change default users on Raspberry Pi – Gordon Lesti}
+      \field{urlday}{20}
+      \field{urlmonth}{2}
+      \field{urlyear}{2017}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Change default users on Raspberry Pi – Gordon Lesti:C\:\\Users\\Federico\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi52j2r.default\\zotero\\storage\\GG2U2ER3\\change-default-users-on-raspberry-pi.html:text/html
+      \endverb
+      \verb{url}
+      \verb https://gordonlesti.com/change-default-users-on-raspberry-pi/
+      \endverb
+    \endentry
+    \entry{_debian_????}{online}{}
+      \field{sortinit}{D}
+      \field{sortinithash}{d10b5413de1f3d197b20897dd0d565bb}
+      \field{labeltitlesource}{title}
+      \field{title}{Debian -- Debian-Gesellschaftsvertrag}
+      \field{urlday}{6}
+      \field{urlmonth}{7}
+      \field{urlyear}{2017}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Debian -- Debian-Gesellschaftsvertrag:C\:\\Users\\Federico\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi52j2r.default\\zotero\\storage\\F54694FQ\\social_contract.de.html:text/html
+      \endverb
+      \verb{url}
+      \verb https://www.debian.org/social_contract.de.html
+      \endverb
+    \endentry
+    \entry{_embedded_????}{online}{}
+      \field{sortinit}{E}
+      \field{sortinithash}{07bbd5a529b5beaa311df5be05b874bc}
+      \field{labeltitlesource}{title}
+      \field{title}{Embedded Linux {JVM} Debugger (Raspberry Pi, {BeagleBone} Black, Intel Galileo {II}, and several other {IoT} Devices) for {IntelliJ} {IDEA} :: {JetBrains} Plugin Repository}
+      \field{urlday}{20}
+      \field{urlmonth}{2}
+      \field{urlyear}{2017}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Embedded Linux JVM Debugger (Raspberry Pi, BeagleBone Black, Intel Galileo II, and several other IoT Devices) for IntelliJ IDEA \:\: JetBrains Plugin Repository:C\:\\Users\\Federico\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi52j2r.default\\zotero\\storage\\42SW87WR\\7738-embedded-linux-jvm-debugger-raspberry-pi-beaglebone-black-intel-galileo-ii-and-several-oth.html:text/html
+      \endverb
+      \verb{url}
+      \verb https://plugins.jetbrains.com/idea/plugin/7738-embedded-linux-jvm-debugger-raspberry-pi-beaglebone-black-intel-galileo-ii-and-several-other-iot-devices-
+      \endverb
+    \endentry
+    \entry{ericlaw_chrome_2017}{online}{}
+      \name{author}{1}{}{%
+        {{hash=d16fc8eed6acf799e49dbc0745c37361}{%
+           family={{ericlaw}},
+           familyi={e\bibinitperiod}}}%
+      }
+      \strng{namehash}{d16fc8eed6acf799e49dbc0745c37361}
+      \strng{fullhash}{d16fc8eed6acf799e49dbc0745c37361}
+      \strng{authornamehash}{d16fc8eed6acf799e49dbc0745c37361}
+      \strng{authorfullhash}{d16fc8eed6acf799e49dbc0745c37361}
+      \field{sortinit}{e}
+      \field{sortinithash}{07bbd5a529b5beaa311df5be05b874bc}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{If you’re using a Self-Signed certificate for your {HTTPS} server, a deprecation coming to Chrome may affect your workflow. Chrome 58 will require that certificates specify the hostname(s) to which t…}
+      \field{day}{10}
+      \field{month}{3}
+      \field{title}{Chrome Deprecates Subject {CN} Matching}
+      \field{titleaddon}{text/plain}
+      \field{urlday}{1}
+      \field{urlmonth}{6}
+      \field{urlyear}{2017}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\Federico\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi52j2r.default\\zotero\\storage\\PGEQVKFF\\chrome-deprecates-subject-cn-matching.html:text/html
+      \endverb
+      \verb{url}
+      \verb https://textslashplain.com/2017/03/10/chrome-deprecates-subject-cn-matching/
+      \endverb
+    \endentry
+    \entry{_fixing_????}{online}{}
+      \field{sortinit}{F}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \field{labeltitlesource}{title}
+      \field{title}{Fixing Chrome 58+ [missing\_subjectAltName] with openssl when using self signed certificates {|} Alexander Zeitler}
+      \field{urlday}{1}
+      \field{urlmonth}{6}
+      \field{urlyear}{2017}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Fixing Chrome 58+ [missing_subjectAltName] with openssl when using self signed certificates | Alexander Zeitler:C\:\\Users\\Federico\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi52j2r.default\\zotero\\storage\\6UBQH4PX\\Fixing-Chrome-missing_subjectAltName-selfsigned-cert-openssl.html:text/html
+      \endverb
+      \verb{url}
+      \verb https://alexanderzeitler.com/articles/Fixing-Chrome-missing_subjectAltName-selfsigned-cert-openssl/
+      \endverb
+    \endentry
+    \entry{gieseke_raspberry_????}{online}{}
+      \name{author}{1}{}{%
+        {{hash=b2c505968eafcaa058f144d4c40b010e}{%
+           family={Gieseke},
+           familyi={G\bibinitperiod},
+           given={Wolfram},
+           giveni={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{b2c505968eafcaa058f144d4c40b010e}
+      \strng{fullhash}{b2c505968eafcaa058f144d4c40b010e}
+      \strng{authornamehash}{b2c505968eafcaa058f144d4c40b010e}
+      \strng{authorfullhash}{b2c505968eafcaa058f144d4c40b010e}
+      \field{sortinit}{G}
+      \field{sortinithash}{618d986594b7198ba52cf8b00d348f3f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Wer seinen Raspberry Pi rund um die Uhr wichtige Aufgaben erledigen lässt, ist an einem zuverlässig laufenden System interessiert. Der Hardware-Watchdog kann das sicherstellen, selbst wenn es mal irgendwo hapert.}
+      \field{shorttitle}{Raspberry Pi}
+      \field{title}{Raspberry Pi: Den eingebauten Hardware-Watchdog zur Überwachung nutzen – gieseke-buch.de}
+      \field{urlday}{20}
+      \field{urlmonth}{3}
+      \field{urlyear}{2017}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\Federico\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi52j2r.default\\zotero\\storage\\GE5PA6NS\\eingebauten-hardware-watchdog-zur-ueberwachung-nutzen.html:text/html
+      \endverb
+      \verb{url}
+      \verb http://www.gieseke-buch.de/raspberrypi/eingebauten-hardware-watchdog-zur-ueberwachung-nutzen
+      \endverb
+    \endentry
+    \entry{_how_????}{online}{}
+      \field{sortinit}{H}
+      \field{sortinithash}{2f664b453ec75da1fe3804ca92633405}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The Apache web server is the most popular way to serve content on the web. If you need to communicate with your site visitors over a secured connection, setting up a {TLS} or {SSL} certificate will enable you to encrypt traffic. In this guide, we'll discu}
+      \field{title}{How To Create a {SSL} Certificate on Apache for Ubuntu 14.04}
+      \field{titleaddon}{{DigitalOcean}}
+      \field{urlday}{10}
+      \field{urlmonth}{4}
+      \field{urlyear}{2017}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\Federico\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi52j2r.default\\zotero\\storage\\AP2HBP7V\\how-to-create-a-ssl-certificate-on-apache-for-ubuntu-14-04.html:text/html
+      \endverb
+      \verb{url}
+      \verb https://www.digitalocean.com/community/tutorials/how-to-create-a-ssl-certificate-on-apache-for-ubuntu-14-04
+      \endverb
+    \endentry
+    \entry{_interactive_2016}{inreference}{}
+      \field{sortinit}{I}
+      \field{sortinithash}{a3dcedd53b04d1adfd5ac303ecd5e6fa}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Interactive Connectivity Establishment ({ICE}) is a technique used in computer networking to find ways for two computers to talk to each other as directly as possible in peer-to-peer networking. This is most commonly used for interactive media such as Voice over Internet Protocol ({VoIP}), peer-to-peer communications, video, and instant messaging. In such applications, you want to avoid communicating through a central server (which would slow down communication, and be expensive), but direct communication between client applications on the Internet is very tricky due to network address translators ({NATs}), firewalls, and other network barriers. {ICE} is developed by the Internet Engineering Task Force {MMUSIC} working group and is published as {RFC} 5245, which has obsoleted {RFC} 4091.}
+      \field{booktitle}{Wikipedia}
+      \field{day}{2}
+      \field{langid}{english}
+      \field{month}{8}
+      \field{note}{Page Version {ID}: 732705039}
+      \field{title}{Interactive Connectivity Establishment}
+      \field{urlday}{23}
+      \field{urlmonth}{2}
+      \field{urlyear}{2017}
+      \field{year}{2016}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\Federico\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi52j2r.default\\zotero\\storage\\H38MP8E3\\2016 - Interactive Connectivity Establishment.html:text/html
+      \endverb
+      \verb{url}
+      \verb https://en.wikipedia.org/w/index.php?title=Interactive_Connectivity_Establishment&oldid=732705039
+      \endverb
+    \endentry
+    \entry{_java_????-1}{online}{}
+      \field{sortinit}{j}
+      \field{sortinithash}{c86bd6cced82a15683b396c2169909ef}
+      \field{labeltitlesource}{shorttitle}
+      \field{shorttitle}{java - How are {SSL} certificate server names resolved/Can I add alternative names using keytool?}
+      \field{title}{java - How are {SSL} certificate server names resolved/Can I add alternative names using keytool? - Stack Overflow}
+      \field{urlday}{19}
+      \field{urlmonth}{6}
+      \field{urlyear}{2017}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\Federico\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi52j2r.default\\zotero\\storage\\WXNT8IP3\\8444863.html:text/html
+      \endverb
+      \verb{url}
+      \verb https://stackoverflow.com/questions/8443081/how-are-ssl-certificate-server-names-resolved-can-i-add-alternative-names-using/8444863
+      \endverb
+    \endentry
+    \entry{_java_????}{online}{}
+      \field{sortinit}{J}
+      \field{sortinithash}{c86bd6cced82a15683b396c2169909ef}
+      \field{labeltitlesource}{title}
+      \field{title}{Java Keytool Essentials: Working with Java Keystores {|} {DigitalOcean}}
+      \field{urlday}{28}
+      \field{urlmonth}{2}
+      \field{urlyear}{2017}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Java Keytool Essentials\: Working with Java Keystores | DigitalOcean:C\:\\Users\\Federico\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi52j2r.default\\zotero\\storage\\6RKPE59U\\java-keytool-essentials-working-with-java-keystores.html:text/html
+      \endverb
+      \verb{url}
+      \verb https://www.digitalocean.com/community/tutorials/java-keytool-essentials-working-with-java-keystores
+      \endverb
+    \endentry
+    \entry{_lane_????}{online}{}
+      \field{sortinit}{L}
+      \field{sortinithash}{7bba64db83423e3c29ad597f3b682cf3}
+      \field{labeltitlesource}{title}
+      \field{title}{Lane 6 - Start a fullscreen browser kiosk on the raspberry pi}
+      \field{urlday}{20}
+      \field{urlmonth}{2}
+      \field{urlyear}{2017}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Lane 6 - Start a fullscreen browser kiosk on the raspberry pi:C\:\\Users\\Federico\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi52j2r.default\\zotero\\storage\\GN7E6V8S\\start-a-fullscreen-browser-kiosk-on-the-raspberry-pi.html:text/html
+      \endverb
+      \verb{url}
+      \verb https://lane6.de/posts/start-a-fullscreen-browser-kiosk-on-the-raspberry-pi
+      \endverb
+    \endentry
+    \entry{_laravel_????}{online}{}
+      \field{sortinit}{L}
+      \field{sortinithash}{7bba64db83423e3c29ad597f3b682cf3}
+      \field{labeltitlesource}{title}
+      \field{title}{Laravel Notification Channels}
+      \field{urlday}{21}
+      \field{urlmonth}{6}
+      \field{urlyear}{2017}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Laravel Notification Channels:C\:\\Users\\Federico\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi52j2r.default\\zotero\\storage\\7982ZCN6\\webpush.html:text/html
+      \endverb
+      \verb{url}
+      \verb http://laravel-notification-channels.com/webpush/
+      \endverb
+    \endentry
+    \entry{_linux_????}{online}{}
+      \field{sortinit}{L}
+      \field{sortinithash}{7bba64db83423e3c29ad597f3b682cf3}
+      \field{labeltitlesource}{title}
+      \field{title}{Linux Java Service Wrapper Example}
+      \field{urlday}{23}
+      \field{urlmonth}{2}
+      \field{urlyear}{2017}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Linux Java Service Wrapper Example:C\:\\Users\\Federico\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi52j2r.default\\zotero\\storage\\436T9B9D\\linux-java-service-wrapper-example.html:text/html
+      \endverb
+      \verb{url}
+      \verb http://www.jcgonzalez.com/linux-java-service-wrapper-example
+      \endverb
+    \endentry
+    \entry{_linux_????-1}{online}{}
+      \field{sortinit}{L}
+      \field{sortinithash}{7bba64db83423e3c29ad597f3b682cf3}
+      \field{labeltitlesource}{title}
+      \field{title}{Linux Watchdog configuring}
+      \field{urlday}{20}
+      \field{urlmonth}{3}
+      \field{urlyear}{2017}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Linux Watchdog configuring:C\:\\Users\\Federico\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi52j2r.default\\zotero\\storage\\RMV62ZGC\\watchdog-configure.html:text/html
+      \endverb
+      \verb{url}
+      \verb http://www.sat.dundee.ac.uk/psc/watchdog/watchdog-configure.html#Process_Monitoring_by_PID_File
+      \endverb
+    \endentry
+    \entry{_lsbinitscripts_????}{online}{}
+      \field{sortinit}{L}
+      \field{sortinithash}{7bba64db83423e3c29ad597f3b682cf3}
+      \field{labeltitlesource}{title}
+      \field{title}{{LSBInitScripts} - Debian Wiki}
+      \field{urlday}{1}
+      \field{urlmonth}{3}
+      \field{urlyear}{2017}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb LSBInitScripts - Debian Wiki:C\:\\Users\\Federico\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi52j2r.default\\zotero\\storage\\IIDMAA24\\LSBInitScripts.html:text/html
+      \endverb
+      \verb{url}
+      \verb https://wiki.debian.org/LSBInitScripts
+      \endverb
+    \endentry
+    \entry{raspberry2016}{online}{}
+      \field{sortinit}{R}
+      \field{sortinithash}{c15bc8eb6936bc6b3c8baa9e8575af53}
+      \field{labeltitlesource}{title}
+      \field{abstract}{One of the things I use my Raspberry Pis for the most is setting up a “Kiosk”. What I like to do is make a website, either on the web or hosted on the pi itself, and show that website full screen on boot. This is a fun little project and can be great {forRead} More}
+      \field{day}{25}
+      \field{month}{4}
+      \field{title}{Raspberry Pi in Kiosk Mode}
+      \field{titleaddon}{{OSH} Lab}
+      \field{urlday}{20}
+      \field{urlmonth}{2}
+      \field{urlyear}{2017}
+      \field{year}{2016}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\Federico\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi52j2r.default\\zotero\\storage\\I69UQ7SK\\raspberry-pi-kiosk-mode.html:text/html
+      \endverb
+      \verb{url}
+      \verb https://oshlab.com/raspberry-pi-kiosk-mode/
+      \endverb
+    \endentry
+    \entry{_raspberry_????}{online}{}
+      \field{sortinit}{R}
+      \field{sortinithash}{c15bc8eb6936bc6b3c8baa9e8575af53}
+      \field{labeltitlesource}{title}
+      \field{title}{Raspberry Pi in Kiosk Mode - {OSH} Lab}
+      \field{urlday}{20}
+      \field{urlmonth}{2}
+      \field{urlyear}{2017}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Raspberry Pi in Kiosk Mode - OSH Lab:C\:\\Users\\Federico\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi52j2r.default\\zotero\\storage\\74CAI526\\raspberry-pi-kiosk-mode.html:text/html
+      \endverb
+      \verb{url}
+      \verb https://oshlab.com/raspberry-pi-kiosk-mode/
+      \endverb
+    \endentry
+    \entry{_raspberry_????-2}{online}{}
+      \field{sortinit}{R}
+      \field{sortinithash}{c15bc8eb6936bc6b3c8baa9e8575af53}
+      \field{labeltitlesource}{title}
+      \field{title}{Raspberry Pi System Logging and Loggly}
+      \field{urlday}{15}
+      \field{urlmonth}{3}
+      \field{urlyear}{2017}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Raspberry Pi System Logging and Loggly:C\:\\Users\\Federico\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi52j2r.default\\zotero\\storage\\HD3F8DDM\\raspberry-pi-system-logging-and-loggly.html:text/html
+      \endverb
+      \verb{url}
+      \verb http://blog.scphillips.com/posts/2015/05/raspberry-pi-system-logging-and-loggly/
+      \endverb
+    \endentry
+    \entry{_raspberry_????-1}{online}{}
+      \field{sortinit}{R}
+      \field{sortinithash}{c15bc8eb6936bc6b3c8baa9e8575af53}
+      \field{labeltitlesource}{title}
+      \field{title}{Raspberry Pi • View topic - Low resolution on Chromium - {WebRTC}}
+      \field{urlday}{15}
+      \field{urlmonth}{3}
+      \field{urlyear}{2017}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Raspberry Pi • View topic - Low resolution on Chromium - WebRTC:C\:\\Users\\Federico\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi52j2r.default\\zotero\\storage\\QPM82T6P\\viewtopic.html:text/html
+      \endverb
+      \verb{url}
+      \verb https://www.raspberrypi.org/forums/viewtopic.php?f=43&t=159941
+      \endverb
+    \endentry
+    \entry{_raspberry_????-3}{online}{}
+      \field{sortinit}{R}
+      \field{sortinithash}{c15bc8eb6936bc6b3c8baa9e8575af53}
+      \field{labeltitlesource}{title}
+      \field{title}{Raspberry Pi • View topic - Poor audio quality on analog output}
+      \field{urlday}{7}
+      \field{urlmonth}{6}
+      \field{urlyear}{2017}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Raspberry Pi • View topic - Poor audio quality on analog output:C\:\\Users\\Federico\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi52j2r.default\\zotero\\storage\\6I2B8RGW\\viewtopic.html:text/html
+      \endverb
+      \verb{url}
+      \verb https://www.raspberrypi.org/forums/viewtopic.php?f=38&t=37038
+      \endverb
+    \endentry
+    \entry{rathore_send_2015}{online}{}
+      \name{author}{1}{}{%
+        {{hash=cf872776f611d87eadc4b5cfb5e99af3}{%
+           family={Rathore},
+           familyi={R\bibinitperiod},
+           given={Deven},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{cf872776f611d87eadc4b5cfb5e99af3}
+      \strng{fullhash}{cf872776f611d87eadc4b5cfb5e99af3}
+      \strng{authornamehash}{cf872776f611d87eadc4b5cfb5e99af3}
+      \strng{authorfullhash}{cf872776f611d87eadc4b5cfb5e99af3}
+      \field{sortinit}{R}
+      \field{sortinithash}{c15bc8eb6936bc6b3c8baa9e8575af53}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{n this article i will talk about sending pushing notifications to mobile devices with laravel ! i will be doing this by using a laravel package}
+      \field{day}{10}
+      \field{month}{10}
+      \field{title}{send push notifications to mobile devices with laravel}
+      \field{titleaddon}{Dunebook.com}
+      \field{urlday}{21}
+      \field{urlmonth}{6}
+      \field{urlyear}{2017}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\Federico\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi52j2r.default\\zotero\\storage\\VBC34IMN\\send-push-notifications-to-mobile-devices-with-laravel.html:text/html
+      \endverb
+      \verb{url}
+      \verb https://www.dunebook.com/send-push-notifications-to-mobile-devices-with-laravel/
+      \endverb
+    \endentry
+    \entry{_reliable_2014}{online}{}
+      \field{sortinit}{R}
+      \field{sortinithash}{c15bc8eb6936bc6b3c8baa9e8575af53}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Part 2 of Reliable Projects: Using the Internal {WatchDog} Timer}
+      \field{day}{20}
+      \field{month}{11}
+      \field{shorttitle}{Reliable Projects 2}
+      \field{title}{Reliable Projects 2: Using the Internal {WatchDog} Timer for the Raspberry Pi}
+      \field{titleaddon}{{SwitchDoc} Labs}
+      \field{urlday}{22}
+      \field{urlmonth}{3}
+      \field{urlyear}{2017}
+      \field{year}{2014}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\Federico\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi52j2r.default\\zotero\\storage\\SMME7K2F\\reliable-projects-using-internal-watchdog-timer-raspberry-pi.html:text/html
+      \endverb
+      \verb{url}
+      \verb http://www.switchdoc.com/2014/11/reliable-projects-using-internal-watchdog-timer-raspberry-pi/
+      \endverb
+    \endentry
+    \entry{_ssl_????}{online}{}
+      \field{sortinit}{S}
+      \field{sortinithash}{3c1547c63380458f8ca90e40ed14b83e}
+      \field{labeltitlesource}{title}
+      \field{title}{{SSL}}
+      \field{urlday}{19}
+      \field{urlmonth}{6}
+      \field{urlyear}{2017}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb SSL:C\:\\Users\\Federico\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi52j2r.default\\zotero\\storage\\JB3DBCXQ\\SSL.html:text/html
+      \endverb
+      \verb{url}
+      \verb https://crsr.net/Notes/SSL.html
+      \endverb
+    \endentry
+    \entry{_sslcontext_????}{online}{}
+      \field{sortinit}{S}
+      \field{sortinithash}{3c1547c63380458f8ca90e40ed14b83e}
+      \field{labeltitlesource}{title}
+      \field{title}{{SSLContext} (Java Platform {SE} 7 )}
+      \field{urlday}{28}
+      \field{urlmonth}{2}
+      \field{urlyear}{2017}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb SSLContext (Java Platform SE 7 ):C\:\\Users\\Federico\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi52j2r.default\\zotero\\storage\\MX4QR2F3\\SSLContext.html:text/html
+      \endverb
+      \verb{url}
+      \verb http://docs.oracle.com/javase/7/docs/api/javax/net/ssl/SSLContext.html
+      \endverb
+    \endentry
+    \entry{_tutorial:_????}{online}{}
+      \field{sortinit}{T}
+      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
+      \field{labeltitlesource}{title}
+      \field{title}{Tutorial: Implement Push Notifications in your {PhoneGap} Application : Devgirl's Weblog}
+      \field{urlday}{20}
+      \field{urlmonth}{6}
+      \field{urlyear}{2017}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Tutorial\: Implement Push Notifications in your PhoneGap Application \: Devgirl's Weblog:C\:\\Users\\Federico\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi52j2r.default\\zotero\\storage\\IQUICXM2\\tutorial-implement-push-notifications-in-your-phonegap-application.html:text/html
+      \endverb
+      \verb{url}
+      \verb http://devgirl.org/2013/07/17/tutorial-implement-push-notifications-in-your-phonegap-application/
+      \endverb
+    \endentry
+    \entry{_x11_????}{online}{}
+      \field{sortinit}{x}
+      \field{sortinithash}{755b54a59c4b54d471c87a4486a94349}
+      \field{labeltitlesource}{shorttitle}
+      \field{shorttitle}{x11 - How to make /etc/init.d script act like it's launched under X?}
+      \field{title}{x11 - How to make /etc/init.d script act like it's launched under X? - Unix \& Linux Stack Exchange}
+      \field{urlday}{1}
+      \field{urlmonth}{3}
+      \field{urlyear}{2017}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\Federico\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi52j2r.default\\zotero\\storage\\BSNU7AGF\\how-to-make-etc-init-d-script-act-like-its-launched-under-x.html:text/html
+      \endverb
+      \verb{url}
+      \verb http://unix.stackexchange.com/questions/98967/how-to-make-etc-init-d-script-act-like-its-launched-under-x
+      \endverb
+    \endentry
+  \endsortlist
+\endrefsection
+\endinput
+

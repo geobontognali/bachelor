@@ -1,10 +1,15 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: mainfile.aux
-A level-1 auxiliary file: title.aux
-A level-1 auxiliary file: zusammenfassung.aux
-A level-1 auxiliary file: abstract.aux
-The style file: plain.bst
-A level-1 auxiliary file: abkuerzungsverzeichnis.aux
-A level-1 auxiliary file: erklaerung.aux
-Database file #1: lit.bib
-Warning--I didn't find a database entry for "001"
-(There was 1 warning)
+[0] Config.pm:354> INFO - This is Biber 2.7
+[0] Config.pm:357> INFO - Logfile is 'mainfile.blg'
+[33] biber-MSWIN64:303> INFO - === 
+[63] Biber.pm:359> INFO - Reading 'mainfile.bcf'
+[156] Biber.pm:832> INFO - Using all citekeys in bib section 0
+[170] Biber.pm:3670> INFO - Processing section 0
+[192] Biber.pm:3840> INFO - Looking for bibtex format file 'database.bib' for section 0
+[200] bibtex.pm:1435> INFO - Decoding LaTeX character macros into UTF-8
+[215] bibtex.pm:1292> INFO - Found BibTeX data source 'database.bib'
+[288] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[288] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[288] Biber.pm:3499> INFO - Sorting list 'nty/global/' of type 'entry' with scheme 'nty' and locale 'de-DE'
+[288] Biber.pm:3505> INFO - No sort tailoring available for locale 'de-DE'
+[309] bbl.pm:608> INFO - Writing 'mainfile.bbl' with encoding 'UTF-8'
+[312] bbl.pm:712> INFO - Output to mainfile.bbl

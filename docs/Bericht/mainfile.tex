@@ -6,7 +6,8 @@
 \usepackage[onehalfspacing]{setspace}
 %\usepackage{here}
 %\usepackage{float}
-\usepackage[ngerman]{cleveref}
+
+
 \usepackage[table]{xcolor}
 \usepackage{xcolor}
 \usepackage{listings}
@@ -16,39 +17,6 @@
 
 % Dokumentinformationen
 
-%\usepackage{hyperref} % ermöglicht Hyperlinks in PDF-Dokumenten
-%definecolor{LinkColor}{rgb}{0,0,0}
-%\hypersetup
-%	{
-	% Farbein der Verweise
-%	             colorlinks, % farbige Links anstelle von Boxen
-	% Farben für Bildschirmanzeige
-	%            linkcolor=red, % Farbe für normale interne Links
-	%            anchorcolor=black, % Farbe für Ankertext
-	%            citecolor=green, % Farbe für bibliografische Zitate im Text
-	%            filecolor=magenta, % Farbe für URLs auf lokale Dateien
-	%            menucolor=red, % Farbe für Acrobat-Menü-Elemente
-	%            urlcolor=cyan, % Farbe für URLs
-	% Farben für Druck
-%	             linkcolor=black, % Farbe für normale interne Links
-%	             anchorcolor=black, % Farbe für Ankertext
-%	             citecolor=black, % Farbe für bibliografische Zitate im Text
-%	             filecolor=black, % Farbe für URLs auf lokale Dateien
-%	             menucolor=black, % Farbe für Acrobat-Menü-Elemente
-%	             urlcolor=black, % Farbe für URLs
-	%            linkcolor=blue, % Farbe für normale interne Links
-	%            anchorcolor=black, % Farbe für Ankertext
-	%            citecolor=green, % Farbe für bibliografische Zitate im Text
-	%            filecolor=magenta, % Farbe für URLs auf lokale Dateien
-	%            menucolor=red, % Farbe für Acrobat-Menü-Elemente
-	%            urlcolor=blue, % Farbe für URLs
-	% PDF Metadaten
-%	             pdftitle={Türklingelnanlage mit Standardkomponente }, % Titel des PDF Dokuments
-%	             pdfauthor={Federico Crameri, Geo Bontognali}, % Verfasser des PDF Dokuments
-	%            pdfsubject={}, % Thema des PDF Dokuments
-	%            pdfkeywords={}, % Stichwörter des PDF Dokuments
-%	             pdfdisplaydoctitle=true, % Titel anstelle Dateinamen in Titelzeile anzeigen
-%	}
 
 
 % Standard Packages
@@ -67,6 +35,7 @@
 %\usepackage{cancel}
 \usepackage{multicol}
 \usepackage{tabularx}
+\usepackage{glossaries}
 %\usepackage{adjustbox}
 %\usepackage{wallpaper}
 %\usepackage{transparent}
@@ -101,6 +70,9 @@
 % Literaturverzeichnis
 \usepackage{url}
 
+\usepackage{hyperref} % ermöglicht Hyperlinks in PDF-Dokumenten
+\usepackage[ngerman]{cleveref}
+
 % ========================== Kopf- und Fußzeile =======================================
 \pagestyle{fancy}
 %
@@ -129,7 +101,51 @@
 \renewcommand{\theequation}{\thesection.\arabic{equation}}
 
 
-% ======================================= Dokumentbeginn =======================================
+
+
+
+%Glossar entries
+\makeglossaries
+
+\newglossaryentry{turklingelanlage}{name=Türklingelanlage, description={Gesamtheit der Komponenten die denn Zusammen den Endprodukt darstellen}}
+\newglossaryentry{ip}{name=IP, description={Internet Protocol}}
+\newglossaryentry{dsl}{name=DSL, description={Digital Subscriber Line}}
+\newglossaryentry{lte}{name=LTE, description={Long Term Evolution}}
+\newglossaryentry{hd}{name=HD, description={High Definition}}
+\newglossaryentry{sip}{name=SIP, description={Session Initiation Protocol}}
+\newglossaryentry{webrtc}{name=WebRTC, description={Web Real-Time Communication}}
+\newglossaryentry{aussensprechstelle}{name=Aussensprechstelle, description={Mikrocontroller mit verschiedeneModulen die an den Eingangstüre installiert wird}}
+\newglossaryentry{poe}{name=PoE, description={Power over Ethernet}}
+\newglossaryentry{hw}{name=HW, description={Hardware}}
+\newglossaryentry{gpio}{name=GPIO, description={General purpose input/output}}
+\newglossaryentry{usb}{name=USB, description={Universal Serial Bus}}
+\newglossaryentry{php}{name=PHP, description={Hypertext Preprocessor}}
+\newglossaryentry{html}{name=HTML, description={Hypertext Markup Language}}
+\newglossaryentry{css}{name=CSS, description={Cascading Style Sheets}}
+\newglossaryentry{tls}{name=TLS, description={Transport Layer Security}}
+\newglossaryentry{gui}{name=GUI, description={Graphical user interface}}
+\newglossaryentry{clientapp}{name=Client Applikation, description={Die Web Applikation welches auf dem Smartphone oder Tablet des Bewohner ausgeführt wird}}
+\newglossaryentry{https}{name=HTTPS, description={Hypertext Transfer Protocol Secure}}
+\newglossaryentry{voip}{name=VoIP, description={Voice over IP}}
+\newglossaryentry{p2p}{name=P2P, description={Peer to Peer}}
+\newglossaryentry{api}{name=API, description={Application programming interface}}
+\newglossaryentry{ice}{name=ICE, description={Interactive Connectivity Establishment}}
+\newglossaryentry{nat}{name=NAT, description={Network address translation}}
+\newglossaryentry{stun}{name=STUN, description={Session Traversal Utilities}}
+\newglossaryentry{v8}{name=V8, description={Standard zur Videokompression}}
+\newglossaryentry{h264}{name=H.264, description={Standard zur Videokompression}}
+\newglossaryentry{os}{name=OS, description={Operating system}}
+\newglossaryentry{managementtool}{name=Management Tool, description={Webapplikation zur Erfassung von \gls{aussensprechstelle} und Bewohner}}
+\newglossaryentry{mysql}{name=MySQL, description={eines der weltweit verbreitetsten relationalen Datenbankverwaltungssysteme}}
+\newglossaryentry{arm}{name=ARM, description={Advanced RISC Machines}}
+\newglossaryentry{lxde}{name=LXDE, description={freie Desktop-Umgebung für Unix}}
+\newglossaryentry{json}{name=JSON, description={JavaScript Object Notation}}
+%\gls{ip}
+
+%lit
+%\usepackage[style=alphabetic]{biblatex} 
+\usepackage[backend=biber]{biblatex}
+\addbibresource{database.bib}
 
 \begin{document}
 
@@ -195,12 +211,9 @@
 %%Verzeichnis aller Bilder
 
 
-%%Literaturverzeichnis
-\newpage
-\bibliography{lit}
-\bibliographystyle{plain}
-\addcontentsline{toc}{section}{Literaturverzeichnis}
-\newpage
+
+
+
 
 %% Abbildungsverzeichnis, Tabellenverzeichnis, Abkürzungsverzeichnis
 \listoffigures
@@ -208,6 +221,8 @@
 \newpage
 \listoftables
 \addcontentsline{toc}{section}{Tabellenverzeichnis}
+
+
 \newpage
 
 \include{abkuerzungsverzeichnis}
@@ -217,6 +232,12 @@
 \thispagestyle{empty}
 \quad 
 \newpage
+
+%%Literaturverzeichnis
+\nocite{*}
+\printbibliography
+%\printbibliography 
+
 
 \end{document}
 % ======================================= Dokumentende =======================================

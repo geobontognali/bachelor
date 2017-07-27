@@ -1,6 +1,13 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
 \select@language {ngerman}
-\contentsline {table}{\numberline {1}{\ignorespaces Server HW Komponenten}}{7}
-\contentsline {table}{\numberline {2}{\ignorespaces Aussensprechstelle HW Komponenten}}{7}
-\contentsline {table}{\numberline {3}{\ignorespaces PIN-Zuweisung zwischen den Server und die Relais Module}}{11}
-\contentsline {table}{\numberline {4}{\ignorespaces PIN-Zuweisung zwischen den Raspberry PI und die Schalter}}{11}
-\contentsline {table}{\numberline {5}{\ignorespaces Verwendete Raspberry Pi im Vegleich mit die Banana Pi Alternative}}{21}
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {1}{\ignorespaces Server \gls {hw} Komponenten}}{7}{table.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {2}{\ignorespaces Aussensprechstelle \gls {hw} Komponenten}}{7}{table.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {3}{\ignorespaces PIN-Zuweisung zwischen den Server und die Relais Module}}{11}{table.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {4}{\ignorespaces PIN-Zuweisung zwischen den Raspberry PI und die Schalter}}{11}{table.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {5}{\ignorespaces Verwendete Raspberry Pi im Vegleich mit die Banana Pi Alternative}}{21}{table.5}
