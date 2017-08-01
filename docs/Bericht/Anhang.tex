@@ -1,6 +1,6 @@
 \section{Anhang}
 \label{sec:anhang}
-Diese Anleitungen sind an den Weiterentwikler des Prototyp gerichtet. Mithilfe von diese Dokumentation und den mitgelieferte Image des Aussensprechstelle, soll ein Entwickler im Stand sein ein fresh installiert Raspbian \gls{os} zu einer Aussensprechstelle/Server zu konfigurieren. Alles was Konfiguriert wurde, wurde Dokumentiert und in den Anleitung aufgeführt. Diese soll auch das Hinzufügen von zukünftige Funktionalitäten erleichtern. 
+Diese Anleitungen sind an dem zukünftigen Entwickler dieser Prototyp gerichtet. Mithilfe dieser Dokumentation und des mitgelieferten Images der Aussensprechstelle, soll ein Entwickler im Stand sein eine neu installierte Raspbian \gls{os} einer Aussensprechstelle/Server zu konfigurieren. Alles was konfiguriert wurde, wurde dokumentiert und in der Anleitung aufgeführt. Diese soll auch das Hinzufügen zukünftiger Funktionalitäten erleichtern.
 
 \subsection{Aussensprechstelle Konfigurationsanleitung}
 
@@ -12,20 +12,19 @@ Kernel Version: 4.4
 \subsubsection{Namen und Passwortkonzept}
 Hostname: DoorPixxx (x= fortlaufende Nummerierung)\\
 User: pi\\
-Password: bachelor (Einfachheitshalber wurde diese schwach Passwort ausgewählt. Sollte aber bei eine Produktive inbetriebnahme zwingend geändert werden)\\
+Password: bachelor (Einfachheitshalber wurde dieses schwache Passwort ausgewählt. Sollte aber bei einer produktiven Inbetriebnahme zwingend geändert werden)\\
 
 \subsubsection{Betriebssystem Installation}
 \begin{itemize}
-	\item Das Image von raspberry.com herunterladen und extrahieren. (https://www.raspberrypi.org/downloads/raspbian/)
-	\item Um die Image auf der SD Karte zu bringen benutzt man Etcher. (https://etcher.io/)
+	\item Das Image von raspberry.com herunterladen und extrahieren (https://www.raspberrypi.org/downloads/raspbian/)
+	\item Um die Image auf der SD Karte zu bringen benutzt man Etcher.  (https://etcher.io/)
 	\item Mit den Standard-Anmeldedaten Anmelden. User: pi Password: raspberry
 \end{itemize}
 
 
 
 \subsubsection{Allgemeine Einstellungen}
-
-Der System soll auf dem neuste Stand aktualisieren werden
+Das System soll auf dem neusten Stand aktualisieren werden
 \begin{lstlisting}[backgroundcolor = \color{snippetcolor},
 language = bash,
 xleftmargin = 1cm,
@@ -35,17 +34,17 @@ breaklines=true]
 	sudo apt-get upgrade
 \end{lstlisting}
 
-Mit den Terminal Kommando 'sudo raspi-config' können durch eine grafische Oberfläche folgende allgemeine Einstellungen angepasst werden:
+Mit dem Terminalkommando ’sudo raspi-config’ können durch eine grafische Oberfläche folgende allgemeine Einstellungen angepasst werden:
 \begin{itemize}
 	\item Unter 'Interfacing Options' muss die SSH Server aktiviert werden.
 	\item Hostname gemäss Namenskonzept anpassen
-	\item Neue Passwort für den Pi Benutzer gemäss Passwordkonzept setzen.
-	\item Zum schluss soll noch die Zeit-Zone, den Land und die Tastatuslayout angepasst werden.
+	\item Neue Passwort für den Pi Benutzer gemäss Password Konzept setzen.
+	\item Zum Schluss sollen auch die Zeitzone, das Land und das Tastaturlayout angepasst werden.
 \end{itemize}
 
 \subsubsection{Bidschirm Konfiguration}
-Die Display Treiber von waveshare.com herunterladen und auf dem SD Karte in Root Directory speichern. (http://www.waveshare.com/wiki/4inch\char`_HDMI\char`_LCD)\\
-Mit folgenden bash Kommandos wird der Treiber Instelliert:
+Die Displaytreiber von waveshare.com herunterladen und auf die SD Karte in Root Directory speichern. (http://www.waveshare.com/wiki/4inch\char`_HDMI\char`_LCD)\\
+Mit folgenden Bash-Kommandos wird der Treiber installiert:
 \begin{lstlisting}[backgroundcolor = \color{snippetcolor},
 language = bash,
 xleftmargin = 1cm,
@@ -56,7 +55,7 @@ breaklines=true]
 	chmod +x LCD4-800x480-show
 	./LCD4-800x480-show
 \end{lstlisting}
-Nachdem das der Bildschirm Treiber installiert wurde, müssen die Einstellungen für den Bildschirm angepasst werden. Folgende Code-Zeilen müssen am ende des 'config.txt' Datei der sich in den root directory befindet, hinzugefügt werden.
+Nachdem dass der Bildschirmtreiber installiert wurde, müssen die Einstellungen für den Bildschirm angepasst werden. Folgende Code-Zeilen müssen am Ende der ’config.txt’ Datei, die sich in der root-directory befindet, hinzugefügt werden.
 \begin{lstlisting}[backgroundcolor = \color{snippetcolor},
 language = bash,
 xleftmargin = 1cm,
@@ -72,7 +71,7 @@ breaklines=true]
 \end{lstlisting}
 
 \subsubsection{Browser Kiosk-mode}
-Als erstes wir die unclutter tool installiert um den Mausepfeil auszublenden.
+Als erstes wir das Unclutter-Tool installiert um den Mausepfeil auszublenden.
 \begin{lstlisting}[backgroundcolor = \color{snippetcolor},
 language = bash,
 xleftmargin = 1cm,
@@ -80,7 +79,7 @@ framexleftmargin = 0.1em,
 breaklines=true]
 	sudo apt-get install unclutter
 \end{lstlisting}
-Kios-mode Einstellungen werden im config Datei (/home/pi/.config/lxsession/LXDE-pi/autostart) wie folgendes angepasst.
+Die Kiosk-Mode-Einstellungen werden in der config Datei  (/home/pi/.config/lxsession/LXDE-pi/autostart) wie folgt angepasst
 \begin{lstlisting}[backgroundcolor = \color{snippetcolor},
 language = bash,
 xleftmargin = 1cm,
@@ -107,7 +106,7 @@ framexleftmargin = 0.1em,
 breaklines=true]
 	touch /home/pi/Aussensprechstelle/Startup/AussensprechstelleLauncher.sh
 \end{lstlisting}
-Inhalt der Script:
+Inhalt des Scripst:
 \begin{lstlisting}[backgroundcolor = \color{snippetcolor},
 language = bash,
 xleftmargin = 1cm,
@@ -137,16 +136,17 @@ breaklines=true]
 \end{lstlisting}
 
 \subsubsection{Taster Controller}
-Die Tastencontroller die für den Key Mapping zuständig ist wird von dem oben gezeigte AussensprechstelleLauncher.sh unter /home/pi/Aussensprechstelle/TasterController/TasterController.jar gestartet. Also muss die kompilierte Jar Artefakt dorthin kopiert werden. \\
-Folgende GPIO Pins werden von den 3 Tasten benötigt um die Aussensprechstelle zu steuern.
+Der Tastencontroller, der für den Key Mapping zuständig ist, wird vom oben gezeigten AussensprechstelleLauncher.sh unter /home/pi/Aussensprechstelle/TasterController/TasterController.jar gestartet. Die kompilierte Jar-Artefakt  muss also dorthin kopiert werden. 
+\\
+Folgende GPIO Pins werden von den 3 Tasten benötigt um die Aussensprechstelle zu steuern:
 \begin{itemize}
 	\item GPIO17(16) simuliert den Tastendruck J «Links navigieren»
 	\item GPIO27(20) simuliert den Tastendruck K «Anrufen»
-	\item GPIO22(21) simuliert den Tastendruck L «Rechts navigieren»
+	\item •	GPIO22(21) simuliert den Tastendruck L «Rechts navigieren»
 \end{itemize}
 
 \subsubsection{Speaker Controller Service}
-Als erstes muss der mitgelieferte Jar Artefakt SpeakerController.jar unter folgendes Pfad kopiert werden:
+Als Erstes muss der mitgelieferte Jar Artefakt SpeakerController.jar unter folgenden Pfad kopiert werden:
 \begin{lstlisting}[backgroundcolor = \color{snippetcolor},
 language = bash,
 xleftmargin = 1cm,
@@ -154,8 +154,9 @@ framexleftmargin = 0.1em,
 breaklines=true]
 	/home/door/Aussensprechstelle/SpeakerController/SpeakerController.jar
 \end{lstlisting}
-Um den SpeakerController als Service unter Unix laufen zu lassen muss unter /etc/init.d/ der speakerController Script erzeugt werden. Der Inhalt des Script wird mit den Projekt mitgeliefert.
-Um es ausführbar zu machen muss noch die «execute» Berechtigung gegeben werden
+Um den Speaker-Controller als Service unter Unix laufen zu lassen, muss unter /etc/init.d/ das Speaker-Controller-Script erzeugt werden. Der Inhalt des Scripts wird mit dem Projekt mitgeliefert. Um es ausführbar zu machen, muss noch die
+«execute» Berechtigung gegeben werden.
+
 \begin{lstlisting}[backgroundcolor = \color{snippetcolor},
 language = bash,
 xleftmargin = 1cm,
@@ -164,7 +165,7 @@ breaklines=true]
 	touch /etc/init.d/speakerController
 	chmod +x /etc/init.d/speakerController
 \end{lstlisting}
-Damit der speakerController Service auch automatisch beim Systemstart  ausgeführt wird muss noch folgendes Kommando ausgeführt werden:
+Damit der SpeakerController-Service auch automatisch beim Systemstart ausgeführt wird, muss noch folgendes Kommando ausgeführt werden:
 \begin{lstlisting}[backgroundcolor = \color{snippetcolor},
 language = bash,
 xleftmargin = 1cm,
@@ -172,7 +173,7 @@ framexleftmargin = 0.1em,
 breaklines=true]
 	sudo update-rc.d speakerController defaults
 \end{lstlisting}
-Der Speaker Controller kann nun mit folgende commandos gestartet und gestoppt werden
+Der Speaker Controller kann nun mit folgenden Befehlen gestartet und gestoppt werden
 \begin{lstlisting}[backgroundcolor = \color{snippetcolor},
 language = bash,
 xleftmargin = 1cm,
@@ -185,8 +186,9 @@ breaklines=true]
 \end{lstlisting}
 
 \subsubsection{Watchdog/Watchdog deamon}
-Um die von den Aussensprechstelle benötigte Dienste zu monitorieren die es benötigt wird ein Watchdog verwendet. Raspberry Pi hat ein «stad-alone» Hardware Watchdog die ein Autostart durchführt sobald eine der Dienste oder den OS steht. 
-Mit folgende Kommandos wird der watchdog installiert:
+Um die von der Aussensprechstelle benötigte Dienste zu überwachen, wird ein Watchdog verwendet. Raspberry Pi hat ein «stad-alone» Hardware Watchdog die ein Autostart durchführt sobald eine der Dienste oder den OS still steht.
+Mit folgenden Kommandos wird der Watchdog installiert:
+\\
 \begin{lstlisting}[backgroundcolor = \color{snippetcolor},
 language = bash,
 xleftmargin = 1cm,
@@ -197,7 +199,7 @@ breaklines=true]
 	sudo chkconfig watchdog on
 	sudo /etc/init.d/watchdog start
 \end{lstlisting}
-Damit die SpeakerController und die TasterController von den Watchdog überwachen werden muss unter /etc/watchdog.conf die Konfiguratiosdatei abgeändert werden. Der Inhalt des Konfigurationsdatei wird mit dem Projekt mitgeliefert. 
+Damit die SpeakerController und die TasterController vom Watchdog überwacht werden, muss unter /etc/watchdog.conf die Konfigurationsdatei abgeändert werden. Der Inhalt der Konfigurationsdatei wird mit dem Projekt mitgeliefert.
 
 
 \subsection{Server Konfigurationsanleitung}
@@ -213,10 +215,11 @@ Password: raspberry (Default Password)\\
 
 
 \subsubsection{Software Installation}
-Nun werden die benötigten Dienste und Tools installiert, die von dem Server benötigt werden.
+Nun werden die benötigten Dienste und Tools installiert, die vom Server benötigt werden.
 
 \begin{itemize}
-	\item Installation der Webserver. (PHP, Nginx, MySQL, Java SDK, Composer, Utils)
+	\item Installation der Webserver. (PHP, Nginx, MySQL, Java SDK, Composer,
+	Utils)
 \end{itemize}
 
 \begin{lstlisting}[backgroundcolor = \color{snippetcolor},
@@ -234,11 +237,10 @@ breaklines=true]
 \end{lstlisting}
 
 \subsubsection{Erstellung SSL Zertifikate}
-Bevor die Webapplikationen installiert werden können, müssen die Zertifikate generiert werden. (Self-Signed) 
+Bevor die Webapplikationen installiert werden können, müssen die Zertifikate generiert werden (Self-Signed). 
 
 \begin{itemize}
-	\item Erstellung SSL Zertifikat für die Client Webapplikation.
-	Als Hostname wird hier als Beispiel intercom.app verwendet. Zuerst muss eine Konfigurationsdatei (v3.ext) mit dem folgenden Inhalt generiert werden:
+	\item Erstellung SSL Zertifikat für den Client Webapplikation. Als Hostname wird hier als Beispiel intercom.app verwendet. Zuerst muss eine Konfigurationsdatei (v3.ext) mit folgendem Inhalt generiert werden:
 \end{itemize}
 
 \begin{lstlisting}[backgroundcolor = \color{snippetcolor},
@@ -254,10 +256,11 @@ breaklines=true]
 	[alt_names]
 	DNS.1 = intercom.app
 \end{lstlisting}
-Falls ein IP Als hostname verwendet wird, kann man \textit{@alt\_names} mit IP:192.168.0.18 ersetzen.
+Falls ein IP als hostname verwendet wird, kann man \texttt{@alt\_names} mit IP:192.168.0.18 ersetzen.
 
 \begin{itemize}
-	\item Nun müssen folgende Befehle eingegeben werden. Wenn gefragt, muss der Hostname oder IP als Common Name (CN) Eingegeben werden. Als Password kann immer dieselbe verwendet werden und muss das Keystore Password der Signaling-Server entsprechen.
+	\item 
+	Nun müssen folgende Befehle eingegeben werden. Wenn gefragt, muss der Hostname oder IP als Common Name (CN) eingegeben werden. Es kann immer das gleiche Passwort verwendet werden und muss dem Keystore-Password des Signaling-Servers entsprechen.
 \end{itemize}
 
 \begin{lstlisting}[backgroundcolor = \color{snippetcolor},
@@ -283,13 +286,13 @@ breaklines=true]
 Somit wurden diverse Dateien generiert. Die folgenden werden später gebraucht.
 \begin{itemize}
 	\item server.cert und server.key -> SSL Zertifikate für Apache2
-	\item rootCA.pem -> Root CA. Das muss in den Client-Browser importiert werden, damit die Clients den Server als Vertraulich erkennen. 
-	\item phone.der.crt -> Root CA für Mobilegeräte. Bei Mobilegeräte kann es per E-Mail verschickt werden und dann aus der Systemeinstellungen installiert werden.
-	\item keystore.jks -> Das muss später in die Selber Verzeichnis kopiert werden, wo der SignalingServer installiert wird.  
+	\item rootCA.pem -> Root CA. Das muss in den Client-Browser importiert werden, damit die Clients den Server als vertraulich erkennen. 
+	\item phone.der.crt -> Root CA für Mobilegeräte. Bei Mobilegeräte kann es per E-Mail verschickt werden und dann in die  Systemeinstellungen installiert werden.
+	\item keystore.jks -> Das muss später in das selbe Verzeichnis kopiert werden, wo der SignalingServer installiert wird.  
 \end{itemize}
 
 \subsubsection{Konfiguration von Nginx}
-Vor dem Deploy den Webapplikationen muss der Webserver noch konfiguriert werden.
+Vor dem Deploy der Webapplikationen muss der Webserver noch konfiguriert werden.
 \\
 \begin{itemize}
 	\item In der Datei /etc/php5/fpm/php.ini muss die folgende Zeile auskommentiert und editiert werden: 
@@ -304,9 +307,10 @@ breaklines=true]
 \end{lstlisting}
 
 \begin{itemize}
-	\item Nun muss Nginx so konfiguriert werden, dass PHP als compiler verwendet wird. Der Datei \textit{/etc/nginx/sites-available/default} muss editiert werden. Im rot markiert sind die Stellen die angepasst werden müssen.
-	\item Nun müssen die zwei VirtualHosts für die zwei WebApps konfiguriert werden. Diese werden unter verschiedene Ports laufen. Für das müssen zwei Konfigurationsdatei unter \textit{/etc/nginx/sites-available} erstellt werden. Bsp: intercom.app und management.app.
-	Der Inhalt muss wie folgendes aussehen. Im rot markiert sind die Stellen, die unterschiedlich sein müssen für die beiden Webapplikationen. Der Path zu den SSL-Zertifikate muss auch angepasst werden.	
+	\item 
+	Nun muss Nginx so konfiguriert werden, dass PHP als compiler verwendet wird. Die Datei \textit{/etc/nginx/sites-available/default} muss editiert werden. Die Stellen die angepasst werden müssen sind rot markiert.
+	\item 
+	Nun müssen die zwei VirtualHosts für die zwei WebApps konfiguriert werden. Diese werden unter verschiedene Ports laufen. Dafür müssen zwei Konfigurationsdateien unter \textit{/etc/nginx/sites-available} erstellt werden. Bsp: intercom.app und management.app. Der Inhalt muss wie folgt aussehen. Die Stellen, die für die beiden Webapplikationen unterschiedlich sein müssen, sind rot markiert. Der Path zu den SSL-Zertifikate muss auch angepasst werden.
 \end{itemize}
 
 \begin{lstlisting}[backgroundcolor = \color{snippetcolor},
@@ -347,7 +351,7 @@ deny all;
 \end{lstlisting}
 
 \begin{itemize}
-	\item Zum Abschliessen noch die folgenden Befehle eingeben:
+	\item Zum abschliessen noch die folgenden Befehle eingeben:
 \end{itemize}
 
 \begin{lstlisting}[backgroundcolor = \color{snippetcolor},
@@ -365,10 +369,10 @@ sudo reboot
 \end{lstlisting}
 
 \subsubsection{Deploy Webapplikationen}
-Vor dem Deploy den Webapplikationen muss der Webserver noch konfiguriert werden.
+Vor dem Deploy der Webapplikationen muss der Webserver noch konfiguriert werden.
 \\
 \begin{itemize}
-	\item Die beide Webapplikationen müssen zuerst auf dem Server unter den passenden Verzeichnissen kopiert werden.\\
+	\item Die beide Webapplikationen müssen zuerst auf dem Server in die passenden Verzeichnissen kopiert werden.\\
 		/var/www/management\\
 		/var/www/intercom
 	\item Rechte anpassen
@@ -387,7 +391,7 @@ sudo chgrp -R www-data /var/www/
 
 \begin{itemize}
 	\item MySQL Database erstellen, dann Anmeldedaten und Database Name in der Datei: .env eingeben. (Falls .env nicht vorhanden: cp .env.example .env)
-	\item Webapplikation installieren: (Diese befehle müssen in der Root Dir von jede Webapp eingegeben werden).
+	\item Webapplikation installieren: (Diese Befehle müssen in der Root Dir jeder Webapp eingegeben werden).
 \end{itemize}
 
 \begin{lstlisting}[backgroundcolor = \color{snippetcolor},
@@ -416,9 +420,9 @@ mkdir /home/pi/server/relayController
 \end{lstlisting}
 
 \begin{itemize}
-	\item Die beide kompilierte JARs in den entsprechenden Verzeichnissen kopieren. Die kompilierten JARs sind in den jeweilige Projekts Verzeichnisse unter /deploy zu finden.
-	\item Nun muss noch für den SignalingServer noch das vorher hergestellte keystore.jks kopiert werden. Der Keystore muss sich in dem gleichen Verzeichnis wie der Signaling Server befinden.
-	\item Für beide Dienste muss noch das autostart Skript unter /etc/init.d/ kopiert werden. Die Skripte sind unter dem Script-Verzeichnis gespeichert. Auch diese Skripte müssen ausführbar sein. Folgende Befehle müssen noch eingegeben werden:
+	\item Die beide kompilierte JARs in den entsprechenden Verzeichnissen kopieren. Die kompilierten JARs sind im jeweiligen Projektverzeichniss unter /deploy zu finden.
+	\item Nun muss noch für den SignalingServer das vorher erstellte keystore.jks kopiert werden. Der Keystore muss sich im gleichen Verzeichnis wie der Signaling Server befinden.
+	\item Für beide Dienste muss noch der \texttt{Autostart\_Skript} unter /etc/init.d/ kopiert werden. Die Skripte sind im Script-Verzeichnis gespeichert. Auch diese Skripte müssen ausführbar sein. Folgende Befehle müssen noch eingegeben werden:
 \end{itemize}
 
 \begin{lstlisting}[backgroundcolor = \color{snippetcolor},

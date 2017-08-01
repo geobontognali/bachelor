@@ -1,30 +1,28 @@
 \section{Aktueller Stand der Technik}
 \label{sec:chapterexample}
-
-Eine \gls{turklingelanlage}, welche Audio und Video überträgt ist keine neue Erfindung. Auf dem Markt existieren bereits verschiedene Lösungen und das schon seit mehreren Jahren. Diese sind aber meistens Analoge Systeme und verfügen über die Vorteile der Digitalisierung nicht. Die Steuerung über eine Mobileapplikation ist bei solche Lösungen aus diesem Grund ausgeschlossen.
+Eine \gls{turklingelanlage} welche Audios und Videos überträgt, ist keine neue Erfindung. Auf dem Markt existieren bereits verschiedene Lösungen und das schon seit mehreren Jahren. Diese sind aber meistens analoge Systeme und verfügen über die Vorteile der Digitalisierung nicht. Die Steuerung über eine Mobileapplikation ist aus diesem Grund bei solchen Lösungen ausgeschlossen.
 
 \begin{figure}[htb!]
 	\begin{center}
 		\includegraphics[width=0.66\textwidth]{analog_intercom}
-		\caption[Analoge \gls{turklingelanlage} mit In-House Display]{Analoge Türsprechanlage mit In-House Display}
+		\caption[Analoge Türsprechanlage mit In-House Display]{Analoge Türsprechanlage mit In-House Display}
 		\label{fig:analoge_intercom}
 	\end{center}
 \end{figure}
-
-In den letzten Jahren sind die ersten Digitale Lösungen mit \gls{ip} Videoübertragung auf dem Markt gekommen. Die Digitalisierung in diesem Bereich hat es die gigantische Schritten im Bereich der Miniaturisierung und die immer schnellere Internet Zugänge (x\gls{dsl}, \gls{lte}, usw) zu verdanken.
+In den letzten Jahren sind die ersten, digitalen Lösungen mit \gls{ip} Videoübertragung auf dem Markt gekommen. Die Digitalisierung in diesem Bereich ist den gigantischen Schritten im Bereich der Miniaturisierung und den immer schnelleren Internetzugängen (x\gls{dsl}, \gls{lte}, usw) zu verdanken.
 
 \subsection{Die Herausforderungen der Digitalisierung}
-Die Digitalisierung bringt nicht nur Vorteile mit sich. Besonders bei der Video und Audioübertragung. Während eine Analoge Videoübertragung ziemlich mühelos erfolgt muss im Fall eine Digitale Lösung das Video zuerst kodiert und dann dekodiert werden.
+Die Digitalisierung bringt, besonders bei den Video- und Audioübertragungen, nicht nur Vorteile mit sich.  Während eine analoge Videoübertragung ziemlich mühelos erfolgt, muss im Falle einer digitalen Lösung das Video zuerst kodiert und anschliessend wieder dekodiert werden.
 \\
-Die heutige Kodierung-Algorithmen ermöglichen eine ziemlich schnelle Dekodierung. Mittlerweile hat jeder Smartphone genug Leistung um ein Full-\gls{dsl} Videostream vom Youtube oder Netflix in real-time zu dekodieren. Auf die andere Seite ist die Kodierung ein sehr rechenintensiven Prozess und benötigt sehr viel Leistung.
+Die heutigen Kodierungsalgorithmen ermöglichen eine ziemlich schnelle Dekodierung. Mittlerweile hat jeder Smartphone genug Leistung um ein Full-\gls{dsl} Videostreaming von Youtube oder Netflix in Real Time zu dekodieren. Auf der anderen Seite ist die Kodierung ein sehr rechenintensiver Prozess und benötigt sehr viel Leistung.
 \\
-Jeder der schon mal mit Video-Editing zu tun hatte, weisst, wie viel Zeit die Exportierung eines Video dauern kann.
+Jeder der schon mal mit Video-Editing zu tun hatte, weiss wie viel Zeit das Exportieren eines Videos dauern kann.
 \\
-Die grösste Herausforderung für die real-time Digitale Video/Audio Kommunikation besteht also darin, die Kodierung und Dekodierung der Audio und Video Signal im vernünftigen Zeit durchzuführen. 
+Die grösste Herausforderung für die Real Time digitale Video-, Audiokommunikation besteht also darin, die Kodierung und Dekodierung des Audios und Videosignals in vernünftiger Zeit durchzuführen.
 
 \subsection{Marktsituation}
 \label{sec:chapterexample}
-Der Hauptziel dieses Bachelorarbeit ist, eine Kostengünstige Lösung für eine digitale, flexible und skalierbare \gls{turklingelanlage}. Tatsächlich ist es so, dass die bestehende Lösungen sehr teuer sind. Viele Produkte basieren auf Drittanbieter, \gls{sip} Gateways oder andere Elemente die Zusatzkosten verursachen. Das möchten wir alles vermeiden.
+Das Hauptziel diese Bachelorarbeit ist die Entwicklung einer kostengünstigen Lösung für eine digitale, flexible und skalierbare \gls{turklingelanlage}. Tatsächlich ist es so, dass die bestehende Lösungen sehr teuer sind. Viele Produkte basieren auf Lösungen von Drittanbietern, \gls{sip} Gateways oder andere Elemente die Zusatzkosten verursachen. Das möchten wir alles vermeiden.
 
 \begin{figure}[htb!]
 	\begin{center}
@@ -34,9 +32,8 @@ Der Hauptziel dieses Bachelorarbeit ist, eine Kostengünstige Lösung für eine 
 	\end{center}
 \end{figure}
 
-Eine der günstigsten Produkte den wir finden konnten ist das \textit{"MyIntercom"} von Telecom Behnkle (\seeref{fig:myintercom}). Diese \gls{turklingelanlage} ist ziemlich flexibel und bietet die Möglichkeit, mehrere Türen anzuschliessen. Der Preis liegt hier bei zirka 1'600.- CHF pro Türe bei dem Basic-Modell.
+Eines der günstigsten Produkte das wir finden konnten ist das \textit{"MyIntercom"} von Telecom Behnkle (\seeref{fig:myintercom}). Diese \gls{turklingelanlage} ist ziemlich flexibel und bietet die Möglichkeit, mehrere Türen anzuschliessen. Der Preis liegt, beim Basic-Modell, bei ungefähr 1’600.- CHF pro Türe.
 \\
 \\
- Dank der Aufschwung von Open-Source Hardware wie das Raspberry PI und Real Time Communication Protokolle wie \gls{webrtc} muss es möglich sein, kostengünstigere Lösungen zu erarbeiten. Bei den folgenden Kapiteln geht es nun um die effektive Realisierung einem Prototyp, welches die oben genannte Problemen adressiert. 
-
+Dank der Aufschwung von Open Source Hardware wie das Raspberry PI und Real Time Communication Protokolle wie \gls{webrtc} muss es möglich sein, kostengünstigere Lösungen zu erarbeiten. In den folgenden Kapiteln geht es nun um die effektive Realisierung eines Prototyps, welcher die oben genannte Problemen adressiert.
 \newpage

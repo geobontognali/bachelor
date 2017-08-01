@@ -6,7 +6,29 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04438bb4-44b2-47d1-975e-2824fa6160d3" name="Default" comment="" />
+    <list default="true" id="04438bb4-44b2-47d1-975e-2824fa6160d3" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.pdf" afterPath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.pdf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.synctex.gz" afterPath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.synctex.gz" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/Anhang.tex" afterPath="$PROJECT_DIR$/../../../docs/Bericht/Anhang.tex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/Einfuehrung.tex" afterPath="$PROJECT_DIR$/../../../docs/Bericht/Einfuehrung.tex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/Fazit.tex" afterPath="$PROJECT_DIR$/../../../docs/Bericht/Fazit.tex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/Hardware.tex" afterPath="$PROJECT_DIR$/../../../docs/Bericht/Hardware.tex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/Marktanalyse.tex" afterPath="$PROJECT_DIR$/../../../docs/Bericht/Marktanalyse.tex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/Projektplanung.tex" afterPath="$PROJECT_DIR$/../../../docs/Bericht/Projektplanung.tex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/Software.tex" afterPath="$PROJECT_DIR$/../../../docs/Bericht/Software.tex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/abkuerzungsverzeichnis.aux" afterPath="$PROJECT_DIR$/../../../docs/Bericht/abkuerzungsverzeichnis.aux" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/erklaerung.aux" afterPath="$PROJECT_DIR$/../../../docs/Bericht/erklaerung.aux" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.aux" afterPath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.aux" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.blg" afterPath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.blg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.glo" afterPath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.glo" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.ist" afterPath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.ist" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.lof" afterPath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.lof" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.log" afterPath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.lot" afterPath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.lot" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.toc" afterPath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.toc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/zusammenfassung.tex" afterPath="$PROJECT_DIR$/../../../docs/Bericht/zusammenfassung.tex" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -85,9 +107,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -162,6 +182,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -630,6 +652,7 @@
       <workItem from="1498122729089" duration="453000" />
       <workItem from="1498657838903" duration="290000" />
       <workItem from="1500985299257" duration="677000" />
+      <workItem from="1501597794268" duration="629000" />
     </task>
     <task id="LOCAL-00001" summary="delete old Keylogger Project">
       <created>1489613966005</created>
@@ -649,10 +672,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4119000" />
+    <option name="totallyTimeSpent" value="4748000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1696" height="1026" extended-state="1" />
+    <frame x="-8" y="-8" width="1696" height="1026" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -662,7 +685,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18340611" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.62554586" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13530655" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -705,6 +728,14 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/ntb/bachelor/TasterController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ntb/bachelor/TasterController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">

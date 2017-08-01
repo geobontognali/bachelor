@@ -1,12 +1,13 @@
 \section{Lösungskonzept}
 \label{sec:lösungskonzept}
-Die \cref{fig:hwoverview} bietet ein Überblick über den verschiedenen Hardware-Komponenten, die für den \gls{turklingelanlage} notwendig sind. 
+Die \cref{fig:hwoverview} zeigt einen Überblick über die verschiedenen Hardwarekomponenten, die für die \gls{turklingelanlage} benötigt werden.
 \\
 Es werden nun zwei Begriffe erklärt, die in diesem Dokument von grosse Bedeutung sind. Das erste ist die \gls{turklingelanlage}. Damit gemeint ist die Gesamtheit der Komponenten die denn Zusammen den Endprodukt darstellen.
 \\
-Das zweite Begriff ist die \gls{aussensprechstelle}. Wie in der \cref{fig:hwoverview} ersichtlich handelt sich hauptsächlich um ein Mikrocontroller mit verschiedene Modulen die an den Eingangstüre installiert wird.
+Als \gls{aussensprechstelle} ist die Gesamtheit aller Komponenten des Endproduktes gemeint, als Aussensprechstelle der an der Eingangstüre installierte Mikrocontroller inklusive dazugehörige Module (\seeref{fig:hwoverview}).
 \\
-Räumlich von der \gls{aussensprechstelle} getrennt befindet sich der Server. Diese besteht aus ein Mikrocontroller, die als Server im Einsatz ist, ein Switch die dazu dient die \gls{aussensprechstelle} mit Strom und Datenverbindung zu versorgen und die Relais welche den Türöffner und Glocken betätigen.
+Räumlich von der \gls{aussensprechstelle} getrennt befindet sich der Server. Dieser besteht aus einem Mikrocontroller, der als Server im Einsatz steht, aus einem Switch der dazu dient die \gls{aussensprechstelle} mit Strom und Datenverbindung zu versorgen und aus einem Relais welches den Türöffner und die Glocke betätigt.
+
 \begin{figure}[htb!]
 	\begin{center}
 		\includegraphics[width=0.95\textwidth]{hwoverview}
@@ -14,25 +15,25 @@ Räumlich von der \gls{aussensprechstelle} getrennt befindet sich der Server. Di
 		\label{fig:hwoverview}
 	\end{center}
 \end{figure}
-\\
-Das System wird nicht nur aus Hardware bestehen, sondern auch aus viel Software-Elemente die zusammen arbeiten werden. Als erstes, wie in der Projektplanung bereits definiert, wird die Hardware Seite der Lösung realisiert. Sobald alle Hardware Komponenten getestet und auf Kompatibilität geprüft sein werden, wird die Programmierung stattfinden.
+
+Das System besteht aber nicht nur aus Hardware. Das Zusammenarbeiten der Hardware wird von viel Softwareelemente geregelt. Als erstes, wie bereits in der Projektplanung definiert, wird die Hardwareseite der Lösung realisiert. Sobald alle Hardwarekomponenten getestet und auf Kompatibilität geprüft worden sind, wird die Programmierung stattfinden.
 
 \section{Hardware}
 \label{sec:chapterexample}
 \subsection{Komponenten}
-Das System wird Hardwareseitig hauptsächlich in zwei Teile unterteilt. Der Server und die \gls{aussensprechstelle}.
+Das System wird hardwareseitig grob in zwei Teile unterteilt, den Server und die \gls{aussensprechstelle}.
 \\
-Die \cref{tbl:SrvHW} und die \cref{tbl:DoorHW} zeigen die benötigten \gls{hw}-Komponenten, welchen an die jeweilige Stellen benötigt werden.
+Die \cref{tbl:SrvHW} und die \cref{tbl:DoorHW} zeigen die benötigten Hardwarekomponenten, welchen an den jeweiligen Stellen eingebaut werden.
 \\
-Um den Überblick über die Kosten aller Hardware-Komponenten zu behalten, sind hier auch die Preisen aufgelistet. Wichtig hier ist sicherzustellen, dass die gesamten Hardwarekosten diejenigen der von der Konkurrenz angebotenen Produkte nicht übersteigen.
+Um den Überblick über die Kosten aller Hardwarekomponenten zu behalten, sind hier auch die Preisen aufgelistet. Dabei ist es wichtig sicherzustellen, dass die gesamten Hardwarekosten diejenigen der von der Konkurrenz angebotenen Produkte nicht übersteigen.
 \\
-Die Preise können natürlich leicht abweichen da es sich um Standardkomponenten handelt und die Preise sich schnell ändern. Die Summen sind mehr als Kostenschätzung zu betrachten.
+Die Einkaufspreise sind nur Richtpreise, da es sich um Standardkomponenten handelt und die Marktpreise sich ständig und schnell ändern können. Die Summen sind als Kostenschätzung zu betrachten. (Stand Fruhjahr 2017).
 
 \begin{table}[]
 	\centering
 	\label{my-label}
 	\begin{tabular}{l|ll}
-		\multicolumn{1}{r|}{} \textbf{Anzahl} & \textbf{Komponent} \hspace{180pt} & \textbf{Preis} 	\\ \hline
+		\multicolumn{1}{r|}{} \textbf{Anzahl} & \textbf{Komponente} \hspace{180pt} & \textbf{Preis} 	\\ \hline
 		1	&	Raspberry Pi 3 Model B						& 50.-				\\ \hline
 		1	&	Raspberry Gehäuse und Netzteil				& 25.-			\\ \hline
 		2	&	8-Kanal Relais Modul						& 15.-			\\ \hline
@@ -47,7 +48,7 @@ Die Preise können natürlich leicht abweichen da es sich um Standardkomponenten
 	\centering
 	\label{my-label}
 	\begin{tabular}{l|ll}
-		\multicolumn{1}{r|}{} \textbf{Anzahl} & \textbf{Komponent} \hspace{180pt} & \textbf{Preis} 	\\ \hline
+		\multicolumn{1}{r|}{} \textbf{Anzahl} & \textbf{Komponente} \hspace{180pt} & \textbf{Preis} 	\\ \hline
 		1	&	Raspberry Pi 3 Model B		   				& 50.-			\\ \hline
 		1	&	4" Bildschirm								& 64.-			\\ \hline
 		1	&	Raspberry Kamera							& 59.-			\\ \hline
@@ -65,15 +66,15 @@ Die Preise können natürlich leicht abweichen da es sich um Standardkomponenten
 
 \subsection{Stromspeisung}
 \label{sec:poe}
-Ein Ziel unser Lösung ist die Installationskosten zu senken und die Montage zu vereinfachen. Aus diesem Grund war für unsere Lösung wichtig, Power over Ethernet zu verwenden.
-Moderne Hausalte werden meistens mit Ethernet Verkabelung verlegt. Dank \gls{poe} ist nur noch ein Kabel notwendig, welches Strom und Konnektivität gewährleistet.
+Ein Ziel unserer Lösung ist die Installationskosten zu senken und die Montage zu vereinfachen. Aus diesem Grund war für unsere Lösung wichtig, \gls{poe} zu verwenden. In modernen Haushalte werden meistens Ethernet Verkabelungen verlegt und dank PoE ist nur noch ein Kabel, welches Strom und Konnektivität gewährleistet, notwendig.
 \\
 \\
-Zusätzlich würde das System noch eine Leitung, um den Türöffner zu steuern.
-Auch hier kann das Endinstallation vereinfacht werden. Anstatt ein dediziertes Kabel zwischen Server und Türöffner einzuziehen, werden zwei Drähte von dem bereits installierten Ethernet Kabel verwendet.
+Zusätzlich benötigt das System noch eine Leitung die den Türöffner steuert.
+Auch diese Endinstallation kann vereinfacht werden wenn man, anstatt ein dediziertes Kabel zwischen Server und Türöffner einzuziehen,  zwei Drähte des bereits installierten Ethernet Kabels verwendet.
 \\
 \\
-Cisco Catalyst 3560g welcher für den \gls{poe} Stromversorgung zuständigt ist, verwendet das Phantomspeisung oder Mode A. Das heisst, dass die mit Datenübertragung belegten Drähte mit der Stromversorgung überlagert werden. Das ist möglich da Elektrizität mit eine Frequenz von 60 Hz schwingt und die Datenübertragungen im bereich 10-100MHz liegen.
+Cisco Catalyst 3560g welcher für den \gls{poe} Stromversorgung zuständig ist, verwendet die Phantomspeisung oder Mode A. Das heisst, dass die mit der Datenübertragung belegten Drähte mit der Stromversorgung überlagert werden. Dies ist möglich da die Frequenz der Elektrizität 60 Hz beträgt und die der Datenübertragungen im Bereich von 10-100MHz liegt.
+
 \begin{figure}[htb!]
 	\begin{center}
 		\includegraphics[width=0.89\textwidth]{CatalystPoEpinouts}
@@ -81,13 +82,13 @@ Cisco Catalyst 3560g welcher für den \gls{poe} Stromversorgung zuständigt ist,
 		\label{fig:catalystPinouts}
 	\end{center}
 \end{figure}
-\\
-Wie im \cref{fig:ethernetBelegung} dargestellt werden die Adern 7 und 8 dazu verwendet um der Türöffner zu betätigen. Aus den 3 verbliebenden Adernpaare kann maximal die Ethernet Kategorie 100BASE-T erreicht werden. Da aber \gls{webrtc} eine erhebliche kleinere Bandbreite in Anspruch nimmt, stellt für die \gls{aussensprechstelle} kein Hinderniss dar.
+
+Wie im \cref{fig:ethernetBelegung} dargestellt werden die Adern 7 und 8 dazu verwendet um den Türöffner zu betätigen. Aus den 3 verbliebenden Adernpaaren kann maximal die Ethernetkategorie 100BASE-T erreicht werden. Da aber \gls{webrtc} eine erhebliche kleinere Bandbreite in Anspruch nimmt, stellt es für die \gls{aussensprechstelle} kein Hindernis dar.
 
 \begin{figure}[htb!]
 	\begin{center}
 		\includegraphics[width=0.89\textwidth]{EthernetPinbelegung}
-		\caption[EthernetPinbelegung]{Cat. 7 Ethernet Pinbelegung für die \gls{aussensprechstelle}}
+		\caption[EthernetPinbelegung]{Cat. 7 Ethernet Pinbelegung der \gls{aussensprechstelle}}
 		\label{fig:ethernetBelegung}
 	\end{center}
 \end{figure}
@@ -96,13 +97,12 @@ Wie im \cref{fig:ethernetBelegung} dargestellt werden die Adern 7 und 8 dazu ver
 
 \subsection{Server}
 \label{sec:chapterexample}
-
-Der Server wird mit einem Relay-Board verbunden. Diese wird die Gongs und die Türöffner bedienen. An dieser Stelle ist die Hardware-Konfiguration sehr einfach. Mit der jetzige Hardwarekonfiguration könnten bis auf 8 Wohnungen und 8 Aussensprechstellen angeschlossen werden. Die \cref{fig:pipins} und die \cref{fig:boardpins} zeigen die Pinbelegung auf den Pi und auf dem Relay-Board. Die \cref{tbl:pinroutes} zeigt wie die verschiedene Pins miteinander angeschlossen werden.
+Der Server wird mit einem Relais-Board verbunden um die Gongs und die Türöffner zu bedienen. An dieser Stelle ist die Hardwarekonfiguration sehr einfach. Mit der aktuellen Hardwarekonfiguration könnten bis 8 Wohnungen und 8 Aussensprechstellen angeschlossen werden. Die \cref{fig:pipins} und die \cref{fig:boardpins} zeigen die Pinbelegung auf dem Pi und auf dem Relais-Board. Die \cref{tbl:pinroutes} zeigt wie die verschiedenen Pins miteinander verbunden werden.
 
 \begin{figure}[htb!]
 	\begin{center}
 		\includegraphics[width=0.8\textwidth]{pipins}
-		\caption[EthernetPinbelegung]{Pinbelegung für die \gls{aussensprechstelle}}
+		\caption[EthernetPinbelegung]{Pinbelegung der \gls{aussensprechstelle}}
 		\label{fig:pipins}
 	\end{center}
 \end{figure}
@@ -144,12 +144,12 @@ Der Server wird mit einem Relay-Board verbunden. Diese wird die Gongs und die T�
 
 \subsection{Aussensprechstelle}
 \label{sec:chapterexample}
+Bei der \gls{aussensprechstelle} wird auch ein Raspberry Pi eingesetzt. Hier sind mehrere Zusatzkomponenten notwendig. Die Speisung, wie oben schon erwähnt, erfolgt an dieser Stelle über \gls{poe}. Aus diesem Grund ist ein \gls{poe}-Splitter vorhanden.
+\\
+Für die Audiowiedergabe sind ein kleiner Lautsprecher und ein Verstärker notwendig. Der Chinch Anschluss des Raspberrys Pi hat eine zu niedrige Ausgangsleistung um den Lautsprecher direkt anschliessen zu können.
+\\
+Die drei Schalter, die für die Bedienung der \gls{aussensprechstelle} notwendig sind, werden an die \gls{gpio}s des Raspberrys PI angeschlossen. Die \cref{tbl:pinroutesdoor} zeigt die Pinbelegung.
 
-Bei der \gls{aussensprechstelle} wird auch eine Raspberry Pi eingesetzt. Hier sind mehrere Zusatzkomponenten notwendig. Die Speisung, wie oben schon erwähnt, erfolgt an dieser stelle über \gls{poe}, aus diesem Grund ist ein \gls{poe}-Splitter vorhanden.
-\\
-Für die Audiowiedergabe sind ein kleines Lautsprecher und ein Verstärker notwendeig. Die Chinch-Anschluss der Raspberry Pi hat eine zu niedrige Ausgangsleistung um den Lautsprecher direkt anschliessen zu können. 
-\\
-Die drei Schalter, die für die Bedienung der \gls{aussensprechstelle} notwendig sind, werden an die \gls{gpio}s der Raspberry PI angeschlossen. Die \cref{tbl:pinroutesdoor} zeigt die Pinbelegung.
 \begin{table}[]
 	\centering
 	\label{my-label}
@@ -169,12 +169,12 @@ Während der Zusammenstellung der Aussensprechstelle sind die erste unvorhergese
 \\
 \textbf{Audiowidergabe} 
 \\
-Die grösste Problematik bei der Audiowiedergabe besteht darin, dass die Massen des Raspberry Pi, der Verstärker und des Audio-Interface alle zusammen gekoppelt sind. Das führt zu Brummschleifen die wiederum Störsignale auf dem Audio-Ausgang erzeugen. Um das zu vermeiden wird ein Massentrennfilter an dieser Stelle eingesetzt.
+Die grösste Problematik bei der Audiowiedergabe besteht darin, dass die Massen des Raspberrys Pi, des Verstärkers und des Audio-Interface gekoppelt sind. Das führt zu Brummschleifen, die wiederum Störsignale auf dem Audio-Ausgang erzeugen. Um das zu vermeiden, muss an dieser Stelle ein Massentrennfilter eingesetzt werden.
 \\
-Die Störsignale sind nun fast komplett verschwunden, ein klein Hintergrundgeräusch ist aber immer noch vorhanden. Um dieses Problem umzugehen, wird ein zusätzliches Relay installiert, welche das Lautsprecher-Stromkreis unterbricht, wenn diese nicht verwendet wird.
+Die Störsignale sind nun fast komplett verschwunden, nur ein winziges Hintergrundgeräusch ist immer noch vorhanden. Um dieses Problem umzugehen, wird ein zusätzliches Relais installiert, welches den Lautsprecherstromkreis bei Nichtnutzung unterbricht.
 \\
 \\
 \textbf{Das Mikrophon}
 \\
-Das Problem bei der Audioaufnahme liegt bei der Mikrophon selber. Die Raspberry Pi besitzt kein integriertes Audio-Input. Aus diesem Grund wurde ein \gls{usb}-Audio Interface verwendet. Es hat sich aber herausgestellt, dass nicht so einfach ist, kostengünstige und qualitatives \gls{usb} Mikrophone zu finden. Die meisten Produkten sind nicht für den Outdoor-Betrieb gedacht. Für unser Prototyp ist das eingesetzte Mikrophon völlig ausreichen. Für das Endprodukt sollte man hier noch etwas Zeit und Geld in der Evaluation ein besseres Mikrophon investieren.
+Das Problem der Audioaufnahme liegt beim Mikrophon selber. Der Raspberry Pi besitzt kein integriertes Audio-Input. Aus diesem Grund wurde ein \gls{usb}-Audio-Interface verwendet. Es hat sich aber herausgestellt, dass es nicht so einfach ist, kostengünstige und qualitatives \gls{usb} Mikrophone zu finden. Die meisten Produkten sind nicht für den Outdoorbetrieb gedacht. Für unseren Prototyp wird das eingesetzte Mikrophon völlig ausreichen, für ein gut funktionierendes Endprodukt sollte man ein besseres Mikrophon einbauen.
 \newpage
