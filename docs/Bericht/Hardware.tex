@@ -1,13 +1,60 @@
+\section{Anforderungen}
+Für den Bachelorarbeit wurden die Anforderungen bereits in dem Fachmodul definiert.
+\subsection{Anforderungen}
+A1. Es soll möglich sein, die Haustüre durch ein Signal zu öffnen. 
+\\
+\\
+A2. Es soll möglich sein, ein Videosignal von der Aussensprechstelle zum Client zu streamen. 
+\\
+\\
+A3. Es soll möglich sein, ein Audiosignal zwischen der Aussensprechstelle und der Client App bidirektional zu streamen. 
+\\
+\\
+A4. Ein digitaler Bildschirm zeigt die Informationen der Bewohner (Name, Vorname, usw) an der Aussensprechstelle an. 
+\\
+\\
+A5. Nach einem Stromunterbruch soll die Anlage automatisch wieder Starten und Funktionsbereit sein. 
+\\
+\\
+A6. Den Datenverkehr zwischen den Endknoten muss Verschlüsselt sein. 
+\\
+\\
+A7. Die Komponenten sollten zwischen -20C und +40C funktionsfähig sein. 
+\\
+\\
+A8. Die Komponenten sollten auch im Fall hoher Feuchtigkeit funktionsfähig sein. (80\%) 
+\\
+\\
+A9. Die Kamera für das Videosignal muss eine Auflösung von mind. 1280x720 Pixel aufweisen.  
+\\
+\\
+A10. Die Materialkosten pro Aussensprechstelle sollten 400.- nicht überschreiten. 
+\\
+\\
+A11. Die Aussensprechstelle soll auch mit nasse/bedeckte Hände bedienbar sein. 
+\\
+\\
+A12. Bei der Innenstelle ist es möglich das Mikrofon auszuschalten, um die Übertragung des Audiosignales zu unterdrücken. 
+
+\subsection{Wunschanforderungen}
+W1. Die Komponenten sollten die Speisung durch PoE erhalten. 
+\\
+\\
+W2. Die Kamera für das Videosignal muss eine Auflösung von 1920x1080 Pixel aufweisen. 
+\\
+\\
+W3. Verpasste Besuche sollten aufgezeichnet werden und in der Client App in Form von einem Foto und Notifikation sichtbar sein.
+\newpage
+
 \section{Lösungskonzept}
 \label{sec:lösungskonzept}
 Die \cref{fig:hwoverview} zeigt einen Überblick über die verschiedenen Hardwarekomponenten, die für die \gls{turklingelanlage} benötigt werden.
 \\
 Es werden nun zwei Begriffe erklärt, die in diesem Dokument von grosse Bedeutung sind. Das erste ist die \gls{turklingelanlage}. Damit gemeint ist die Gesamtheit der Komponenten die denn Zusammen den Endprodukt darstellen.
 \\
-Als \gls{aussensprechstelle} ist die Gesamtheit aller Komponenten des Endproduktes gemeint, als Aussensprechstelle der an der Eingangstüre installierte Mikrocontroller inklusive dazugehörige Module (\seeref{fig:hwoverview}).
+Als \gls{aussensprechstelle} ist die Gesamtheit aller Komponenten des Endproduktes gemeint, als Aussensprechstelle der an der Eingangstüre installierte Mikrocontroller inklusive dazugehörige Module.
 \\
 Räumlich von der \gls{aussensprechstelle} getrennt befindet sich der Server. Dieser besteht aus einem Mikrocontroller, der als Server im Einsatz steht, aus einem Switch der dazu dient die \gls{aussensprechstelle} mit Strom und Datenverbindung zu versorgen und aus einem Relais welches den Türöffner und die Glocke betätigt.
-
 \begin{figure}[htb!]
 	\begin{center}
 		\includegraphics[width=0.95\textwidth]{hwoverview}
@@ -15,8 +62,8 @@ Räumlich von der \gls{aussensprechstelle} getrennt befindet sich der Server. Di
 		\label{fig:hwoverview}
 	\end{center}
 \end{figure}
-
 Das System besteht aber nicht nur aus Hardware. Das Zusammenarbeiten der Hardware wird von viel Softwareelemente geregelt. Als erstes, wie bereits in der Projektplanung definiert, wird die Hardwareseite der Lösung realisiert. Sobald alle Hardwarekomponenten getestet und auf Kompatibilität geprüft worden sind, wird die Programmierung stattfinden.
+\newpage
 
 \section{Hardware}
 \label{sec:chapterexample}
