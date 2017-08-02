@@ -4,64 +4,72 @@
 \BOOKMARK [1][-]{section.2}{Projektplanung}{}% 4
 \BOOKMARK [2][-]{subsection.2.1}{Prozess}{section.2}% 5
 \BOOKMARK [2][-]{subsection.2.2}{Zeitplanung}{section.2}% 6
-\BOOKMARK [1][-]{section.3}{Aktueller Stand der Technik}{}% 7
-\BOOKMARK [2][-]{subsection.3.1}{Die Herausforderungen der Digitalisierung}{section.3}% 8
-\BOOKMARK [2][-]{subsection.3.2}{Marktsituation}{section.3}% 9
-\BOOKMARK [1][-]{section.4}{L\366sungskonzept}{}% 10
-\BOOKMARK [1][-]{section.5}{Hardware}{}% 11
-\BOOKMARK [2][-]{subsection.5.1}{Komponenten}{section.5}% 12
-\BOOKMARK [2][-]{subsection.5.2}{Stromspeisung}{section.5}% 13
-\BOOKMARK [2][-]{subsection.5.3}{Server}{section.5}% 14
-\BOOKMARK [2][-]{subsection.5.4}{Aussensprechstelle}{section.5}% 15
-\BOOKMARK [3][-]{subsubsection.5.4.1}{Problemen}{subsection.5.4}% 16
-\BOOKMARK [1][-]{section.6}{Software}{}% 17
-\BOOKMARK [2][-]{subsection.6.1}{Programmiersprachen}{section.6}% 18
-\BOOKMARK [3][-]{subsubsection.6.1.1}{Java}{subsection.6.1}% 19
-\BOOKMARK [3][-]{subsubsection.6.1.2}{PHP/Javascript}{subsection.6.1}% 20
-\BOOKMARK [3][-]{subsubsection.6.1.3}{PHP Framework: Laravel}{subsection.6.1}% 21
-\BOOKMARK [2][-]{subsection.6.2}{System \334bersicht}{section.6}% 22
-\BOOKMARK [2][-]{subsection.6.3}{M\374hsame Security Policies}{section.6}% 23
-\BOOKMARK [2][-]{subsection.6.4}{WebRTC}{section.6}% 24
-\BOOKMARK [3][-]{subsubsection.6.4.1}{Signaling Process}{subsection.6.4}% 25
-\BOOKMARK [3][-]{subsubsection.6.4.2}{STUN Servers \046 Remote Verbindung}{subsection.6.4}% 26
-\BOOKMARK [2][-]{subsection.6.5}{Webapplikationen}{section.6}% 27
-\BOOKMARK [3][-]{subsubsection.6.5.1}{Client Webapplikation}{subsection.6.5}% 28
-\BOOKMARK [3][-]{subsubsection.6.5.2}{Aussensprechstelle Webapplikation}{subsection.6.5}% 29
-\BOOKMARK [3][-]{subsubsection.6.5.3}{Management Tool}{subsection.6.5}% 30
-\BOOKMARK [3][-]{subsubsection.6.5.4}{Remote Verbindung}{subsection.6.5}% 31
-\BOOKMARK [2][-]{subsection.6.6}{OS und Dienste}{section.6}% 32
-\BOOKMARK [3][-]{subsubsection.6.6.1}{Raspbian}{subsection.6.6}% 33
-\BOOKMARK [3][-]{subsubsection.6.6.2}{Taster Controller}{subsection.6.6}% 34
-\BOOKMARK [3][-]{subsubsection.6.6.3}{Speaker Controller}{subsection.6.6}% 35
-\BOOKMARK [3][-]{subsubsection.6.6.4}{Relay Controller}{subsection.6.6}% 36
-\BOOKMARK [2][-]{subsection.6.7}{Logging}{section.6}% 37
-\BOOKMARK [2][-]{subsection.6.8}{Watchdog}{section.6}% 38
-\BOOKMARK [1][-]{section.7}{Testabnahme}{}% 39
-\BOOKMARK [1][-]{section.8}{Ausblick}{}% 40
-\BOOKMARK [2][-]{subsection.8.1}{Verbesserungs- und Erweiterungsm\366glichkeiten}{section.8}% 41
-\BOOKMARK [2][-]{subsection.8.2}{Einsatzm\366glchkeiten}{section.8}% 42
-\BOOKMARK [1][-]{section.9}{Schlussfolgerung}{}% 43
-\BOOKMARK [1][-]{section.10}{Anhang}{}% 44
-\BOOKMARK [2][-]{subsection.10.1}{Aussensprechstelle Konfigurationsanleitung}{section.10}% 45
-\BOOKMARK [3][-]{subsubsection.10.1.1}{Aktuelle Stand}{subsection.10.1}% 46
-\BOOKMARK [3][-]{subsubsection.10.1.2}{Namen und Passwortkonzept}{subsection.10.1}% 47
-\BOOKMARK [3][-]{subsubsection.10.1.3}{Betriebssystem Installation}{subsection.10.1}% 48
-\BOOKMARK [3][-]{subsubsection.10.1.4}{Allgemeine Einstellungen}{subsection.10.1}% 49
-\BOOKMARK [3][-]{subsubsection.10.1.5}{Bidschirm Konfiguration}{subsection.10.1}% 50
-\BOOKMARK [3][-]{subsubsection.10.1.6}{Browser Kiosk-mode}{subsection.10.1}% 51
-\BOOKMARK [3][-]{subsubsection.10.1.7}{Aussensprechstelle Initialisierung}{subsection.10.1}% 52
-\BOOKMARK [3][-]{subsubsection.10.1.8}{Taster Controller}{subsection.10.1}% 53
-\BOOKMARK [3][-]{subsubsection.10.1.9}{Speaker Controller Service}{subsection.10.1}% 54
-\BOOKMARK [3][-]{subsubsection.10.1.10}{Watchdog/Watchdog deamon}{subsection.10.1}% 55
-\BOOKMARK [2][-]{subsection.10.2}{Server Konfigurationsanleitung}{section.10}% 56
-\BOOKMARK [3][-]{subsubsection.10.2.1}{Aktuelle Stand}{subsection.10.2}% 57
-\BOOKMARK [3][-]{subsubsection.10.2.2}{Namen und Passwortkonzept}{subsection.10.2}% 58
-\BOOKMARK [3][-]{subsubsection.10.2.3}{Software Installation}{subsection.10.2}% 59
-\BOOKMARK [3][-]{subsubsection.10.2.4}{Erstellung SSL Zertifikate}{subsection.10.2}% 60
-\BOOKMARK [3][-]{subsubsection.10.2.5}{Konfiguration von Nginx}{subsection.10.2}% 61
-\BOOKMARK [3][-]{subsubsection.10.2.6}{Deploy Webapplikationen}{subsection.10.2}% 62
-\BOOKMARK [3][-]{subsubsection.10.2.7}{Deploy Dienste und Services}{subsection.10.2}% 63
-\BOOKMARK [2][-]{subsection.10.3}{Zertifikate}{section.10}% 64
-\BOOKMARK [1][-]{section*.4}{Abbildungsverzeichnis}{}% 65
-\BOOKMARK [1][-]{section*.5}{Tabellenverzeichnis}{}% 66
-\BOOKMARK [1][-]{section*.8}{Eidesstattliche Erkl\344rung}{}% 67
+\BOOKMARK [2][-]{subsection.2.3}{Versionierung}{section.2}% 7
+\BOOKMARK [1][-]{section.3}{Aktueller Stand der Technik}{}% 8
+\BOOKMARK [2][-]{subsection.3.1}{Die Herausforderungen der Digitalisierung}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.2}{Marktsituation}{section.3}% 10
+\BOOKMARK [1][-]{section.4}{Anforderungen}{}% 11
+\BOOKMARK [2][-]{subsection.4.1}{Anforderungen}{section.4}% 12
+\BOOKMARK [2][-]{subsection.4.2}{Wunschanforderungen}{section.4}% 13
+\BOOKMARK [1][-]{section.5}{L\366sungskonzept}{}% 14
+\BOOKMARK [1][-]{section.6}{Hardware}{}% 15
+\BOOKMARK [2][-]{subsection.6.1}{Komponenten}{section.6}% 16
+\BOOKMARK [2][-]{subsection.6.2}{Stromspeisung}{section.6}% 17
+\BOOKMARK [2][-]{subsection.6.3}{Server}{section.6}% 18
+\BOOKMARK [2][-]{subsection.6.4}{Aussensprechstelle}{section.6}% 19
+\BOOKMARK [3][-]{subsubsection.6.4.1}{Problemen}{subsection.6.4}% 20
+\BOOKMARK [1][-]{section.7}{Software}{}% 21
+\BOOKMARK [2][-]{subsection.7.1}{Programmiersprachen}{section.7}% 22
+\BOOKMARK [3][-]{subsubsection.7.1.1}{Java}{subsection.7.1}% 23
+\BOOKMARK [3][-]{subsubsection.7.1.2}{PHP/Javascript}{subsection.7.1}% 24
+\BOOKMARK [3][-]{subsubsection.7.1.3}{PHP Framework: Laravel}{subsection.7.1}% 25
+\BOOKMARK [2][-]{subsection.7.2}{System \334bersicht}{section.7}% 26
+\BOOKMARK [2][-]{subsection.7.3}{M\374hsame Security Policies}{section.7}% 27
+\BOOKMARK [2][-]{subsection.7.4}{WebRTC}{section.7}% 28
+\BOOKMARK [3][-]{subsubsection.7.4.1}{Signaling Process}{subsection.7.4}% 29
+\BOOKMARK [3][-]{subsubsection.7.4.2}{STUN Servers \046 Remote Verbindung}{subsection.7.4}% 30
+\BOOKMARK [2][-]{subsection.7.5}{Webapplikationen}{section.7}% 31
+\BOOKMARK [3][-]{subsubsection.7.5.1}{Client Webapplikation}{subsection.7.5}% 32
+\BOOKMARK [3][-]{subsubsection.7.5.2}{Aussensprechstelle Webapplikation}{subsection.7.5}% 33
+\BOOKMARK [3][-]{subsubsection.7.5.3}{Management Tool}{subsection.7.5}% 34
+\BOOKMARK [3][-]{subsubsection.7.5.4}{Remote Verbindung}{subsection.7.5}% 35
+\BOOKMARK [2][-]{subsection.7.6}{OS und Dienste}{section.7}% 36
+\BOOKMARK [3][-]{subsubsection.7.6.1}{Raspbian}{subsection.7.6}% 37
+\BOOKMARK [3][-]{subsubsection.7.6.2}{Taster Controller}{subsection.7.6}% 38
+\BOOKMARK [3][-]{subsubsection.7.6.3}{Speaker Controller}{subsection.7.6}% 39
+\BOOKMARK [3][-]{subsubsection.7.6.4}{Relay Controller}{subsection.7.6}% 40
+\BOOKMARK [2][-]{subsection.7.7}{Logging}{section.7}% 41
+\BOOKMARK [2][-]{subsection.7.8}{Watchdog}{section.7}% 42
+\BOOKMARK [1][-]{section.8}{Prototyp Testplan}{}% 43
+\BOOKMARK [2][-]{subsection.8.1}{Abnahme-Testplan}{section.8}% 44
+\BOOKMARK [2][-]{subsection.8.2}{Resultate}{section.8}% 45
+\BOOKMARK [3][-]{subsubsection.8.2.1}{Test 12: Verpasste Besuche sind in der Client-App ersichtlich}{subsection.8.2}% 46
+\BOOKMARK [3][-]{subsubsection.8.2.2}{Test 8: Die Aufl\366sung des Videosignales wird evaluiert}{subsection.8.2}% 47
+\BOOKMARK [1][-]{section.9}{Ausblick}{}% 48
+\BOOKMARK [2][-]{subsection.9.1}{Verbesserungs- und Erweiterungsm\366glichkeiten}{section.9}% 49
+\BOOKMARK [2][-]{subsection.9.2}{Einsatzm\366glchkeiten}{section.9}% 50
+\BOOKMARK [1][-]{section.10}{Schlussfolgerung}{}% 51
+\BOOKMARK [1][-]{section.11}{Anhang}{}% 52
+\BOOKMARK [2][-]{subsection.11.1}{Aussensprechstelle Konfigurationsanleitung}{section.11}% 53
+\BOOKMARK [3][-]{subsubsection.11.1.1}{Aktuelle Stand}{subsection.11.1}% 54
+\BOOKMARK [3][-]{subsubsection.11.1.2}{Namen und Passwortkonzept}{subsection.11.1}% 55
+\BOOKMARK [3][-]{subsubsection.11.1.3}{Betriebssystem Installation}{subsection.11.1}% 56
+\BOOKMARK [3][-]{subsubsection.11.1.4}{Allgemeine Einstellungen}{subsection.11.1}% 57
+\BOOKMARK [3][-]{subsubsection.11.1.5}{Bidschirm Konfiguration}{subsection.11.1}% 58
+\BOOKMARK [3][-]{subsubsection.11.1.6}{Browser Kiosk-mode}{subsection.11.1}% 59
+\BOOKMARK [3][-]{subsubsection.11.1.7}{Aussensprechstelle Initialisierung}{subsection.11.1}% 60
+\BOOKMARK [3][-]{subsubsection.11.1.8}{Taster Controller}{subsection.11.1}% 61
+\BOOKMARK [3][-]{subsubsection.11.1.9}{Speaker Controller Service}{subsection.11.1}% 62
+\BOOKMARK [3][-]{subsubsection.11.1.10}{Watchdog/Watchdog deamon}{subsection.11.1}% 63
+\BOOKMARK [2][-]{subsection.11.2}{Server Konfigurationsanleitung}{section.11}% 64
+\BOOKMARK [3][-]{subsubsection.11.2.1}{Aktuelle Stand}{subsection.11.2}% 65
+\BOOKMARK [3][-]{subsubsection.11.2.2}{Namen und Passwortkonzept}{subsection.11.2}% 66
+\BOOKMARK [3][-]{subsubsection.11.2.3}{Software Installation}{subsection.11.2}% 67
+\BOOKMARK [3][-]{subsubsection.11.2.4}{Erstellung SSL Zertifikate}{subsection.11.2}% 68
+\BOOKMARK [3][-]{subsubsection.11.2.5}{Konfiguration von Nginx}{subsection.11.2}% 69
+\BOOKMARK [3][-]{subsubsection.11.2.6}{Deploy Webapplikationen}{subsection.11.2}% 70
+\BOOKMARK [3][-]{subsubsection.11.2.7}{Deploy Dienste und Services}{subsection.11.2}% 71
+\BOOKMARK [2][-]{subsection.11.3}{Zertifikate}{section.11}% 72
+\BOOKMARK [1][-]{section*.4}{Abbildungsverzeichnis}{}% 73
+\BOOKMARK [1][-]{section*.5}{Tabellenverzeichnis}{}% 74
+\BOOKMARK [1][-]{section*.8}{Eidesstattliche Erkl\344rung}{}% 75
