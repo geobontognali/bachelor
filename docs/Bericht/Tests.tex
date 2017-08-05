@@ -1,6 +1,6 @@
 \section{Prototyp Testplan}
 \label{sec:testabnahme}
-Überprühfung der Anforderungen
+Überprühfung der Anforderungen.
 \subsection{Abnahme-Testplan}
 T1. Die Türe bei der Aussensprechstelle muss nach betätigen der «Türe öffnen» Taste in der Client-App, geöffnet werden können.
 \\
@@ -41,13 +41,15 @@ T12.  Bei Klingeln und nicht öffnen der Türe, muss in der Client-App den Verpa
 T13. Durch Bedienen der Client-App ist es möglich frei zu sprechen ohne, dass das Audiosignal an der Aussensprechstelle weitergeleitet wird.
 \\
 \\
-Ergebnisse werden in einer Test‐Traceability Matrix visuell festgehalten. Jede Anforderung wird  durch  einen  Test  überprüft  beziehungsweise  jeder  Test  überprüft  nur  eine  Anforderung.  Überschneidungen sind zu vermeiden.
+Ergebnisse werden in einer Test‐Traceability Matrix visuell festgehalten. Jede Anforderung wird  durch  einen  Test  überprüft.  Beziehungsweise verifiziert jeder Test nur die betroffene Anforderung. Auf diesen Wege werden Überschneidungen vermeiden.
 \subsection{Resultate}
 Alle Tests bis auf zwei, wurden bestanden. (\seeref{fig:testmatrix})
 \\
 Es werden nun die Anforderungen und Tests aufgelistet, welche nicht bestanden wurden.
 \subsubsection{Test 12: Verpasste Besuche sind in der Client-App ersichtlich}
-Bei Test 12 wird eine Wunschanforderung geprüft: \textit{(W13. Verpasste Besuche sollten aufgezeichnet werden und in der Client App in Form von einem Foto und Notifikation sichtbar sein)}. Diese Funktionalität wurde aus Zeitgründen nicht implementiert. Da es um eine Webbapplikation handelt, könnte diese Funktionalität ohne grosses Know-How von den andere beteiligte Technologien, später implementiert werden.
+Bei Test 12 wird eine Wunschanforderung geprüft: \textit{(W13. Verpasste Besuche sollten aufgezeichnet werden und in der Client App in Form von einem Foto und Notifikation sichtbar sein)}. Diese Funktionalität wurde aus Zeitgründen nicht vollständig implementiert. Die Anforderung wurde daher nur teilweise erfüllt. Wenn jemanden an der Türe klingelt, wird auf den mobilen Gerät eine Benachrichtigung angezeigt. Diese bleibt solange sichtbar bis der Benutzer Diese gelesen hat und löscht. Demzufolge sind verpasste Besuche trotzdem ersichtlich, auch wenn sie im Web-App nicht erscheinen.
+\\
+Da es sich um eine Webbapplikation handelt, kann diese Funktionalität ohne grosses Know-How von anderen beteiligten Technologien nachträglich implementiert werden.
 
 \subsubsection{Test 8: Die Auflösung des Videosignales wird evaluiert}
 Test 8 prüft zwei Anforderungen. Es handelt sich um die zwei folgenden:
