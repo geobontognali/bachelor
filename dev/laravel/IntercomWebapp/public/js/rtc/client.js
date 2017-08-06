@@ -13,10 +13,13 @@ const OFFER = "OFFER";
 const ANSWER = "ANSWER";
 const CANDIDATE = "CANDIDATE";
 const LEAVE = "LEAVE";
+const SPEAKER_STATUS = "SPEAKER_STATUS";
 
 const DOOR_AVAILABLE = 1;
 const DOOR_BUSY = 0;
 const DOOR_OFFLINE = -1;
+const SPEAKER_ON = 1;
+const SPEAKER_OFF = 0;
 
 /** Variables **/
 var micMuted = true;
@@ -256,12 +259,14 @@ function triggerMic()
         myLocalStream.getAudioTracks()[0].enabled = true;
         GUIMicStatus(true);
         micMuted = false;
+        send({ type: SPEAKER_STATUS, value: SPEAKER_ON }); // Tell the peer to turn the speaker on/off
     }
     else if(micBtnEnabled)
     {
         myLocalStream.getAudioTracks()[0].enabled = false;
         GUIMicStatus(false);
         micMuted = true;
+        send({ type: SPEAKER_STATUS, value: SPEAKER_OFF }); // Tell the peer to turn the speaker on/off
     }
 }
 
