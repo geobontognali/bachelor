@@ -1,4 +1,4 @@
-\section{Anhang}
+\section{Anleitungen}
 \label{sec:anhang}
 Diese Anleitungen sind an dem zukünftigen Entwickler dieser Prototyp gerichtet. Mithilfe dieser Dokumentation und des mitgelieferten Images der Aussensprechstelle, soll ein Entwickler im Stand sein eine neu installierte Raspbian \gls{os} einer Aussensprechstelle/Server zu konfigurieren. Alles was konfiguriert wurde, wurde dokumentiert und in der Anleitung aufgeführt. Diese soll auch das Hinzufügen zukünftiger Funktionalitäten erleichtern.
 
@@ -237,6 +237,7 @@ breaklines=true]
 \end{lstlisting}
 
 \subsubsection{Erstellung SSL Zertifikate}
+\label{kap:zertifikategen}
 Bevor die Webapplikationen installiert werden können, müssen die Zertifikate generiert werden (Self-Signed). 
 
 \begin{itemize}
@@ -437,6 +438,31 @@ sudo update-rc.d relayController defaults
 
 \end{lstlisting}
 
-\subsection{Zertifikate}
-....
+\subsection{Installation Client-Webapplikation}
+Es wird nun beschrieben wie die Client-Webapplikation auf ein Mobiles Gerät installiert werden kann.
+Momentan wurde die Applikation hauptsächlich auf Android Smartphones mit Google Chrome getestet. Da es sich um eine Webapplikation handelt ist der Betriebsystem von kleinere Bedeutung. Wichtig ist, dass WebRTC von den Browser unterstützt wird.
+\\
+Die folgende Anleitung gilt für Android 7.0 Nougat. Die Installation wird auf andere Mobile Geräte auf jeden fall nur leicht abweichen. 
 
+\subsubsection{Installationsschritte}
+\label{kap:clientappinst}
+\textbf{Schritt 1: Installation der Zertifikate}
+\begin{itemize}
+	\item Die vorher generierte Mobile-Zertifikat Datei (\seeref{kap:zertifikategen}) auf dem Smartphone kopieren. Das kann via USB oder E-Mail erfolgen. Wichtig ist, dass die Datei auf der lokale Speicher des Mobilgeräts vorhanden ist.
+	\item Unter Options -> Security auf \textit{Install from  phone storage} klicken und die Zertifikat-Datei auswählen.
+	\item Gerät neustarten.
+\end{itemize}
+
+\textbf{Schritt 2: Einbindung an der Homescreen}
+\\
+Nun kann die Webapplikation bereits verwendet werden. Es reicht die folgende Adresse einzugeben: \textbf{https://SERVER/client?id=1}
+\\
+\textit{* SERVER -> Die IP Adresse oder Hostname der Server.}
+\\
+\textit{** id=1 -> Diese ID definiert welche Einwohner sich gerade Anmeldet. Welche Einwohner zu welchen ID gehört, wird in den Management Tool definiert. Wie in den \ref{kap:clientapp} bereits erwähnt, diese ist keine Endgültige Lösung und ist nur für Vorführzwecke da.}
+\\
+\\
+Die Webapplikation besitzt über ein \textit{Manifest-File} welche die Applikation als Standalone App konfigurieren kann. Um das zu aktivieren muss die Webseite zu den Homescreen hinzugefügt werden. Um das zu machen auf das Overflow-Menü (drei kleine Punkte oben rechts) tippen und \textit{Zum Startbildschirm hinzufügen} auswählen.
+\\
+\\
+Nun ist die Webapplikation als Standalone App verfügbar und kann somit auch in Fullscreen benutzt werden.
