@@ -112,7 +112,8 @@ class DoorController extends Controller
     public function setConfig()
     {
         $config = new Config;
-        echo 'const signalingSrvAddr = "'.$config->signalingServerAddress.'"; const signalingSrvPort = "'.$config->signalingServerPort.'";';
+        echo 'const signalingSrvAddr = "'.$config->signalingServerAddress.'"; const signalingSrvPort = "'.$config->signalingServerPort.'"; ';
+        echo 'const speakerControllerServer = "'.$config->speakerControllerServer.'"; const speakerControllerServerPort = "'.$config->speakerControllerServerPort.'";';
     }
 
 }
