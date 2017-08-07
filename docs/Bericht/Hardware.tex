@@ -1,6 +1,7 @@
 \section{Anforderungen}
 Für den Bachelorarbeit wurden die Anforderungen bereits in dem Fachmodul definiert.
 \subsection{Anforderungen}
+\label{sec:anforderungen}
 A1. Es soll möglich sein, die Haustüre durch ein Signal zu öffnen. 
 \\
 \\
@@ -72,7 +73,7 @@ Das System wird hardwareseitig grob in zwei Teile unterteilt, den Server und die
 \\
 Die \cref{tbl:SrvHW} und die \cref{tbl:DoorHW} zeigen die benötigten Hardwarekomponenten, welchen an den jeweiligen Stellen eingebaut werden.
 \\
-Um den Überblick über die Kosten aller Hardwarekomponenten zu behalten, sind hier auch die Preisen aufgelistet. Dabei ist es wichtig sicherzustellen, dass die gesamten Hardwarekosten diejenigen der von der Konkurrenz angebotenen Produkte nicht übersteigen.
+Um den Überblick über die Kosten aller Hardwarekomponenten zu behalten, sind hier auch die Preisen aufgelistet. Dabei ist es wichtig sicherzustellen, dass die gesamten Hardwarekosten diejenigen der von der Konkurrenz angebotenen Produkte nicht übersteigen (\seeref{sec:anforderungen} Anforderung A10).
 \\
 Die Einkaufspreise sind nur Richtpreise, da es sich um Standardkomponenten handelt und die Marktpreise sich ständig und schnell ändern können. Die Summen sind als Kostenschätzung zu betrachten. (Stand Fruhjahr 2017).
 
@@ -120,7 +121,9 @@ Zusätzlich benötigt das System noch eine Leitung die den Türöffner steuert.
 Auch diese Endinstallation kann vereinfacht werden wenn man, anstatt ein dediziertes Kabel zwischen Server und Türöffner einzuziehen,  zwei Drähte des bereits installierten Ethernet Kabels verwendet.
 \\
 \\
-Cisco Catalyst 3560g welcher für den \gls{poe} Stromversorgung zuständig ist, verwendet die Phantomspeisung oder Mode A. Das heisst, dass die mit der Datenübertragung belegten Drähte mit der Stromversorgung überlagert werden. Dies ist möglich da die Frequenz der Elektrizität 60 Hz beträgt und die der Datenübertragungen im Bereich von 10-100MHz liegt.
+Für den Projekt verwendete Cisco Catalyst 3560g, welcher für den \gls{poe} Stromversorgung zuständig ist, verwendet die Phantomspeisung oder Mode A \cite{poe}. Das heisst, dass die mit der Datenübertragung belegten Drähte mit der Stromversorgung überlagert werden. Dies ist möglich da die Frequenz der Elektrizität 50 Hz beträgt und die der Datenübertragungen im Bereich von 10-100MHz liegt.
+\\
+Bei einere zukünftige Beschaffung von ein aktuellere Switch muss speziell auf die Stromspeisungstyp (Phantom/Spare Pairs Speisung) geachtet werden.
 
 \begin{figure}[htb!]
 	\begin{center}
@@ -131,6 +134,9 @@ Cisco Catalyst 3560g welcher für den \gls{poe} Stromversorgung zuständig ist, 
 \end{figure}
 
 Wie im \cref{fig:ethernetBelegung} dargestellt werden die Adern 7 und 8 dazu verwendet um den Türöffner zu betätigen. Aus den 3 verbliebenden Adernpaaren kann maximal die Ethernetkategorie 100BASE-T erreicht werden. Da aber \gls{webrtc} eine erhebliche kleinere Bandbreite in Anspruch nimmt, stellt es für die \gls{aussensprechstelle} kein Hindernis dar.
+\\
+Durch eine Messung auf die Interface des Switch, an welchem die \gls{aussensprechstelle} angeschlossen ist, konnte die exakte Bandbreite festgestellt werden. Die Messung wurde mit ein Leistungsfähiger Prozessor durchgeführt. Somit wird verhindert dass die Auflösung des Videoübertragung von den Raspberry gedrosselt wird.(Problematik wird im Abschnitt \ref{ssec:alternative} erläutert)
+Mit eine hochauflösende Videoübertragung, wurde auf den Interface eine Datenübertragungsrate von 551Kbit/s festgestellt. Die detaillierte Resultate der Messungen sind im Anhang Abschnitt \ref{ssec:resultate} zu finden.
 
 \begin{figure}[htb!]
 	\begin{center}

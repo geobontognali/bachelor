@@ -437,6 +437,22 @@
       \verb https://wiki.debian.org/LSBInitScripts
       \endverb
     \endentry
+    \entry{poe}{online}{}
+      \field{sortinit}{P}
+      \field{sortinithash}{24100cef455d7974167575052c29146e}
+      \field{labeltitlesource}{title}
+      \field{title}{Power over Ethernet}
+      \field{urlday}{7}
+      \field{urlmonth}{8}
+      \field{urlyear}{2017}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\Federico\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi52j2r.default\\zotero\\storage\\A7CNTWRU\\0807021.html:text/html
+      \endverb
+      \verb{url}
+      \verb https://www.elektronik-kompendium.de/sites/net/0807021.htm
+      \endverb
+    \endentry
     \entry{raspberry2016}{online}{}
       \field{sortinit}{R}
       \field{sortinithash}{c15bc8eb6936bc6b3c8baa9e8575af53}

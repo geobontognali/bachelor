@@ -5,12 +5,10 @@ import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.logging.Level;
+
+import com.pi4j.io.gpio.*;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import com.pi4j.io.gpio.GpioController;
-import com.pi4j.io.gpio.GpioFactory;
-import com.pi4j.io.gpio.RaspiPin;
 
 
 /**
@@ -18,6 +16,9 @@ import com.pi4j.io.gpio.RaspiPin;
  */
 public class RelayController
 {
+    final GpioController gpio = GpioFactory.getInstance();
+    final GpioPinDigitalOutput pin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_07, "MyLED", PinState.HIGH);
+    final GpioPinDigitalOutput pin2 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_00, "MyLED2", PinState.HIGH);
     // Vars
     private final String PERMITTED_HOST = "127.0.0.1";
     private final int PORT = 7743;
@@ -43,10 +44,28 @@ public class RelayController
      */
     private void relayDriver(String type, int id)
     {
-        Logging.log(Level.INFO, "Action: " + type);
-        // TODO: Do the shit with the GPIOs
-        GpioController gpio = GpioFactory.getInstance();
-        gpio.provisionDigitalOutputPin(RaspiPin.GPIO_07).high();
+        pin.high();
+        System.out.println("The type "+type+"");
+        Logging.log(Level.INFO, "thread aiting 3 sec");
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        pin.low();
+
+        pin2.high();
+        System.out.println("The type "+type+" and id "+id);
+        Logging.log(Level.INFO, "thread aiting 3 sec");
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        pin2.low();
+
+        Logging.log(Level.INFO, "thread continue after 3 sec");
+
     }
 
     /**
