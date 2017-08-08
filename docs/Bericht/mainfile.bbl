@@ -35,7 +35,7 @@
       \verb http://www.jqueryrain.com/demo/3d-slider-carousel/
       \endverb
     \endentry
-    \entry{_4inch_????}{online}{}
+    \entry{displayConfig}{online}{}
       \field{sortinit}{4}
       \field{sortinithash}{d221becdd544034cf9082056cd6e6d2d}
       \field{labeltitlesource}{title}
@@ -437,7 +437,7 @@
       \verb https://wiki.debian.org/LSBInitScripts
       \endverb
     \endentry
-    \entry{poe}{online}{}
+    \entry{_power_????}{online}{}
       \field{sortinit}{P}
       \field{sortinithash}{24100cef455d7974167575052c29146e}
       \field{labeltitlesource}{title}
@@ -453,7 +453,16 @@
       \verb https://www.elektronik-kompendium.de/sites/net/0807021.htm
       \endverb
     \endentry
-    \entry{raspberry2016}{online}{}
+    \entry{raspberryCodecs}{online}{}
+      \field{sortinit}{R}
+      \field{sortinithash}{c15bc8eb6936bc6b3c8baa9e8575af53}
+      \field{labeltitlesource}{title}
+      \field{title}{Raspberry Codecs}
+      \verb{url}
+      \verb https://www.raspberrypi.org/blog/libraries-codecs-oss/
+      \endverb
+    \endentry
+    \entry{_raspberry_2016}{online}{}
       \field{sortinit}{R}
       \field{sortinithash}{c15bc8eb6936bc6b3c8baa9e8575af53}
       \field{labeltitlesource}{title}
@@ -642,6 +651,22 @@
       \endverb
       \verb{url}
       \verb http://devgirl.org/2013/07/17/tutorial-implement-push-notifications-in-your-phonegap-application/
+      \endverb
+    \endentry
+    \entry{_what_????}{online}{}
+      \field{sortinit}{W}
+      \field{sortinithash}{6d25b3eefe5aa2147d1f339686808918}
+      \field{labeltitlesource}{title}
+      \field{title}{What is {PoE} Mode A and Mode B?}
+      \field{urlday}{7}
+      \field{urlmonth}{8}
+      \field{urlyear}{2017}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb What is PoE Mode A and Mode B?:C\:\\Users\\Federico\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi52j2r.default\\zotero\\storage\\NV2S3XAR\\WhatisPoEModeAModeB.html:text/html
+      \endverb
+      \verb{url}
+      \verb http://duncansonline.ca/FAQs/WhatisPoEModeAModeB.htm
       \endverb
     \endentry
     \entry{_x11_????}{online}{}

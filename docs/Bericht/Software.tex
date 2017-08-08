@@ -80,7 +80,7 @@ Version 58 die Security Policies geändert. Nach dem Update brauchten die SelfSi
 \begin{figure}[htb!]
 	\begin{center}
 		\includegraphics[width=0.75\textwidth]{signalingprocess}
-		\caption[Der Signaling Prozess]{Der Signaling Prozess}
+		\caption[Der Signaling Prozess]{Der Signaling Prozess (Quelle: http://sangigi-fuchsia.fr/le-webrtc/)}
 		\label{fig:signaling}
 	\end{center}
 \end{figure}
@@ -94,8 +94,6 @@ Für die Absichten unseres Projekts wurde ein eigener Signaling-Server entwickel
 \subsubsection{STUN Servers \& Remote Verbindung}
 \label{test}
 Eine Anforderung des Systems ist die Möglichkeit, auch ausserhalb des Heimnetzes mit den \gls{aussensprechstelle} sich verbinden zu können. Hier stellt das \gls{nat}-Protokoll (Network Adress Translation) ein Problem dar.
-
-Eine Anforderung des Systems ist die Möglichkeit, auch ausserhalb des Heimnetzes, sich mit der \gls{aussensprechstelle} verbinden zu können. Hier stellt das \gls{nat} Protokoll ein Problem dar.
 \\
 Nach dem Signaling-Prozess wird das \gls{ice}-Prozess gestartet. Hier tauschen sich die zwei Partner Informationen über die eigene Adressierung und den \textit{best path} aus. Falls sich ein Sprechpartner hinter einem \gls{nat}-Knoten befindet, wird für den anderen unmöglich sein eine Verbindung aufzubauen. Hier kommen die \gls{stun}-Server im Spiel. 
 Ähnlich wie beim Signalisierungsprozess stehen \gls{stun}-Server als Hilfe für den Verbindungsaufbau da (\seeref{fig:stun}).
@@ -103,7 +101,7 @@ Nach dem Signaling-Prozess wird das \gls{ice}-Prozess gestartet. Hier tauschen s
 \begin{figure}[htb!]
 	\begin{center}
 		\includegraphics[width=0.75\textwidth]{stun}
-		\caption[STUN Server]{STUN Server}
+		\caption[STUN Server]{STUN Server (Quelle: https://realtimecommunication.wordpress.com/2015/05/29/crack-the-nat/)}
 		\label{fig:stun}
 	\end{center}
 \end{figure}
@@ -162,7 +160,7 @@ Nach dem ersten Test der Webapplikationen ist ein weiteres Problem aufgetaucht. 
 Nach eine Problemanalyse konnte man folgendes feststellen:
 \\
 \\
-Für das Video-Encoding verwendet \gls{webrtc} das VP8 Codec, da die Codierung im Gegensatz zur Decodierung, wie bei der Mehrheit solcher Systeme, sehr leistungsintensiv ist. Die \gls{aussensprechstelle} muss im Stande sein, die Codierung in Real-Time auszuführen, was den Raspberry Pi an seinen Grenzen bringt. Obwohl eine Kamera mit hoher Auflösung im Einsatz ist, wird \gls{webrtc} im Folge des niedrigen Framerates die Qualität des Stream verringern. Sobald die Qualität herabgesetzt ist, ist der Raspberry wieder im Stand die Codierung in Echtzeit durchzuführen. 
+Für das Video-Encoding verwendet \gls{webrtc} das VP8 Codec \cite{raspberryCodecs}. Leider unterstützt den Raspberry Mikrocontroller kein Harware acceleration für den VP8 codec. Unterstützt wird aber das "vector acceleration" welches aber Softwaremässig erfolgt. Die \gls{aussensprechstelle} muss im Stande sein, die Codierung in Real-Time auszuführen, was den Raspberry Pi an seinen Grenzen bringt. Obwohl eine Kamera mit hoher Auflösung im Einsatz ist, wird \gls{webrtc} im Folge des niedrigen Framerates die Qualität des Stream verringern. Sobald die Qualität herabgesetzt ist, ist der Raspberry wieder im Stand die Codierung in Echtzeit durchzuführen. 
 \\
 Aufgrund der hohen Überlastung des Prozessors während der Kodierung, tauchen zusätzlich Wärmeabfuhrprobleme auf. Eine verlängerte Videostreaming-Session mit erhöhten Umgebungstemperaturen, könnte den Raspberry zum Absturz bringen.
 \\
@@ -174,7 +172,7 @@ Der Raspberry Pi 3 war während der Entwicklungsphase des Prototyps die richtige
 \\ 
 Mit den gesammelten Erfahrungen während der Prototypentwicklung könnte eine bessere Alternative zur Raspberry für eine Weiterentwicklung der Anlage ausgewertet werden.
 \\
-Der Microcontroller Banana Pi M3 bietet im Gegensatz zum Raspberry erheblich mehr Datenverarbeitungsleistung (\seeref{tbl:microcontrollerComparison})). Dazu unterstützen diese Microcontroller die \gls{h264} Hardwareacceleration und der Videostream kann somit weiterhin optimiert werden.
+Der Microcontroller Banana Pi M3 bietet im Gegensatz zum Raspberry erheblich mehr Datenverarbeitungsleistung (\seeref{tbl:microcontrollerComparison})).
 
 \begin{table}[]     
 	\centering
@@ -265,9 +263,6 @@ Während beim Speaker-Controller die Befehle aus der Clientseite stammen, kommen
 
 \subsection{Logging}
 \label{kap:logs}
-Für die Identifikation und Rückverfolgung von Fehlern sowie für den Monitoring sind Logs File von grosse Bedeutung. Diese werden bei allen Services und Dienste konsequent druchgeführt. Das Logrotate wird nicht eingesetzt, statdessen kümmert sich das Java runtime environment um die Grösse des generiertes Log Files. Aus dem Grund dass es sich noch um ein Protoyp handelt wurde das Logging Stufe auf 7 eingestellt. In diese Stufe werden alle Emergency Nachrichten bis auf die Debug Nachrichten im Log Dateien gespeichert.
-Gemäss der FHS (Filesystem Hierarchy Standard) werden die Logs unter /var/log/Aussensprechstelle gesichert. 
-
 Für die Identifikation und Rückverfolgung von Fehlern sowie für das Monitoring sind Logs-File von grosser Bedeutung. Diese werden bei allen Services und Dienste konsequent durchgeführt. 
 \\
 Das Logrotate wird nicht eingesetzt, stattdessen kümmert sich das Java-Runtime-Environment um die Grösse des generiertes Log-Files.  Da es sich noch um einen Prototyp handelt, wurde die Loggingstufe auf 7 eingestellt. Auf dieser Stufe werden alle Emergencynachrichten bis auf die Debugnachrichten in Logddateien gespeichert. 

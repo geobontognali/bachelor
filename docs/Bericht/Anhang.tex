@@ -55,7 +55,7 @@ breaklines=true]
 	chmod +x LCD4-800x480-show
 	./LCD4-800x480-show
 \end{lstlisting}
-Nachdem dass der Bildschirmtreiber installiert wurde, müssen die Einstellungen für den Bildschirm angepasst werden. Folgende Code-Zeilen müssen am Ende der ’config.txt’ Datei, die sich in der root-directory befindet, hinzugefügt werden.
+Nachdem dass der Bildschirmtreiber installiert wurde, müssen die Einstellungen für den Bildschirm angepasst werden. Folgende Code-Zeilen müssen am Ende der ’config.txt’ Datei, die sich in der root-directory befindet, hinzugefügt werden \cite{displayConfig}.
 \begin{lstlisting}[backgroundcolor = \color{snippetcolor},
 language = bash,
 xleftmargin = 1cm,
@@ -142,7 +142,7 @@ Folgende GPIO Pins werden von den 3 Tasten benötigt um die Aussensprechstelle z
 \begin{itemize}
 	\item GPIO17(16) simuliert den Tastendruck J «Links navigieren»
 	\item GPIO27(20) simuliert den Tastendruck K «Anrufen»
-	\item •	GPIO22(21) simuliert den Tastendruck L «Rechts navigieren»
+	\item GPIO22(21) simuliert den Tastendruck L «Rechts navigieren»
 \end{itemize}
 
 \subsubsection{Speaker Controller Service}
@@ -308,7 +308,7 @@ breaklines=true]
 
 \begin{itemize}
 	\item 
-	Nun muss Nginx so konfiguriert werden, dass PHP als compiler verwendet wird. Die Datei \textit{/etc/nginx/sites-available/default} muss editiert werden. Die Stellen die angepasst werden müssen sind rot markiert.
+	Nun muss Nginx so konfiguriert werden, dass PHP als compiler verwendet wird. Die Datei \textit{/etc/nginx/sites-available/default} muss editiert werden.
 	\item 
 	Nun müssen die zwei VirtualHosts für die zwei WebApps konfiguriert werden. Diese werden unter verschiedene Ports laufen. Dafür müssen zwei Konfigurationsdateien unter \textit{/etc/nginx/sites-available} erstellt werden. Bsp: intercom.app und management.app. Der Inhalt muss wie folgt aussehen. Die Stellen, die für die beiden Webapplikationen unterschiedlich sein müssen, sind rot markiert. Der Path zu den SSL-Zertifikate muss auch angepasst werden.
 \end{itemize}
