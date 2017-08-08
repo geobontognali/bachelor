@@ -1,6 +1,6 @@
-\section{Software}
+\section{Umsetzung der Software}
 \label{sec:chapterexample}
-Die Hardware ist nun vollständig und dient als Basis für die Entwicklung der Softwarekomponenten die für das System notwendig sind.
+Die Hardware ist nun vollständig und dient als Basis für die Entwicklung der Softwarekomponenten die für das System notwendig sind. Die verwendete Software und Programmiersprachen wurden in dem Fachmodul evaluiert.
 \subsection{Programmiersprachen}
 Das System besteht aus mehreren Programmen und Diensten. Für die Entwicklung werden folgende Programmiersprachen eingesetzt:
 \begin{itemize}
@@ -117,6 +117,7 @@ Während die verschiedene Java Dienste relativ kleine Programme sind, besteht de
 Das \gls{php}-Backend im Zusammenarbeit mit Javascript auf der Clientseite ist für die meisten Aufgaben der Anlage sowohl auch für einen Teil der Sicherheitsaspekte zuständig.
 
 \subsubsection{Client Webapplikation}
+\label{kap:clientapp}
 Der Bewohner muss über eine Applikation verfügen, die auf dem Tablet oder Handy ausführbar sein muss. Mithilfe dieser App muss der Enduser folgendes können: Sich mit allen \gls{aussensprechstelle}n verbinden können, ein Videosignal von der Kamera aller Eingänge erhalten, alle Türe öffnen und mit der Person bei der Türe über die Anlage kommunizieren können.
 \\
 \begin{figure}[htb!]
@@ -135,6 +136,11 @@ Beim Design-Entwurf standen Übersichtlichkeit und Benutzerfreundlichkeit im Vor
 \textbf{Notifications}
 \\
 Wenn jemanden bei der Türe klingelt, wird eine Notification angezeigt. Um das zu erfolgen, muss die Webapplikation mindestens einmal gestartet werden. Dank den Notifications können auch Verpasste besuche an einem Späteren Zeitpunkt gesehen werden. 
+\\
+\\
+\textbf{Anmeldung \& Multi-User}
+\\
+Aus Zeitgründen könnten wir die Anmeldeseite für den Client Applikation nicht vervollständigen. Momentan wird die Identität der Anwender lediglich über eine GET Variable definiert. (\seeref{kap:clientappinst}). Eine Anmeldeseite welche die Identität der Anwohner überprüft ist für das Endprodukt natürlich enorm wichtig. Die jetzige Lösung stellt eine grosse Sicherheitslücke dar und ist nur für Test- und Vorführzwecke da. Eine Login-Page wurde aber vom Anfang an vorgesehen und die Implementierung kann nun ohne Anpassung der Bestehende Sourcecode vorgenommen werden.
 
 
 \subsubsection{Aussensprechstelle Webapplikation}

@@ -1,5 +1,5 @@
-\section{Anleitung}
-\label{sec:anleitung}
+\section{Anleitungen}
+\label{sec:anhang}
 Diese Anleitungen sind an dem zukünftigen Entwickler dieser Prototyp gerichtet. Mithilfe dieser Dokumentation und des mitgelieferten Images der Aussensprechstelle, soll ein Entwickler im Stand sein eine neu installierte Raspbian \gls{os} einer Aussensprechstelle/Server zu konfigurieren. Alles was konfiguriert wurde, wurde dokumentiert und in der Anleitung aufgeführt. Diese soll auch das Hinzufügen zukünftiger Funktionalitäten erleichtern.
 
 \subsection{Aussensprechstelle Konfigurationsanleitung}
@@ -237,7 +237,8 @@ breaklines=true]
 \end{lstlisting}
 
 \subsubsection{Erstellung SSL Zertifikate}
-Bevor die Webapplikationen installiert werden können, müssen die Zertifikate generiert werden (Self-Signed). 
+\label{kap:zertifikategen}
+Bevor die Webapplikationen installiert werden können, müssen die Zertifikate generiert werden (Self-Signed).
 
 \begin{itemize}
 	\item Erstellung SSL Zertifikat für den Client Webapplikation. Als Hostname wird hier als Beispiel intercom.app verwendet. Zuerst muss eine Konfigurationsdatei (v3.ext) mit folgendem Inhalt generiert werden:
@@ -308,7 +309,7 @@ breaklines=true]
 
 \begin{itemize}
 	\item 
-	Nun muss Nginx so konfiguriert werden, dass PHP als compiler verwendet wird. Die Datei \textit{/etc/nginx/sites-available/default} muss editiert werden.
+	Nun muss Nginx so konfiguriert werden, dass PHP als compiler verwendet wird. Die Datei \textit{/etc/nginx/sites-available/default} muss editiert werden. Die Stellen die angepasst werden müssen sind rot markiert.
 	\item 
 	Nun müssen die zwei VirtualHosts für die zwei WebApps konfiguriert werden. Diese werden unter verschiedene Ports laufen. Dafür müssen zwei Konfigurationsdateien unter \textit{/etc/nginx/sites-available} erstellt werden. Bsp: intercom.app und management.app. Der Inhalt muss wie folgt aussehen. Die Stellen, die für die beiden Webapplikationen unterschiedlich sein müssen, sind rot markiert. Der Path zu den SSL-Zertifikate muss auch angepasst werden.
 \end{itemize}
@@ -434,47 +435,9 @@ sudo chmod +x /etc/init.d/signalingServer
 sudo chmod +x /etc/init.d/relayController
 sudo update-rc.d signalingServer defaults
 sudo update-rc.d relayController defaults 
+
 \end{lstlisting}
 
-\section{Anhang}
-\label{sec:anhang}
-
-\subsection{Messungsresultate}
-\label{ssec:resultate}
-\begin{lstlisting}[backgroundcolor = \color{snippetcolor},
-language = bash,
-xleftmargin = 0.5cm,
-framexleftmargin = 0.1em,
-breaklines=true]
-Switch#sh interfaces g0/43
-GigabitEthernet0/43 is up, line protocol is up (connected)
-Hardware is Gigabit Ethernet, address is 0023.05e2.c82b (bia 0023.05e2.c82b)
-MTU 1500 bytes, BW 100000 Kbit/sec, DLY 100 usec,
-reliability 255/255, txload 1/255, rxload 1/255
-Encapsulation ARPA, loopback not set
-Keepalive set (10 sec)
-Full-duplex, 100Mb/s, media type is 10/100/1000BaseTX
-input flow-control is off, output flow-control is unsupported
-ARP type: ARPA, ARP Timeout 04:00:00
-Last input never, output 00:00:00, output hang never
-Last clearing of "show interface" counters never
-Input queue: 0/75/0/0 (size/max/drops/flushes); Total output drops: 0
-Queueing strategy: fifo
-Output queue: 0/40 (size/max)
-5 minute input rate 507000 bits/sec, 108 packets/sec
-5 minute output rate 44000 bits/sec, 70 packets/sec
-51357 packets input, 33613725 bytes, 0 no buffer
-Received 130 broadcasts (82 multicasts)
-0 runts, 0 giants, 0 throttles
-0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
-0 watchdog, 82 multicast, 0 pause input
-0 input packets with dribble condition detected
-32616 packets output, 6365458 bytes, 0 underruns
-0 output errors, 0 collisions, 1 interface resets
-0 unknown protocol drops
-0 babbles, 0 late collision, 0 deferred
-0 lost carrier, 0 no carrier, 0 pause output
-0 output buffer failures, 0 output buffers swapped out
-\end{lstlisting}
-
+\subsection{Zertifikate}
+....
 
