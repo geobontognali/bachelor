@@ -17,8 +17,14 @@ import org.json.JSONObject;
 public class RelayController
 {
     final GpioController gpio = GpioFactory.getInstance();
-    final GpioPinDigitalOutput pin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_07, "MyLED", PinState.HIGH);
-    final GpioPinDigitalOutput pin2 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_00, "MyLED2", PinState.HIGH);
+    final GpioPinDigitalOutput pin1 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_07, "MyLED1", PinState.LOW);
+    final GpioPinDigitalOutput pin2 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_00, "MyLED2", PinState.LOW);
+    final GpioPinDigitalOutput pin3 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_02, "MyLED3", PinState.LOW);
+    final GpioPinDigitalOutput pin4 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_03, "MyLED4", PinState.LOW);
+    final GpioPinDigitalOutput pin5 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_21, "MyLED5", PinState.LOW);
+    final GpioPinDigitalOutput pin6 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_22, "MyLED6", PinState.LOW);
+    final GpioPinDigitalOutput pin7 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_01, "MyLED6", PinState.LOW);
+    final GpioPinDigitalOutput pin8 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_04, "MyLED6", PinState.LOW);
     // Vars
     private final String PERMITTED_HOST = "127.0.0.1";
     private final int PORT = 7743;
@@ -44,25 +50,86 @@ public class RelayController
      */
     private void relayDriver(String type, int id)
     {
-        pin.high();
+        pin1.high();
         System.out.println("The type "+type+"");
         Logging.log(Level.INFO, "thread aiting 3 sec");
         try {
-            Thread.sleep(3000);
+            Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        pin.low();
+        pin1.low();
 
         pin2.high();
         System.out.println("The type "+type+" and id "+id);
         Logging.log(Level.INFO, "thread aiting 3 sec");
         try {
-            Thread.sleep(3000);
+            Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         pin2.low();
+
+        pin3.high();
+        System.out.println("The type "+type+" and id "+id);
+        Logging.log(Level.INFO, "thread aiting 3 sec");
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        pin3.low();
+
+        pin4.high();
+        System.out.println("The type "+type+" and id "+id);
+        Logging.log(Level.INFO, "thread aiting 3 sec");
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        pin4.low();
+
+        pin5.high();
+        System.out.println("The type "+type+" and id "+id);
+        Logging.log(Level.INFO, "thread aiting 3 sec");
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        pin5.low();
+
+        pin6.high();
+        System.out.println("The type "+type+" and id "+id);
+        Logging.log(Level.INFO, "thread aiting 3 sec");
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        pin6.low();
+
+        pin7.high();
+        System.out.println("The type "+type+" and id "+id);
+        Logging.log(Level.INFO, "thread aiting 3 sec");
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        pin7.low();
+
+        pin8.high();
+        System.out.println("The type "+type+" and id "+id);
+        Logging.log(Level.INFO, "thread aiting 3 sec");
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        pin8.low();
+
 
         Logging.log(Level.INFO, "thread continue after 3 sec");
 

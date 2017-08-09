@@ -1,15 +1,17 @@
 [0] Config.pm:354> INFO - This is Biber 2.7
 [0] Config.pm:357> INFO - Logfile is 'mainfile.blg'
-[28] biber-MSWIN64:303> INFO - === 
-[49] Biber.pm:359> INFO - Reading 'mainfile.bcf'
-[127] Biber.pm:832> INFO - Using all citekeys in bib section 0
-[140] Biber.pm:3670> INFO - Processing section 0
-[159] Biber.pm:3840> INFO - Looking for bibtex format file 'database.bib' for section 0
-[167] bibtex.pm:1435> INFO - Decoding LaTeX character macros into UTF-8
-[178] bibtex.pm:1292> INFO - Found BibTeX data source 'database.bib'
-[258] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[259] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
-[259] Biber.pm:3499> INFO - Sorting list 'nty/global/' of type 'entry' with scheme 'nty' and locale 'de-DE'
-[259] Biber.pm:3505> INFO - No sort tailoring available for locale 'de-DE'
-[282] bbl.pm:608> INFO - Writing 'mainfile.bbl' with encoding 'UTF-8'
-[285] bbl.pm:712> INFO - Output to mainfile.bbl
+[26] biber-MSWIN64:303> INFO - === 
+[46] Biber.pm:359> INFO - Reading 'mainfile.bcf'
+[132] Biber.pm:832> INFO - Using all citekeys in bib section 0
+[148] Biber.pm:3670> INFO - Processing section 0
+[166] Biber.pm:3840> INFO - Looking for bibtex format file 'database.bib' for section 0
+[173] bibtex.pm:1435> INFO - Decoding LaTeX character macros into UTF-8
+[183] bibtex.pm:1292> INFO - Found BibTeX data source 'database.bib'
+[185] Utils.pm:164> WARN - Duplicate entry key: '_raspberry_????' in file 'database.bib', skipping ...
+[251] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[251] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[251] Biber.pm:3499> INFO - Sorting list 'nty/global/' of type 'entry' with scheme 'nty' and locale 'de-DE'
+[251] Biber.pm:3505> INFO - No sort tailoring available for locale 'de-DE'
+[268] bbl.pm:608> INFO - Writing 'mainfile.bbl' with encoding 'UTF-8'
+[270] bbl.pm:712> INFO - Output to mainfile.bbl
+[275] Biber.pm:109> INFO - WARNINGS: 1

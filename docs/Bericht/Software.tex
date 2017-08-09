@@ -140,7 +140,7 @@ Wenn jemanden bei der Türe klingelt, wird eine Notification angezeigt. Um das z
 \\
 \textbf{Anmeldung \& Multi-User}
 \\
-Aus Zeitgründen könnten wir die Anmeldeseite für den Client Applikation nicht vervollständigen. Momentan wird die Identität der Anwender lediglich über eine GET Variable definiert. (\seeref{kap:clientappinst}). Eine Anmeldeseite welche die Identität der Anwohner überprüft ist für das Endprodukt natürlich enorm wichtig. Die jetzige Lösung stellt eine grosse Sicherheitslücke dar und ist nur für Test- und Vorführzwecke da. Eine Login-Page wurde aber vom Anfang an vorgesehen und die Implementierung kann nun ohne Anpassung der Bestehende Sourcecode vorgenommen werden.
+Aus Zeitgründen könnten wir die Anmeldeseite für den Client Applikation nicht vervollständigen. Momentan wird die Identität der Anwender lediglich über eine GET Variable definiert. (\seeref{ssec:clientappinst}). Eine Anmeldeseite welche die Identität der Anwohner überprüft ist für das Endprodukt natürlich enorm wichtig. Die jetzige Lösung stellt eine grosse Sicherheitslücke dar und ist nur für Test- und Vorführzwecke da. Eine Login-Page wurde aber vom Anfang an vorgesehen und die Implementierung kann nun ohne Anpassung der Bestehende Sourcecode vorgenommen werden.
 
 
 \subsubsection{Aussensprechstelle Webapplikation}
@@ -166,7 +166,7 @@ Nach dem ersten Test der Webapplikationen ist ein weiteres Problem aufgetaucht. 
 Nach eine Problemanalyse konnte man folgendes feststellen:
 \\
 \\
-Für das Video-Encoding verwendet \gls{webrtc} das VP8 Codec \cite{raspberryCodecs}. Leider unterstützt den Raspberry Mikrocontroller kein Harware acceleration für den VP8 codec. Unterstützt wird aber das "vector acceleration" welches aber Softwaremässig erfolgt. Die \gls{aussensprechstelle} muss im Stande sein, die Codierung in Real-Time auszuführen, was den Raspberry Pi an seinen Grenzen bringt. Obwohl eine Kamera mit hoher Auflösung im Einsatz ist, wird \gls{webrtc} im Folge des niedrigen Framerates die Qualität des Stream verringern. Sobald die Qualität herabgesetzt ist, ist der Raspberry wieder im Stand die Codierung in Echtzeit durchzuführen. 
+Für das Video-Encoding verwendet \gls{webrtc} das VP8 Codec \cite{codecs}. Leider unterstützt den Raspberry Mikrocontroller kein Harware acceleration für den VP8 codec. Unterstützt wird aber das "vector acceleration" welches aber Softwaremässig erfolgt. Die \gls{aussensprechstelle} muss im Stande sein, die Codierung in Real-Time auszuführen, was den Raspberry Pi an seinen Grenzen bringt. Obwohl eine Kamera mit hoher Auflösung im Einsatz ist, wird \gls{webrtc} im Folge des niedrigen Framerates die Qualität des Stream verringern. Sobald die Qualität herabgesetzt ist, ist der Raspberry wieder im Stand die Codierung in Echtzeit durchzuführen. 
 \\
 Aufgrund der hohen Überlastung des Prozessors während der Kodierung, tauchen zusätzlich Wärmeabfuhrprobleme auf. Eine verlängerte Videostreaming-Session mit erhöhten Umgebungstemperaturen, könnte den Raspberry zum Absturz bringen.
 \\
@@ -229,7 +229,11 @@ In diesem Abschnitt sind die Namen der Türen definiert, welche dann auf der \gl
 
 \subsubsection{Remote Verbindung}
 \label{kap:remote}
-..
+Die Remote Verbindung auf den \gls{turklingelanlage} ist eine Feature die leider aus Zeitgründen nicht implementiert werden konnte. 
+\\
+Stellt man sich folgende Situation vor: Man sei unterwegs und niemand steht in der Wohnung, nun soll der Briefträger ein Päckchen liefern. Hier kommt die Remote Funktionalität im Spiel. Über den \gls{clientapp} könnte die Indentität des Person welches vor dem Eingang steht überprüft werden, und allenfalls könnte die Tür geöffnen werden. Bei eine zukünftige implementation des Feature soll besonders Wert auf die Sicherheit gelegt werden. Grund dafür ist dass den die Verbindung zwischen die Komponenten das Lokalen Netz verlassen würde. Diese würde die Anlage an mögliche bösartige Angriffe aussetzen. 
+\\
+Diese Funktionalität, welches mit eine Analoge System kaum realisierbar ist, würde die Vorteile des Digitalisierung noch deutlicher hervorheben. Auch aus der Marketingssicht stellt eine solche Funktionalität ein erhebliche Mehrwert dar. 
 
 
 \subsection{OS und Dienste}
@@ -240,7 +244,7 @@ Folgend beschrieben wir alle Dienste die auf dem Raspberry laufen werden. Diese 
 \label{kap:raspbian}
 Auf allen Raspberry Pi wurde der Betriebssystem Raspbian-Jessie installiert. Dieser wird von der Raspberry-Pi-Foundation mitgeliefert und gilt als besonders hochoptimierte \gls{os} für die mit niedriger Leistung und geringem Stromverbrauch \gls{arm} Prozessoren.
 \\
- Raspbian basiert auf Debian welche unter der DFSG (Debian Free Software Guidelines) Lizenz steht. Diese erlaubt der unbeschränkten Weitergabe der Software sowie abgeleitete und modifizierte Werke weiterzugeben. Raspbian enthält Java SE Plattformprodukte welche unter dem BCL(Oracle Binary Code License) lizensiert sind. Diese Lizenz gewährleistet die obengenannten Freiheiten ebenfalls.
+ Raspbian basiert auf Debian welche unter der DFSG (Debian Free Software Guidelines) Lizenz steht \cite{gesellschaftsvertrag}. Diese erlaubt der unbeschränkten Weitergabe der Software sowie abgeleitete und modifizierte Werke weiterzugeben. Raspbian enthält Java SE Plattformprodukte welche unter dem BCL(Oracle Binary Code License) lizensiert sind. Diese Lizenz gewährleistet die obengenannten Freiheiten ebenfalls.
  \\
 
 \subsubsection{Taster Controller}
@@ -269,7 +273,7 @@ Während beim Speaker-Controller die Befehle aus der Clientseite stammen, kommen
 
 \subsection{Logging}
 \label{kap:logs}
-Für die Identifikation und Rückverfolgung von Fehlern sowie für das Monitoring sind Logs-File von grosser Bedeutung. Diese werden bei allen Services und Dienste konsequent durchgeführt. 
+Für die Identifikation und Rückverfolgung von Fehlern sowie für das Monitoring sind Logs-File von grosser Bedeutung \cite{logging}. Diese werden bei allen Services und Dienste konsequent durchgeführt. 
 \\
 Das Logrotate wird nicht eingesetzt, stattdessen kümmert sich das Java-Runtime-Environment um die Grösse des generiertes Log-Files.  Da es sich noch um einen Prototyp handelt, wurde die Loggingstufe auf 7 eingestellt. Auf dieser Stufe werden alle Emergencynachrichten bis auf die Debugnachrichten in Logddateien gespeichert. 
 \\
@@ -277,11 +281,11 @@ Gemäss dem FHS (Filesystem Hierarchy Standard) werden die Logs unter /var/log/A
 
 \subsection{Watchdog}
 \label{kap:watchdog}
-Die ganze Hardware, die an der Türe installiert wird, ist beim Endkunden schwer zugänglich. Sollte nun ein Problem mit dem System auftreten, müsste man die Anlage vor Ort zurücksetzen. In solchen Fällen hilft der Hardware-Watchdog, der auf dem Raspberry komplett unabhängig vom eigentlichen System läuft. 
+Die ganze Hardware, die an der Türe installiert wird, ist beim Endkunden schwer zugänglich. Sollte nun ein Problem mit dem System auftreten, müsste man die Anlage vor Ort zurücksetzen. In solchen Fällen hilft der Hardware-Watchdog, der auf dem Raspberry komplett unabhängig vom eigentlichen System läuft \cite{watchdog2}.
 \\
 Der Vorteil eines Hardware-Watchdogs ist, dass wenn das System bzw. der Prozessor blockiert, diese unabhängige Hardware ihre Aufgabe weiterhin ausführt. Der Watchdog wird als standalone Gerät im Unix erkannt. Wird dieses Gerät einmal beschrieben, dann muss diese mit einem Zeitintervall von 15 Sekunden erneut beschrieben werden.
 \\
-Ist diese Bedingung nicht erfüllt, wird dann einen Hardware-Reset von Watchdog durchgeführt und das System wird neugestartet. Das Beschreiben vom Watchdog-Gerät wird von einer Watchdog-Daemon übernommen. Durch die Konfigurationsdatei des Daemons können verschiedene Parameter des Systems wie Temperatur, Auslastung der Prozessor usw. überwacht werden. Besonders relevant für die Türsprechanlage ist das PID-Monitoring. Diese ermöglicht das ständige Überprüfen von spezifischen Prozessen und Diensten die das System benötigt, um seinen Zweck als \gls{aussensprechstelle} zu erfüllen. 
+Ist diese Bedingung nicht erfüllt, wird dann einen Hardware-Reset von Watchdog durchgeführt und das System wird neugestartet. Das Beschreiben vom Watchdog-Gerät wird von einer Watchdog-Daemon übernommen. Durch die Konfigurationsdatei des Daemons können verschiedene Parameter des Systems wie Temperatur, Auslastung der Prozessor usw \cite{watchdog1}. überwacht werden. Besonders relevant für die Türsprechanlage ist das PID-Monitoring. Diese ermöglicht das ständige Überprüfen von spezifischen Prozessen und Diensten die das System benötigt, um seinen Zweck als \gls{aussensprechstelle} zu erfüllen. 
 \\
 Sobald einer dieser Prozesse anhält wird das System innerhalb von 15 Sekunden neugestaltet. Ein solches Mechanismus steigert die Verfügbarkeit des Dienstes und ist für eine Türsprechanlage von grosser Bedeutung.
 
