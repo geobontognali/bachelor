@@ -135,8 +135,9 @@ Bei einere zukünftige Beschaffung von ein aktuellere Switch muss speziell auf d
 
 Wie im \cref{fig:ethernetBelegung} dargestellt werden die Adern 7 und 8 dazu verwendet um den Türöffner zu betätigen. Aus den 3 verbliebenden Adernpaaren kann maximal die Ethernetkategorie 100BASE-T erreicht werden. Da aber \gls{webrtc} eine erhebliche kleinere Bandbreite in Anspruch nimmt, stellt es für die \gls{aussensprechstelle} kein Hindernis dar.
 \\
-Durch eine Messung auf die Interface des Switch, an welchem die \gls{aussensprechstelle} angeschlossen ist, konnte die exakte Bandbreite festgestellt werden. Die Messung wurde mit ein Leistungsfähiger Prozessor durchgeführt. Somit wird verhindert dass die Auflösung des Videoübertragung von den Raspberry gedrosselt wird.(Problematik wird im Abschnitt \ref{ssec:alternative} erläutert)
-Mit eine hochauflösende Videoübertragung, wurde auf den Interface eine Datenübertragungsrate von 551Kbit/s festgestellt. Die detaillierte Resultate der Messungen sind im Anhang Abschnitt \ref{ssec:resultate} zu finden.
+Durch eine Messung auf das Interface des Switches, an welches die Aussensprechstelle angeschlossen ist, konnte die exakte Bandbreite festgestellt werden. Die Messung wurde mit einem leistungsfähigen Prozessor durchgeführt. Damit wird verhindert, dass die Auflösung der Videoübertragung von den Raspberrys gedrosselt wird. (Diese Problematik wird im Abschnitt \ref{ssec:alternative} genau erläutert)
+\\
+Mit einer hochauflösenden Videoübertragung wurde eine Datenübertragungsrate auf das Interface von 551Kbit/s festgestellt. Die detaillierten Resultate der Messungen sind im Anhang \ref{ssec:resultate} zu finden.
 
 \begin{figure}[htb!]
 	\begin{center}
@@ -203,7 +204,7 @@ Für die Audiowiedergabe sind ein kleiner Lautsprecher und ein Verstärker notwe
 \\
 Die drei Schalter, die für die Bedienung der \gls{aussensprechstelle} notwendig sind, werden an die \gls{gpio}s des Raspberrys PI angeschlossen. Die \cref{tbl:pinroutesdoor} zeigt die Pinbelegung.
 \\
-Ein überblick über die Komponenten kann im Abschnitt \ref{ssec:prototypfoto} gefunden werden.
+Eine Übersicht über die verwendeten Komponenten ist im Anhang  \ref{ssec:prototypfoto} ersichtlich. 
 
 \begin{table}[]
 	\centering
@@ -231,5 +232,5 @@ Die Störsignale sind nun fast komplett verschwunden, nur ein winziges Hintergru
 \\
 \textbf{Das Mikrophon}
 \\
-Das Problem der Audioaufnahme liegt beim Mikrophon selber. Der Raspberry Pi besitzt kein integriertes Audio-Input. Aus diesem Grund wurde ein \gls{usb}-Audio-Interface verwendet. Es hat sich aber herausgestellt, dass es nicht so einfach ist, kostengünstige und qualitatives \gls{usb} Mikrophone zu finden. Die meisten Produkten sind nicht für den Outdoorbetrieb gedacht und oft ist die Empfindlichkeit zu gering um ein qualitatives Audiosignal aufzunehmen.  Für unseren Prototyp wird das eingesetzte Mikrophon völlig ausreichen, für ein gut funktionierendes Endprodukt sollte man ein besseres Mikrophon einbauen.
+Das Problem der Audioaufnahme liegt beim Mikrophon selber. Der Raspberry Pi besitzt kein integriertes Audio-Input. Aus diesem Grund wurde ein \gls{usb}-Audio-Interface verwendet. Es hat sich aber herausgestellt, dass es nicht so einfach ist, kostengünstige und qualitatives \gls{usb} Mikrophone zu finden. Die meisten Produkte sind nicht für den Outdoor Betrieb gedacht, und oft ist die Empfindlichkeit zu gering, um ein qualitatives Audiosignal aufzunehmen.  Für unseren Prototyp wird das eingesetzte Mikrophon völlig ausreichen, für ein gut funktionierendes Endprodukt sollte man ein besseres Mikrophon einbauen.
 \newpage

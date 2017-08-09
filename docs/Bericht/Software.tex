@@ -1,6 +1,6 @@
 \section{Umsetzung der Software}
 \label{sec:chapterexample}
-Die Hardware ist nun vollständig und dient als Basis für die Entwicklung der Softwarekomponenten die für das System notwendig sind. Die verwendete Software und Programmiersprachen wurden in dem Fachmodul evaluiert.
+Die Hardware ist nun vollständig und dient als Basis für die Entwicklung der Softwarekomponenten die für das System notwendig sind. Die verwendete Software und Programmiersprachen wurden im Fachmodul evaluiert.
 \subsection{Programmiersprachen}
 Das System besteht aus mehreren Programmen und Diensten. Für die Entwicklung werden folgende Programmiersprachen eingesetzt:
 \begin{itemize}
@@ -140,7 +140,7 @@ Wenn jemanden bei der Türe klingelt, wird eine Notification angezeigt. Um das z
 \\
 \textbf{Anmeldung \& Multi-User}
 \\
-Aus Zeitgründen könnten wir die Anmeldeseite für den Client Applikation nicht vervollständigen. Momentan wird die Identität der Anwender lediglich über eine GET Variable definiert. (\seeref{ssec:clientappinst}). Eine Anmeldeseite welche die Identität der Anwohner überprüft ist für das Endprodukt natürlich enorm wichtig. Die jetzige Lösung stellt eine grosse Sicherheitslücke dar und ist nur für Test- und Vorführzwecke da. Eine Login-Page wurde aber vom Anfang an vorgesehen und die Implementierung kann nun ohne Anpassung der Bestehende Sourcecode vorgenommen werden.
+Aus Zeitgründen könnten wir die Anmeldeseite für die Client Applikation nicht vervollständigen. Momentan wird die Identität der Anwender lediglich über eine GET Variable definiert (\seeref{ssec:clientappinst}). Eine Anmeldeseite, welche die Identität der Anwohner überprüft, ist für das Endprodukt natürlich enorm wichtig. Die jetzige Lösung weist noch eine grosse Sicherheitslücke auf und ist nur für Test- und Vorführzwecke gedacht.  Eine Login-Page wurde von Anfang an vorgesehen, und die Implementierung kann nun ohne Anpassung des bestehenden Sourcecodes vorgenommen werden.
 
 
 \subsubsection{Aussensprechstelle Webapplikation}
@@ -166,7 +166,7 @@ Nach dem ersten Test der Webapplikationen ist ein weiteres Problem aufgetaucht. 
 Nach eine Problemanalyse konnte man folgendes feststellen:
 \\
 \\
-Für das Video-Encoding verwendet \gls{webrtc} das VP8 Codec \cite{codecs}. Leider unterstützt den Raspberry Mikrocontroller kein Harware acceleration für den VP8 codec. Unterstützt wird aber das "vector acceleration" welches aber Softwaremässig erfolgt. Die \gls{aussensprechstelle} muss im Stande sein, die Codierung in Real-Time auszuführen, was den Raspberry Pi an seinen Grenzen bringt. Obwohl eine Kamera mit hoher Auflösung im Einsatz ist, wird \gls{webrtc} im Folge des niedrigen Framerates die Qualität des Stream verringern. Sobald die Qualität herabgesetzt ist, ist der Raspberry wieder im Stand die Codierung in Echtzeit durchzuführen. 
+Für das Video-Encoding verwendet \gls{webrtc} das VP8 Codec \cite{codecs}. Leider unterstützt den Raspberry Mikrocontroller keine Hardware acceleration für den VP8 codec. Unterstützt wird aber das "vector acceleration" welches aber softwaremässig erfolgt. Die \gls{aussensprechstelle} muss im Stande sein, die Codierung in Real-Time auszuführen, was den Raspberry Pi an seinen Grenzen bringt. Obwohl eine Kamera mit hoher Auflösung im Einsatz ist, wird \gls{webrtc} im Folge des niedrigen Framerates die Qualität des Stream verringern. Sobald die Qualität herabgesetzt ist, ist der Raspberry wieder im Stand die Codierung in Echtzeit durchzuführen. 
 \\
 Aufgrund der hohen Überlastung des Prozessors während der Kodierung, tauchen zusätzlich Wärmeabfuhrprobleme auf. Eine verlängerte Videostreaming-Session mit erhöhten Umgebungstemperaturen, könnte den Raspberry zum Absturz bringen.
 \\
@@ -229,11 +229,11 @@ In diesem Abschnitt sind die Namen der Türen definiert, welche dann auf der \gl
 
 \subsubsection{Remote Verbindung}
 \label{kap:remote}
-Die Remote Verbindung auf den \gls{turklingelanlage} ist eine Feature die leider aus Zeitgründen nicht implementiert werden konnte. 
+Die Remote Verbindung auf der \gls{turklingelanlage} ist eine Feature, die leider aus Zeitgründen nicht implementiert werden konnte. 
 \\
-Stellt man sich folgende Situation vor: Man sei unterwegs und niemand steht in der Wohnung, nun soll der Briefträger ein Päckchen liefern. Hier kommt die Remote Funktionalität im Spiel. Über den \gls{clientapp} könnte die Indentität des Person welches vor dem Eingang steht überprüft werden, und allenfalls könnte die Tür geöffnen werden. Bei eine zukünftige implementation des Feature soll besonders Wert auf die Sicherheit gelegt werden. Grund dafür ist dass den die Verbindung zwischen die Komponenten das Lokalen Netz verlassen würde. Diese würde die Anlage an mögliche bösartige Angriffe aussetzen. 
+Stellt man sich folgende Situation vor: Der Wohnungsbesitzer ist unterwegs, niemand befindet sich in der Wohnung, und nun soll der Briefträger ein Päckchen liefern. Hier kommt die Remote Funktionalität ins Spiel. Über die \gls{clientapp} kann die Identität der Person, welche vor dem Eingang steht, überprüft werden. Der Wohnungsbesitzer kann jetzt entscheiden, ob er die Tür öffnen will oder nicht. Bei einer zukünftigen Implementation der Remote Funktion soll besonders Wert auf die Sicherheit gelegt werden. Grund dafür ist, dass die Verbindung zwischen den Komponenten an dem lokalen Netz überlassen wurde. Das heisst, die Anlage ist Zeitweise möglichen bösartigen Angriffe aussetzen. 
 \\
-Diese Funktionalität, welches mit eine Analoge System kaum realisierbar ist, würde die Vorteile des Digitalisierung noch deutlicher hervorheben. Auch aus der Marketingssicht stellt eine solche Funktionalität ein erhebliche Mehrwert dar. 
+Diese Funktionalität, welche mit einem analogen System kaum realisierbar ist, würde die Vorteile der Digitalisierung noch deutlicher hervorheben. Aus Marketing Sicht stellt eine solche Funktionalität ein erheblicher Mehrwert dar. 
 
 
 \subsection{OS und Dienste}
