@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.7.6)  10 AUG 2017 01:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.10)  10 AUG 2017 13:23
 entering extended mode
 **./mainfile.tex
 (mainfile.tex
@@ -3068,45 +3068,74 @@ Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 427.
  [47]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 440.
+(babel)             in language  on input line 442.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 440.
+(babel)             in language  on input line 442.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 443.
+(babel)             in language  on input line 448.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 443.
-Package cleveref Info: loaded `ngerman' language definitions on input line 466.
+(babel)             in language  on input line 448.
+
+Underfull \hbox (badness 10000) in paragraph at lines 457--470
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 457--470
+
+ []
+
+Package cleveref Info: loaded `ngerman' language definitions on input line 470.
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 466.
+(babel)             in language  on input line 470.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 466.
+(babel)             in language  on input line 470.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 466.
+(babel)             in language  on input line 470.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 466.
- [48]
+(babel)             in language  on input line 470.
+[48]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 481.
+(babel)             in language  on input line 472.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 481.
- <img/prototyp.jpg, id=941, 3412.75pt x 2162.0775pt>
+(babel)             in language  on input line 472.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 475.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 475.
+Package cleveref Info: loaded `ngerman' language definitions on input line 496.
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 496.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 496.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 496.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 496.
+ [49]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 513.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 513.
+ <img/prototyp.jpg, id=947, 3412.75pt x 2162.0775pt>
 File: img/prototyp.jpg Graphic file (type jpg)
 
 <use img/prototyp.jpg>
-Package pdftex.def Info: img/prototyp.jpg used on input line 485.
+Package pdftex.def Info: img/prototyp.jpg used on input line 517.
 (pdftex.def)             Requested size: 391.93546pt x 248.28728pt.
-Package cleveref Info: loaded `ngerman' language definitions on input line 490.
+Package cleveref Info: loaded `ngerman' language definitions on input line 522.
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 490.
+(babel)             in language  on input line 522.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 490.
+(babel)             in language  on input line 522.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 490.
+(babel)             in language  on input line 522.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 490.
- [49 <./img/prototyp.jpg>]) (mainfile.lof
+(babel)             in language  on input line 522.
+ [50 <./img/prototyp.jpg>]) (mainfile.lof
 Package cleveref Info: loaded `ngerman' language definitions on input line 3.
 )
 \tf@lof=\write9
@@ -3126,7 +3155,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 222.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 222.
- [50]
+ [51]
 (mainfile.lot
 Package cleveref Info: loaded `ngerman' language definitions on input line 3.
 )
@@ -3147,7 +3176,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 227.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 227.
- [51]
+ [52]
 \openout2 = `abkuerzungsverzeichnis.aux'.
 
  (abkuerzungsverzeichnis.tex (mainfile.gls
@@ -3160,7 +3189,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 72.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 72.
- [52
+ [53
 
 ])
 Package cleveref Info: loaded `ngerman' language definitions on input line 5.
@@ -3172,7 +3201,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 5.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 5.
- [53])
+ [54])
 \openout2 = `erklaerung.aux'.
 
 
@@ -3190,7 +3219,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 230.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 230.
- [54
+ [55
 
 
 ]
@@ -3202,7 +3231,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 235.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 235.
- [55
+ [56
 
 ]
 Overfull \hbox (0.31305pt too wide) in paragraph at lines 241--241
@@ -3251,7 +3280,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 239.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 239.
-[56]
+[57]
 Overfull \hbox (9.05965pt too wide) in paragraph at lines 241--241
 \T1/lmtt/m/n/12 Connectivity _ Establishment & oldid = 732705039$[] \T1/lmr/m/n
 /12 (be-sucht am 23.02.2017). 
@@ -3294,7 +3323,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 239.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 239.
-[57]
+[58]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 243.
 Package cleveref Info: loaded `ngerman' language definitions on input line 243.
 
@@ -3306,7 +3335,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 243.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 243.
- [58]
+ [59]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 243.
  (mainfile.aux (title.aux)
 Package cleveref Info: loaded `ngerman' language definitions on input line 33.
@@ -3314,9 +3343,15 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 33.
 (abkuerzungsverzeichnis.aux) (erklaerung.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 243.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 243.
-Package rerunfilecheck Info: File `mainfile.out' has not changed.
-(rerunfilecheck)             Checksum: D9C3A39E183E7FC46F779D5860B9E516;6036.
 
+
+Package rerunfilecheck Warning: File `mainfile.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `mainfile.out':
+(rerunfilecheck)             Before: D9C3A39E183E7FC46F779D5860B9E516;6036
+(rerunfilecheck)             After:  28BE7064B92C7608035ECF027C533E21;6207.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -3331,13 +3366,13 @@ Package logreq Info: Writing requests to 'mainfile.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 27877 strings out of 493323
- 475416 string characters out of 3139058
- 1150661 words of memory out of 3000000
- 30536 multiletter control sequences out of 15000+200000
+ 27882 strings out of 493323
+ 475501 string characters out of 3139048
+ 1142661 words of memory out of 3000000
+ 30538 multiletter control sequences out of 15000+200000
  63501 words of font info for 48 fonts, out of 3000000 for 9000
  1145 hyphenation exceptions out of 8191
- 56i,12n,99p,8848b,3566s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 56i,12n,99p,8848b,3562s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}{C:/Program Files/M
 iKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}<C:/Program Files/MiKTeX 2.9/fonts/t
 ype1/public/lm/lmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lm
@@ -3347,9 +3382,9 @@ ogram Files/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb><C:/Program Files/MiKTeX
 public/lm/lmro12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmssbx1
 0.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Program
  Files/MiKTeX 2.9/fonts/type1/public/lm/lmtt12.pfb>
-Output written on mainfile.pdf (66 pages, 5153204 bytes).
+Output written on mainfile.pdf (67 pages, 5157729 bytes).
 PDF statistics:
- 1227 PDF objects out of 1440 (max. 8388607)
- 395 named destinations out of 1000 (max. 500000)
+ 1238 PDF objects out of 1440 (max. 8388607)
+ 398 named destinations out of 1000 (max. 500000)
  782 words of extra memory for PDF output out of 10000 (max. 10000000)
 
