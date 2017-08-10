@@ -201,6 +201,7 @@ Der Server wird mit einem Relais-Board verbunden um die Gongs und die Türöffne
 \label{sec:chapterexample}
 Bei der \gls{aussensprechstelle} wird auch ein Raspberry Pi eingesetzt. Hier sind mehrere Zusatzkomponenten notwendig. Die Speisung, wie oben schon erwähnt, erfolgt an dieser Stelle über \gls{poe}. Aus diesem Grund ist ein \gls{poe}-Splitter vorhanden.
 \\
+\newpage
 Für die Audiowiedergabe sind ein kleiner Lautsprecher und ein Verstärker notwendig. Der Chinch Anschluss des Raspberrys Pi hat eine zu niedrige Ausgangsleistung um den Lautsprecher direkt anschliessen zu können.
 \\
 Die drei Schalter, die für die Bedienung der \gls{aussensprechstelle} notwendig sind, werden an die \gls{gpio}s des Raspberrys PI angeschlossen. Die \cref{tbl:pinroutesdoor} zeigt die Pinbelegung.
@@ -223,7 +224,7 @@ Eine Übersicht über die verwendeten Komponenten ist im Anhang  \ref{ssec:proto
 \subsubsection{Problemen}
 Während der Zusammenstellung der Aussensprechstelle sind die erste unvorhergesehene Problemen aufgetaucht. Die Audiowiedergabe und Audioaufnahme stellten eine grössere Herausforderung als geplant dar.
 \\
-\\
+\newpage
 \textbf{Audiowidergabe} 
 \\
 Die grösste Problematik bei der Audiowiedergabe besteht darin, dass die Massen des Raspberrys Pi, des Verstärkers und des Audio-Interface gekoppelt sind. Das führt zu Brummschleifen, die wiederum Störsignale auf dem Audio-Ausgang erzeugen. Um das zu vermeiden, muss an dieser Stelle ein Massentrennfilter eingesetzt werden.
