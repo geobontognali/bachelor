@@ -6,8 +6,27 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ed41bf8-68a0-4ec9-95a4-e9f18ca329bd" name="Default" comment="Relay controller">
+    <list default="true" id="1ed41bf8-68a0-4ec9-95a4-e9f18ca329bd" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.synctex(busy)" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.pdf" afterPath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.pdf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.synctex.gz" afterPath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.synctex.gz" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/Anhang.tex" afterPath="$PROJECT_DIR$/../../../docs/Bericht/Anhang.tex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/Hardware.tex" afterPath="$PROJECT_DIR$/../../../docs/Bericht/Hardware.tex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/Marktanalyse.tex" afterPath="$PROJECT_DIR$/../../../docs/Bericht/Marktanalyse.tex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/Projektplanung.tex" afterPath="$PROJECT_DIR$/../../../docs/Bericht/Projektplanung.tex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/Software.tex" afterPath="$PROJECT_DIR$/../../../docs/Bericht/Software.tex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/abkuerzungsverzeichnis.aux" afterPath="$PROJECT_DIR$/../../../docs/Bericht/abkuerzungsverzeichnis.aux" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/erklaerung.aux" afterPath="$PROJECT_DIR$/../../../docs/Bericht/erklaerung.aux" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.aux" afterPath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.aux" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.bbl" afterPath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.bbl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.bcf" afterPath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.bcf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.blg" afterPath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.blg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.glo" afterPath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.glo" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.lof" afterPath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.lof" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.log" afterPath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.run.xml" afterPath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.run.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.toc" afterPath="$PROJECT_DIR$/../../../docs/Bericht/mainfile.toc" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,7 +60,7 @@
       <file leaf-file-name="RelayDriver.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ntb/bachelor/RelayDriver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
+            <state relative-caret-position="604">
               <caret line="59" column="20" lean-forward="false" selection-start-line="59" selection-start-column="20" selection-end-line="60" selection-end-column="26" />
               <folding />
             </state>
@@ -114,7 +133,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -161,8 +182,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -665,7 +684,8 @@
       <workItem from="1502354890793" duration="6980000" />
       <workItem from="1502366241678" duration="24000" />
       <workItem from="1502366353390" duration="128000" />
-      <workItem from="1502366536881" duration="28000" />
+      <workItem from="1502366536881" duration="133000" />
+      <workItem from="1502367052341" duration="609000" />
     </task>
     <task id="LOCAL-00001" summary="Feedback anpassungen">
       <created>1502180818836</created>
@@ -695,11 +715,18 @@
       <option name="project" value="LOCAL" />
       <updated>1502366094041</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Minor changes relaycontroller">
+      <created>1502366579694</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1502366579694</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25580000" />
+    <option name="totallyTimeSpent" value="26294000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
@@ -710,9 +737,9 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4312227" sideWeight="0.5113095" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.47161573" sideWeight="0.5136905" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4312227" sideWeight="0.48869047" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.47161573" sideWeight="0.48630953" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22684172" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -773,7 +800,8 @@
     <MESSAGE value="Before 2nd correction" />
     <MESSAGE value="Correction done, (without anleitung)" />
     <MESSAGE value="Relay controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="Relay controller" />
+    <MESSAGE value="Minor changes relaycontroller" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor changes relaycontroller" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1208,7 +1236,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ntb/bachelor/RelayDriver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
+        <state relative-caret-position="604">
           <caret line="59" column="20" lean-forward="false" selection-start-line="59" selection-start-column="20" selection-end-line="60" selection-end-column="26" />
           <folding />
         </state>
