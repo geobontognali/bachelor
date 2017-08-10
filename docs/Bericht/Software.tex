@@ -203,7 +203,7 @@ Ein weiterer Vorteil des Banana Pi ist, dass der Raspbian \gls{os} ebenfalls unt
 \\
 \subsubsection{Management Tool}
 \label{kap:managementtool}
-Um eine schnellere Inbetriebnahme und eine zentrale Verwaltung des Systems zu gewährleisten, wurde das \gls{managementtool} entwickelt. Diese Webapplikation, die die Erfassung von \gls{aussensprechstelle}n und Bewohnern ermöglicht, wurde mit Webtechnologien entwickelt (\gls{html}, \gls{php}, Javascript) und wird zusammen mit den \gls{mysql}-Datenbank auf dem lokalen Raspberry-Server gehostet. Aus Sicherheitsgründen werden alle eingehenden und ausgehenden Verbindungen mittels\gls{tls} abhörsicher aufgebaut.
+Um eine schnellere Inbetriebnahme und eine zentrale Verwaltung des Systems zu gewährleisten, wurde das \gls{managementtool} entwickelt. Diese Webapplikation, die die Erfassung von \gls{aussensprechstelle}n und Bewohnern ermöglicht, wurde mit Webtechnologien entwickelt (\gls{html}, \gls{php}, Javascript) und wird zusammen mit den \gls{mysql}-Datenbank auf dem lokalen Raspberry-Server gehostet. Aus Sicherheitsgründen werden alle eingehenden und ausgehenden Verbindungen mittels \gls{tls} abhörsicher aufgebaut.
 \\
 Grund für das Einsetzten von Webtechnologien sind die Plattformunabhängigkeit sowie die Einfachheit und die Standardisierung der Sprachen. Beim ersten Prototyp lag der Fokus auf die funktionalen Eigenschaften des Tools. Bei einer zukünftigen Weiterentwicklung des Produkts kann man, dank der Webtechnologien, mit geringerem Aufwand das Tool skalieren bzw. neue Features hinzufügen.
 \\
@@ -233,7 +233,7 @@ In diesem Abschnitt sind die Namen der Türen definiert, welche dann auf der \gl
 \label{kap:remote}
 Die Remote Verbindung auf der \gls{turklingelanlage} ist eine Feature, die leider aus Zeitgründen nicht implementiert werden konnte. 
 \\
-Stellt man sich folgende Situation vor: Der Wohnungsbesitzer ist unterwegs, niemand befindet sich in der Wohnung, und nun soll der Briefträger ein Päckchen liefern. Hier kommt die Remote Funktionalität ins Spiel. Über die \gls{clientapp} kann die Identität der Person, welche vor dem Eingang steht, überprüft werden. Der Wohnungsbesitzer kann jetzt entscheiden, ob er die Tür öffnen will oder nicht. Bei einer zukünftigen Implementation der Remote Funktion soll besonders Wert auf die Sicherheit gelegt werden. Grund dafür ist, dass die Verbindung zwischen den Komponenten an dem lokalen Netz überlassen wurde. Das heisst, die Anlage ist Zeitweise möglichen bösartigen Angriffe aussetzen. 
+Stellt man sich folgende Situation vor: Der Wohnungsbesitzer ist unterwegs, niemand befindet sich in der Wohnung, und nun soll der Briefträger ein Päckchen liefern. Hier kommt die Remote Funktionalität ins Spiel. Über die \gls{clientapp} kann die Identität der Person, welche vor dem Eingang steht, überprüft werden. Der Wohnungsbesitzer kann jetzt entscheiden, ob er die Tür öffnen will oder nicht. Bei einer zukünftigen Implementation der Remote Funktion soll besonders Wert auf die Sicherheit gelegt werden. Grund dafür ist, dass die Verbindung zwischen den Komponenten an dem lokalen Netz überlassen wurde. Das heisst, die Anlage ist Zeitweise möglichen bösartigen Angriffe ausgesetzt. 
 \\
 Diese Funktionalität, welche mit einem analogen System kaum realisierbar ist, würde die Vorteile der Digitalisierung noch deutlicher hervorheben. Aus Marketing Sicht stellt eine solche Funktionalität ein erheblicher Mehrwert dar. 
 
