@@ -42,12 +42,13 @@ Die Audios/Videoskommunikation zwischen der \gls{aussensprechstelle} und den \gl
 \subsection{Mühsame Security Policies}
 Die Sicherheit spielt für dieses System eine grosse Rolle. Aus diesem Grund wurde von Anfang an geplant, den ganzen Datenverkehr mit \gls{tls} zu verschlüsseln. Auch \gls{webrtc} selber weigert sich zu funktionieren, wenn keine gültige \gls{https} Verbindung vorhanden ist.
 \\
-Unglücklich für die Entwicklung dieses Prototyps sind die immer mühsamere Security-Policies der heutigen Browser. Es ist zum Beispiel nicht mehr möglich, den Browser so einzustellen, dass die Zertifikatfehler ignoriert werden. Das hat als Folge, dass auch während der Entwicklung das Zertifikat gültig und signiert sein muss, ansonsten funktioniert \gls{webrtc} nicht.
+Die heutigen Security-Policies der moderne Browser waren eine Hürde für die Entwicklung dieses Prototyps.
+Es ist zum Beispiel nicht mehr möglich, den Browser so einzustellen, dass die Zertifikatfehler ignoriert werden. Das hat als Folge, dass auch während der Entwicklung das Zertifikat gültig und signiert sein muss, ansonsten funktioniert \gls{webrtc} nicht.
 \\
 Dies hat uns während der Entwicklung sehr viel Zeit gekostet. Zertifikate sind immer an einem Hostname oder an einer \gls{ip} Adresse gebunden. Folge dessen mussten wir bei jeder Netzwerkanpassung alle Zertifikate nochmals generieren.
 \\
 Zusätzlich hat Google Chrome während der Entwicklung dieses Projekts mit der
-Version 58 die Security Policies geändert. Nach dem Update brauchten die SelfSigned-Certificates ein zusätzliches Feld für den Subject-Alternative-Name (SAN). Im Netz war am Anfang sehr wenig Hilfe zu finden und das hat auch nochmals viel Zeit gekostet.
+Version 58 die Security Policies geändert. \cite{ericlaw_chrome_2017} Nach dem Update brauchten die Self-Signed-Certificates ein zusätzliches Feld für den Subject-Alternative-Name (SAN). Im Netz war am Anfang sehr wenig Hilfe zu finden und das hat auch nochmals viel Zeit gekostet.
 
 
 \begin{quote}
@@ -95,7 +96,7 @@ Für die Absichten unseres Projekts wurde ein eigener Signaling-Server entwickel
 \label{test}
 Eine Anforderung des Systems ist die Möglichkeit, auch ausserhalb des Heimnetzes mit den \gls{aussensprechstelle} sich verbinden zu können. Hier stellt das \gls{nat}-Protokoll (Network Adress Translation) ein Problem dar.
 \\
-Nach dem Signaling-Prozess wird das \gls{ice}-Prozess gestartet. Hier tauschen sich die zwei Partner Informationen über die eigene Adressierung und den \textit{best path} aus. Falls sich ein Sprechpartner hinter einem \gls{nat}-Knoten befindet, wird für den anderen unmöglich sein eine Verbindung aufzubauen. Hier kommen die \gls{stun}-Server im Spiel. 
+Nach dem Signaling-Prozess wird das \gls{ice}-Prozess gestartet. Hier tauschen sich die zwei Partner Informationen über die eigene Adressierung und den \textit{best path} aus \cite{_interactive_2016}. Falls sich ein Sprechpartner hinter einem \gls{nat}-Knoten befindet, wird für den anderen unmöglich sein eine Verbindung aufzubauen. Hier kommen die \gls{stun}-Server im Spiel. \cite{4th_webrtc_stunturn} 
 Ähnlich wie beim Signalisierungsprozess stehen \gls{stun}-Server als Hilfe für den Verbindungsaufbau da (\seeref{fig:stun}).
 
 \begin{figure}[htb!]
@@ -135,12 +136,12 @@ Beim Design-Entwurf standen Übersichtlichkeit und Benutzerfreundlichkeit im Vor
 \\
 \textbf{Notifications}
 \\
-Wenn jemanden bei der Türe klingelt, wird eine Notification angezeigt. Um das zu erfolgen, muss die Webapplikation mindestens einmal gestartet werden. Dank den Notifications können auch Verpasste besuche an einem Späteren Zeitpunkt gesehen werden. 
+Wenn jemanden bei der Türe klingelt, wird eine Notification angezeigt. Um das zu erfolgen, muss die Webapplikation mindestens einmal gestartet werden. Dank den Notifications können auch Verpasste besuche an einem Späteren Zeitpunkt gesehen werden \cite{_laravel_notifyc}. 
 \\
 \\
 \textbf{Anmeldung \& Multi-User}
 \\
-Aus Zeitgründen könnten wir die Anmeldeseite für die Client Applikation nicht vervollständigen. Momentan wird die Identität der Anwender lediglich über eine GET Variable definiert (\seeref{ssec:clientappinst}). Eine Anmeldeseite, welche die Identität der Anwohner überprüft, ist für das Endprodukt natürlich enorm wichtig. Die jetzige Lösung weist noch eine grosse Sicherheitslücke auf und ist nur für Test- und Vorführzwecke gedacht.  Eine Login-Page wurde von Anfang an vorgesehen, und die Implementierung kann nun ohne Anpassung des bestehenden Sourcecodes vorgenommen werden.
+Aus Zeitgründen könnten wir die Anmeldeseite für die Client Applikation nicht vervollständigen. Momentan wird die Identität der Anwender lediglich über eine GET Variable definiert (\seeref{sec:clientappinst}). Eine Anmeldeseite, welche die Identität der Anwohner überprüft, ist für das Endprodukt natürlich enorm wichtig. Die jetzige Lösung weist noch eine grosse Sicherheitslücke auf und ist nur für Test- und Vorführzwecke gedacht.  Eine Login-Page wurde von Anfang an vorgesehen, und die Implementierung kann nun ohne Anpassung des bestehenden Sourcecodes vorgenommen werden.
 
 
 \subsubsection{Aussensprechstelle Webapplikation}
