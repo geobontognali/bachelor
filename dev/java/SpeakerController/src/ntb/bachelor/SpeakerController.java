@@ -15,6 +15,8 @@ import java.net.InetSocketAddress;
 import java.util.*;
 import java.util.logging.Level;
 
+import com.pi4j.io.gpio.*;
+
 
 /**
  * Created by Federico on 16.03.2017.
@@ -29,6 +31,7 @@ public class SpeakerController extends WebSocketServer
     private final String SPEAKER_STATUS = "SPEAKER_STATUS";
     private final int TURN_ON = 1;
     private final int TURN_OFF = 0;
+    final GpioPinDigitalOutput relay;
 
     public SpeakerController()
     {
@@ -41,6 +44,9 @@ public class SpeakerController extends WebSocketServer
         {
             e.printStackTrace();
         }
+
+        final GpioController gpio = GpioFactory.getInstance();
+        relay = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_26, PinState.LOW);
     }
 
     /**
@@ -85,10 +91,12 @@ public class SpeakerController extends WebSocketServer
                     if(value == TURN_OFF)
                     {
                         Logging.log(Level.INFO, "TURNING SPEAKER OFF");
+                        relay.low();
                     }
                     else if(value == TURN_ON)
                     {
                         Logging.log(Level.INFO, "TURNING SPEAKER ON");
+                        relay.high();
                     }
                     else
                     {

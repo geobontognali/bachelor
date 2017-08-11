@@ -221,6 +221,19 @@ startLocalSocket(); // For the speaker controller
 function startLocalSocket()
 {
     localSocketConn = new WebSocket("ws://"+speakerControllerServer+":"+speakerControllerServerPort);
+
+    localSocketConn.onerror = function (err)
+    {
+        console.log("Got error for local websocket", err);
+        socketConn.close();
+    };
+
+    localSocketConn.onclose = function(){
+        console.log('Connection closed by the local socket!');
+        console.log("Reconnecting in 3 secs to the local socket...");
+        socketConn = null;
+        setTimeout(function(){ startLocalSocket(); }, 5000);
+    };
 }
 
 function switchSpeakerStatus(value)
