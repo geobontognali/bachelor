@@ -34,7 +34,7 @@ public class Logging
         logger = Logger.getLogger(Logging.class.getName());
         // Instance the FileHandler
         // Limit size of the file is 1MB - no need of logrotate
-        Handler fileHandler = new FileHandler("/var/log/Aussensprechstelle/SpeakerController.log", 1024000, 1,true);
+        Handler fileHandler = new FileHandler("/var/log/speakerController.log", 1024000, 1,true);
         // Instance formatter, set formatting, and handler
         Formatter plainText = new SimpleFormatter();
         fileHandler.setFormatter(plainText);
