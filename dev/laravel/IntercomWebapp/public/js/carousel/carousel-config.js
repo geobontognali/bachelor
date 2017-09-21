@@ -4,10 +4,10 @@
 $(document).ready(function() {
 
     var options = {
-        ovalWidth: 300,
+        ovalWidth: 250,
         ovalHeight: 40,
-        offsetX: 45,
-        offsetY: 210,
+        offsetX: 50,
+        offsetY: -190,
         angle: 0,
         activeItem: 0,
         duration: 350,

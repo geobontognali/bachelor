@@ -25,6 +25,7 @@ body
     font-family: segoe;
     border: 0px;
     margin: 0px;
+    overflow-x: hidden;
 }
 
 
@@ -58,9 +59,9 @@ h2
 
 #scroller
 {
-    width: 800px;
     height: 265px;
     margin: auto;
+    width:0px;
 }
 
 .item
@@ -90,15 +91,35 @@ h2
     font-style: italic;
 }
 
-.btnIcon
+.controlbtn
 {
     float: left;
+    width:33%;
 }
-.btnIcon img
-{
-    height: 80px;
-}
-.btnIconMiddle img
+
+.controlbtn img
 {
     height: 90px;
+}
+
+#btnLeft img
+{
+    float: left;
+    margin-left: 5px;
+}
+#btnRight img
+{
+    float: right;
+}
+
+#controls
+{
+    position: fixed;
+    bottom: 0;
+    width:100%;
+}
+
+.row{
+    margin-right: 0px;
+    margin-left:0px;
 }

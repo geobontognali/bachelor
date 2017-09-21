@@ -12,7 +12,7 @@
     </div>
 
     <div class="row text-center">
-        <h2>Willkommen</h2>
+        <h2 class="hidden-xs">Willkommen</h2>
         <div id="scroller">
 
             <ul class="carousel">
@@ -25,19 +25,18 @@
 
         <div class="row" id="controls">
 
-            <div class="col-sm-4 btnIcon">
-                <img src="img/left-arrow.png" />
+            <div class=" btnIcon controlbtn" id="btnLeft">
+                <img src="img/left-arrow.png" onclick=" carousel.cycleActive('next');"/>
             </div>
 
-            <div class="col-sm-4 btnIconMiddle">
-                <img src="img/alarm_noring.png" />
+            <div class=" btnIconMiddle controlbtn" >
+                <img src="img/alarm_noring.png" onclick="callTheResident();"/>
             </div>
 
-            <div class="col-sm-4 btnIcon">
-                <img src="img/right-arrow.png" />
+            <div class=" btnIcon controlbtn" id="btnRight">
+                <img src="img/right-arrow.png" onclick="carousel.cycleActive('previous');"/>
             </div>
 
-            </div>
         </div>
 
     </div>
